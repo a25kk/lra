@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+    name="ck.sitetheme"
+    interface="ck.sitetheme.interfaces.ICkSiteThemeLayer"
+  />
+</layers>
