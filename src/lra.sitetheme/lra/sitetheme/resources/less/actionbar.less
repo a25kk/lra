@@ -1,0 +1,38 @@
+//
+// Actionbar
+// -------------------------------------
+
+.app-actionbar {
+
+}
+
+.app-actions {
+  display: flex;
+}
+
+.app-action {
+  flex: 1;
+  padding: @line-height-computed;
+  color: #fff;
+  background: @app-primary;
+  text-align: center;
+  &:nth-child(even) {
+    color: #fff;
+    background: @app-blue-secondary;
+  }
+}
+
+.app-action-search {
+  flex: 1;
+  color: @app-primary;
+  background: @app-gray;
+}
+
+.app-searchbox-group {
+  display: flex;
+}
+
+.app-searchbox-control {
+  flex: 66.6666%;
+  width: 66.6666%;
+}

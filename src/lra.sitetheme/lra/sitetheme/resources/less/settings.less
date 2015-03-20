@@ -3,22 +3,38 @@
 // -------------------------------------------------
 
 
-// Green (rgb: 142, 192, 94)
-@app-primary:                   #8ec05e;
+//== Colors
+//
+//## Brand colors used across the project
+
+@app-blue-primary:            rgba(5, 81, 251, 1);
+@app-blue-secondary:          rgba(55, 116, 151, 1);
+@app-brown:                   rgba(159, 123, 15, 1);
+@app-green:                   rgba(9, 130, 39, 1);
+@app-red:                     rgba(144, 7, 7, 1);
+@app-violet:                  rgba(71, 19, 123, 1);
+@app-purple:                  rgba(126, 4, 167, 1);
+
+// Gray baseline
+@app-gray:                      rgba(237, 234, 234, 1);
+
+// Brand primary (blue)
+@app-primary:                   rgba(5, 81, 125, 1);
 // Red (rgb: 237, 98, 98)
-@app-danger:                    #ed6262;
-// Gray
-@app-gray:                      #5a5f64;
-@app-gray-light:                #e3e4e5;
+@app-danger:                    @app-red;
 
-// Example overides
-@link-color:                    @app-danger;
-@brand-primary:                 @app-danger;
 
-@font-family-base:              'Open Sans', @font-family-sans-serif;
+//== Bootstrap variable overides
+//
+//## Reset and adjust existing variables
+
+@brand-primary:                 @app-primary;
+@link-color:                    @app-blue-secondary;
+
+@font-family-base:              'Fira Sans', @font-family-sans-serif;
 
 // Font awesome font path
-@fa-font-path:                  "../../assets/fonts";
+@fa-font-path:                  "../assets/fonts";
 
 // rem font size implementation
 @font-size-root: 16px;
@@ -65,3 +81,11 @@
 @input-height-large:        ((@font-size-large * @line-height-large) + (@padding-large-vertical * 2));
 //** Small `.form-control` height
 @input-height-small:        ((@font-size-small * @line-height-small) + (@padding-small-vertical * 2));
+
+
+//== Compontent border reset
+//
+//## Bootstrap border radius reset
+@border-radius-base:        0px;
+@border-radius-large:       0px;
+@border-radius-small:       0px;

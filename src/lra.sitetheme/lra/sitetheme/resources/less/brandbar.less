@@ -15,20 +15,22 @@
   .make-row();
 }
 
-// The actual brandname
+// The actual brandname/title
 .app-brand-title {
-  .make-md-column(4);
-  .app-brandname {
-    .h3();
-    .app-brandname-logo {
-      .img-responsive();
-    }
+  .make-md-column(6);
+}
+
+.app-brandname {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: @app-primary;
+  .app-brandname-logo {
+    .img-responsive();
   }
 }
+
 // Sitewide claim
-.app-brand-claim {
-  .make-md-column(8);
-  .app-claim {
-    .h5();
-  }
+.app-brand-aside {
+  .make-md-column(6);
 }

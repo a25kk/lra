@@ -2,12 +2,14 @@ module.exports = function (grunt) {
     'use strict';
     require('time-grunt')(grunt);
     require('jit-grunt')(grunt);
-    grunt.initConfig({
-        appconfig: {
-            dev: require('./bower.json').appPath || '_site',
+    var config = {
+            app: 'app',
+            dev: '_site',
             dist: 'dist',
             diazoPrefix: '/++theme++<%= pkg.name %>.sitetheme'
-        },
+        };
+    grunt.initConfig({
+        config: config,
         pkg: grunt.file.readJSON('package.json'),
         banner: '/*!\n' + '* <%= pkg.name %> v<%= pkg.version %> by Ade25\n' + '* Copyright <%= pkg.author %>\n' + '* Licensed under <%= pkg.licenses %>.\n' + '*\n' + '* Designed and built by ade25\n' + '*/\n',
         jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error("We require jQuery") }\n\n',
@@ -30,26 +32,35 @@ module.exports = function (grunt) {
                 src: [
                     'bower_components/jquery/dist/jquery.js',
                     'bower_components/modernizr/modernizr.js',
-                    'bower_components/bootstrap/dist/js/bootstrap.js',
+                    'bower_components/bootstrap/js/transition.js',
+                    'bower_components/bootstrap/js/collapse.js',
+                    'bower_components/bootstrap/js/dropdown.js',
+                    'bower_components/holderjs/holder.js',
+                    'bower_components/hideShowPassword/hideShowPassword.js',
                     'bower_components/blazy/blazy.js',
                     'js/main.js'
                 ],
-                dest: '<%= appconfig.dist %>/js/<%= pkg.name %>.js'
+                dest: '<%= config.dist %>/js/<%= pkg.name %>.js'
             },
             theme: {
                 src: [
-                    'bower_components/bootstrap/dist/js/bootstrap.js',
+                    'bower_components/jquery/dist/jquery.js',
+                    'bower_components/modernizr/modernizr.js',
+                    'bower_components/bootstrap/js/transition.js',
+                    'bower_components/bootstrap/js/collapse.js',
+                    'bower_components/bootstrap/js/dropdown.js',
+                    'bower_components/hideShowPassword/hideShowPassword.js',
                     'bower_components/blazy/blazy.js',
                     'js/main.js'
                 ],
-                dest: '<%= appconfig.dist %>/js/main.js'
+                dest: '<%= config.dist %>/js/main.js'
             }
         },
         uglify: {
             options: { banner: '<%= banner %>' },
             dist: {
                 src: ['<%= concat.dist.dest %>'],
-                dest: '<%= appconfig.dist %>/js/<%= pkg.name %>.min.js'
+                dest: '<%= config.dist %>/js/<%= pkg.name %>.min.js'
             }
         },
         less: {
@@ -58,10 +69,10 @@ module.exports = function (grunt) {
                     strictMath: false,
                     sourceMap: true,
                     outputSourceFiles: true,
-                    sourceMapURL: '<%= pkg.name %>.css.map',
-                    sourceMapFilename: '<%= appconfig.dist %>/css/<%= pkg.name %>.css.map'
+                    sourceMapURL: '<%= config.dist %>/css/<%= pkg.name %>.css.map',
+                    sourceMapFilename: '<%= config.dist %>/css/<%= pkg.name %>.css.map'
                 },
-                files: { '<%= appconfig.dist %>/css/<%= pkg.name %>.css': 'less/styles.less' }
+                files: { '<%= config.dist %>/css/<%= pkg.name %>.css': 'less/styles.less' }
             }
         },
         autoprefixer: {
@@ -79,12 +90,12 @@ module.exports = function (grunt) {
             },
             core: {
                 options: { map: true },
-                src: '<%= appconfig.dist %>/css/<%= pkg.name %>.css'
+                src: '<%= config.dist %>/css/<%= pkg.name %>.css'
             }
         },
         csslint: {
             options: { csslintrc: 'less/.csslintrc' },
-            src: '<%= appconfig.dist %>/css/<%= pkg.name %>.css'
+            src: '<%= config.dist %>/css/<%= pkg.name %>.css'
         },
         cssmin: {
             options: {
@@ -92,22 +103,31 @@ module.exports = function (grunt) {
                 keepSpecialComments: '*',
                 noAdvanced: true
             },
-            core: { files: { '<%= appconfig.dist %>/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css' } }
+            core: { files: { '<%= config.dist %>/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css' } }
         },
         csscomb: {
             sort: {
                 options: { config: 'less/.csscomb.json' },
-                files: { '<%= appconfig.dist %>/css/<%= pkg.name %>.css': ['dist/css/<%= pkg.name %>.css'] }
+                files: { '<%= config.dist %>/css/<%= pkg.name %>.css': ['dist/css/<%= pkg.name %>.css'] }
             }
         },
         criticalcss: {
             frontpage: {
                 options: {
-                    url: 'http://<%= pkg.name %>.kreativkombinat.de',
+                    url: 'http://localhost:8499/rms',
                     width: 1200,
                     height: 900,
-                    outputfile: '<%= appconfig.dist %>/css/critical.css',
-                    filename: '<%= pkg.name %>.min.css'
+                    outputfile: 'assets/css/critical-lp.css',
+                    filename: '<%= config.dist %>/css/<%= pkg.name %>.css'
+                }
+            },
+            theme: {
+                options: {
+                    url: 'http://localhost:8499/rms/stellplatz-am-wassersportzentrum',
+                    width: 1200,
+                    height: 900,
+                    outputfile: 'assets/css/critical.css',
+                    filename: '<%= config.dist %>/css/<%= pkg.name %>.css'
                 }
             }
         },
@@ -117,56 +137,59 @@ module.exports = function (grunt) {
                 flatten: true,
                 cwd: 'bower_components/',
                 src: ['font-awesome/fonts/*'],
-                dest: '<%= appconfig.dist %>/assets/fonts/'
+                dest: '<%= config.dist %>/assets/fonts/'
+            },
+            showPassword: {
+                expand: true,
+                flatten: true,
+                cwd: 'bower_components/',
+                src: ['hideShowPassword/images/*'],
+                dest: '<%= config.dist %>/assets/img/'
             },
             ico: {
                 expand: true,
                 flatten: true,
                 cwd: 'bower_components/',
                 src: ['bootstrap/assets/ico/*'],
-                dest: '<%= appconfig.dist %>/assets/ico/'
+                dest: '<%= config.dist %>/assets/ico/'
             },
             favicon: {
                 expand: true,
                 flatten: true,
                 src: ['assets/ico/*'],
-                dest: '<%= appconfig.dist %>/assets/ico/'
+                dest: '<%= config.dist %>/assets/ico/'
             }
         },
         imagemin: {
             png: {
-                options: {
-                    optimizationLevel: 7
-                },
+                options: { optimizationLevel: 7 },
                 files: [{
-                    expand: true,
-                    cwd: 'assets/img',
-                    src: ['**/*.png'],
-                    dest: '<%= appconfig.dist %>/assets/img/',
-                    ext: '.png'
-                }]
+                        expand: true,
+                        cwd: 'assets/img',
+                        src: ['**/*.png'],
+                        dest: '<%= config.dist %>/assets/img/',
+                        ext: '.png'
+                    }]
             },
             jpg: {
-                options: {
-                    progressive: true
-                },
+                options: { progressive: true },
                 files: [{
-                    expand: true,
-                    cwd: 'assets/img/',
-                    src: ['**/*.jpg'],
-                    dest: '<%= appconfig.dist %>/assets/img/',
-                    ext: '.jpg'
-                }]
+                        expand: true,
+                        cwd: 'assets/img/',
+                        src: ['**/*.jpg'],
+                        dest: '<%= config.dist %>/assets/img/',
+                        ext: '.jpg'
+                    }]
             }
         },
         svgmin: {
             dist: {
                 files: [{
-                    expand: true,
-                    cwd: 'assets/img/',
-                    src: '{,*/}*.svg',
-                    dest: '<%= appconfig.dist %>/assets/img/'
-                }]
+                        expand: true,
+                        cwd: 'assets/img/',
+                        src: '{,*/}*.svg',
+                        dest: '<%= config.dist %>/assets/img/'
+                    }]
             }
         },
         filerev: {
@@ -177,20 +200,20 @@ module.exports = function (grunt) {
             },
             assets: {
                 src: [
-                    '<%= appconfig.dist %>/js/{,*/}*.js',
-                    '<%= appconfig.dist %>/css/{,*/}*.css'
+                    '<%= config.dist %>/js/<%= pkg.name %>.min.js',
+                    '<%= config.dist %>/css/<%= pkg.name %>.min.css'
                 ]
             },
             files: {
                 src: [
-                    '<%= appconfig.dist %>/assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-                    '<%= appconfig.dist %>/assets/fonts/*'
+                    '<%= config.dist %>/assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    '<%= config.dist %>/assets/fonts/*'
                 ]
             }
         },
         usemin: {
             html: ['<%= config.dist %>/{,*/}*.html'],
-            htmlcustom: ['<%= config.dist %>/*.html'],
+            htmlcustom: ['<%= config.dist %>/{,*/}*.html'],
             css: ['<%= config.dist %>/css/*.css'],
             options: {
                 assetsDirs: [
@@ -203,6 +226,10 @@ module.exports = function (grunt) {
                         [
                             /(?:src=|url\(\s*)['"]?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
                             'Replacing src references in inline javascript'
+                        ],
+                        [
+                            /(?:loadCSS\(|url\(\s*)['"]?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
+                            'Update the load css source with the new img filenames'
                         ],
                         [
                             /(?:data-src=|url\(\s*)['"]?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
@@ -235,16 +262,19 @@ module.exports = function (grunt) {
                     removeEmptyAttributes: true,
                     removeOptionalTags: true,
                     removeRedundantAttributes: true,
-                    useShortDoctype: true
+                    useShortDoctype: true,
+                    keepClosingSlash: true,
+                    minifyCSS: true,
+                    minifyJS: true
                 },
                 files: [{
                         expand: true,
-                        cwd: '<%= appconfig.dev %>',
+                        cwd: '<%= config.dev %>',
                         src: [
                             '*.html',
                             '{,*/}*.html'
                         ],
-                        dest: '<%= appconfig.dist %>'
+                        dest: '<%= config.dist %>'
                     }]
             }
         },
@@ -379,17 +409,24 @@ module.exports = function (grunt) {
                     'Element img is missing required attribute src.'
                 ]
             },
-            files: { src: ['<%= appconfig.dev %>/**/*.html'] }
+            files: { src: ['<%= config.dev %>/**/*.html'] }
         },
         watch: {
             js: {
                 files: ['js/{,*/}*.js'],
-                tasks: ['newer:jshint:all'],
+                tasks: ['concat', 'uglify'],
                 options: { livereload: true }
+            },
+            styles: {
+                files: ['<%= config.dev %>/css/{,*/}*.css'],
+                tasks: [
+                    'newer:copy:styles',
+                    'autoprefixer'
+                ]
             },
             html: {
                 files: ['*.html'],
-                tasks: ['jekyll:theme', 'replace', 'htmlmin']
+                tasks: ['jekyll:theme', 'replace:server', 'htmlmin']
             },
             less: {
                 files: 'less/*.less',
@@ -405,9 +442,9 @@ module.exports = function (grunt) {
             livereload: {
                 options: { livereload: '<%= connect.options.livereload %>' },
                 files: [
-                    '<%= appconfig.dev %>/{,*/}*.html',
-                    '<%= appconfig.dev %>/{,*/}*.css',
-                    '<%= appconfig.dev %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                    '<%= config.dev %>/{,*/}*.html',
+                    '<%= config.dev %>/{,*/}*.css',
+                    '<%= config.dev %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
         },
@@ -416,39 +453,57 @@ module.exports = function (grunt) {
                 port: 9000,
                 hostname: 'localhost',
                 livereload: 35729,
-                base: '<%= appconfig.dev %>'
+                base: '<%= config.dev %>'
             },
             livereload: {
                 options: {
                     open: true,
                     base: [
                         '.tmp',
-                        '<%= appconfig.dist %>'
+                        '<%= config.dist %>'
                     ]
                 }
             },
-            dist: {
-                options: {
-                    base: '<%= appconfig.dist %>'
-                }
-            }
+            dist: { options: { base: '<%= config.dist %>' } }
         },
         concurrent: {
             cj: [
                 'less',
                 'copy',
                 'concat',
+                'uglify',
+            ],
+            dev: [
+                'less-compile',
+                'autoprefixer',
+                'csscomb',
+                'cssmin',
+                'concat',
                 'uglify'
             ],
-            ha: [
+            dist: [
                 'jekyll:theme',
-                'copy-templates',
-                'sed'
+                'uglify',
+                'csscomb'
             ]
+        },
+        pagespeed: {
+            options: {
+                nokey: true
+            },
+            dist: {
+                options: {
+                    url: 'http://d2.ade25.de',
+                    paths: ['/', '/stellplatz-am-segler-verein/'],
+                    locale: 'de_DE',
+                    strategy: 'desktop',
+                    threshold: 80
+                }
+            }
         }
     });
     grunt.registerTask('dist-init', '', function () {
-        grunt.file.mkdir('<%= appconfig.dist %>/assets/');
+        grunt.file.mkdir('<%= config.dist %>/assets/');
     });
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
@@ -477,9 +532,7 @@ module.exports = function (grunt) {
         'concat',
         'uglify'
     ]);
-    grunt.registerTask('less-compile', [
-        'less:compileTheme'
-    ]);
+    grunt.registerTask('less-compile', ['less:compileTheme']);
     grunt.registerTask('css', [
         'less-compile',
         'autoprefixer',
@@ -498,7 +551,12 @@ module.exports = function (grunt) {
     grunt.registerTask('templates', ['jekyll:theme']);
     grunt.registerTask('html', [
         'templates',
-        'replace',
+        'replace:server',
+        'htmlmin'
+    ]);
+    grunt.registerTask('html-dist', [
+        'templates',
+        'replace:diazo',
         'htmlmin'
     ]);
     grunt.registerTask('dist-cc', [
@@ -511,10 +569,11 @@ module.exports = function (grunt) {
     ]);
     grunt.registerTask('dist', [
         'clean:server',
+        'html',
         'css',
         'js',
-        'html',
-        'cb'
+        'cb',
+        'replace:dist'
     ]);
     grunt.registerTask('build', [
         'clean:server',
