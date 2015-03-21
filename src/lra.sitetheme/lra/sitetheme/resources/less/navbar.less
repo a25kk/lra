@@ -18,9 +18,38 @@
 //
 //## Color coded based on addon classes
 .app-navitem {
+  padding: ((@navbar-height - @line-height-computed) / 2) 0;
   text-align: center;
+  > a {
+    color: #fff;
+  }
+}
+
+//== NOTE: this classes are subject to changes
+//
+//## we should move these to general purpose brand classes
+//## providing both color and background color mixins and
+//## standalone modifier classes
+.app-navitem-home {
+  background: @app-primary;
 }
 
 .app-navitem-landratsamt {
   background: @app-brown;
+}
+
+.app-navitem-kreistag {
+  background: @app-green;
+}
+
+.app-navitem-landkreis {
+  background: @app-red;
+}
+
+.app-navitem-news {
+  background: @app-violet;
+}
+
+.app-navitem-service {
+  background: @app-purple;
 }

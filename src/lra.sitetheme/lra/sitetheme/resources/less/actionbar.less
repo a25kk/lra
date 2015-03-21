@@ -8,11 +8,12 @@
 
 .app-actions {
   display: flex;
+  font-size: 0.85rem;
 }
 
 .app-action {
   flex: 1;
-  padding: @line-height-computed;
+  padding: @line-height-computed @padding-xs-horizontal;
   color: #fff;
   background: @app-primary;
   text-align: center;
@@ -33,6 +34,14 @@
 }
 
 .app-searchbox-control {
-  flex: 66.6666%;
+  display: flex;
+}
+
+.app-searchbox-field {
   width: 66.6666%;
+}
+
+.app-searchbox-btn {
+  flex: 0 0 33.3333%;
+  .button-variant(#fff; @app-blue-secondary; @app-blue-secondary);
 }

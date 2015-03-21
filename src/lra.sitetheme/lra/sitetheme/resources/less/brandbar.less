@@ -3,7 +3,7 @@
 // -----------------------------------------
 
 .app-brandbar {
-    padding: @line-height-computed;
+    padding: ceil((@line-height-computed * 1.5)) 0 ceil((@line-height-computed * 1.5)) @line-height-computed;
 }
 
 .app-brandbar-content {
@@ -17,7 +17,7 @@
 
 // The actual brandname/title
 .app-brand-title {
-  .make-md-column(6);
+  .make-md-column(8);
 }
 
 .app-brandname {
@@ -32,5 +32,5 @@
 
 // Sitewide claim
 .app-brand-aside {
-  .make-md-column(6);
+  .make-md-column(4);
 }

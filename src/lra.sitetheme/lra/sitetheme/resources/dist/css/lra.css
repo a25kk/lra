@@ -7948,7 +7948,7 @@ fieldset[disabled] .searchButton.active
 }
 .app-brandbar
 {
-    padding: 1.42857143rem;
+    padding: 3rem 0 3rem 1.42857143rem;
 }
 .app-brandbar-content
 {
@@ -8012,7 +8012,7 @@ fieldset[disabled] .searchButton.active
     {
         float: left;
 
-        width: 50%;
+        width: 66.66666667%;
     }
 }
 .app-brandname
@@ -8044,11 +8044,13 @@ fieldset[disabled] .searchButton.active
     {
         float: left;
 
-        width: 50%;
+        width: 33.33333333%;
     }
 }
 .app-actions
 {
+    font-size: .85rem;
+
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -8056,7 +8058,7 @@ fieldset[disabled] .searchButton.active
 }
 .app-action
 {
-    padding: 1.42857143rem;
+    padding: 1.42857143rem .3125rem;
 
     text-align: center;
 
@@ -8092,12 +8094,69 @@ fieldset[disabled] .searchButton.active
 }
 .app-searchbox-control
 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+.app-searchbox-field
+{
     width: 66.6666%;
+}
+.app-searchbox-btn
+{
+    color: #fff;
+    border-color: #377497;
+    background-color: #377497;
 
-    -webkit-box-flex: 66.6666%;
-    -webkit-flex: 66.6666%;
-        -ms-flex: 66.6666%;
-            flex: 66.6666%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.3333%;
+        -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
+}
+.app-searchbox-btn:hover,
+.app-searchbox-btn:focus,
+.app-searchbox-btn.focus,
+.app-searchbox-btn:active,
+.app-searchbox-btn.active,
+.open > .dropdown-toggle.app-searchbox-btn
+{
+    color: #fff;
+    border-color: #27526a;
+    background-color: #295772;
+}
+.app-searchbox-btn:active,
+.app-searchbox-btn.active,
+.open > .dropdown-toggle.app-searchbox-btn
+{
+    background-image: none;
+}
+.app-searchbox-btn.disabled,
+.app-searchbox-btn[disabled],
+fieldset[disabled] .app-searchbox-btn,
+.app-searchbox-btn.disabled:hover,
+.app-searchbox-btn[disabled]:hover,
+fieldset[disabled] .app-searchbox-btn:hover,
+.app-searchbox-btn.disabled:focus,
+.app-searchbox-btn[disabled]:focus,
+fieldset[disabled] .app-searchbox-btn:focus,
+.app-searchbox-btn.disabled.focus,
+.app-searchbox-btn[disabled].focus,
+fieldset[disabled] .app-searchbox-btn.focus,
+.app-searchbox-btn.disabled:active,
+.app-searchbox-btn[disabled]:active,
+fieldset[disabled] .app-searchbox-btn:active,
+.app-searchbox-btn.disabled.active,
+.app-searchbox-btn[disabled].active,
+fieldset[disabled] .app-searchbox-btn.active
+{
+    border-color: #377497;
+    background-color: #377497;
+}
+.app-searchbox-btn .badge
+{
+    color: #377497;
+    background-color: #fff;
 }
 .app-navbar
 {
@@ -8139,11 +8198,37 @@ fieldset[disabled] .searchButton.active
 }
 .app-navitem
 {
+    padding: 24.28571429px 0;
+
     text-align: center;
+}
+.app-navitem > a
+{
+    color: #fff;
+}
+.app-navitem-home
+{
+    background: #05517d;
 }
 .app-navitem-landratsamt
 {
     background: #9f7b0f;
+}
+.app-navitem-kreistag
+{
+    background: #098227;
+}
+.app-navitem-landkreis
+{
+    background: #900707;
+}
+.app-navitem-news
+{
+    background: #47137b;
+}
+.app-navitem-service
+{
+    background: #7e04a7;
 }
 .app-page
 {
