@@ -7,21 +7,47 @@
   border-bottom: 10px solid @app-primary;
 }
 
+.app-navbar-collapse {
+  margin-left: -30px !important;
+  margin-right: -30px !important;
+}
+
+// Unordered list main navigation
 .app-navbar-nav {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  &:extend(.clearfix all);
 }
 
 //== Navitems
 //
 //## Color coded based on addon classes
 .app-navitem {
-  padding: ((@navbar-height - @line-height-computed) / 2) 0;
+  //position: relative;
+  //display: block;
+  width: 16.66666667%;
   text-align: center;
   > a {
+    display: flex;
+    align-items: center;
+    // padding: ((@navbar-height - @line-height-computed) / 2) 0;
     color: #fff;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    > span {
+      display: block;
+      margin: 0 auto;
+      padding: ((@navbar-height - @line-height-computed) / 2) 0;
+    }
   }
 }
 
@@ -31,25 +57,43 @@
 //## providing both color and background color mixins and
 //## standalone modifier classes
 .app-navitem-home {
-  background: @app-primary;
+  background-color: @app-primary;
+  &:hover {
+    background-color: darken(@app-primary, 6.5%);
+  }
 }
 
 .app-navitem-landratsamt {
-  background: @app-brown;
+  background-color: @app-brown;
+  &:hover {
+    background-color: darken(@app-brown, 6.5%);
+  }
 }
 
 .app-navitem-kreistag {
-  background: @app-green;
+  background-color: @app-green;
+  &:hover {
+    background-color: darken(@app-green, 6.5%);
+  }
 }
 
 .app-navitem-landkreis {
-  background: @app-red;
+  background-color: @app-red;
+  &:hover {
+    background-color: darken(@app-red, 6.5%);
+  }
 }
 
 .app-navitem-news {
-  background: @app-violet;
+  background-color: @app-violet;
+  &:hover {
+    background-color: darken(@app-violet, 6.5%);
+  }
 }
 
 .app-navitem-service {
-  background: @app-purple;
+  background-color: @app-purple;
+  &:hover {
+    background-color: darken(@app-purple, 6.5%);
+  }
 }
