@@ -3,11 +3,17 @@
 // -----------------------------------------
 
 .app-brandbar {
-    padding: ceil((@line-height-computed * 1.5)) 0 ceil((@line-height-computed * 1.5)) @line-height-computed;
+  padding-top: ceil((@line-height-computed * 1.5));
+  @media (min-width: @grid-float-breakpoint-max) {
+    padding-left: @line-height-computed;
+    padding-bottom: ceil((@line-height-computed * 1.5));
+  }
 }
 
 .app-brandbar-content {
-  .container();
+  @media (min-width: @grid-float-breakpoint-max) {
+    .container();
+  }
 }
 
 // Make a gridrow
@@ -21,6 +27,8 @@
 }
 
 .app-brandname {
+  display: block;
+  padding: @padding-small-horizontal @padding-small-vertical;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1;

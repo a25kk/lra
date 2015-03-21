@@ -7,6 +7,32 @@
   border-bottom: 10px solid @app-primary;
 }
 
+.app-navbar-brand {
+  .navbar-brand();
+}
+
+// Navbar toggle button visible on small displays
+.app-navbar-toggle {
+  border-color: transparent !important;
+  &:hover,
+  &:focus {
+    background-color: @navbar-default-toggle-hover-bg;
+  }
+  .icon-bar {
+    background-color: @navbar-default-toggle-icon-bar-bg;
+  }
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 30px;
+    height: 2px;
+    border-radius: 1px;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 8px;
+  }
+}
+
 .app-navbar-collapse {
   margin-left: -30px !important;
   margin-right: -30px !important;
@@ -31,8 +57,7 @@
 .app-navitem {
   //position: relative;
   //display: block;
-  width: 16.66666667%;
-  text-align: center;
+  width: 100%;
   > a {
     display: flex;
     align-items: center;
@@ -48,6 +73,9 @@
       margin: 0 auto;
       padding: ((@navbar-height - @line-height-computed) / 2) 0;
     }
+  }
+  @media (min-width: @grid-float-breakpoint-max) {
+    width: 16.66666667%;
   }
 }
 

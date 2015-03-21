@@ -5100,8 +5100,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus
 .navbar-header:after,
 .navbar-collapse:before,
 .navbar-collapse:after,
-.app-brandbar-content:before,
-.app-brandbar-content:after,
 .app-brand:before,
 .app-brand:after,
 .app-navbar:before,
@@ -5129,7 +5127,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus
 .navbar:after,
 .navbar-header:after,
 .navbar-collapse:after,
-.app-brandbar-content:after,
 .app-brand:after,
 .app-navbar:after,
 .app-navbar-nav:after,
@@ -7951,43 +7948,54 @@ fieldset[disabled] .searchButton.active
 }
 .app-brandbar
 {
-    padding: 3rem 0 3rem 1.42857143rem;
+    padding-top: 3rem;
 }
-.app-brandbar-content
+@media (min-width: 767px)
 {
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
+    .app-brandbar
+    {
+        padding-bottom: 3rem;
+        padding-left: 1.42857143rem;
+    }
 }
-@media (min-width: 768px)
+@media (min-width: 767px)
+{
+    .app-brandbar-content
+    {
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .app-brandbar-content > .navbar-header,
+    .app-brandbar-content > .navbar-collapse
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 767px) and (min-width: 768px)
 {
     .app-brandbar-content
     {
         width: 750px;
     }
 }
-@media (min-width: 992px)
+@media (min-width: 767px) and (min-width: 992px)
 {
     .app-brandbar-content
     {
         width: 970px;
     }
 }
-@media (min-width: 1200px)
+@media (min-width: 767px) and (min-width: 1200px)
 {
     .app-brandbar-content
     {
         width: 1170px;
     }
 }
-.app-brandbar-content > .navbar-header,
-.app-brandbar-content > .navbar-collapse
-{
-    margin-right: -15px;
-    margin-left: -15px;
-}
-@media (min-width: 768px)
+@media (min-width: 767px) and (min-width: 768px)
 {
     .app-brandbar-content > .navbar-header,
     .app-brandbar-content > .navbar-collapse
@@ -8023,6 +8031,10 @@ fieldset[disabled] .searchButton.active
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1;
+
+    display: block;
+
+    padding: .625rem .3125rem;
 
     color: #05517d;
 }
@@ -8178,6 +8190,59 @@ fieldset[disabled] .app-searchbox-btn.active
         border-radius: 0;
     }
 }
+.app-navbar-brand
+{
+    font-size: 1.25rem;
+    line-height: 1.42857143rem;
+
+    float: left;
+
+    height: 50px;
+    padding: 24.28571429px 15px;
+}
+.app-navbar-brand:hover,
+.app-navbar-brand:focus
+{
+    text-decoration: none;
+}
+.app-navbar-brand > img
+{
+    display: block;
+}
+@media (min-width: 768px)
+{
+    .navbar > .container .app-navbar-brand,
+    .navbar > .container-fluid .app-navbar-brand
+    {
+        margin-left: -15px;
+    }
+}
+.app-navbar-toggle
+{
+    border-color: transparent !important;
+}
+.app-navbar-toggle:hover,
+.app-navbar-toggle:focus
+{
+    background-color: #ddd;
+}
+.app-navbar-toggle .icon-bar
+{
+    background-color: #888;
+}
+.app-navbar-toggle .icon-bar
+{
+    display: block;
+
+    width: 30px;
+    height: 2px;
+
+    border-radius: 1px;
+}
+.app-navbar-toggle .icon-bar + .icon-bar
+{
+    margin-top: 8px;
+}
 .app-navbar-collapse
 {
     margin-right: -30px !important;
@@ -8214,9 +8279,7 @@ fieldset[disabled] .app-searchbox-btn.active
 }
 .app-navitem
 {
-    width: 16.66666667%;
-
-    text-align: center;
+    width: 100%;
 }
 .app-navitem > a
 {
@@ -8247,6 +8310,13 @@ fieldset[disabled] .app-searchbox-btn.active
 
     margin: 0 auto;
     padding: 24.28571429px 0;
+}
+@media (min-width: 767px)
+{
+    .app-navitem
+    {
+        width: 16.66666667%;
+    }
 }
 .app-navitem-home
 {
