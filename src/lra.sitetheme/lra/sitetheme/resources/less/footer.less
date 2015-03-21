@@ -3,10 +3,14 @@
 // -----------------------------------
 
 .app-footer {
-    padding: @line-height-computed;
-    border-top: 1px solid @gray-lighter;
+    padding-top: @line-height-computed;
+    padding-bottom: @line-height-computed;
 }
 
 .app-footer-content {
   .container();
+  font-weight: 400;
+  > a {
+    text-transform: uppercase;
+  }
 }

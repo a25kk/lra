@@ -13,7 +13,7 @@
 
 .app-action {
   flex: 1;
-  padding: @line-height-computed @padding-xs-horizontal;
+  padding: ceil((@line-height-computed / 2)) @padding-xs-horizontal;
   color: #fff;
   background: @app-primary;
   text-align: center;
@@ -38,8 +38,10 @@
 }
 
 .app-searchbox-field {
+  .form-control();
   width: 66.6666%;
-  background
+  background-color: @app-gray;
+  border-color: @app-gray;
 }
 
 .app-searchbox-btn {

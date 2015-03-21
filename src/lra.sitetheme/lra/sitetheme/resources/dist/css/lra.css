@@ -8073,7 +8073,7 @@ fieldset[disabled] .searchButton.active
 }
 .app-action
 {
-    padding: 1.42857143rem .3125rem;
+    padding: 1rem .3125rem;
 
     text-align: center;
 
@@ -8116,7 +8116,67 @@ fieldset[disabled] .searchButton.active
 }
 .app-searchbox-field
 {
+    font-size: 1rem;
+    line-height: 1.42857143;
+
+    display: block;
+
+    width: 100%;
     width: 66.6666%;
+    height: 2.17857143rem;
+    height: -webkit-calc(2.17857143rem  + 2px);
+    height:         calc(2.17857143rem  + 2px);
+    padding: .375rem .75rem;
+
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+    color: #555;
+    border: 1px solid #ccc;
+    border-color: #edeaea;
+    border-radius: 0;
+    background-color: #fff;
+    background-color: #edeaea;
+    background-image: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.app-searchbox-field:focus
+{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.app-searchbox-field::-moz-placeholder
+{
+    opacity: 1;
+    color: #999;
+}
+.app-searchbox-field:-ms-input-placeholder
+{
+    color: #999;
+}
+.app-searchbox-field::-webkit-input-placeholder
+{
+    color: #999;
+}
+.app-searchbox-field[disabled],
+.app-searchbox-field[readonly],
+fieldset[disabled] .app-searchbox-field
+{
+    opacity: 1;
+    background-color: #eee;
+}
+.app-searchbox-field[disabled],
+fieldset[disabled] .app-searchbox-field
+{
+    cursor: not-allowed;
+}
+textarea.app-searchbox-field
+{
+    height: auto;
 }
 .app-searchbox-btn
 {
@@ -8316,6 +8376,11 @@ fieldset[disabled] .app-searchbox-btn.active
     .app-navitem
     {
         width: 16.66666667%;
+        padding-right: 2px;
+    }
+    .app-navitem:last-child
+    {
+        padding-right: 0;
     }
 }
 .app-navitem-home
@@ -8481,12 +8546,13 @@ fieldset[disabled] .app-searchbox-btn.active
 }
 .app-footer
 {
-    padding: 1.42857143rem;
-
-    border-top: 1px solid #eee;
+    padding-top: 1.42857143rem;
+    padding-bottom: 1.42857143rem;
 }
 .app-footer-content
 {
+    font-weight: 400;
+
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
@@ -8527,6 +8593,10 @@ fieldset[disabled] .app-searchbox-btn.active
         margin-right: 0;
         margin-left: 0;
     }
+}
+.app-footer-content > a
+{
+    text-transform: uppercase;
 }
 .app-toolbar + .app-brandbar
 {
