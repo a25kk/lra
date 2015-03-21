@@ -1,0 +1,74 @@
+//
+// Brand utility classes and mixins
+// --------------------------------------------
+
+
+//== Base mixin classes
+//
+//## Color definitions for different site sections
+
+// Brand primary color
+@app-brand-primary:         @app-blue-primary;
+.app-color-primary {
+  color: @app-brand-primary;
+}
+
+// Brand secondary color - used as link color
+@app-brand-secondary:       @app-blue-secondary;
+.app-color-secondary {
+  color: @app-brand-secondary;
+}
+
+// Section: Administrative district office (abbr: DO)
+@app-brand-do:              @app-brown;
+.app-color-do {
+  color: @app-brand-do;
+}
+
+// Section: County
+@app-brand-county:          @app-red;
+.app-color-county {
+  color: @app-brand-county;
+}
+
+// Section: County concil (abbr: CC)
+@app-brand-cc:              @app-green;
+.app-color-cc {
+  color: @app-brand-cc;
+}
+
+// Section: News
+@app-brand-news:             @app-violet;
+.app-color-news {
+  color: @app-brand-news;
+}
+
+// Section: Service
+@app-brand-service:          @app-purple;
+.app-color-service {
+  color: @app-brand-service;
+}
+
+
+//== Utility classes
+//
+//## Intendend to be used as midifier classes
+//## These classes can ideally be used directly in html
+
+.app-default-color {
+  .app-color-primary();
+}
+
+.app-default-bg {
+  color: #f2f2f2;
+  background-color: @app-brand-primary;
+}
+
+.app-do-color {
+  .app-color-do();
+}
+
+.app-do-bg {
+  color: #f2f2f2;
+  background-color: @app-color-do;
+}
