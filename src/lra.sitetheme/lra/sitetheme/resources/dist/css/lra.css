@@ -7946,6 +7946,52 @@ fieldset[disabled] .searchButton.active
 {
     padding: 1.42857143rem;
 }
+.app-color-primary
+{
+    color: #05517d;
+}
+.app-color-secondary
+{
+    color: #377497;
+}
+.app-color-do
+{
+    color: #9f7b0f;
+}
+.app-color-county
+{
+    color: #900707;
+}
+.app-color-cc
+{
+    color: #098227;
+}
+.app-color-news
+{
+    color: #47137b;
+}
+.app-color-service
+{
+    color: #7e04a7;
+}
+.app-default-color
+{
+    color: #05517d;
+}
+.app-default-bg
+{
+    color: #f2f2f2;
+    background-color: #05517d;
+}
+.app-do-color
+{
+    color: #9f7b0f;
+}
+.app-do-bg
+{
+    color: #f2f2f2;
+    background-color: #9f7b0f;
+}
 .app-brandbar
 {
     padding-top: 3rem;
@@ -8343,7 +8389,7 @@ fieldset[disabled] .app-searchbox-btn.active
 }
 .app-navitem > a
 {
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1;
 
     display: -webkit-box;

@@ -1,74 +1,64 @@
 //
-// Brand utility classes and mixins
+// Brand
 // --------------------------------------------
 
 
-//== Base mixin classes
+//== Site section utility classes and mixins
 //
-//## Color definitions for different site sections
-
-// Brand primary color
-@app-brand-primary:         @app-blue-primary;
-.app-color-primary {
-  color: @app-brand-primary;
-}
-
-// Brand secondary color - used as link color
-@app-brand-secondary:       @app-blue-secondary;
-.app-color-secondary {
-  color: @app-brand-secondary;
-}
-
-// Section: Administrative district office (abbr: DO)
-@app-brand-do:              @app-brown;
-.app-color-do {
-  color: @app-brand-do;
-}
-
-// Section: County
-@app-brand-county:          @app-red;
-.app-color-county {
-  color: @app-brand-county;
-}
-
-// Section: County concil (abbr: CC)
-@app-brand-cc:              @app-green;
-.app-color-cc {
-  color: @app-brand-cc;
-}
-
-// Section: News
-@app-brand-news:             @app-violet;
-.app-color-news {
-  color: @app-brand-news;
-}
-
-// Section: Service
-@app-brand-service:          @app-purple;
-.app-color-service {
-  color: @app-brand-service;
-}
+//## Site section specific color definitions
+//## intendend to be used as mixin or modifier classes
 
 
-//== Utility classes
-//
-//## Intendend to be used as midifier classes
-//## These classes can ideally be used directly in html
-
-.app-default-color {
-  .app-color-primary();
+//** Default brand color scheme
+.app-default {
+  color: @app-default;
 }
 
 .app-default-bg {
-  color: #f2f2f2;
-  background-color: @app-brand-primary;
+  background-color: @app-default;
 }
 
-.app-do-color {
-  .app-color-do();
+//** News section
+.app-news {
+  color: @app-news;
+}
+
+.app-news-bg {
+  background-color: @app-news;
+}
+
+//** Service section
+.app-service {
+  color: @app-service;
+}
+
+.app-service-bg {
+  background-color: @app-service;
+}
+
+//** Section Administrative district office (abbr: DO)
+.app-do {
+  color: @app-do;
 }
 
 .app-do-bg {
-  color: #f2f2f2;
-  background-color: @app-color-do;
+  background-color: @app-do;
+}
+
+//** Section County
+.app-county {
+  color: @app-county;
+}
+
+.app-county-bg {
+  background-color: @app-county;
+}
+
+// Section County concil (abbr: CC)
+.app-cc {
+  color: @app-cc;
+}
+
+.app-cc-bg {
+  background-color: @app-cc;
 }
