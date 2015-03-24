@@ -18,7 +18,7 @@
     <div class="page-body">
       <h2>
         Rendered from
-        {{{ contenttype.name }}}_templates/<span tal:replace="template/id" />
+        contentpage_templates/<span tal:replace="template/id" />
       </h2>
     </div>
 
