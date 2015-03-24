@@ -11942,6 +11942,7 @@ if (typeof window !== 'undefined' && window.jQuery) {
 'use strict';
 (function ($) {
   $(document).ready(function () {
+    $('.app-signin-input').jvFloat();
     var $mcNote = $('#app-signin-suggestion');
     Mailcheck.defaultDomains.push('lra-aic-fdb.de')
     $('#ac-name').on('blur', function(event) {

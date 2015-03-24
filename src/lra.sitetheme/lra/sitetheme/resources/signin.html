@@ -10,7 +10,7 @@ base_url: "../../"
       <header class="app-signin-header">
           <div class="app-signin-header-content">
               <h1 class="app-signin-title">
-                  Anmelden
+                  Landratsamt Aichach-Friedberg
               </h1>
           </div>
       </header>
@@ -19,15 +19,19 @@ base_url: "../../"
           <div class="app-signin-group" id="login-form">
             <div class="control-group app-signin-control dim-in dim-in-1">
               <div class="app-signin-field">
-              <label for="__ac_name">E-Mail-Adresse</label>
-              <input class="form-control" id="ac-name" type="text" id="__ac_name" value="" name="__ac_name" size="15">
+              <label class="sr-only" for="__ac_name">E-Mail-Adresse</label>
+              <input class="form-control app-signin-input" id="ac-name"
+                  placeholder="E-Mail-Adresse"
+                  type="text" id="__ac_name" value="" name="__ac_name" size="15">
               <a href="#app-signin-content" class="app-signin-suggestion animated hidden" id="app-signin-suggestion"></a>
               </div>
             </div>
             <div class="control-group app-signin-control dim-in dim-in-2">
               <div class="app-signin-field">
-                <label for="__ac_password">Passwort</label>
-                <input  class="form-control" type="password" id="__ac_password" name="__ac_password" size="15">
+                <label class="sr-only" for="__ac_password">Passwort</label>
+                <input  class="form-control app-signin-input"
+                  placeholder="Passwort"
+                  type="password" id="__ac_password" name="__ac_password" size="15">
               </div>
             </div>
           </div>
