@@ -26,7 +26,7 @@
 }
 
 .app-signin-content {
-  padding: @line-height-computed 0;
+  padding-bottom: 1.5rem;
 }
 
 .app-signin-form {
@@ -49,7 +49,7 @@
 }
 
 .app-signin-control {
-  padding: ceil((@line-height-computed / 2)) 0 @line-height-computed;
+  padding: 1rem 0;
   &.app-signin-control-bordered {
     border-bottom: 1px dotted @gray-light;
   }
@@ -79,6 +79,29 @@
 
 .app-signin-actions,
 .app-register-actions {
-  padding: @line-height-computed;
+  padding: 0;
+  text-align: center;
+}
+
+.app-signin-btn {
+   margin-bottom: 1.5rem;
+}
+
+//== Mailcheck suggestion
+//
+//## Suggestions for email address typos by mailcheck.js
+//## recieve a custom styling
+.app-signin-suggestion {
+    display: block;
+    margin-top: 5px;
+    padding: ceil((@line-height-computed / 2));
+    color: @gray-lighter !important;
+    font-size: 0.8rem;
+    text-align: center;
+    text-decoration: none;
+    background-color: @gray-dark;
+    &:hover {
+      color: #fff !important;
+    }
 }
 

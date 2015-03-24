@@ -1,0 +1,8 @@
+default: []
+
+lint:
+  - 'jshint'
+
+build-js:
+  - 'concat'
+  - 'uglify'

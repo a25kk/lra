@@ -15,6 +15,7 @@
     "mailcheck": "~1.1.0"
   },
   "devDependencies": {
-    "chai": "1.7.2"
+    "chai": "1.7.2",
+    "JVFloat": "~1.1.0"
   }
 }
