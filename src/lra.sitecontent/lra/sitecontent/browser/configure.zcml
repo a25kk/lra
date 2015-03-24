@@ -5,6 +5,15 @@
     i18n_domain="lra.sitecontent">
 
   <browser:page
+      for="lra.sitecontent.sectionfolder.ISectionFolder"
+      name="sectionfolder_view"
+      class=".sectionfolder.SectionFolderView"
+      template="sectionfolder.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILRASiteContentLayer"
+      />
+
+  <browser:page
       for="lra.sitecontent.contentpage.IContentPage"
       name="contentpage_view"
       class=".contentpage.ContentPageView"
