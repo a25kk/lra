@@ -27,9 +27,16 @@ fake-eggs
 known-good-versions.cfg
 parts
 src/bobtemplates.*
+src/Products.*
+src/Plone
+src/mockup
+src/diazo
 src/ade25.*
+src/collective.*
 src/plone.*
+src/plonetheme.*
 src/sauna.reload
 src/vwc.*
 src/watchdog
+src/z3c.*
 var
