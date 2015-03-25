@@ -30,7 +30,7 @@
                      tal:attributes="href tab/url;
                                      title tab/description|nothing;
                                      target tab/link_target|nothing;
-                                     class string:app-navitem-${tid}">
+                                     class string:app-navitem-tab app-navitem-tab-${tid}">
                     <span tal:content="tab/name">Tab Name</span>
                   </a>
               </li>

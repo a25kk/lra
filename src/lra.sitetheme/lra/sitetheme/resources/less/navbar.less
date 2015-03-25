@@ -58,22 +58,23 @@
   //position: relative;
   //display: block;
   width: 100%;
-  > a {
-    display: flex;
-    align-items: center;
-    // padding: ((@navbar-height - @line-height-computed) / 2) 0;
-    color: #fff;
-    font-weight: 500;
-    line-height: 1;
-    text-transform: uppercase;
-    text-align: center;
-    transition: background-color 0.5s ease;
-    > span {
-      display: block;
-      margin: 0 auto;
-      padding: ((@navbar-height - @line-height-computed) / 2) 0;
-    }
-  }
+  //> a {
+  //  display: flex;
+  //  align-items: center;
+  //  // padding: ((@navbar-height - @line-height-computed) / 2) 0;
+  //  color: #fff;
+  //  background-color: @app-primary;
+  //  font-weight: 500;
+  //  line-height: 1;
+  //  text-transform: uppercase;
+  //  text-align: center;
+  //  transition: background-color 0.5s ease;
+  //  > span {
+  //    display: block;
+  //    margin: 0 auto;
+  //    padding: ((@navbar-height - @line-height-computed) / 2) 0;
+  //  }
+  //}
   @media (min-width: @grid-float-breakpoint-max) {
     width: 16.66666667%;
     padding-right: 2px;
@@ -83,47 +84,70 @@
   }
 }
 
+.app-navitem-tab {
+    display: flex;
+    align-items: center;
+    // padding: ((@navbar-height - @line-height-computed) / 2) 0;
+    color: #fff;
+    background-color: @app-primary;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    &:hover {
+      color: #fff;
+      background-color: darken(@app-primary, 6.5%);
+      text-decoration: none;
+    }
+    > span {
+      display: block;
+      margin: 0 auto;
+      padding: ((@navbar-height - @line-height-computed) / 2) 0;
+    }
+}
+
 //== NOTE: this classes are subject to changes
 //
 //## we should move these to general purpose brand classes
 //## providing both color and background color mixins and
 //## standalone modifier classes
-.app-navitem-home {
+.app-navitem-tab-home {
   background-color: @app-primary;
   &:hover {
     background-color: darken(@app-primary, 6.5%);
   }
 }
 
-.app-navitem-landratsamt {
+.app-navitem-tab-landratsamt {
   background-color: @app-brown;
   &:hover {
     background-color: darken(@app-brown, 6.5%);
   }
 }
 
-.app-navitem-kreistag {
+.app-navitem-tab-kreistag {
   background-color: @app-green;
   &:hover {
     background-color: darken(@app-green, 6.5%);
   }
 }
 
-.app-navitem-landkreis {
+.app-navitem-tab-landkreis {
   background-color: @app-red;
   &:hover {
     background-color: darken(@app-red, 6.5%);
   }
 }
 
-.app-navitem-news {
+.app-navitem-tab-news {
   background-color: @app-violet;
   &:hover {
     background-color: darken(@app-violet, 6.5%);
   }
 }
 
-.app-navitem-service {
+.app-navitem-tab-service {
   background-color: @app-purple;
   &:hover {
     background-color: darken(@app-purple, 6.5%);

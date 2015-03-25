@@ -13488,7 +13488,19 @@ fieldset[disabled] .app-searchbox-btn.active
 {
     width: 100%;
 }
-.app-navitem > a
+@media (min-width: 767px)
+{
+    .app-navitem
+    {
+        width: 16.66666667%;
+        padding-right: 2px;
+    }
+    .app-navitem:last-child
+    {
+        padding-right: 0;
+    }
+}
+.app-navitem-tab
 {
     font-weight: 500;
     line-height: 1;
@@ -13505,76 +13517,72 @@ fieldset[disabled] .app-searchbox-btn.active
     text-transform: uppercase;
 
     color: #fff;
+    background-color: #05517d;
 
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
             align-items: center;
 }
-.app-navitem > a > span
+.app-navitem-tab:hover
+{
+    text-decoration: none;
+
+    color: #fff;
+    background-color: #043c5d;
+}
+.app-navitem-tab > span
 {
     display: block;
 
     margin: 0 auto;
     padding: 24.28571429px 0;
 }
-@media (min-width: 767px)
-{
-    .app-navitem
-    {
-        width: 16.66666667%;
-        padding-right: 2px;
-    }
-    .app-navitem:last-child
-    {
-        padding-right: 0;
-    }
-}
-.app-navitem-home
+.app-navitem-tab-home
 {
     background-color: #05517d;
 }
-.app-navitem-home:hover
+.app-navitem-tab-home:hover
 {
     background-color: #043c5d;
 }
-.app-navitem-landratsamt
+.app-navitem-tab-landratsamt
 {
     background-color: #9f7b0f;
 }
-.app-navitem-landratsamt:hover
+.app-navitem-tab-landratsamt:hover
 {
     background-color: #81640c;
 }
-.app-navitem-kreistag
+.app-navitem-tab-kreistag
 {
     background-color: #098227;
 }
-.app-navitem-kreistag:hover
+.app-navitem-tab-kreistag:hover
 {
     background-color: #07631e;
 }
-.app-navitem-landkreis
+.app-navitem-tab-landkreis
 {
     background-color: #900707;
 }
-.app-navitem-landkreis:hover
+.app-navitem-tab-landkreis:hover
 {
     background-color: #700505;
 }
-.app-navitem-news
+.app-navitem-tab-news
 {
     background-color: #47137b;
 }
-.app-navitem-news:hover
+.app-navitem-tab-news:hover
 {
     background-color: #360f5e;
 }
-.app-navitem-service
+.app-navitem-tab-service
 {
     background-color: #7e04a7;
 }
-.app-navitem-service:hover
+.app-navitem-tab-service:hover
 {
     background-color: #660387;
 }

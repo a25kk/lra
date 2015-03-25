@@ -62,8 +62,8 @@
             css:content="#app-toolbar" />
 
         <!-- Logo (link target) -->
-        <copy attributes="href" css:content="#portal-logo" css:theme="a.navbar-brand" />
-        <copy attributes="href" css:content="#portal-logo" css:theme="a.app-brand" />
+        <copy attributes="href" css:content="#portal-logo" css:theme=".app-navbar-brand" />
+        <copy attributes="href" css:content="#portal-logo" css:theme=".app-brandname" />
 
         <!-- Portal searchbox -->
         <!--<copy attributes="action" css:content="#portal-searchbox form"
