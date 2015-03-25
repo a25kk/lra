@@ -29,10 +29,36 @@ grunt docs (Build & test the docs assets)
 
 Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via jekyll serve.
 
-### grunt (Build absolutely everything and run tests)
+### grunt serve (Run server with livereload)
 
-Compiles and minifies CSS and JavaScript, builds the documentation website, runs the HTML5 validator against the docs, regenerates the Customizer assets, and more. Requires Jekyll. Usually only necessary if you're hacking on Bootstrap itself.
+Compiles and minifies CSS and JavaScript, builds the templates. Than a browser
+tab is opened and the site served from **http://localhost:9000**. The watch task rebuilds all css and html when code is modified.
 
+Note: install the **livereload** extension in your browser of choice (available for Firefox and Chrome) to enabled autoreload.
+
+## Diazo theme development
+
+When working on a Plone Diazo theme and testing the integration via rules, you might need a local development setup tailored for this purpose. YOu have several options:
+
+### grunt pat (Build theme for diazo use)
+
+Compiles all css and javascript and replaces the path to assets with the automatically configured diazo theme prefix (e.g. `/++theme++project.sitetheme/dist/`).
+
+### grunt diazo (Build theme for diazo server)
+
+Compiles all css and javascript and replaces the path to assets with the hostname and port url of the grunt/node server. This allowes for complete control while developing a Diazo theme.
+
+### grunt serve:diazo (Livereload enabled server for diazo development)
+
+Uses `grunt diazo` under the hood to start a server listening on `http://localhost:9000` and providing the compiled assets to the theme templates while served from Plone. The server also watches for changes so you can adjust the theme on the fly.
+
+1. Start the plone instance in the foreground
+2. Start the theme server
+
+```bash
+$ grunt serve:diazo
+```
+ 
 
 ## Troubleshooting
 
