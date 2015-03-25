@@ -2,19 +2,21 @@
 
 This theme project uses the Grunt task-runner as a build system to compile a production ready distribution.
 
+While the setup builds upon a production ready closed standalone static application it can also generate a Plone deployment build and provide a development environment for Plone integration via Diazo transform engine.
+
 ## Available Grunt commands
 
+### grunt dist (Build production ready distribution)
+
+Regenerates the /dist/ directory with compiled and minified CSS and JavaScript files and builds the index files via Jekyll task. Includes revved css and js resources for cache busting optimized for pagespeed and performance.
+
+**Note**: this task should ideally only be run prior to pushing and deploying changes to the production server and is not suitable for development use since it might require extensive processing time.
 
 ### grunt dev (Just compile CSS and JavaScript)
 
 - compile less files to css
 - concat javascript resources
 - build html theme templates
-
-### grunt dist (Build production ready distribution)
-
-Regenerates the /dist/ directory with compiled and minified CSS and JavaScript files and builds the index files via Jekyll task. 
-
 
 ### grunt watch (Watch)
 

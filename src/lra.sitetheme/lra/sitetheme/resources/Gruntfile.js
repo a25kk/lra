@@ -322,13 +322,50 @@ module.exports = function (grunt) {
                         dest: '<%= config.dev %>'
                     }]
             },
-            dist: {
+            diazo: {
                 options: {
                     patterns: [
                         {
-                            match: '../../assets/',
+                            match: '../assets/',
                             replacement: 'assets/'
                         },
+                        {
+                            match: 'assets/',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
+                        },
+                        {
+                            match: '../css/',
+                            replacement: 'css/'
+                        },
+                        {
+                            match: 'css/',
+                            replacement: 'http://<%= connect.options.hostname %>:<%= connect.options.port %>/css/'
+                        },
+                        {
+                            match: '../js/<%= pkg.name %>',
+                            replacement: 'js/<%= pkg.name %>'
+                        },
+                        {
+                            match: 'js/<%= pkg.name %>',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>'
+                        }
+                    ],
+                    usePrefix: false,
+                    preserveOrder: true
+                },
+                files: [{
+                        expand: true,
+                        cwd: '<%= config.dist %>',
+                        src: [
+                            '*.html',
+                            '{,*/}*.html'
+                        ],
+                        dest: '<%= config.dist %>'
+                    }]
+            },
+            dist: {
+                options: {
+                    patterns: [
                         {
                             match: '../assets/',
                             replacement: 'assets/'
@@ -466,7 +503,12 @@ module.exports = function (grunt) {
                     ]
                 }
             },
-            dist: { options: { base: '<%= config.dist %>' } }
+            dist: {
+                options: {
+                    open: false,
+                    base: '<%= config.dist %>'
+                }
+            }
         },
         concurrent: {
             cj: [
@@ -508,10 +550,11 @@ module.exports = function (grunt) {
         grunt.file.mkdir('<%= config.dist %>/assets/');
     });
     grunt.registerTask('serve', function (target) {
-        if (target === 'dist') {
+        if (target === 'diazo') {
             return grunt.task.run([
-                'build',
-                'connect:dist:keepalive'
+                'diazo',
+                'connect:dist',
+                'watch'
             ]);
         }
         grunt.task.run([
@@ -567,7 +610,13 @@ module.exports = function (grunt) {
     ]);
     grunt.registerTask('dev', [
         'html',
-        'css'
+        'css',
+        'replace:dev'
+    ]);
+    grunt.registerTask('diazo', [
+        'html',
+        'css',
+        'replace:diazo'
     ]);
     grunt.registerTask('dist', [
         'clean:server',

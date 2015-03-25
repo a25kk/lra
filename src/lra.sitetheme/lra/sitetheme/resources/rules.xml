@@ -44,9 +44,9 @@
         <drop css:content="head link[rel='apple-touch-icon']" />
         <drop css:content="head link[rel='shortcut icon']" />
         <after theme="/html/head">
-            <link rel="shortcut icon" href="/++theme++example.sitetheme/dist/assets/ico/favicon.ico" type="images/x-icon" />
-            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/++theme++example.sitetheme/dist/assets/ico/apple-touch-icon-144-precomposed.png" />
-            <link rel="shortcut icon" href="/++theme++example.sitetheme/dist/assets/ico/favicon.png" />
+            <link rel="shortcut icon" href="/++theme++lra.sitetheme/dist/assets/ico/favicon.ico" type="images/x-icon" />
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/++theme++lra.sitetheme/dist/assets/ico/apple-touch-icon-144-precomposed.png" />
+            <link rel="shortcut icon" href="/++theme++lra.sitetheme/dist/assets/ico/favicon.png" />
         </after>
 
         <!-- Copy over the id/class attributes on the body tag.
