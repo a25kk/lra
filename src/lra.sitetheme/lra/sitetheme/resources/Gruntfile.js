@@ -331,7 +331,7 @@ module.exports = function (grunt) {
                         },
                         {
                             match: 'assets/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
+                            replacement: 'http://<%= connect.options.hostname %>:<%= connect.options.port %>/assets/'
                         },
                         {
                             match: '../css/',
@@ -340,6 +340,47 @@ module.exports = function (grunt) {
                         {
                             match: 'css/',
                             replacement: 'http://<%= connect.options.hostname %>:<%= connect.options.port %>/css/'
+                        },
+                        {
+                            match: '../js/<%= pkg.name %>',
+                            replacement: 'js/<%= pkg.name %>'
+                        },
+                        {
+                            match: 'js/<%= pkg.name %>',
+                            replacement: 'http://<%= connect.options.hostname %>:<%= connect.options.port %>/js/<%= pkg.name %>'
+                        }
+                    ],
+                    usePrefix: false,
+                    preserveOrder: true
+                },
+                files: [{
+                        expand: true,
+                        cwd: '<%= config.dist %>',
+                        src: [
+                            '*.html',
+                            '{,*/}*.html'
+                        ],
+                        dest: '<%= config.dist %>'
+                    }]
+            },
+            pat: {
+                options: {
+                    patterns: [
+                        {
+                            match: '../assets/',
+                            replacement: 'assets/'
+                        },
+                        {
+                            match: 'assets/',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
+                        },
+                        {
+                            match: '../css/',
+                            replacement: 'css/'
+                        },
+                        {
+                            match: 'css/',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/'
                         },
                         {
                             match: '../js/<%= pkg.name %>',
@@ -372,23 +413,23 @@ module.exports = function (grunt) {
                         },
                         {
                             match: 'assets/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
+                            replacement: '/assets/'
                         },
                         {
-                            match: '../css/',
-                            replacement: 'css/'
+                            match: '../css/<%= pkg.name %>',
+                            replacement: '/css/<%= pkg.name %>'
                         },
                         {
-                            match: 'css/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/'
+                            match: 'css/<%= pkg.name %>',
+                            replacement: '/css/<%= pkg.name %>'
                         },
                         {
                             match: '../js/<%= pkg.name %>',
-                            replacement: 'js/<%= pkg.name %>'
+                            replacement: '/js/<%= pkg.name %>'
                         },
                         {
                             match: 'js/<%= pkg.name %>',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>'
+                            replacement: '/js/<%= pkg.name %>'
                         }
                     ],
                     usePrefix: false,
@@ -538,7 +579,7 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     url: 'http://d2.ade25.de',
-                    paths: ['/', '/stellplatz-am-segler-verein/'],
+                    paths: ['/', '/landratsamt'],
                     locale: 'de_DE',
                     strategy: 'desktop',
                     threshold: 80
@@ -617,6 +658,11 @@ module.exports = function (grunt) {
         'html',
         'css',
         'replace:diazo'
+    ]);
+    grunt.registerTask('pat', [
+        'html',
+        'css',
+        'replace:pat'
     ]);
     grunt.registerTask('dist', [
         'clean:server',
