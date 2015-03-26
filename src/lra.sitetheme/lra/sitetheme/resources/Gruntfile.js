@@ -614,6 +614,18 @@ module.exports = function (grunt) {
         'jshint',
         'validate-html'
     ]);
+    grunt.registerTask('static-assets', [
+        'newer:copy',
+        'newer:imagemin'
+    ]);
+    grunt.registerTask('templates', [
+        'jekyll:theme'
+    ]);
+    grunt.registerTask('html', [
+        'templates',
+        'replace:server',
+        'htmlmin'
+    ]);
     grunt.registerTask('js', [
         'concat',
         'uglify'
@@ -625,34 +637,15 @@ module.exports = function (grunt) {
         'csscomb',
         'cssmin'
     ]);
-    grunt.registerTask('dist-assets', [
-        'newer:copy',
-        'newer:imagemin'
-    ]);
     grunt.registerTask('cb', [
         'clean:revved',
         'filerev:assets',
         'usemin'
     ]);
-    grunt.registerTask('templates', ['jekyll:theme']);
-    grunt.registerTask('html', [
-        'templates',
-        'replace:server',
-        'htmlmin'
-    ]);
-    grunt.registerTask('html-dist', [
-        'templates',
-        'replace:diazo',
-        'htmlmin'
-    ]);
-    grunt.registerTask('dist-cc', [
-        'test',
-        'concurrent:cj'
-    ]);
     grunt.registerTask('dev', [
         'html',
         'css',
-        'replace:dev'
+        'js'
     ]);
     grunt.registerTask('diazo', [
         'html',
