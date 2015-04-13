@@ -13397,33 +13397,6 @@ fieldset[disabled] .app-searchbox-btn.active
         border-radius: 0;
     }
 }
-.app-navbar-brand
-{
-    font-size: 1.25rem;
-    line-height: 1.42857143rem;
-
-    float: left;
-
-    height: 50px;
-    padding: 24.28571429px 15px;
-}
-.app-navbar-brand:hover,
-.app-navbar-brand:focus
-{
-    text-decoration: none;
-}
-.app-navbar-brand > img
-{
-    display: block;
-}
-@media (min-width: 768px)
-{
-    .navbar > .container .app-navbar-brand,
-    .navbar > .container-fluid .app-navbar-brand
-    {
-        margin-left: -15px;
-    }
-}
 .app-navbar-toggle
 {
     border-color: transparent !important;
