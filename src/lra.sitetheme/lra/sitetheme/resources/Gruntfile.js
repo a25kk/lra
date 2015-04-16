@@ -417,7 +417,7 @@ module.exports = function (grunt) {
                         },
                         {
                             match: '../css/<%= pkg.name %>',
-                            replacement: '/css/<%= pkg.name %>'
+                            replacement: 'css/<%= pkg.name %>'
                         },
                         {
                             match: 'css/<%= pkg.name %>',
@@ -425,7 +425,7 @@ module.exports = function (grunt) {
                         },
                         {
                             match: '../js/<%= pkg.name %>',
-                            replacement: '/js/<%= pkg.name %>'
+                            replacement: 'js/<%= pkg.name %>'
                         },
                         {
                             match: 'js/<%= pkg.name %>',
