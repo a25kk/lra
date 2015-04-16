@@ -26,6 +26,56 @@ env.prod_user = 'www'
 env.actor = 'Christoph Boehner'
 
 
+env.roledefs = {
+    'production': ['${fabric:host}'],
+    'staging': ['${fabric:host}']
+}
+
+
+@task
+@roles('production')
+def develop():
+    """ Restart all """
+    with cd(env.code_root):
+        run('nice bin/develop up')
+
+
+@task
+@roles('production')
+def restart():
+    """ Restart all """
+    project.cluster.restart_clients()
+
+
+@task
+@roles('production')
+def restart_all():
+    """ Restart all """
+    with cd(env.webserver):
+        run('nice bin/supervisorctl restart all')
+
+
+@task
+@roles('production')
+def restart_nginx():
+    """ Restart Nginx """
+    controls.restart_nginx()
+
+
+@task
+@roles('production')
+def restart_varnish():
+    """ Restart Varnish """
+    controls.restart_varnish()
+
+
+@task
+@roles('production')
+def restart_haproxy():
+    """ Restart HAProxy """
+    controls.restart_haproxy()
+
+
 @task
 def deploy(actor=None):
     """ Deploy current master to production server """
@@ -34,9 +84,9 @@ def deploy(actor=None):
         hostname=env.get('hostname'),
         actor=actor or env.get('actor') or getpass.getuser(),
     )
-        controls.update()
+    controls.update()
     project.cluster.restart_clients()
-        msg = '[%(hostname)s] *%(sitename)s* deployed by %(actor)s' % opts
+    msg = '[%(hostname)s] *%(sitename)s* deployed by %(actor)s' % opts
     user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
@@ -52,8 +102,8 @@ def deploy_full(actor=None):
     )
     project.site.update()
     project.site.build()
-        project.cluster.restart_clients()
-        msg = '[%(hostname)s] *%(sitename)s* deployed by %(actor)s' % opts
+    project.cluster.restart_clients()
+    msg = '[%(hostname)s] *%(sitename)s* deployed by %(actor)s' % opts
     user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
@@ -69,8 +119,8 @@ def rebuild(actor=None):
     )
     project.site.update()
     project.site.build_full()
-        project.cluster.restart_clients()
-        msg = '[%(hostname)s] *%(sitename)s* rebuild by %(actor)s' % opts
+    project.cluster.restart_clients()
+    msg = '[%(hostname)s] *%(sitename)s* rebuild by %(actor)s' % opts
     user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
