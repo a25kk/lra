@@ -1,0 +1,72 @@
+//
+// Styleguide
+// --------------------------------------------
+
+
+.app-styleguide {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  @media (min-width: @grid-float-breakpoint-max) {
+    flex-direction: row;
+  }
+}
+
+.sg-aside {
+  flex: 1;
+  @media (min-width: @grid-float-breakpoint-max) {
+    flex: 0 0 12em;
+  }
+}
+
+.sg-main {
+  flex: 1;
+  padding: 0 2em;
+  background: #fff;
+}
+
+
+//== Sidebar
+//
+//## Navigation and version information
+.sg-sidebar {
+  padding-top: 1rem;
+  height: 100%;
+  border-right: 1px solid @gray-lighter;
+}
+
+//** Header component
+.sg-sidebar-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.sg-sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+//** Subtitle showing styleguide version information
+.sg-sidebar-subtitle {
+  color: @gray-light;
+}
+
+
+//== Sidebar navigation
+//
+//## Unordered list for component navigation
+.sg-sidebar-nav {
+  .nav();
+  margin-bottom: 1rem;
+}
+
+.sg-sidebar-navitem {
+  font-size: 0.8rem;
+  > a {
+     color: @gray;
+  }
+  &.active {
+    border-right: 5px solid @gray;
+  }
+}
+
