@@ -2,20 +2,21 @@
   "name": "lra",
   "version": "1.0.0",
   "dependencies": {
+    "JVFloat": "~1.1.0",
     "animate.css": "~3.0.0",
-    "blazy": "*",
     "bootstrap": "git@github.com:twbs/bootstrap.git#master",
+    "bootstrap-without-jquery": "~0.6.1",
     "diazo-plone": "git@github.com:ade25/diazo-plone.git#master",
-    "font-awesome": "4.2.0",
-    "hideShowPassword": "~2.0.3",
+    "font-awesome": "4.3.0",
+    "hideShowPassword": "2.0.3",
     "holderjs": "~2.1.0",
-    "jquery": ">= 1.9.0",
+    "jquery": ">= 2.1.0",
     "lazysizes": "git@github.com:aFarkas/lazysizes.git#master",
+    "mailcheck": "~1.1.0",
     "modernizr": "~2.6.2",
-    "mailcheck": "~1.1.0"
+    "responsive-nav": "1.0.39"
   },
   "devDependencies": {
-    "chai": "1.7.2",
-    "JVFloat": "~1.1.0"
+    "chai": "1.7.2"
   }
 }
