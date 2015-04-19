@@ -21,7 +21,7 @@
 
 .sg-main {
   flex: 1;
-  padding: 0 2em;
+  padding: 0 2rem 0 4rem;
   background: #fff;
 }
 
@@ -68,5 +68,31 @@
   &.active {
     border-right: 5px solid @gray;
   }
+}
+
+//== Styleguide card subclasses
+//
+//## Extend the base classes provided by cards.less to
+//## provide stylguide specific subcards
+.sg-card {
+  border: 1px solid @gray-lighter;
+}
+
+//** Styleguide color swatches
+.sg-card-uid-colors {
+  text-align: center;
+}
+
+.sg-uid-color {
+  padding: 1rem;
+  color: #fff;
+}
+
+.sg-ui-color-primary {
+  background-color: @app-default;
+}
+
+.sg-ui-color-secondary {
+  background-color: @app-secondary;
 }
 

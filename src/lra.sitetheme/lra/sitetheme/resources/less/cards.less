@@ -1,0 +1,60 @@
+//
+// Cards displaying thumbnails and data collections
+// ------------------------------------------------------
+
+
+//== Card lists
+//
+//## Use a grid layout for card listings
+.app-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//** Base card styles
+.app-card {
+  flex: 1;
+}
+
+//** Card header
+.app-card-header {
+  padding: @padding-small-vertical @padding-small-horizontal;
+}
+
+//** Card content
+.app-card-content {
+  padding: @padding-small-vertical @padding-small-horizontal;
+}
+
+//** Card footer
+.app-card-footer {
+  padding: @padding-small-vertical @padding-small-horizontal;
+}
+
+//== Gutter
+//
+//## Add spacing to cards
+.app-card-gutter {
+  margin: -1rem 0 0 -1rem;
+  .app-card {
+    padding: 1rem 0 0 1rem;
+  }
+}
+
+//== Embedded card
+//
+//## Remove spacing for card inside card usecase
+.app-subcard {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  border: 0;
+}
+
+
+//== Card title
+//
+//## Title is used inside the card-header
+.app-card-title {
+  .h4();
+}
