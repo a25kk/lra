@@ -5,10 +5,19 @@
   </div>
   <div class="sg-sidebar-content">
   <ul class="sg-sidebar-nav">
-      <li class="sg-sidebar-navitem active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-      <li class="sg-sidebar-navitem"><a href="#">Brand</a></li>
-      <li class="sg-sidebar-navitem"><a href="#">Colors</a></li>
-      <li class="sg-sidebar-navitem"><a href="#">Typography</a></li>
+      <li{% if page.slug == "styleguide" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}styleguide">Übersicht</a>
+        <span class="sr-only">(current)</span>
+      </li>
+      <li{% if page.slug == "sg-brand" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-brand">Marke</a>
+      </li>
+      <li{% if page.slug == "sg-colors" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-colors">Farbschema</a>
+      </li>
+      <li{% if page.slug == "sg-typography" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-typography">Typographie</a>
+      </li>
     </ul>
     <ul class="sg-sidebar-nav">
       <li class="sg-sidebar-navitem"><a href="">Structure</a></li>
