@@ -14,7 +14,8 @@
     "lazysizes": "git@github.com:aFarkas/lazysizes.git#master",
     "mailcheck": "~1.1.0",
     "modernizr": "~2.6.2",
-    "responsive-nav": "1.0.39"
+    "responsive-nav": "1.0.39",
+    "bootstrap-sass": "~3.3.4"
   },
   "devDependencies": {
     "chai": "1.7.2"
