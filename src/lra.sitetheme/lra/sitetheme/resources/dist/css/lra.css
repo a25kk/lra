@@ -2879,4 +2879,180 @@ div.riform .label {
   transition: transform 100ms, opacity 120ms, visibility 120ms;
   opacity: 1; }
 
+.app-styleguide {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+  @media (min-width: 767px) {
+    .app-styleguide {
+      flex-direction: row; } }
+
+.sg-aside {
+  flex: 1; }
+  @media (min-width: 767px) {
+    .sg-aside {
+      flex: 0 0 12em; } }
+
+.sg-main {
+  flex: 1;
+  padding: 0 2rem 0 4rem;
+  background: #fff; }
+
+.sg-sidebar {
+  padding-top: 1rem;
+  height: 100%;
+  border-right: 1px solid #eeeeee; }
+
+.sg-sidebar-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem; }
+
+.sg-sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 400; }
+
+.sg-sidebar-subtitle {
+  color: #777777; }
+
+.sg-sidebar-nav {
+  margin-bottom: 1rem; }
+  .sg-sidebar-nav > li > a {
+    color: #555555; }
+    .sg-sidebar-nav > li > a.active {
+      border-right: 1px solid #555555; }
+
+.sg-sidebar-nav > li,
+.sg-sidebar-navitem {
+  font-size: 0.8rem; }
+  .sg-sidebar-nav > li > a,
+  .sg-sidebar-navitem > a {
+    color: #555555; }
+  .sg-sidebar-nav > li.active,
+  .sg-sidebar-navitem.active {
+    border-right: 5px solid #555555; }
+
+.sg-card-uid-colors {
+  text-align: center; }
+
+.sg-uid-color {
+  padding: 1rem;
+  color: #fff; }
+
+.sg-ui-color-primary {
+  background-color: #05517d; }
+
+.sg-ui-color-secondary {
+  background-color: #377497; }
+
+.sg-section {
+  margin-bottom: 60px; }
+
+.sg-section:last-child {
+  margin-bottom: 0; }
+
+.sg-example {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 15px -15px 15px;
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.05); }
+
+/* Echo out a label for the example */
+.sg-example:after {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  content: "Beispiel"; }
+
+.sg-example-padded-bottom {
+  padding-bottom: 24px; }
+
+/* Tweak display of the code snippets when following an example */
+.sg-example + .highlight,
+.sg-example + .zero-clipboard + .highlight {
+  margin: -15px -15px 15px;
+  border-width: 0 0 1px;
+  border-radius: 0; }
+
+/* Make the examples and snippets not full-width */
+@media (min-width: 768px) {
+  .sg-example {
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    box-shadow: none; }
+  .sg-example + .highlight,
+  .sg-example + .zero-clipboard + .highlight {
+    margin-top: -16px;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px; }
+  .sg-example-standalone {
+    border-radius: 4px; } }
+
+/* Undo width of container */
+.sg-example .container, .sg-example .app-brandbar-content, .sg-example .app-footer-content {
+  width: auto; }
+
+/* Tweak content of examples for optimum awesome */
+.sg-example > p:last-child,
+.sg-example > ul:last-child,
+.sg-example > ol:last-child,
+.sg-example > blockquote:last-child,
+.sg-example > .form-control:last-child,
+.sg-example > .app-searchbox-field:last-child,
+.sg-example > .table:last-child,
+.sg-example > .navbar:last-child,
+.sg-example > .app-navbar:last-child,
+.sg-example > .jumbotron:last-child,
+.sg-example > .alert:last-child,
+.sg-example > .panel:last-child,
+.sg-example > .list-group:last-child,
+.sg-example > .well:last-child,
+.sg-example > .progress:last-child,
+.sg-example > .table-responsive:last-child > .table {
+  margin-bottom: 0; }
+
+.sg-example > p > .close {
+  float: none; }
+
+/*
+ * Code snippets
+ *
+ * Generated via Pygments and Jekyll, these are snippets of HTML, CSS, and JS.
+ */
+.highlight {
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px; }
+
+.highlight pre {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  word-break: normal;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0; }
+
+.highlight pre code {
+  font-size: inherit;
+  color: #333;
+  /* Effectively the base text color */ }
+
+.highlight pre code:first-child {
+  display: inline-block;
+  padding-right: 45px; }
+
 /*# sourceMappingURL=lra.css.map */
