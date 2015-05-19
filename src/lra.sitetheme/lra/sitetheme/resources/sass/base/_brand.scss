@@ -1,0 +1,64 @@
+//
+// Brand
+// --------------------------------------------
+
+
+//== Site section utility classes and mixins
+//
+//## Site section specific color definitions
+//## intendend to be used as mixin or modifier classes
+
+
+//** Default brand color scheme
+.app-default {
+  color: $app-default;
+}
+
+.app-default-bg {
+  background-color: $app-default;
+}
+
+//** News section
+.app-news {
+  color: $app-news;
+}
+
+.app-news-bg {
+  background-color: $app-news;
+}
+
+//** Service section
+.app-service {
+  color: $app-service;
+}
+
+.app-service-bg {
+  background-color: $app-service;
+}
+
+//** Section Administrative district office (abbr: DO)
+.app-do {
+  color: $app-do;
+}
+
+.app-do-bg {
+  background-color: $app-do;
+}
+
+//** Section County
+.app-county {
+  color: $app-county;
+}
+
+.app-county-bg {
+  background-color: $app-county;
+}
+
+// Section County concil (abbr: CC)
+.app-cc {
+  color: $app-cc;
+}
+
+.app-cc-bg {
+  background-color: $app-cc;
+}

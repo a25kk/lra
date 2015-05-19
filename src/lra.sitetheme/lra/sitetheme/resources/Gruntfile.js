@@ -65,6 +65,36 @@ module.exports = function (grunt) {
                 dest: '<%= config.dist %>/js/<%= pkg.name %>.min.js'
             }
         },
+        // Generates a custom Modernizr build that includes only the tests you
+        // reference in your app
+        modernizr: {
+          dist: {
+            devFile: 'bower_components/modernizr/modernizr.js',
+            outputFile: '<%%= config.dist %>/js/vendor/modernizr.js',
+            files: {
+              src: [
+                '<%%= config.dist %>/js/{,*/}*.js',
+                '<%%= config.dist %>/css/{,*/}*.css',
+                '!<%%= config.dist %>/js/vendor/*'
+              ]
+            },
+            uglify: true
+          }
+        },
+        // Compiles Sass to CSS and generates necessary files if requested
+        sass: {
+          options: {
+            sourceMap: true,
+            includePaths: ['bower_components'],
+            loadPath: 'bower_components'
+          },
+          dist: {
+            files: { '<%= config.dist %>/css/<%= pkg.name %>.css': 'sass/main.scss' }
+          },
+          server: {
+            files: { '<%= config.dist %>/css/<%= pkg.name %>.css': 'sass/main.scss' }
+          }
+        },
         less: {
             compileTheme: {
                 options: {
@@ -632,7 +662,8 @@ module.exports = function (grunt) {
     ]);
     grunt.registerTask('less-compile', ['less:compileTheme']);
     grunt.registerTask('css', [
-        'less-compile',
+        //'less-compile',
+        'sass:dist',
         'autoprefixer',
         'csscomb',
         'cssmin'
