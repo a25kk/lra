@@ -462,7 +462,7 @@ mark,
 .text-capitalize {
   text-transform: capitalize; }
 
-.text-muted {
+.text-muted, .page-signin p {
   color: #777777; }
 
 .text-primary {
@@ -2761,5 +2761,122 @@ div.riform .label {
   margin-right: 0;
   margin-bottom: 0;
   border: 0; }
+
+.app-layout-simple {
+  background: #333333; }
+
+.app-signin-wrapper {
+  max-width: 480px; }
+
+.app-signin {
+  margin-top: 100px;
+  border-radius: 0; }
+
+.app-signin-header {
+  padding-bottom: 1.5rem;
+  text-align: center; }
+
+.app-signin-title {
+  font-weight: 400;
+  color: #05517d; }
+
+.app-signin-content {
+  padding-bottom: 1.5rem; }
+
+.app-signin-group {
+  padding: 0; }
+  .app-signin-group.app-signin-group-text {
+    margin-top: 1.428571429rem;
+    padding: 1.428571429rem 0;
+    border-top: 1px dotted #777777; }
+  .app-signin-group label,
+  .app-signin-group .signin-label {
+    font-weight: 300;
+    color: #555555; }
+
+.app-signin-field {
+  position: relative; }
+
+.app-signin-control {
+  padding-bottom: 1rem; }
+  .app-signin-control.app-signin-control-bordered {
+    border-bottom: 1px dotted #777777; }
+
+.page-aside {
+  position: relative;
+  padding: 3rem 1.428571429rem; }
+
+.page-signin {
+  color: #777777; }
+
+.page-signin .documentDescription {
+  margin-bottom: 1.428571429rem; }
+
+.app-register {
+  margin-bottom: 50px;
+  border-bottom: 5px solid #5cb85c; }
+
+.app-signin-actions,
+.app-register-actions {
+  padding: 2rem 0 0;
+  text-align: center; }
+
+.app-signin-btn {
+  margin-bottom: 1.5rem;
+  font-weight: 300; }
+
+.app-signin-suggestion {
+  display: block;
+  position: absolute;
+  top: -5px;
+  right: -265px;
+  width: 260px;
+  margin-top: 5px;
+  padding: 0.5rem 5px;
+  color: #eeeeee !important;
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: #333333; }
+  .app-signin-suggestion:hover {
+    color: #fff !important; }
+
+/*
+ * Default jvFloat theme.
+ * modify it as you wish!
+ */
+.jvFloat {
+  position: relative;
+  display: block;
+  margin-top: 1.5rem; }
+
+.jvFloat .placeHolder.required {
+  color: red; }
+
+/* Start CSS3 Animations on supported browser */
+.jvFloat .placeHolder {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-weight: 400;
+  color: #555555;
+  transform: translate(0, 0);
+  transition: transform 150ms, opacity 100ms, visibility 100ms;
+  opacity: 0;
+  visibility: hidden; }
+
+/*Allows textarea floating placeholder to be positioned distinctly from the normal .placeHolder class
+ * This is required when working with Multiline text areas
+ */
+.jvFloat .placeHolder.textarea {
+  /*top: 0px;*/ }
+
+.jvFloat .placeHolder.active {
+  display: block;
+  width: 100%;
+  visibility: visible;
+  transform: translate(0, -1em);
+  transition: transform 100ms, opacity 120ms, visibility 120ms;
+  opacity: 1; }
 
 /*# sourceMappingURL=lra.css.map */
