@@ -3,7 +3,7 @@
 // ----------------------------------------------
 
 
-@import 'base/variables';
+@import 'utils/variables';
 
 @import 'vendors/bootstrap';
 
@@ -16,6 +16,7 @@
 @import 'layout/footer';
 @import 'layout/forms';
 
+@import 'components/toolbar';
 @import 'components/brand';
 @import 'components/actionbar';
 @import 'components/cards';

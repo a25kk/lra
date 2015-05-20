@@ -1,3 +1,4 @@
+@charset 'UTF-8';
 /**
 * Use em or rem font-size in Bootstrap 3
 * Ported from Less version here: https://gist.github.com/jasny/9731895
@@ -4880,6 +4881,414 @@ div.riform .label
     color: #555;
     outline: transparent; 
     background-color: #eee;
+}
+
+.app-toolbar
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 120px;
+    height: 100%;
+
+    background: #222;
+}
+
+.app-toolbar-header
+{
+    margin-bottom: 1.428571429rem;
+    padding: 10px 15px;
+
+    color: #f2f2f2;
+    border-bottom: 1px solid #9d9d9d;
+}
+
+.app-toolbar-nav
+{
+    font-size: .75rem; 
+
+    margin-bottom: 1.428571429rem;
+}
+.app-toolbar-nav li > a
+{
+    color: #9d9d9d;
+}
+
+.plone-toolbar
+{
+    font-weight: 300;
+
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+
+    width: 60px;
+    height: 100%;
+
+    color: #9d9d9d;
+    background: #222;
+}
+
+.plone-toolbar-logo
+{
+    display: table-cell;
+
+    width: 60px; 
+    height: 50px;
+    padding-right: 18px;
+    padding-left: 18px;
+
+    cursor: pointer;
+    vertical-align: middle;
+
+    background: #005880;
+}
+.plone-toolbar-logo:after
+{
+    position: absolute;
+    top: 50px; 
+    left: 25px;
+
+    content: '';
+
+    border-top: 4px solid #005880;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+.plone-toolbar-logo:hover
+{
+    -webkit-transition: background .35s;
+         -o-transition: background .35s;
+            transition: background .35s; 
+
+    background: #007bb3;
+}
+.plone-toolbar-logo:hover:after
+{
+    -webkit-transition: border-top .35s;
+         -o-transition: border-top .35s;
+            transition: border-top .35s; 
+
+    border-top: 4px solid #007bb3;
+}
+
+.expanded .plone-toolbar-logo
+{
+    width: 120px;
+}
+.expanded .plone-toolbar-logo span
+{
+    display: inline;
+}
+
+.plone-toolbar-nav
+{
+    font-family: 'Fira Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    /*states on first level*/
+}
+.plone-toolbar-nav [class^='icon']
+{
+    font-size: 20px;
+}
+.plone-toolbar-nav a
+{
+    position: relative;
+
+    overflow: hidden;
+
+    height: 50px; 
+
+    color: rgba(255, 255, 255, .9);
+}
+.plone-toolbar-nav a:hover > span
+{
+    margin-top: -50px;
+
+    -webkit-transition: margin-top .35s;
+         -o-transition: margin-top .35s;
+            transition: margin-top .35s;
+}
+.plone-toolbar-nav a:hover > span.plone-toolbar-caret
+{
+    opacity: 1;
+}
+.plone-toolbar-nav a > span
+{
+    display: block;
+
+    width: 60px; 
+    height: 50px;
+
+    text-align: center;
+}
+.plone-toolbar-nav a > span:before
+{
+    line-height: 50px;
+}
+.plone-toolbar-nav a > span + span
+{
+    line-height: 1em; 
+
+    display: table-cell;
+
+    width: 60px;
+    height: 50px;
+    padding: 0 8px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    background: #007bb3;
+}
+
+.plone-toolbar-subnav
+{
+    font-family: 'Fira Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 30px;
+
+    position: absolute;
+    top: 0;
+    left: 60px;
+
+    display: none;
+    overflow-y: auto;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    background: rgba(20, 20, 20, .95);
+    /*state marker*/
+    /*current*/
+}
+.plone-toolbar-subnav a
+{
+    color: #fff;
+}
+.plone-toolbar-subnav a:hover
+{
+    color: #d9d9d9;
+    background: rgba(26, 26, 26, .9);
+}
+.plone-toolbar-subnav li:last-child
+{
+    margin-bottom: 5px;
+}
+.plone-toolbar-subnav li > span
+{
+    display: block;
+}
+.plone-toolbar-subnav .plone-toolbar-submenu-header > a
+{
+    font-weight: 500; 
+
+    color: #007bb3;
+}
+.plone-toolbar-subnav .plone-toolbar-submenu-header > a:hover
+{
+    color: #004666;
+}
+.plone-toolbar-subnav .plone-toolbar-submenu-header > span
+{
+    font-weight: 500;
+
+    color: #777;
+}
+.plone-toolbar-subnav li:not(.plone-toolbar-submenu-header) > a:before
+{
+    position: absolute; 
+    left: 15px;
+
+    content: '•';
+
+    color: #007bb3;
+}
+.plone-toolbar-subnav li:not(.plone-toolbar-submenu-header) > span:before
+{
+    position: absolute; 
+    left: 15px;
+
+    content: '•';
+
+    color: rgba(77, 77, 77, .9);
+}
+.plone-toolbar-subnav li:not(.plone-toolbar-submenu-header) > a:hover:before
+{
+    color: #33bfff;
+}
+.plone-toolbar-subnav .actionMenuSelected
+{
+    font-weight: 500; 
+
+    color: rgba(255, 255, 255, .9);
+}
+.plone-toolbar-subnav .actionMenuSelected:hover
+{
+    cursor: default; 
+
+    color: rgba(255, 255, 255, .9);
+    background: none;
+}
+.plone-toolbar-subnav .actionMenuSelected:before
+{
+    margin-left: -3px; 
+
+    content: '✓' !important;
+}
+.plone-toolbar-subnav .actionMenuSelected:hover
+{
+    cursor: default; 
+
+    color: rgba(255, 255, 255, .9);
+    background: none;
+}
+.plone-toolbar-subnav li:not(.plone-toolbar-submenu-header) > a.actionMenuSelected:before
+{
+    color: rgba(255, 255, 255, .9);
+}
+.plone-toolbar-subnav li
+{
+    width: 180px;
+}
+.plone-toolbar-subnav li > a,
+.plone-toolbar-subnav li > span
+{
+    line-height: 20px; 
+
+    height: auto;
+    padding: 5px 15px;
+}
+.plone-toolbar-subnav li:not(.plone-toolbar-submenu-header) > a,
+.plone-toolbar-subnav li:not(.plone-toolbar-submenu-header) > span
+{
+    height: auto; 
+    padding: 5px 15px 5px 30px;
+}
+.plone-toolbar-subnav li:not(.plone-toolbar-submenu-header) > span
+{
+    font-weight: 100; 
+
+    color: rgba(255, 255, 255, .9);
+}
+.plone-toolbar-subnav .plone-toolbar-submenu-header
+{
+    margin: 5px 0 0; 
+    padding: 5px 0 0;
+
+    border-top: 1px solid rgba(255, 255, 255, .17);
+}
+.plone-toolbar-subnav .plone-toolbar-submenu-header:first-child
+{
+    margin: 0; 
+
+    border-top: 0;
+}
+.plone-toolbar-subnav [class^='icon']
+{
+    line-height: 0; 
+
+    display: inline !important;
+}
+.plone-toolbar-subnav [class^='icon']:before
+{
+    font-size: 10px;
+    line-height: 18px;
+
+    position: absolute;
+    top: 0; 
+    right: 10px;
+
+    margin-top: 7px;
+
+    color: #c4183c;
+}
+.plone-toolbar-subnav .plone-toolbar-submenu-header :after
+{
+    font-size: 30px;
+
+    right: 13px;
+}
+
+.plone-toolbar-separator
+{
+    border-bottom: 1px solid rgba(255, 255, 255, .17);
+}
+
+.plone-toolbar-caret
+{
+    position: absolute;
+    top: 21px;
+    right: 0;
+    right: 2px;
+
+    display: inline-block;
+
+    width: 0;
+    height: 0;
+    margin-top: 0 !important;
+    padding: 0;
+
+    vertical-align: middle; 
+
+    opacity: .67;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid;
+    background: transparent !important;
+}
+
+.plone-toolbar-switcher
+{
+    position: absolute;
+    top: 0;
+
+    width: 10px;
+    height: 10px;
+
+    cursor: pointer; 
+
+    border-radius: 0 0 100% 0;
+    background: rgba(0, 0, 0, .2);
+}
+.plone-toolbar-switcher span
+{
+    font-size: 0;
+}
+
+.plone-toolbar-left-default
+{
+    padding-left: 60px;
+}
+
+.plone-toolbar-left-expanded
+{
+    padding-left: 120px;
+}
+
+.plone-toolbar-top-default
+{
+    margin-top: 60px;
+}
+
+.plone-toolbar-top-expanded
+{
+    margin-top: 60px;
+}
+
+.plone-toolbar-compressed
+{
+    margin-top: 0;
+    margin-left: 0;
 }
 
 .app-brand
