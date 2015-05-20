@@ -4695,6 +4695,14 @@ div.riform .label
     color: #05517d;
 }
 
+.app-brandname-heading
+{
+    font-size: 1.25rem;
+    font-weight: 400; 
+
+    color: #05517d;
+}
+
 .app-brand-aside
 {
     position: relative;
