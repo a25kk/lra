@@ -11,11 +11,12 @@
 @import 'base/scaffolding';
 @import 'base/brand';
 
-@import 'layout/brandbar';
+@import 'layout/header';
 @import 'layout/navbar';
 @import 'layout/footer';
 @import 'layout/forms';
 
+@import 'components/brand';
 @import 'components/actionbar';
 @import 'components/cards';
 

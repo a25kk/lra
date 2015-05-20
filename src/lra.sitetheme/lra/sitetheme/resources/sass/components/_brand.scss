@@ -2,28 +2,33 @@
 // Brand
 // -----------------------------------------
 
-.app-brandbar {
-  padding-top: ceil(($line-height-computed * 1.5));
-  @media (min-width: $grid-float-breakpoint-max) {
-    padding-left: $line-height-computed;
-    padding-bottom: ceil(($line-height-computed * 1.5));
-  }
-}
-
-.app-brandbar-content {
-  @media (min-width: $grid-float-breakpoint) {
-    @extend .container;
-  }
-}
 
 // Make a gridrow
 .app-brand {
-  @include make-row();
+  margin-right: $padding-small-horizontal;
+}
+
+//** Inline svg logo
+.app-brand-img {
+  display: block;
+  width: 36px;
+  &-sm {
+    width: 64px;
+  }
+  &-md {
+    width: 128px;
+  }
+  &-lg {
+    width: 272.576px
+  }
+  .app-brand-panel & {
+    display: inline-block;
+  }
 }
 
 // The actual brandname/title
 .app-brand-title {
-  @include make-md-column(8);
+  //@include make-md-column(8);
 }
 
 .app-brandname {
@@ -33,8 +38,9 @@
   font-weight: 500;
   line-height: 1;
   color: $app-primary;
-  .app-brandname-logo {
-    @extend .img-responsive;
+  .app-brand-panel & {
+    display: inline-block;
+    margin-top: -($line-height-computed);
   }
 }
 

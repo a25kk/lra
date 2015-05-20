@@ -57,13 +57,12 @@
 //## Unordered list for component navigation
 .sg-sidebar-nav {
   margin-bottom: 1rem;
-  padding-left: 0; // Override default ul/ol
+  padding-left: ($nav-link-padding / 2); // Override default ul/ol
   list-style: none;
   @include clearfix;
   > li {
     position: relative;
     display: block;
-    padding-left: $nav-link-padding;
     > a {
       position: relative;
       display: block;
@@ -237,6 +236,7 @@
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   border-radius: 4px;
+  font-family: $font-family-monospace;
 }
 .highlight pre {
   padding: 0;
@@ -246,6 +246,7 @@
   white-space: nowrap;
   background-color: transparent;
   border: 0;
+  font-size: 0.8rem;
 }
 .highlight pre code {
   font-size: inherit;

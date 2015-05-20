@@ -450,8 +450,7 @@ img
     vertical-align: middle;
 }
 
-.img-responsive,
-.app-brandname .app-brandname-logo
+.img-responsive
 {
     display: block;
 
@@ -1127,7 +1126,7 @@ pre code
 }
 
 .container,
-.app-brandbar-content,
+.app-header-content,
 .app-footer-content,
 .app-content
 {
@@ -1137,11 +1136,11 @@ pre code
     padding-left: 15px;
 }
 .container:before,
-.app-brandbar-content:before,
+.app-header-content:before,
 .app-footer-content:before,
 .app-content:before,
 .container:after,
-.app-brandbar-content:after,
+.app-header-content:after,
 .app-footer-content:after,
 .app-content:after
 {
@@ -1150,7 +1149,7 @@ pre code
     content: ' ';
 }
 .container:after,
-.app-brandbar-content:after,
+.app-header-content:after,
 .app-footer-content:after,
 .app-content:after
 {
@@ -1159,7 +1158,7 @@ pre code
 @media (min-width: 768px)
 {
     .container,
-    .app-brandbar-content,
+    .app-header-content,
     .app-footer-content,
     .app-content
     {
@@ -1169,7 +1168,7 @@ pre code
 @media (min-width: 992px)
 {
     .container,
-    .app-brandbar-content,
+    .app-header-content,
     .app-footer-content,
     .app-content
     {
@@ -1179,7 +1178,7 @@ pre code
 @media (min-width: 1200px)
 {
     .container,
-    .app-brandbar-content,
+    .app-header-content,
     .app-footer-content,
     .app-content
     {
@@ -4634,82 +4633,16 @@ div.riform .label
     background-color: #098227;
 }
 
-.app-brandbar
+.app-header
 {
     padding-top: 3rem;
 }
 @media (min-width: 767px)
 {
-    .app-brandbar
+    .app-header
     {
         padding-bottom: 3rem; 
         padding-left: 1.428571429rem;
-    }
-}
-
-.app-brand
-{
-    margin-right: -15px; 
-    margin-left: -15px;
-}
-.app-brand:before,
-.app-brand:after
-{
-    display: table; 
-
-    content: ' ';
-}
-.app-brand:after
-{
-    clear: both;
-}
-
-.app-brand-title
-{
-    position: relative;
-
-    min-height: 1px;
-    padding-right: 15px; 
-    padding-left: 15px;
-}
-@media (min-width: 992px)
-{
-    .app-brand-title
-    {
-        float: left;
-
-        width: 66.6666666667%;
-    }
-}
-
-.app-brandname
-{
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1;
-
-    display: block;
-
-    padding: .5555555556rem .2777777778rem;
-
-    color: #05517d;
-}
-
-.app-brand-aside
-{
-    position: relative;
-
-    min-height: 1px;
-    padding-right: 15px; 
-    padding-left: 15px;
-}
-@media (min-width: 992px)
-{
-    .app-brand-aside
-    {
-        float: left;
-
-        width: 33.3333333333%;
     }
 }
 
@@ -4938,6 +4871,71 @@ div.riform .label
     color: #555;
     outline: transparent; 
     background-color: #eee;
+}
+
+.app-brand
+{
+    margin-right: .5555555556rem;
+}
+
+.app-brand-img
+{
+    display: block;
+
+    width: 36px;
+}
+.app-brand-img-sm
+{
+    width: 64px;
+}
+.app-brand-img-md
+{
+    width: 128px;
+}
+.app-brand-img-lg
+{
+    width: 272.576px;
+}
+.app-brand-panel .app-brand-img
+{
+    display: inline-block;
+}
+
+.app-brandname
+{
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1;
+
+    display: block;
+
+    padding: .5555555556rem .2777777778rem;
+
+    color: #05517d;
+}
+.app-brand-panel .app-brandname
+{
+    display: inline-block;
+
+    margin-top: -1.428571429rem;
+}
+
+.app-brand-aside
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: 15px; 
+    padding-left: 15px;
+}
+@media (min-width: 992px)
+{
+    .app-brand-aside
+    {
+        float: left;
+
+        width: 33.3333333333%;
+    }
 }
 
 .app-actions
@@ -5428,7 +5426,7 @@ fieldset[disabled] .app-searchbox-btn.active
 .sg-sidebar-nav
 {
     margin-bottom: 1rem;
-    padding-left: 0;
+    padding-left: 10px 15px/2;
 
     list-style: none;
 }
@@ -5448,8 +5446,6 @@ fieldset[disabled] .app-searchbox-btn.active
     position: relative;
 
     display: block;
-
-    padding-left: 10px 15px;
 }
 .sg-sidebar-nav > li > a
 {
@@ -5601,7 +5597,7 @@ fieldset[disabled] .app-searchbox-btn.active
 
 /* Undo width of container */
 .sg-example .container,
-.sg-example .app-brandbar-content,
+.sg-example .app-header-content,
 .sg-example .app-footer-content,
 .sg-example .app-content
 {
@@ -5641,16 +5637,20 @@ fieldset[disabled] .app-searchbox-btn.active
  */
 .highlight
 {
+    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; 
+
     margin-bottom: 14px;
     padding: 9px 14px;
 
     border: 1px solid #e1e1e8;
-    border-radius: 4px; 
+    border-radius: 4px;
     background-color: #f7f7f9;
 }
 
 .highlight pre
 {
+    font-size: .8rem; 
+
     margin-top: 0;
     margin-bottom: 0;
     padding: 0;
@@ -5658,7 +5658,7 @@ fieldset[disabled] .app-searchbox-btn.active
     white-space: nowrap;
     word-break: normal;
 
-    border: 0; 
+    border: 0;
     background-color: transparent;
 }
 

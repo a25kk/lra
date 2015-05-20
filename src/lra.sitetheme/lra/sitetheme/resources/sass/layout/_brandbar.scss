@@ -38,6 +38,12 @@
   }
 }
 
+.app-brandname-heading {
+  color: $app-primary;
+  font-size: $font-size-large;
+  font-weight: 400;
+}
+
 // Sitewide claim
 .app-brand-aside {
   @include make-md-column(4);
