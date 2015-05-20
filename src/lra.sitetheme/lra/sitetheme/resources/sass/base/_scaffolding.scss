@@ -13,8 +13,12 @@ html {
     }
 }
 
+
+//** Adjust font weight for initialized webfonts
 body {
-    background: #fff;
+    .wf-active & {
+        font-weight: 300;
+    }
     &.template-theming-controlpanel .row {
         // Fix theming control panel
         margin: 0 $line-height-computed;
@@ -23,11 +27,9 @@ body {
 
 // Set font weights if webfont is active
 .wf-active {
-    // Default twbs weight for headings 500 not provided by Open Sans
-    $headings-font-weight: 600;
     b,
     strong {
-        font-weight: 600;
+        font-weight: 500;
     }
 }
 
@@ -36,7 +38,7 @@ b,
 strong {
     font-weight: 700;
     .wf-active & {
-        font-weight: 600;
+        font-weight: 500;
     }
 }
 
@@ -55,49 +57,54 @@ a:hover {
 //
 // Form input is calculated based on line and font sizes and needs to be
 // adjusted manually
+// Change styling for elements that mix pixels and ems
+
 pre {
-  font-size: 1rem;
+  font-size: ( $font-size-base - ($font-unit / strip-units($font-size-root)));
 }
 
 .form-control-feedback {
-  width: calc(#{$input-height-base} + 2px);
-  height: calc(#{$input-height-base} + 2px);
+    width: calc($input-height-base + 2px);
+    height: calc($input-height-base + 2px);
 }
 .input-lg + .form-control-feedback {
-  width: calc(#{$input-height-large} + 2px);
-  height: calc(#{$input-height-large} + 2px);
+    width: calc($input-height-large + 2px);
+    height: calc($input-height-large + 2px);
 }
 .input-sm + .form-control-feedback {
-  width: calc(#{$input-height-small} + 2px);
-  height: calc(#{$input-height-small}  + 2px);
+    width: calc($input-height-small + 2px);
+    height: calc($input-height-small + 2px);
 }
 
 .form-control {
-    height: calc(#{$input-height-base} + 2px);
+    height: calc($input-height-base + 2px);
 }
 
 .form-horizontal {
-    .radio, .checkbox, .radio-inline, .checkbox-inline {
-        padding: $padding-base-vertical;
-        border: 1px solid transparent;
-    }
-    .radio, .checkbox {
-        min-height: calc(($line-height-computed + $padding-base-vertical) + 1px);
-    }
-    .form-control-static {
+.radio,
+.checkbox,
+.radio-inline,
+.checkbox-inline {
+    padding: $padding-base-vertical;
+    border: 1px solid transparent;
+}
+.radio,
+.checkbox {
+    min-height: calc(($line-height-computed + $padding-base-vertical) + 1px);
+}
+.form-control-static {
+    padding-top: $padding-base-vertical;
+    border-top: 1px solid transparent;
+    padding-bottom: $padding-base-vertical;
+    border-bottom: 1px solid transparent;
+}
+
+@media (min-width: #{$screen-sm-min}) {
+    .control-label {
         padding-top: $padding-base-vertical;
         border-top: 1px solid transparent;
-        padding-bottom: $padding-base-vertical;
-        border-bottom: 1px solid transparent;
     }
-
-    @media (min-width: $screen-sm-min) {
-        .control-label {
-            padding-top: $padding-base-vertical;
-            border-top: 1px solid transparent;
-        }
-    }
-}
+}}
 
 // Optional plone settings and adjustments
 // ---------------------------------------

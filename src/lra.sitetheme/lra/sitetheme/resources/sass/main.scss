@@ -3,9 +3,10 @@
 // ----------------------------------------------
 
 
+@import 'base/variables';
+
 @import 'vendors/bootstrap';
 
-//@import 'base/variables';
 @import 'base/animation';
 @import 'base/scaffolding';
 @import 'base/brand';
@@ -20,4 +21,5 @@
 
 @import 'pages/signin';
 
+@import 'themes/theme';
 @import 'themes/styleguide';

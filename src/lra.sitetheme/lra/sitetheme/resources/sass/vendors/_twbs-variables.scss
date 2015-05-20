@@ -53,3 +53,32 @@ $input-height-base: ($line-height-computed + ($padding-base-vertical * 2));
 $input-height-large: (($font-size-large * $line-height-large) + ($padding-large-vertical * 2));
 //** Small `.form-control` height
 $input-height-small: (($font-size-small * $line-height-small) + ($padding-small-vertical * 2));
+
+
+//== Bootstrap variable overides
+//
+//## Reset and adjust existing variables
+
+$brand-primary:                 $app-primary;
+$link-color:                    $app-blue-secondary;
+
+$font-family-base:              'Fira Sans', $font-family-sans-serif;
+
+//** Font awesome font path
+$fa-font-path:                  "../assets/fonts";
+
+
+//== Compontent border reset
+//
+//## Bootstrap border radius reset
+$border-radius-base:        0px;
+$border-radius-large:       0px;
+$border-radius-small:       0px;
+
+//** Navbar toggle
+$navbar-default-toggle-hover-bg:           #ddd;
+$navbar-default-toggle-icon-bar-bg:        #888;
+$navbar-default-toggle-border-color:       #ddd;
+
+//** Button primary uses default link color not brand primary
+$btn-primary-bg:                 $app-secondary;

@@ -527,13 +527,6 @@ module.exports = function (grunt) {
                 tasks: ['concat', 'uglify'],
                 options: { livereload: true }
             },
-            styles: {
-                files: ['<%= config.dev %>/css/{,*/}*.css'],
-                tasks: [
-                    'newer:copy:styles',
-                    'autoprefixer'
-                ]
-            },
             html: {
                 files: ['*.html'],
                 tasks: ['jekyll:theme', 'replace:server', 'htmlmin']
@@ -548,14 +541,9 @@ module.exports = function (grunt) {
                 ],
                 options: { spawn: false }
             },
-            gruntfile: { files: ['Gruntfile.js'] },
-            livereload: {
-                options: { livereload: '<%= connect.options.livereload %>' },
-                files: [
-                    '<%= config.dev %>/{,*/}*.html',
-                    '<%= config.dev %>/{,*/}*.css',
-                    '<%= config.dev %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-                ]
+            sass: {
+              files: ['sass/{,*/}*.{scss,sass}'],
+              tasks: ['sass:server', 'autoprefixer', 'csscomb', 'cssmin']
             }
         },
         connect: {
@@ -582,11 +570,9 @@ module.exports = function (grunt) {
             }
         },
         concurrent: {
-            cj: [
-                'less',
-                'copy',
-                'concat',
-                'uglify',
+            server: [
+                'sass:server',
+                'concat'
             ],
             dev: [
                 'less-compile',
