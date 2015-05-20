@@ -10,12 +10,10 @@
   <body>
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
     {% include components/toolbar.html %}
-    <!-- App master nav -->
-    {% include components/brandbar.html %}
-    {% include components/navbar.html %}
-    <div class="app-content" role="main">
+    {% include layout/header.html %}
+    <main class="app-main" role="main">
           {{ content }}
-    </div>
+    </main>
 
     {% include layout/footer.html %}
     {% include base/javascript.html %}

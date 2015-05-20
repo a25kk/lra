@@ -543,7 +543,8 @@ module.exports = function (grunt) {
             },
             sass: {
               files: ['sass/{,*/}*.{scss,sass}'],
-              tasks: ['sass:server', 'autoprefixer', 'csscomb', 'cssmin']
+              tasks: ['sass:server', 'autoprefixer', 'csscomb', 'cssmin'],
+              options: { livereload: true }
             }
         },
         connect: {

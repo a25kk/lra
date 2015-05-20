@@ -1,0 +1,18 @@
+//
+// Header
+// ------------------------------------------
+
+
+.app-header {
+  padding-top: ceil(($line-height-computed * 1.5));
+  @media (min-width: $grid-float-breakpoint-max) {
+    padding-left: $line-height-computed;
+    padding-bottom: ceil(($line-height-computed * 1.5));
+  }
+}
+
+.app-header-content {
+  @media (min-width: $grid-float-breakpoint) {
+    @extend .container;
+  }
+}
