@@ -1186,7 +1186,9 @@ pre code
     }
 }
 
-.container-fluid
+.container-fluid,
+.app-main,
+.app-content-centerstage
 {
     margin-right: auto;
     margin-left: auto;
@@ -1194,13 +1196,19 @@ pre code
     padding-left: 15px;
 }
 .container-fluid:before,
-.container-fluid:after
+.app-main:before,
+.app-content-centerstage:before,
+.container-fluid:after,
+.app-main:after,
+.app-content-centerstage:after
 {
     display: table; 
 
     content: ' ';
 }
-.container-fluid:after
+.container-fluid:after,
+.app-main:after,
+.app-content-centerstage:after
 {
     clear: both;
 }
@@ -3808,7 +3816,8 @@ input[type='button'].btn-block
 }
 
 .center-block,
-.app-signin-wrapper
+.app-signin-wrapper,
+.app-content-centerstage
 {
     display: block;
 
@@ -5312,6 +5321,28 @@ fieldset[disabled] .app-searchbox-btn.active
     opacity: 1;
 }
 
+.app-main-fullscreen
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.app-content-centerstage
+{
+    max-width: 480px;
+}
+
 .app-page
 {
     padding: 1.428571429rem 0;
@@ -5426,7 +5457,7 @@ fieldset[disabled] .app-searchbox-btn.active
 .sg-sidebar-nav
 {
     margin-bottom: 1rem;
-    padding-left: 10px 15px/2;
+    padding-left: 1rem;
 
     list-style: none;
 }
@@ -5675,5 +5706,110 @@ fieldset[disabled] .app-searchbox-btn.active
     display: inline-block;
 
     padding-right: 45px;
+}
+
+/*
+ * Color swatches
+ *
+ * Color swatches and associated values for our grayscale and brand colors.
+ */
+.color-swatches
+{
+    overflow: hidden;
+
+    margin: 0 -5px;
+    /* clearfix */
+}
+
+.color-swatch
+{
+    float: left;
+
+    width: 60px;
+    height: 60px;
+    margin: 0 5px;
+
+    border-radius: 3px;
+}
+
+@media (min-width: 768px)
+{
+    .color-swatch
+    {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Framework colors */
+.color-swatches .gray-darker
+{
+    background-color: #222;
+}
+
+.color-swatches .gray-dark
+{
+    background-color: #333;
+}
+
+.color-swatches .gray
+{
+    background-color: #555;
+}
+
+.color-swatches .gray-light
+{
+    background-color: #999;
+}
+
+.color-swatches .gray-lighter
+{
+    background-color: #eee;
+}
+
+.color-swatches .brand-primary
+{
+    background-color: #337ab7;
+}
+
+.color-swatches .brand-success
+{
+    background-color: #5cb85c;
+}
+
+.color-swatches .brand-warning
+{
+    background-color: #f0ad4e;
+}
+
+.color-swatches .brand-danger
+{
+    background-color: #d9534f;
+}
+
+.color-swatches .brand-info
+{
+    background-color: #5bc0de;
+}
+
+/* Docs colors */
+.color-swatches .bs-purple
+{
+    background-color: #563d7c;
+}
+
+.color-swatches .bs-purple-light
+{
+    background-color: #c7bfd3;
+}
+
+.color-swatches .bs-purple-lighter
+{
+    background-color: #e5e1ea;
+}
+
+.color-swatches .bs-gray
+{
+    background-color: #f9f9f9;
 }
 /*# sourceMappingURL=lra.css.map */

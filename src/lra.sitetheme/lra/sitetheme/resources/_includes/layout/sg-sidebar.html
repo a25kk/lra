@@ -5,11 +5,13 @@
   </div>
   <div class="sg-sidebar-content">
   <ul class="sg-sidebar-nav">
+    <li{% if page.slug == "styleguide" %} class="active"{% endif %}>
+      <a href="{{ page.base_url }}styleguide">Startseite</a>
+      {% if page.slug == "styleguide" %}<span class="sr-only">(current)</span>{% endif %}
+    </li>
+  </ul>
+  <ul class="sg-sidebar-nav">
       <li class="sg-sidebar-navitem sg-sidebar-nav-header">Basis</li>
-      <li{% if page.slug == "styleguide" %} class="active"{% endif %}>
-        <a href="{{ page.base_url }}styleguide">Übersicht</a>
-        <span class="sr-only">(current)</span>
-      </li>
       <li{% if page.slug == "sg-brand" %} class="active"{% endif %}>
         <a href="{{ page.base_url }}sg-brand">Marke</a>
       </li>
@@ -19,6 +21,9 @@
       <li{% if page.slug == "sg-typography" %} class="active"{% endif %}>
         <a href="{{ page.base_url }}sg-typography">Typographie</a>
       </li>
+      <li{% if page.slug == "sg-icons" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-icons">Icons</a>
+      </li>
     </ul>
     <ul class="sg-sidebar-nav">
       <li class="sg-sidebar-navitem sg-sidebar-nav-header">Layout</li>
@@ -26,11 +31,9 @@
       <li{% if page.slug == "sg-sitestructure" %} class="active"{% endif %}>
         <a href="{{ page.base_url }}sg-sitestructure">Seitenstruktur</a>
       </li>
-
       <li{% if page.slug == "sg-site" %} class="active"{% endif %}>
         <a href="{{ page.base_url }}sg-site">Seite</a>
       </li>
-
     </ul>
     <ul class="sg-sidebar-nav">
       <li class="sg-sidebar-navitem sg-sidebar-nav-header">Komponenten</li>

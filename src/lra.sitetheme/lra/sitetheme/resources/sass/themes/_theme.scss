@@ -2,8 +2,26 @@
 // Main site theme
 // --------------------------------------
 
+
+//== Main content area
+//
+//## Provides optional fullscreen layouts
+.app-main {
+  @extend .container-fluid;
+  &-fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .app-content {
   @extend .container;
+  &-centerstage {
+    @extend .container-fluid;
+    @extend .center-block;
+    max-width: 480px;
+  }
 }
 
 
