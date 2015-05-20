@@ -56,14 +56,35 @@
 //
 //## Unordered list for component navigation
 .sg-sidebar-nav {
-  @extend .nav;
   margin-bottom: 1rem;
-  > li > a {
-    color: $gray;
-    &.active {
-      border-right: 1px solid $gray;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  @include clearfix;
+  > li {
+    position: relative;
+    display: block;
+    padding-left: $nav-link-padding;
+    > a {
+      position: relative;
+      display: block;
+      // padding-left: $nav-link-padding;
+      color: $gray;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
+      }
+      &.active {
+        border-right: 1px solid $gray;
+      }
     }
   }
+}
+
+//** Navlist header (first child li)
+.sg-sidebar-nav-header {
+  // padding-left: $nav-link-padding;
+  font-weight: 400;
 }
 
 .sg-sidebar-nav > li,

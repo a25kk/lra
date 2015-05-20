@@ -5428,14 +5428,52 @@ fieldset[disabled] .app-searchbox-btn.active
 .sg-sidebar-nav
 {
     margin-bottom: 1rem;
+    padding-left: 0;
+
+    list-style: none;
+}
+.sg-sidebar-nav:before,
+.sg-sidebar-nav:after
+{
+    display: table; 
+
+    content: ' ';
+}
+.sg-sidebar-nav:after
+{
+    clear: both;
+}
+.sg-sidebar-nav > li
+{
+    position: relative;
+
+    display: block;
+
+    padding-left: 10px 15px;
 }
 .sg-sidebar-nav > li > a
 {
+    position: relative;
+
+    display: block;
+
     color: #555;
+}
+.sg-sidebar-nav > li > a:hover,
+.sg-sidebar-nav > li > a:focus
+{
+    text-decoration: none;
+
+    background-color: #eee;
 }
 .sg-sidebar-nav > li > a.active
 {
     border-right: 1px solid #555;
+}
+
+.sg-sidebar-nav-header
+{
+    font-weight: 400;
 }
 
 .sg-sidebar-nav > li,

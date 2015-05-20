@@ -5,6 +5,7 @@
   </div>
   <div class="sg-sidebar-content">
   <ul class="sg-sidebar-nav">
+      <li class="sg-sidebar-navitem sg-sidebar-nav-header">Basis</li>
       <li{% if page.slug == "styleguide" %} class="active"{% endif %}>
         <a href="{{ page.base_url }}styleguide">Übersicht</a>
         <span class="sr-only">(current)</span>
@@ -20,7 +21,7 @@
       </li>
     </ul>
     <ul class="sg-sidebar-nav">
-      <li class="sg-sidebar-navitem">Layout</li>
+      <li class="sg-sidebar-navitem sg-sidebar-nav-header">Layout</li>
 
       <li{% if page.slug == "sg-sitestructure" %} class="active"{% endif %}>
         <a href="{{ page.base_url }}sg-sitestructure">Seitenstruktur</a>
@@ -32,7 +33,7 @@
 
     </ul>
     <ul class="sg-sidebar-nav">
-      <li class="sg-sidebar-navitem">Komponenten</li>
+      <li class="sg-sidebar-navitem sg-sidebar-nav-header">Komponenten</li>
 
       <li{% if page.slug == "sg-buttons" %} class="active"{% endif %}>
         <a href="{{ page.base_url }}sg-buttons">Buttons</a>
