@@ -1,0 +1,48 @@
+//
+// Application settings and variables
+// -------------------------------------------------
+
+
+//== Colors
+//
+//## Brand colors used across the project
+
+$app-blue-primary:            rgba(5, 81, 125, 1);
+$app-blue-secondary:          rgba(55, 116, 151, 1);
+$app-brown:                   rgba(159, 123, 15, 1);
+$app-green:                   rgba(9, 130, 39, 1);
+$app-red:                     rgba(144, 7, 7, 1);
+$app-violet:                  rgba(71, 19, 123, 1);
+$app-purple:                  rgba(126, 4, 167, 1);
+
+// Gray baseline
+$app-gray:                      rgba(237, 234, 234, 1);
+
+// Brand primary (blue)
+$app-primary:                   rgba(5, 81, 125, 1);
+$app-secondary:                 rgba(55, 116, 151, 1);
+// Brand danger
+$app-danger:                    $app-red;
+
+
+//== Brand and Section specific variables
+//
+//## Used in mixin and modifier classes
+
+//** Brand primary color schema used as default
+$app-default:                 $app-blue-primary;
+
+//** Section: Administrative district office (abbr: DO)
+$app-do:                      $app-brown;
+//** Section: County
+$app-county:                  $app-red;
+//** Section: County concil (abbr: CC)
+$app-cc:                      $app-green;
+//** Section: News
+$app-news:                    $app-violet;
+//** Section: Service
+$app-service:                  $app-purple;
+
+
+//** Font awesome font path
+$fa-font-path:                  "../assets/fonts";

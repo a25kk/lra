@@ -4,15 +4,24 @@
 
 
 .app-header {
-  padding-top: ceil(($line-height-computed * 1.5));
+  padding-top: 3rem;
   @media (min-width: $grid-float-breakpoint-max) {
     padding-left: $line-height-computed;
-    padding-bottom: ceil(($line-height-computed * 1.5));
+    padding-bottom: 1rem;
   }
 }
 
 .app-header-content {
   @media (min-width: $grid-float-breakpoint) {
     @extend .container;
+    display: flex;
   }
+}
+
+.app-header-content + .app-header-content {
+  margin-top: 1.5rem;
+}
+
+.app-header-panel {
+  flex: 0 0 50%
 }
