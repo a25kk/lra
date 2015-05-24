@@ -35,6 +35,40 @@
   border-right: 1px solid $gray-lighter;
 }
 
+//Styleguide color swatches
+.sg-card-uid-colors {
+  text-align: center;
+}
+
+.sg-uid-color {
+  padding: 1rem;
+  color: #fff;
+}
+
+.sg-ui-color-primary {
+  background-color: $app-default;
+}
+
+.sg-ui-color-secondary {
+  background-color: $app-secondary;
+}
+
+.sg-ui-color-current {
+  background-color: $app-current;
+}
+
+.sg-ui-color-administration {
+  background-color: $app-administration;
+}
+
+.sg-ui-color-economy {
+  background-color: $app-economy;
+}
+
+.sg-ui-color-county {
+  background-color: $app-county;
+}
+
 //** Header component
 .sg-sidebar-header {
   padding: 0.5rem 1rem;
@@ -105,23 +139,7 @@
   // border: 1px solid $gray-lighter;
 }
 
-//** Styleguide color swatches
-.sg-card-uid-colors {
-  text-align: center;
-}
 
-.sg-uid-color {
-  padding: 1rem;
-  color: #fff;
-}
-
-.sg-ui-color-primary {
-  background-color: $app-default;
-}
-
-.sg-ui-color-secondary {
-  background-color: $app-secondary;
-}
 
 
 //== Styleguide sections

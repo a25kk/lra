@@ -29,9 +29,26 @@ $app-danger:                    $app-red;
 //
 //## Used in mixin and modifier classes
 
+
+// Section Aktuelles
+$app-current:					rgba(204,187,164,1);
+
+// Section Verwaltung & Politik
+$app-administration:			rgba(199,180,80,1);
+
+// Section Tourismus & Wirtschaft
+$app-economy:					rgba(88,140,115,1);
+
+// Section (Leben im) Landkreis
+$app-county:					rgba(217,100,89,1);
+
+
+
+
+
+
 //** Brand primary color schema used as default
 $app-default:                 $app-blue-primary;
-
 //** Section: Administrative district office (abbr: DO)
 $app-do:                      $app-brown;
 //** Section: County

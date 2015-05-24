@@ -10121,6 +10121,48 @@ fieldset[disabled] .app-searchbox-btn.active
     border-right: 1px solid #eee;
 }
 
+.sg-card-uid-colors
+{
+    text-align: center;
+}
+
+.sg-uid-color
+{
+    padding: 1rem;
+
+    color: #fff;
+}
+
+.sg-ui-color-primary
+{
+    background-color: #05517d;
+}
+
+.sg-ui-color-secondary
+{
+    background-color: #377497;
+}
+
+.sg-ui-color-current
+{
+    background-color: #ccbba4;
+}
+
+.sg-ui-color-administration
+{
+    background-color: #c7b450;
+}
+
+.sg-ui-color-economy
+{
+    background-color: #588c73;
+}
+
+.sg-ui-color-county
+{
+    background-color: #900707;
+}
+
 .sg-sidebar-header
 {
     margin-bottom: 1rem; 
@@ -10201,28 +10243,6 @@ fieldset[disabled] .app-searchbox-btn.active
 .sg-sidebar-navitem.active
 {
     border-right: 5px solid #555;
-}
-
-.sg-card-uid-colors
-{
-    text-align: center;
-}
-
-.sg-uid-color
-{
-    padding: 1rem;
-
-    color: #fff;
-}
-
-.sg-ui-color-primary
-{
-    background-color: #05517d;
-}
-
-.sg-ui-color-secondary
-{
-    background-color: #377497;
 }
 
 .sg-section
