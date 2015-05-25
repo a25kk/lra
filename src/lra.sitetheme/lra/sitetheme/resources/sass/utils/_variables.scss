@@ -29,6 +29,21 @@ $app-danger:                    $app-red;
 //
 //## Used in mixin and modifier classes
 
+//** Primary brand color
+$app-primary-base:              rgba(5, 81, 125, 1) !default;
+$app-primary-darker:            darken($app-primary-base, 15%)  !default;
+$app-primary-dark:              darken($app-primary-base, 7.5%) !default;
+$app-primary:                   $app-primary-base               !default; // #05517D
+$app-primary-light:             lighten($app-primary-base, 7.5%) !default;
+$app-primary-lighter:           lighten($app-primary-base, 15%) !default;
+
+//** Secondary brand color
+$app-secondary-base:              rgba(55, 116, 151, 1) !default;
+$app-secondary-darker:            darken($app-secondary-base, 15%)  !default;
+$app-secondary-dark:              darken($app-secondary-base, 7.5%) !default;
+$app-secondary:                   $app-secondary-base               !default; // #377497
+$app-secondary-light:             lighten($app-secondary-base, 7.5%) !default;
+$app-secondary-lighter:           lighten($app-secondary-base, 15%) !default;
 
 // Section Aktuelles
 $app-current:					rgba(204,187,164,1);

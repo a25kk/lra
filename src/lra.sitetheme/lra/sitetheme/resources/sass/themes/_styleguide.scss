@@ -301,7 +301,9 @@
   width: 60px;
   height: 60px;
   margin: 0 5px;
-  border-radius: 3px;
+  text-align: center;
+  color: #fff;
+  font-size: $font-size-small;
 }
 
 @media (min-width: 768px) {
@@ -357,3 +359,37 @@
   background-color: #f9f9f9;
 }
 
+
+//** Primary brand color scheme
+.color-swatches .app-primary-darker {
+  background-color: $app-primary-darker;
+}
+.color-swatches .app-primary-dark {
+  background-color: $app-primary-dark;
+}
+.color-swatches .app-primary {
+  background-color: $app-primary;
+}
+.color-swatches .app-primary-light {
+  background-color: $app-primary-light;
+}
+.color-swatches .app-primary-lighter {
+  background-color: $app-primary-lighter;
+}
+
+//** Secondary brand color scheme
+.color-swatches .app-secondary-darker {
+  background-color: $app-secondary-darker;
+}
+.color-swatches .app-secondary-dark {
+  background-color: $app-secondary-dark;
+}
+.color-swatches .app-secondary {
+  background-color: $app-secondary;
+}
+.color-swatches .app-secondary-light {
+  background-color: $app-secondary-light;
+}
+.color-swatches .app-secondary-lighter {
+  background-color: $app-secondary-lighter;
+}

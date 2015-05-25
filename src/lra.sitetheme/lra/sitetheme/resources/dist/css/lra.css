@@ -8838,6 +8838,11 @@ div.riform .label
     color: #05517d;
 }
 
+.app-primary
+{
+    background-color: #05517d;
+}
+
 .app-default-bg
 {
     background-color: #05517d;
@@ -10500,13 +10505,17 @@ fieldset[disabled] .app-searchbox-btn.active
 
 .color-swatch
 {
+    font-size: .85rem; 
+
     float: left;
 
     width: 60px;
     height: 60px;
     margin: 0 5px;
 
-    border-radius: 3px;
+    text-align: center;
+
+    color: #fff;
 }
 
 @media (min-width: 768px)
@@ -10588,5 +10597,55 @@ fieldset[disabled] .app-searchbox-btn.active
 .color-swatches .bs-gray
 {
     background-color: #f9f9f9;
+}
+
+.color-swatches .app-primary-darker
+{
+    background-color: #022133;
+}
+
+.color-swatches .app-primary-dark
+{
+    background-color: #043958;
+}
+
+.color-swatches .app-primary
+{
+    background-color: #05517d;
+}
+
+.color-swatches .app-primary-light
+{
+    background-color: #0669a2;
+}
+
+.color-swatches .app-primary-lighter
+{
+    background-color: #0881c7;
+}
+
+.color-swatches .app-secondary-darker
+{
+    background-color: #23495f;
+}
+
+.color-swatches .app-secondary-dark
+{
+    background-color: #2d5e7b;
+}
+
+.color-swatches .app-secondary
+{
+    background-color: #377497;
+}
+
+.color-swatches .app-secondary-light
+{
+    background-color: #418ab3;
+}
+
+.color-swatches .app-secondary-lighter
+{
+    background-color: #589cc2;
 }
 /*# sourceMappingURL=lra.css.map */

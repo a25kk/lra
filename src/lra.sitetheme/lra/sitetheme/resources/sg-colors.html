@@ -16,13 +16,15 @@ base_url: "../../"
       </p>
   </div>
   <div class="app-page-body">
+    <div class="sg-section">
     <h2>Standardfarben</h2>
 
     <h3>Grauwerte</h3>
     <p>Graustufen werden im Hinblick auf die Barrierefreiheit mit möglichst
       hohem Kontrast auf Basis eines 100%igen Schwarzwertes automatisch generiert.
       Da bei der Darstellung auf Monitoren ein reines Schwarz als zu kontrastreich
-      angesehen wird.
+      angesehen wird, ist ein dunkler Grauwert <code>$gray-dark</code> als Standard für
+      Fliesstext in Verwendung.
     </p>
     <div class="sg-example">
     <div class="color-swatches">
@@ -41,7 +43,7 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 {% endhighlight %}
-
+    </div>
     <h3>Markenfarben</h3>
     <div class="app-cards app-card-gutter">
 
@@ -62,7 +64,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
       <div class="app-card sg-card sg-card-ui-colors">
         <div class="app-card-header sg-card-header">
           <div class="sg-uid-color sg-ui-color-secondary">
-            #05517D
+            #377497
           </div>
         </div>
         <div class="app-card-content">
@@ -71,6 +73,46 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
         </div>
       </div>
     </div>
+
+    <h4>Primäre Farbe</h4>
+    <p>Hauptfarbe für Überschriften und den Markennamen.</p>
+    <div class="sg-example">
+    <div class="color-swatches">
+      <div class="color-swatch app-primary-darker"></div>
+      <div class="color-swatch app-primary-dark"></div>
+      <div class="color-swatch app-primary">#05517D</div>
+      <div class="color-swatch app-primary-light"></div>
+      <div class="color-swatch app-primary-lighter"></div>
+    </div>
+  </div>
+{% highlight scss %}
+$app-primary-base:              rgba(5, 81, 125, 1) !default;
+$app-primary-darker:            darken($app-primary-base, 20%)  !default;
+$app-primary-dark:              darken($app-primary-base, 15%)  !default;
+$app-primary:                   $app-primary-base               !default; // #05517D
+$app-primary-light:             lighten($app-primary-base, 15%) !default;
+$app-primary-lighter:           lighten($app-primary-base, 20%) !default;
+{% endhighlight %}
+
+    <h4>Sekundäre Farbe</h4>
+    <p>Hauptfarbe für Unterüberschriften und Links</p>
+    <div class="sg-example">
+    <div class="color-swatches">
+      <div class="color-swatch app-secondary-darker"></div>
+      <div class="color-swatch app-secondary-dark"></div>
+      <div class="color-swatch app-secondary">#377497</div>
+      <div class="color-swatch app-secondary-light"></div>
+      <div class="color-swatch app-secondary-lighter"></div>
+    </div>
+  </div>
+{% highlight scss %}
+$app-secondary-base:              rgba(55, 116, 151, 1) !default;
+$app-secondary-darker:            darken($app-secondary-base, 15%)    !default;
+$app-secondary-dark:              darken($app-secondary-base, 7.5%)   !default;
+$app-secondary:                   $app-secondary-base                 !default; // #377497
+$app-secondary-light:             lighten($app-secondary-base, 7.5%)  !default;
+$app-secondary-lighter:           lighten($app-secondary-base, 15%)   !default;
+{% endhighlight %}
 
     <h3>Sectionen (Rubriken)</h3>
 
