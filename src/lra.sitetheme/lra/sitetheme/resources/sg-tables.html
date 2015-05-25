@@ -12,11 +12,89 @@ base_url: "../../"
           </h1>
       </div>
       <p class="app-page-abstract">
-          Verwendung der CI/Marke
+          Verwendung der Tabellen
       </p>
   </div>
   <div class="app-page-body">
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
+    <h3>Beispiele</h3>
+      <h4>Eine Tabelle ohne Rahmen</h4>
+        <div class="sg-example">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Benutzername</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Twain</td>
+                <td>@mtwain</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Black</td>
+                <td>@jblack</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Leo</td>
+                <td>Stein</td>
+                <td>@lstein</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+{% highlight scss %}
+<table class="table">
+  ...
+</table>
+{% endhighlight %}
+        <h4>Eine Tabelle mit dünnen Rahmen</h4>
+        <div class="sg-example">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Benutzername</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Twain</td>
+                <td>@mtwain</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Black</td>
+                <td>@jblack</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Leo</td>
+                <td>Stein</td>
+                <td>@lstein</td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- /example -->
+{% highlight scss %}
+<table class="table table-bordered">
+  ...
+</table>
+{% endhighlight %}
 
   </div>
 </main>
