@@ -10,7 +10,7 @@
 .app-footer-content {
   @extend .container;
   font-weight: 400;
-  > a {
+  a {
     text-transform: uppercase;
   }
 }
