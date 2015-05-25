@@ -245,6 +245,12 @@
   float: none;
 }
 
+.sg-example .app-navitem-tab {
+    > span {
+      font-size: 0.5rem;
+    }
+}
+
 
 /*
  * Code snippets

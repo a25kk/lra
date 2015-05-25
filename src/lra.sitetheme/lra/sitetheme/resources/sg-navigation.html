@@ -16,7 +16,59 @@ base_url: "../../"
       </p>
   </div>
   <div class="app-page-body">
+    <p>Responsive Navigation als Navigationsleiste für das Portal. Unterteilt in 6 Farblich markierten Bereiche.
+    Die Leiste klappt in mobilen Ansichten zusammen und ist dann per Klick bedienbar.</p>
 
+  <div class="sg-example">
+    <nav class="app-navbar" id="app-navbar" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle app-navbar-toggle" data-toggle="collapse" data-target=".app-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="app-navbar-brand visible-xs" href="/">Bereiche</a>
+        </div>
+      
+        <div class="collapse navbar-collapse app-navbar-collapse">
+          <ul class="xnav xnavbar-nav app-navbar-nav" id="app-navbar-nav">
+            <li class="app-navitem active">
+              <a class="app-navitem-tab app-navitem-tab-home" href="{{ page.base_url }}">
+                <span>Startseite</span>
+              </a>
+            </li>
+            <li class="app-navitem">
+              <a class="app-navitem-tab app-navitem-tab-aktuelles" href="{{ page.base_url }}aktuelles">
+                <span>Aktuelles</span>
+              </a>
+            </li>
+            <li class="app-navitem">
+              <a class="app-navitem-tab app-navitem-tab-verwaltung-und-politik" href="{{ page.base_url }}verwaltung-und-politik">
+                <span>Verwaltung & Politik</span>
+              </a>
+            </li>
+            <li class="app-navitem">
+              <a class="app-navitem-tab app-navitem-tab-tourismus-und-wirtschaft" href="{{ page.base_url }}tourismus-und-wirtschaft">
+                <span>Tourismus & Wirtschaft</span>
+              </a>
+            </li>
+            <li class="app-navitem">
+              <a class="app-navitem-tab app-navitem-tab-leben-im-landkreis" href="{{ page.base_url }}(leben-im-landkreis">
+                <span>Leben im Landkreis</span>
+              </a>
+            </li>
+            <li class="app-navitem">
+              <a class="app-navitem-tab app-navitem-tab-buergerportal-und-service" href="{{ page.base_url }}buergerportal-und-service">
+                <span>Bürgerportal & Service</span>
+              </a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+  </div>
 
   </div>
 </main>

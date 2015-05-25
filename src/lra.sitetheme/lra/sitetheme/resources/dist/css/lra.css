@@ -8933,6 +8933,7 @@ div.riform .label
 .app-navbar
 {
     border-bottom: 10px solid #05517d;
+    border-radius: 0;
 }
 
 .app-navbar-toggle
@@ -9064,49 +9065,49 @@ div.riform .label
     background-color: #043c5d;
 }
 
-.app-navitem-tab-landratsamt
+.app-navitem-tab-aktuelles
 {
-    background-color: #9f7b0f;
+    background-color: #ccbba4;
 }
-.app-navitem-tab-landratsamt:hover
+.app-navitem-tab-aktuelles:hover
 {
-    background-color: #81640c;
-}
-
-.app-navitem-tab-kreistag
-{
-    background-color: #098227;
-}
-.app-navitem-tab-kreistag:hover
-{
-    background-color: #07631e;
+    background-color: #c0ab8f;
 }
 
-.app-navitem-tab-landkreis
+.app-navitem-tab-verwaltung-und-politik
+{
+    background-color: #c7b450;
+}
+.app-navitem-tab-verwaltung-und-politik:hover
+{
+    background-color: #baa63c;
+}
+
+.app-navitem-tab-tourismus-und-wirtschaft
+{
+    background-color: #588c73;
+}
+.app-navitem-tab-tourismus-und-wirtschaft:hover
+{
+    background-color: #4b7862;
+}
+
+.app-navitem-tab-leben-im-landkreis
 {
     background-color: #900707;
 }
-.app-navitem-tab-landkreis:hover
+.app-navitem-tab-leben-im-landkreis:hover
 {
     background-color: #700505;
 }
 
-.app-navitem-tab-news
+.app-navitem-tab-buergerportal-und-service
 {
-    background-color: #47137b;
+    background-color: #f2ae73;
 }
-.app-navitem-tab-news:hover
+.app-navitem-tab-buergerportal-und-service:hover
 {
-    background-color: #360f5e;
-}
-
-.app-navitem-tab-service
-{
-    background-color: #7e04a7;
-}
-.app-navitem-tab-service:hover
-{
-    background-color: #660387;
+    background-color: #ef9c55;
 }
 
 .app-footer
@@ -10368,6 +10369,11 @@ fieldset[disabled] .app-searchbox-btn.active
 .sg-example > p > .close
 {
     float: none;
+}
+
+.sg-example .app-navitem-tab > span
+{
+    font-size: .5rem;
 }
 
 /*

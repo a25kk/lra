@@ -5,6 +5,7 @@
 .app-navbar {
   @extend .navbar;
   border-bottom: 10px solid $app-primary;
+  border-radius: 0;
 }
 
 // Navbar toggle button visible on small displays
@@ -96,37 +97,37 @@
   }
 }
 
-.app-navitem-tab-landratsamt {
-  background-color: $app-brown;
+.app-navitem-tab-aktuelles {
+  background-color: $app-current;
   &:hover {
-    background-color: darken($app-brown, 6.5%);
+    background-color: darken($app-current, 6.5%);
   }
 }
 
-.app-navitem-tab-kreistag {
-  background-color: $app-green;
+.app-navitem-tab-verwaltung-und-politik {
+  background-color: $app-administration;
   &:hover {
-    background-color: darken($app-green, 6.5%);
+    background-color: darken($app-administration, 6.5%);
   }
 }
 
-.app-navitem-tab-landkreis {
-  background-color: $app-red;
+.app-navitem-tab-tourismus-und-wirtschaft {
+  background-color: $app-economy;
   &:hover {
-    background-color: darken($app-red, 6.5%);
+    background-color: darken($app-economy, 6.5%);
   }
 }
 
-.app-navitem-tab-news {
-  background-color: $app-violet;
+.app-navitem-tab-leben-im-landkreis {
+  background-color: $app-county;
   &:hover {
-    background-color: darken($app-violet, 6.5%);
+    background-color: darken($app-county, 6.5%);
   }
 }
 
-.app-navitem-tab-service {
-  background-color: $app-purple;
+.app-navitem-tab-buergerportal-und-service {
+  background-color: $app-service;
   &:hover {
-    background-color: darken($app-purple, 6.5%);
+    background-color: darken($app-service, 6.5%);
   }
 }
