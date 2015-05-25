@@ -9569,14 +9569,29 @@ div.riform .label
 
 .app-brand
 {
-    margin-right: .625rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    width: 480px;
+    margin-right: .625rem; 
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
 }
 
 .app-brand-img
 {
     display: block;
 
-    width: 36px;
+    width: 140px;
+}
+.app-brand-img-xs
+{
+    width: 64px;
 }
 .app-brand-img-sm
 {
@@ -9592,14 +9607,48 @@ div.riform .label
 }
 .app-brand-panel .app-brand-img
 {
-    display: inline-block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+@media (min-width: 768px)
+{
+    .app-brand-panel .app-brand-img
+    {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 33.3333%;
+            -ms-flex: 0 0 33.3333%;
+                flex: 0 0 33.3333%;
+    }
+}
+
+.app-brandname-logo
+{
+    width: 140px;
+}
+.app-brand-img-xs .app-brandname-logo
+{
+    width: 32px;
+}
+.app-brand-img-sm .app-brandname-logo
+{
+    width: 64px;
+}
+.app-brand-img-md .app-brandname-logo
+{
+    width: 128px;
+}
+.app-brand-img-lg .app-brandname-logo
+{
+    width: 272px;
 }
 
 .app-brandname
 {
-    font-size: 1.5rem;
+    font-size: 1.65rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.25;
 
     display: block;
 
@@ -9609,9 +9658,22 @@ div.riform .label
 }
 .app-brand-panel .app-brandname
 {
-    display: inline-block;
+    margin-top: -1.428571429rem; 
 
-    margin-top: -1.428571429rem;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+@media (min-width: 768px)
+{
+    .app-brand-panel .app-brandname
+    {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 66.6666%;
+            -ms-flex: 0 0 66.6666%;
+                flex: 0 0 66.6666%;
+    }
 }
 
 .app-brand-aside

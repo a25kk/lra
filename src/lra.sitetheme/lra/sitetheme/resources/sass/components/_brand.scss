@@ -5,13 +5,19 @@
 
 // Make a gridrow
 .app-brand {
+  display: flex;
+  align-items: center;
+  width: $screen-xs;
   margin-right: $padding-small-horizontal;
 }
 
 //** Inline svg logo
 .app-brand-img {
   display: block;
-  width: 36px;
+  width: 140px;
+  &-xs {
+    width: 64px;
+  }
   &-sm {
     width: 64px;
   }
@@ -22,7 +28,26 @@
     width: 272.576px
   }
   .app-brand-panel & {
-    display: inline-block;
+    flex: 1;
+     @media (min-width: $grid-float-breakpoint) {
+        flex: 0 0 33.3333%;
+     }
+  }
+}
+
+.app-brandname-logo {
+  width: 140px;
+  .app-brand-img-xs & {
+    width: 32px;
+  }
+  .app-brand-img-sm & {
+    width: 64px;
+  }
+  .app-brand-img-md & {
+    width: 128px;
+  }
+  .app-brand-img-lg & {
+    width: 272px;
   }
 }
 
@@ -34,12 +59,15 @@
 .app-brandname {
   display: block;
   padding: $padding-small-horizontal $padding-small-vertical;
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.25;
   color: $app-primary;
   .app-brand-panel & {
-    display: inline-block;
+    flex: 1;
+     @media (min-width: $grid-float-breakpoint) {
+        flex: 0 0 66.6666%;
+     }
     margin-top: -($line-height-computed);
   }
 }
