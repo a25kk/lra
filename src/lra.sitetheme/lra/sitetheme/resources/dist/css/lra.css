@@ -10081,6 +10081,13 @@ fieldset[disabled] .app-searchbox-btn.active
     border-radius: 50%;
 }
 
+.app-newsletterbar
+{
+    min-height: 120px; 
+
+    border: 1px solid red;
+}
+
 .app-layout-simple
 {
     background: #333;
