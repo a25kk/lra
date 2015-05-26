@@ -26,6 +26,9 @@ base_url: "../../"
       an.
     </p>
     <h3>Standard Hauptnavigation</h3>
+    <p>Im Ausgangzustand sind die Rubriken/Hauptsektionen der Seite über eine
+      Aktionsleiste ereichbar. Diese verwendet das aus mobilen Apps bekannte <em>Hamburger Icon</em>.
+    </p>
     <div class="sg-example">
       <div class="sg-example-container-xs">
         <nav class="app-navbar app-navbar-collapsed" role="navigation">
@@ -47,7 +50,90 @@ base_url: "../../"
         </nav>
       </div>
     </div>
+{% highlight html %}
+<div class="app-navbar-header">
+  <div class="app-navbar-header-title">
+    <a class="app-navbar-brand" href="/">Rubriken</a>
+  </div>
+  <div class="app-navbar-header-toggle">
+    <button type="button" class="app-navbar-toggle">
+      <span class="sr-only">Navigation umschalten</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+</div>
+{% endhighlight %}
+    </div><!-- /sg-section -->
+    <div class="sg-section">
+      <h3>Standard Hauptnavigation ausgeklappt</h3>
+      <p>Die Navigation wird durch einen Klick aufgeklappt und zeigt die Rubriken
+        in einer vertikalen Liste
+      </p>
+
+    <div class="sg-example">
+      <div class="sg-example-container-xs">
+        <nav class="app-navbar app-navbar-open" role="navigation">
+          <div class="xcontainer">
+            <div class="app-navbar-header">
+              <div class="app-navbar-header-title">
+                <a class="app-navbar-brand" href="/">Rubriken</a>
+              </div>
+              <div class="app-navbar-header-toggle">
+                <button type="button" class="app-navbar-toggle show" data-toggle="collapse" data-target=".app-navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+            </div>
+            <div class="navbar-collapse app-navbar-collapse in">
+              <ul class="app-navbar-nav" id="app-navbar-nav">
+                <li class="app-navitem active">
+                  <a class="app-navitem-tab app-navitem-tab-home" href="{{ page.base_url }}">
+                    <span>Startseite</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-aktuelles" href="{{ page.base_url }}aktuelles">
+                    <span>Aktuelles</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-verwaltung-und-politik" href="{{ page.base_url }}verwaltung-und-politik">
+                    <span>Verwaltung &amp; Politik</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-tourismus-und-wirtschaft" href="{{ page.base_url }}tourismus-und-wirtschaft">
+                    <span>Tourismus &amp; Wirtschaft</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-leben-im-landkreis" href="{{ page.base_url }}(leben-im-landkreis">
+                    <span>Leben im Landkreis</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-buergerportal-und-service" href="{{ page.base_url }}buergerportal-und-service">
+                    <span>Bürgerportal &amp; Service</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    </div><!-- /sg-section -->
+    <div class="sg-section">
     <h3>Horizontale Navigationsliste</h3>
+    <p>Auf mittleren und grossen Monitoren wird die Hauptnavigation als horizontale
+      Navigationsleiste dargestellt und ist permanent sichtbar
+    </p>
     <div class="sg-example">
       {% include components/navbar.html %}
     </div>

@@ -8956,12 +8956,6 @@ div.riform .label
     }
 }
 
-.app-navbar-collapsed
-{
-    border-bottom: 0; 
-    background-color: #05517d;
-}
-
 .app-navbar-header
 {
     display: -webkit-box;
@@ -8993,9 +8987,9 @@ div.riform .label
 .app-navbar-header-title
 {
     -webkit-box-flex: 0;
-    -webkit-flex: 0 0 66.6666%;
-        -ms-flex: 0 0 66.6666%;
-            flex: 0 0 66.6666%;
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
 }
 
 .app-navbar-brand
@@ -9019,9 +9013,9 @@ div.riform .label
     background: #377497;
 
     -webkit-box-flex: 0;
-    -webkit-flex: 0 0 33.3333%;
-        -ms-flex: 0 0 33.3333%;
-            flex: 0 0 33.3333%;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
 }
 
 .app-navbar-toggle
@@ -10728,9 +10722,41 @@ fieldset[disabled] .app-searchbox-btn.active
     float: none;
 }
 
-.sg-example .app-navitem-tab > span
+.app-navbar-collapsed,
+.app-navbar-open
 {
-    font-size: .5rem;
+    border-bottom: 0; 
+    background-color: #05517d;
+}
+
+.app-navbar-open .app-navbar-nav
+{
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+
+    border-top: 1px solid #fff;
+}
+
+.app-navbar-open .app-navitem
+{
+    font-size: 1rem; 
+
+    width: 100%;
+}
+.app-navbar-open .app-navitem .app-navitem-tab
+{
+    text-align: left !important;
+}
+.app-navbar-open .app-navitem .app-navitem-tab > span
+{
+    padding: .5rem 0 .5rem .75rem;
+
+    text-align: left; 
+
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
 
 .sg-example-container-xs

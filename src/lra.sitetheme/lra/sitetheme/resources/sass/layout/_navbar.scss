@@ -12,12 +12,6 @@
   }
 }
 
-//** Helper class for responsive display
-.app-navbar-collapsed {
-  background-color: $app-primary;
-  border-bottom: 0;
-}
-
 //== Navbar header
 //
 //## Default display of global site navigation
@@ -32,7 +26,7 @@
 
 //** Navbar toggle text
 .app-navbar-header-title {
-  flex: 0 0 66.6666%;
+  flex: 0 0 75%;
 }
 
 .app-navbar-brand {
@@ -45,7 +39,7 @@
 
 //** Icon bar navigation toggle
 .app-navbar-header-toggle {
-  flex: 0 0 33.3333%;
+  flex: 0 0 25%;
   background: $app-secondary;
   min-height: $navbar-height;
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
