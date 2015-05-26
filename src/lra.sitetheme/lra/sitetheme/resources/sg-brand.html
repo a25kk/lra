@@ -82,7 +82,9 @@ base_url: "../../"
 {% highlight html %}
 <div class="app-brand">
     <a class="app-brand-img app-brand-img-md" href="/">
-        <svg>...</svg>
+        <div class="app-brandname-logo">
+          <svg>...</svg>
+        </div>
     </a>
 </div>
 {% endhighlight %}
@@ -107,19 +109,16 @@ base_url: "../../"
         Wortmarke verwendet.
       </p>
       <div class="sg-example sg-example-brand" data-example-id="brand-name">
-        <div class="app-brand app-brand-panel">
-          <a class="app-brand-img app-brand-img-md" href="/">
-            {% include components/logo.html %}
-          </a>
-          {% include components/brandname.html %}
-        </div>
+        {% include components/brandpanel.html %}
       </div>
 {% highlight html %}
-<div class="app-brand">
-    <a class="app-brand-img app-brand-img-md" href="/">
-        <svg>...Logo...</svg>
-    </a>
-    <span class="app-brandname">Landratsamt<br />Aichach-Friedberg</span>
+<div class="app-brand app-brand-panel">
+  <a class="app-brand-img app-brand-img-md" href="/">
+    <div class="app-brandname-logo">
+      <svg>...</svg>
+    </div>
+  </a>
+  <span class="app-brandname">Landratsamt<br />Aichach-Friedberg</span>
 </div>
 {% endhighlight %}
     </div>
