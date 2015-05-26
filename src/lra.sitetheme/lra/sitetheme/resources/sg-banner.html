@@ -12,11 +12,27 @@ base_url: "../../"
           </h1>
       </div>
       <p class="app-page-abstract">
-          Verwendung der CI/Marke
+        Komponente im Kopf des Seitenlayouts für hervorgehobeneInhalte
       </p>
+
   </div>
   <div class="app-page-body">
-
+    <h2>Banner Layout</h2>
+    <div class="sg-section">
+      <h2>Banner Layout</h2>
+      <div class="sg-example">
+        {% include components/banner.html %}
+      </div>
+{% highlight html %}
+<div class="app-banner">
+  <div class="app-banner-content">
+    <div class="app-banner-item">
+      ...
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+    </div>
 
   </div>
 </main>
