@@ -9,6 +9,9 @@
   align-items: center;
   width: $screen-xs;
   margin-right: $padding-small-horizontal;
+  &-panel-inverse {
+    width: 100%;
+  }
 }
 
 //** Inline svg logo
@@ -32,6 +35,11 @@
      @media (min-width: $grid-float-breakpoint) {
         flex: 0 0 33.3333%;
      }
+  }
+  .app-brand-panel-inverse & {
+    @media (min-width: $grid-float-breakpoint) {
+        flex: 0 0 25%;
+    }
   }
 }
 
@@ -69,6 +77,14 @@
         flex: 0 0 66.6666%;
      }
     margin-top: -($line-height-computed);
+  }
+  .app-brand-panel-inverse & {
+    font-size: 1.25rem;
+    line-height: 1;
+    color: #fff;
+    @media (min-width: $grid-float-breakpoint) {
+        flex: 0 0 75%;
+    }
   }
 }
 

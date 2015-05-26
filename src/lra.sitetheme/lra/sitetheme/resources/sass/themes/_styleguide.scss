@@ -137,12 +137,20 @@
 
 //== Styleguide card subclasses
 //
-//## Extend the base classes provided by cards.less to
-//## provide stylguide specific subcards
+//## Extend the base classes provided by components/cards.scss to
+//## provide styleguide specific subcards
+.sg-cards {
+  display: flex;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
 .sg-card {
-  // border: 1px solid $gray-lighter;
+  flex: 0 0 50%;
 }
 
+.sg-card-header {
+    background: transparent;
+}
 
 
 

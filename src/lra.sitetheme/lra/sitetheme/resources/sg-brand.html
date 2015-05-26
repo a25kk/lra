@@ -12,7 +12,7 @@ base_url: "../../"
           </h1>
       </div>
       <p class="app-page-abstract">
-          Für die responsive und adaptive Verwendung der Marke, wird diese
+          Für die responsive und adaptive Verwendung der Marke wird diese
           in Wortmarke und Bildmarke (Logo) aufgeteilt.
       </p>
   </div>
@@ -21,10 +21,10 @@ base_url: "../../"
       <h2>Bildmarke (Logo)</h2>
       <p>Das Logo wird ausschließlich im SVG Format verwendet. Um
         die automatische Skalierung von SVGs für das adaptive Verhalten bei
-        unterschiedlichen Bildschirmgrössen und -auflösungen zu nutzen, ist das
+        unterschiedlichen Bildschirmgrößen und -auflösungen zu nutzen, ist das
         Logo im Quelltext eingebunden und erfordert ein Rahmenelement
         <code>.app-brand-img</code>, das die maximale
-        Grösse vorgibt.
+        Größe vorgibt.
       </p>
 
       <div class="sg-example sg-example-brand" data-example-id="brand-img">
@@ -82,7 +82,9 @@ base_url: "../../"
 {% highlight html %}
 <div class="app-brand">
     <a class="app-brand-img app-brand-img-md" href="/">
-        <svg>...</svg>
+        <div class="app-brandname-logo">
+          <svg>...</svg>
+        </div>
     </a>
 </div>
 {% endhighlight %}
@@ -107,19 +109,16 @@ base_url: "../../"
         Wortmarke verwendet.
       </p>
       <div class="sg-example sg-example-brand" data-example-id="brand-name">
-        <div class="app-brand app-brand-panel">
-          <a class="app-brand-img app-brand-img-md" href="/">
-            {% include components/logo.html %}
-          </a>
-          {% include components/brandname.html %}
-        </div>
+        {% include components/brandpanel.html %}
       </div>
 {% highlight html %}
-<div class="app-brand">
-    <a class="app-brand-img app-brand-img-md" href="/">
-        <svg>...Logo...</svg>
-    </a>
-    <span class="app-brandname">Landratsamt<br />Aichach-Friedberg</span>
+<div class="app-brand app-brand-panel">
+  <a class="app-brand-img app-brand-img-md" href="/">
+    <div class="app-brandname-logo">
+      <svg>...</svg>
+    </div>
+  </a>
+  <span class="app-brandname">Landratsamt<br />Aichach-Friedberg</span>
 </div>
 {% endhighlight %}
     </div>

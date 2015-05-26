@@ -17,9 +17,15 @@
   color: $gray-lighter;
 }
 
-//** Card header
+//== Card layout
+//
+//## Reflow card contents based on viewport size
 .app-card-header {
-  padding: $padding-small-vertical $padding-small-horizontal;
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  min-height: 8rem;
+  padding: 1rem $padding-small-horizontal;
   background: $app-secondary;
 }
 
@@ -57,9 +63,24 @@
 
 //== Card title
 //
-//## Title is used inside the card-header
+//## Title is used inside the card-main container
 .app-card-title {
-  @extend .h4;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+//** Set card content specific styles
+.app-card-content {
+  padding-top: 1rem;
+  font-size: 1rem;
+  address {
+    margin-bottom: 0.75rem;
+  }
+  a {
+    font-weight: 400;
+    text-decoration: underline;
+    color: #fff;
+  }
 }
 
 
