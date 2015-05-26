@@ -8066,6 +8066,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus
 }
 
 .center-block,
+.app-card-placeholder-sign,
 .app-signin-wrapper,
 .app-content-centerstage
 {
@@ -9938,6 +9939,8 @@ fieldset[disabled] .app-searchbox-btn.active
 
 .app-card
 {
+    color: #eee; 
+
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
@@ -9947,11 +9950,15 @@ fieldset[disabled] .app-searchbox-btn.active
 .app-card-header
 {
     padding: .3125rem .625rem;
+
+    background: #377497;
 }
 
-.app-card-content
+.app-card-main
 {
     padding: .3125rem .625rem;
+
+    background: #05517d;
 }
 
 .app-card-footer
@@ -9975,6 +9982,35 @@ fieldset[disabled] .app-searchbox-btn.active
     margin-left: 0;
 
     border: 0;
+}
+
+.app-card-placeholder
+{
+    margin: .5rem auto;
+    padding: 1rem;
+
+    text-align: center;
+}
+@media (min-width: 768px)
+{
+    .app-card-placeholder
+    {
+        width: 66.66%; 
+        padding: 2rem 3rem;
+    }
+}
+
+.app-card-placeholder-sign
+{
+    font-size: 2rem; 
+
+    width: 4rem;
+    height: 4rem;
+    padding-top: .5rem;
+
+    color: #eee;
+    border: 1px solid #eee;
+    border-radius: 50%;
 }
 
 .app-layout-simple
