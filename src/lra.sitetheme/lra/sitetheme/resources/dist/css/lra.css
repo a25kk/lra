@@ -4077,6 +4077,7 @@ pre code
 .container,
 .app-header-content,
 .app-footer-content,
+.app-banner,
 .app-content
 {
     margin-right: auto;
@@ -4087,10 +4088,12 @@ pre code
 .container:before,
 .app-header-content:before,
 .app-footer-content:before,
+.app-banner:before,
 .app-content:before,
 .container:after,
 .app-header-content:after,
 .app-footer-content:after,
+.app-banner:after,
 .app-content:after
 {
     display: table; 
@@ -4100,6 +4103,7 @@ pre code
 .container:after,
 .app-header-content:after,
 .app-footer-content:after,
+.app-banner:after,
 .app-content:after
 {
     clear: both;
@@ -4109,6 +4113,7 @@ pre code
     .container,
     .app-header-content,
     .app-footer-content,
+    .app-banner,
     .app-content
     {
         width: 750px;
@@ -4119,6 +4124,7 @@ pre code
     .container,
     .app-header-content,
     .app-footer-content,
+    .app-banner,
     .app-content
     {
         width: 970px;
@@ -4129,6 +4135,7 @@ pre code
     .container,
     .app-header-content,
     .app-footer-content,
+    .app-banner,
     .app-content
     {
         width: 1170px;
@@ -7389,10 +7396,12 @@ tbody.collapse.in
 .container > .navbar-header,
 .app-header-content > .navbar-header,
 .app-footer-content > .navbar-header,
+.app-banner > .navbar-header,
 .app-content > .navbar-header,
 .container > .navbar-collapse,
 .app-header-content > .navbar-collapse,
 .app-footer-content > .navbar-collapse,
+.app-banner > .navbar-collapse,
 .app-content > .navbar-collapse,
 .container-fluid > .navbar-header,
 .app-main > .navbar-header,
@@ -7409,10 +7418,12 @@ tbody.collapse.in
     .container > .navbar-header,
     .app-header-content > .navbar-header,
     .app-footer-content > .navbar-header,
+    .app-banner > .navbar-header,
     .app-content > .navbar-header,
     .container > .navbar-collapse,
     .app-header-content > .navbar-collapse,
     .app-footer-content > .navbar-collapse,
+    .app-banner > .navbar-collapse,
     .app-content > .navbar-collapse,
     .container-fluid > .navbar-header,
     .app-main > .navbar-header,
@@ -7500,6 +7511,8 @@ tbody.collapse.in
     .app-navbar > .app-header-content .navbar-brand,
     .navbar > .app-footer-content .navbar-brand,
     .app-navbar > .app-footer-content .navbar-brand,
+    .navbar > .app-banner .navbar-brand,
+    .app-navbar > .app-banner .navbar-brand,
     .navbar > .app-content .navbar-brand,
     .app-navbar > .app-content .navbar-brand,
     .navbar > .container-fluid .navbar-brand,
@@ -9949,11 +9962,48 @@ fieldset[disabled] .app-searchbox-btn.active
     background-color: #fff;
 }
 
+.app-bannerbar
+{
+    background: #05517d;
+}
+
 .app-banner
 {
-    min-height: 430px; 
+    position: relative;
+}
 
-    border: 1px solid red;
+.app-banner-item
+{
+    position: relative;
+
+    height: 100%;
+    min-height: 430px;
+}
+
+.app-banner-item-caption
+{
+    line-height: 1.25;
+
+    position: absolute;
+    top: 66%;
+    left: 0;
+
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    color: #eee;
+}
+.app-banner-item-caption a
+{
+    text-decoration: underline; 
+
+    color: #eee;
+}
+
+.app-banner-item-title
+{
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .app-cards
@@ -10646,6 +10696,7 @@ fieldset[disabled] .app-searchbox-btn.active
 .sg-example .container,
 .sg-example .app-header-content,
 .sg-example .app-footer-content,
+.sg-example .app-banner,
 .sg-example .app-content
 {
     width: auto;
