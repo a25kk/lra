@@ -9949,6 +9949,13 @@ fieldset[disabled] .app-searchbox-btn.active
     background-color: #fff;
 }
 
+.app-banner
+{
+    min-height: 430px; 
+
+    border: 1px solid red;
+}
+
 .app-cards
 {
     display: -webkit-box;
