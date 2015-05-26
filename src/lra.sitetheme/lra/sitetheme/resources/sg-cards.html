@@ -48,6 +48,35 @@ base_url: "../../"
 </div>
 {% endhighlight %}
     </div>
+    <div class="sg-section">
+      <h2>Verfügbare Cards</h2>
+      <p>Beispiele für verfügbare Cards und Aktionsboxen, die modular einsetzbar sind</p>
+      <div class="sg-example">
+        <div class="sg-example-container-xs">
+          {% include components/card-address.html %}
+        </div>
+      </div>
+{% highlight scss %}
+<div class="app-card app-card-address">
+  <div class="app-card-header">
+    Brand
+  </div>
+  <div class="app-card-main">
+    <div class="app-card-content">
+      <address>
+        <strong>Landratsamt Aichach-Friedberg</strong><br>
+        Münchner Str. 9<br>
+        86551 Aichach
+      </address>
+      <address>
+        Telefon: 08251/92-0<br>
+        E-Mail: <a href="poststelle@lra-aic-fdb.de">poststelle@lra-aic-fdb.de</a>
+      </address>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+    </div><!-- /sg-section -->
 
   </div>
 </main>

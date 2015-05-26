@@ -3495,7 +3495,6 @@ h6,
 .h2,
 .h3,
 .h4,
-.app-card-title,
 .h5,
 .h6
 {
@@ -3524,9 +3523,7 @@ h6 .small,
 .h3 small,
 .h3 .small,
 .h4 small,
-.app-card-title small,
 .h4 .small,
-.app-card-title .small,
 .h5 small,
 .h5 .small,
 .h6 small,
@@ -3566,7 +3563,6 @@ h3 .small,
 
 h4,
 .h4,
-.app-card-title,
 h5,
 .h5,
 h6,
@@ -3578,9 +3574,7 @@ h6,
 h4 small,
 h4 .small,
 .h4 small,
-.app-card-title small,
 .h4 .small,
-.app-card-title .small,
 h5 small,
 h5 .small,
 .h5 small,
@@ -3612,8 +3606,7 @@ h3,
 }
 
 h4,
-.h4,
-.app-card-title
+.h4
 {
     font-size: 1.25rem;
 }
@@ -9679,6 +9672,10 @@ label
     -ms-flex-align: center;
             align-items: center;
 }
+.app-brand-panel-inverse
+{
+    width: 100%;
+}
 
 .app-brand-img
 {
@@ -9717,6 +9714,16 @@ label
         -webkit-flex: 0 0 33.3333%;
             -ms-flex: 0 0 33.3333%;
                 flex: 0 0 33.3333%;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-brand-panel-inverse .app-brand-img
+    {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 25%;
+            -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
     }
 }
 
@@ -9770,6 +9777,23 @@ label
         -webkit-flex: 0 0 66.6666%;
             -ms-flex: 0 0 66.6666%;
                 flex: 0 0 66.6666%;
+    }
+}
+.app-brand-panel-inverse .app-brandname
+{
+    font-size: 1.25rem;
+    line-height: 1;
+
+    color: #fff;
+}
+@media (min-width: 768px)
+{
+    .app-brand-panel-inverse .app-brandname
+    {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 75%;
+            -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
     }
 }
 
@@ -9949,9 +9973,21 @@ fieldset[disabled] .app-searchbox-btn.active
 
 .app-card-header
 {
-    padding: .3125rem .625rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
 
-    background: #377497;
+    height: 8rem;
+    min-height: 8rem;
+    padding: 1rem .625rem;
+
+    background: #377497; 
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
 }
 
 .app-card-main
@@ -9982,6 +10018,31 @@ fieldset[disabled] .app-searchbox-btn.active
     margin-left: 0;
 
     border: 0;
+}
+
+.app-card-title
+{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.app-card-content
+{
+    font-size: 1rem; 
+
+    padding-top: 1rem;
+}
+.app-card-content address
+{
+    margin-bottom: .75rem;
+}
+.app-card-content a
+{
+    font-weight: 400;
+
+    text-decoration: underline;
+
+    color: #fff;
 }
 
 .app-card-placeholder
