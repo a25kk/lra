@@ -47,3 +47,6 @@ validation-report.json
 .idea
 node_modules
 bower_components
+
+# NPM error details
+npm-debug.log
