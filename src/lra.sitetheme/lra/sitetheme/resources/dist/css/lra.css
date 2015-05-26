@@ -8937,35 +8937,117 @@ div.riform .label
 
 .app-navbar
 {
-    border-bottom: 10px solid #05517d;
-    border-radius: 0;
+    border-radius: 0; 
+    background-color: #05517d;
+}
+@media (min-width: 767px)
+{
+    .app-navbar
+    {
+        border-bottom: 10px solid #05517d; 
+        background: transparent;
+    }
+}
+
+.app-navbar-collapsed
+{
+    border-bottom: 0; 
+    background-color: #05517d;
+}
+
+.app-navbar-header
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    padding: 0;
+
+    background: #05517d; 
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+.app-navbar-header:before,
+.app-navbar-header:after
+{
+    display: table; 
+
+    content: ' ';
+}
+.app-navbar-header:after
+{
+    clear: both;
+}
+
+.app-navbar-header-title
+{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.6666%;
+        -ms-flex: 0 0 66.6666%;
+            flex: 0 0 66.6666%;
+}
+
+.app-navbar-brand
+{
+    font-weight: 500;
+    line-height: 1.428571429rem;
+
+    height: 50px;
+    padding: 15px 15px;
+
+    color: #fff;
+}
+
+.app-navbar-header-toggle
+{
+    min-height: 50px;
+    padding: 15px 15px;
+
+    text-align: center; 
+
+    background: #377497;
+
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.3333%;
+        -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
 }
 
 .app-navbar-toggle
 {
-    border-color: transparent !important;
+    width: 100%;
+
+    text-align: right; 
+
+    border-color: transparent;
+    background: transparent;
 }
 .app-navbar-toggle:hover,
 .app-navbar-toggle:focus
 {
-    background-color: #ddd;
+    border-color: transparent; 
+    background: transparent;
 }
 .app-navbar-toggle .icon-bar
 {
-    background-color: #888;
+    background-color: #fff;
 }
 .app-navbar-toggle .icon-bar
 {
     display: block;
 
-    width: 30px;
+    width: 44px;
     height: 2px;
 
     border-radius: 1px;
 }
 .app-navbar-toggle .icon-bar + .icon-bar
 {
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 .app-navbar-collapse
@@ -9128,6 +9210,15 @@ div.riform .label
 .app-footer-content a
 {
     text-transform: uppercase;
+}
+
+label
+{
+    font-weight: 700;
+}
+.wf-active label
+{
+    font-weight: 400;
 }
 
 ::-ms-reveal,
@@ -9762,6 +9853,19 @@ div.riform .label
 
     border-color: #edeaea; 
     background-color: #edeaea;
+}
+.app-searchbox-field::-moz-placeholder
+{
+    opacity: 1; 
+    color: #05517d;
+}
+.app-searchbox-field:-ms-input-placeholder
+{
+    color: #05517d;
+}
+.app-searchbox-field::-webkit-input-placeholder
+{
+    color: #05517d;
 }
 
 .app-searchbox-btn
@@ -10441,6 +10545,11 @@ fieldset[disabled] .app-searchbox-btn.active
 .sg-example .app-navitem-tab > span
 {
     font-size: .5rem;
+}
+
+.sg-example-container-xs
+{
+    width: 340px;
 }
 
 /*

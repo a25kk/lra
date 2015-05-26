@@ -4,29 +4,77 @@
 
 .app-navbar {
   @extend .navbar;
-  border-bottom: 10px solid $app-primary;
+  background-color: $app-primary;
   border-radius: 0;
+  @media (min-width: $grid-float-breakpoint-max) {
+    background: transparent;
+    border-bottom: 10px solid $app-primary;
+  }
+}
+
+//** Helper class for responsive display
+.app-navbar-collapsed {
+  background-color: $app-primary;
+  border-bottom: 0;
+}
+
+//== Navbar header
+//
+//## Default display of global site navigation
+//## Hidden on larger displays
+.app-navbar-header {
+  @include clearfix;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: $app-primary;
+}
+
+//** Navbar toggle text
+.app-navbar-header-title {
+  flex: 0 0 66.6666%;
+}
+
+.app-navbar-brand {
+  height: $navbar-height;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  font-weight: 500;
+  line-height: $line-height-computed;
+  color: #fff;
+}
+
+//** Icon bar navigation toggle
+.app-navbar-header-toggle {
+  flex: 0 0 33.3333%;
+  background: $app-secondary;
+  min-height: $navbar-height;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  text-align: center;
 }
 
 // Navbar toggle button visible on small displays
 .app-navbar-toggle {
-  border-color: transparent !important;
+  width: 100%;
+  border-color: transparent;
+  background: transparent;
+  text-align: right;
   &:hover,
   &:focus {
-    background-color: $navbar-default-toggle-hover-bg;
+    background: transparent;
+    border-color: transparent;
   }
   .icon-bar {
-    background-color: $navbar-default-toggle-icon-bar-bg;
+    background-color: $navbar-inverse-toggle-icon-bar-bg;
   }
   // Bars
   .icon-bar {
     display: block;
-    width: 30px;
+    width: 44px;
     height: 2px;
     border-radius: 1px;
   }
   .icon-bar + .icon-bar {
-    margin-top: 8px;
+    margin-top: 12px;
   }
 }
 

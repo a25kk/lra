@@ -3,6 +3,14 @@
 //------------------------------------
 
 
+//** Webfont specific adjustments
+label {
+  font-weight: 700;
+  .wf-active & {
+    font-weight: 400;
+  }
+}
+
 //== Password toggle
 //
 //## Hide/show password in [type="password"] fields
