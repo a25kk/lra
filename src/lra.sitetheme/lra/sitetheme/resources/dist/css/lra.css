@@ -10519,6 +10519,30 @@ fieldset[disabled] .app-searchbox-btn.active
     border-right: 5px solid #555;
 }
 
+.sg-cards
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    margin-bottom: 1rem; 
+    padding-top: 1rem;
+}
+
+.sg-card
+{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+}
+
+.sg-card-header
+{
+    background: transparent;
+}
+
 .sg-section
 {
     margin-bottom: 60px;
