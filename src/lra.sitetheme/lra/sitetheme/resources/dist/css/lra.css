@@ -8936,10 +8936,28 @@ div.riform .label
 
 .app-header-panel
 {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 50%;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+
+@media (min-width: 767px)
+{
+    .app-header-brandbar
+    {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 66.6666%;
+            -ms-flex: 0 0 66.6666%;
+                flex: 0 0 66.6666%;
+    }
+    .app-header-actionbar
+    {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 33.3333%;
+            -ms-flex: 0 0 33.3333%;
+                flex: 0 0 33.3333%;
+    }
 }
 
 .app-navbar
@@ -9142,6 +9160,14 @@ div.riform .label
     margin: 0 auto;
     margin-top: 13.571428568px;
     margin-bottom: 13.571428568px;
+}
+@media (min-width: 767px)
+{
+    .app-navitem-tab
+    {
+        height: 70px;
+        min-height: 70px;
+    }
 }
 
 .app-navitem-tab-home

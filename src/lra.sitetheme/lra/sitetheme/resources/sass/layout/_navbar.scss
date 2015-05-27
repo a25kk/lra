@@ -125,6 +125,10 @@
       // padding: ((#{$navbar-height} - ($line-height-computed)) / 2) 0;
       @include navbar-vertical-align($line-height-computed);
     }
+    @media (min-width: $grid-float-breakpoint-max) {
+      height: 70px;
+      min-height: 70px;
+    }
 }
 
 //== NOTE: this classes are subject to changes
