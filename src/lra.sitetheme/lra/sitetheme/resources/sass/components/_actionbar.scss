@@ -19,7 +19,7 @@
   text-align: center;
   &:nth-child(even) {
     color: #fff;
-    background: $app-blue-secondary;
+    background: $app-secondary;
   }
 }
 
@@ -48,5 +48,5 @@
 
 .app-searchbox-btn {
   flex: 0 0 33.3333%;
-  @include button-variant(#fff, $app-blue-secondary, $app-blue-secondary);
+  @include button-variant(#fff, $app-secondary, $app-secondary);
 }

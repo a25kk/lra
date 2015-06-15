@@ -46,31 +46,31 @@
 }
 
 .sg-ui-color-primary {
-  background-color: $app-default;
+  background-color: $app-primary-base;
 }
 
 .sg-ui-color-secondary {
   background-color: $app-secondary;
 }
 
-.sg-ui-color-current {
-  background-color: $app-current;
+.sg-ui-color-news {
+  background-color: $app-section-news;
 }
 
-.sg-ui-color-administration {
-  background-color: $app-administration;
-}
-
-.sg-ui-color-economy {
-  background-color: $app-economy;
-}
-
-.sg-ui-color-county {
-  background-color: $app-county;
+.sg-ui-color-do {
+  background-color: $app-section-do;
 }
 
 .sg-ui-color-service {
-  background-color: $app-service;
+  background-color: $app-section-service;
+}
+
+.sg-ui-color-county {
+  background-color: $app-section-county;
+}
+
+.sg-ui-color-info {
+  background-color: $app-section-info;
 }
 
 //** Header component

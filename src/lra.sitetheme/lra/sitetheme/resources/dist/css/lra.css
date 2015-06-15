@@ -3707,12 +3707,12 @@ mark,
 
 .text-primary
 {
-    color: #05517d;
+    color: #274d38;
 }
 
 a.text-primary:hover
 {
-    color: #03314c;
+    color: #162b1f;
 }
 
 .text-success
@@ -3762,12 +3762,12 @@ a.text-danger:hover
 
 .bg-primary
 {
-    background-color: #05517d;
+    background-color: #274d38;
 }
 
 a.bg-primary:hover
 {
-    background-color: #03314c;
+    background-color: #162b1f;
 }
 
 .bg-success
@@ -6416,7 +6416,7 @@ fieldset[disabled] .active.searchButton
 {
     color: #fff;
     border-color: #2e6da4; 
-    background-color: #377497;
+    background-color: #588c73;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -6427,7 +6427,7 @@ fieldset[disabled] .active.searchButton
 {
     color: #fff;
     border-color: #204d74; 
-    background-color: #295772;
+    background-color: #446d59;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -6455,11 +6455,11 @@ fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active
 {
     border-color: #2e6da4; 
-    background-color: #377497;
+    background-color: #588c73;
 }
 .btn-primary .badge
 {
-    color: #377497;
+    color: #588c73;
     background-color: #fff;
 }
 
@@ -8939,27 +8939,27 @@ div.riform .label
 
 .app-default
 {
-    color: #05517d;
+    color: #274d38;
 }
 
 .app-primary
 {
-    background-color: #05517d;
+    background-color: #274d38;
 }
 
 .app-default-bg
 {
-    background-color: #05517d;
+    background-color: #274d38;
 }
 
 .app-news
 {
-    color: #47137b;
+    color: #588c73;
 }
 
 .app-news-bg
 {
-    background-color: #47137b;
+    background-color: #588c73;
 }
 
 .app-service
@@ -8974,22 +8974,22 @@ div.riform .label
 
 .app-do
 {
-    color: #9f7b0f;
+    color: #c7b450;
 }
 
 .app-do-bg
 {
-    background-color: #9f7b0f;
+    background-color: #c7b450;
 }
 
 .app-county
 {
-    color: #900707;
+    color: #8c4747;
 }
 
 .app-county-bg
 {
-    background-color: #900707;
+    background-color: #8c4747;
 }
 
 .app-cc
@@ -9060,13 +9060,13 @@ div.riform .label
 .app-navbar
 {
     border-radius: 0; 
-    background-color: #05517d;
+    background-color: #274d38;
 }
 @media (min-width: 767px)
 {
     .app-navbar
     {
-        border-bottom: 10px solid #05517d; 
+        border-bottom: 10px solid #274d38; 
         background: transparent;
     }
 }
@@ -9080,7 +9080,7 @@ div.riform .label
 
     padding: 0;
 
-    background: #05517d; 
+    background: #274d38; 
 
     -webkit-box-align: center;
     -webkit-align-items: center;
@@ -9125,7 +9125,7 @@ div.riform .label
 
     text-align: center; 
 
-    background: #377497;
+    background: #588c73;
 
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
@@ -9236,7 +9236,7 @@ div.riform .label
     text-transform: uppercase;
 
     color: #fff;
-    background-color: #05517d;
+    background-color: #274d38;
 
     -webkit-box-align: center;
     -webkit-align-items: center;
@@ -9248,7 +9248,7 @@ div.riform .label
     text-decoration: none; 
 
     color: #fff;
-    background-color: #043c5d;
+    background-color: #1c3728;
 }
 .app-navitem-tab > span
 {
@@ -9269,20 +9269,20 @@ div.riform .label
 
 .app-navitem-tab-home
 {
-    background-color: #05517d;
+    background-color: #274d38;
 }
 .app-navitem-tab-home:hover
 {
-    background-color: #043c5d;
+    background-color: #1c3728;
 }
 
 .app-navitem-tab-aktuelles
 {
-    background-color: #ccbba4;
+    background-color: #588c73;
 }
 .app-navitem-tab-aktuelles:hover
 {
-    background-color: #c0ab8f;
+    background-color: #4b7862;
 }
 
 .app-navitem-tab-verwaltung-und-politik
@@ -9305,11 +9305,11 @@ div.riform .label
 
 .app-navitem-tab-leben-im-landkreis
 {
-    background-color: #900707;
+    background-color: #8c4747;
 }
 .app-navitem-tab-leben-im-landkreis:hover
 {
-    background-color: #700505;
+    background-color: #763c3c;
 }
 
 .app-navitem-tab-buergerportal-und-service
@@ -9888,7 +9888,7 @@ label
 
     padding: .625rem .3125rem;
 
-    color: #05517d;
+    color: #274d38;
 }
 .app-brand-panel .app-brandname
 {
@@ -9962,7 +9962,7 @@ label
     text-align: center; 
 
     color: #fff;
-    background: #05517d;
+    background: #274d38;
 
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -9972,12 +9972,12 @@ label
 .app-action:nth-child(even)
 {
     color: #fff;
-    background: #377497;
+    background: #588c73;
 }
 
 .app-action-search
 {
-    color: #05517d;
+    color: #274d38;
     background: #edeaea; 
 
     -webkit-box-flex: 1;
@@ -10012,22 +10012,22 @@ label
 .app-searchbox-field::-moz-placeholder
 {
     opacity: 1; 
-    color: #05517d;
+    color: #274d38;
 }
 .app-searchbox-field:-ms-input-placeholder
 {
-    color: #05517d;
+    color: #274d38;
 }
 .app-searchbox-field::-webkit-input-placeholder
 {
-    color: #05517d;
+    color: #274d38;
 }
 
 .app-searchbox-btn
 {
     color: #fff;
-    border-color: #377497; 
-    background-color: #377497;
+    border-color: #588c73; 
+    background-color: #588c73;
 
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 33.3333%;
@@ -10042,8 +10042,8 @@ label
 .open > .app-searchbox-btn.dropdown-toggle
 {
     color: #fff;
-    border-color: #27526a; 
-    background-color: #295772;
+    border-color: #406654; 
+    background-color: #446d59;
 }
 .app-searchbox-btn:active,
 .app-searchbox-btn.active,
@@ -10070,18 +10070,18 @@ fieldset[disabled] .app-searchbox-btn.focus,
 fieldset[disabled] .app-searchbox-btn:active,
 fieldset[disabled] .app-searchbox-btn.active
 {
-    border-color: #377497; 
-    background-color: #377497;
+    border-color: #588c73; 
+    background-color: #588c73;
 }
 .app-searchbox-btn .badge
 {
-    color: #377497;
+    color: #588c73;
     background-color: #fff;
 }
 
 .app-bannerbar
 {
-    background: #05517d;
+    background: #274d38;
 }
 
 .app-banner
@@ -10156,7 +10156,7 @@ fieldset[disabled] .app-searchbox-btn.active
     min-height: 8rem;
     padding: 1rem .625rem;
 
-    background: #377497; 
+    background: #588c73; 
 
     -webkit-box-align: center;
     -webkit-align-items: center;
@@ -10168,7 +10168,7 @@ fieldset[disabled] .app-searchbox-btn.active
 {
     padding: .3125rem .625rem;
 
-    background: #05517d;
+    background: #274d38;
 }
 
 .app-card-footer
@@ -10283,7 +10283,7 @@ fieldset[disabled] .app-searchbox-btn.active
 {
     font-weight: 400;
 
-    color: #05517d;
+    color: #274d38;
 }
 
 .app-signin-content
@@ -10585,37 +10585,37 @@ fieldset[disabled] .app-searchbox-btn.active
 
 .sg-ui-color-primary
 {
-    background-color: #05517d;
+    background-color: #274d38;
 }
 
 .sg-ui-color-secondary
 {
-    background-color: #377497;
+    background-color: #588c73;
 }
 
-.sg-ui-color-current
-{
-    background-color: #ccbba4;
-}
-
-.sg-ui-color-administration
-{
-    background-color: #c7b450;
-}
-
-.sg-ui-color-economy
+.sg-ui-color-news
 {
     background-color: #588c73;
 }
 
-.sg-ui-color-county
+.sg-ui-color-do
 {
-    background-color: #900707;
+    background-color: #c7b450;
 }
 
 .sg-ui-color-service
 {
     background-color: #f2ae73;
+}
+
+.sg-ui-color-county
+{
+    background-color: #8c4747;
+}
+
+.sg-ui-color-info
+{
+    background-color: #d96459;
 }
 
 .sg-sidebar-header
@@ -10849,7 +10849,7 @@ fieldset[disabled] .app-searchbox-btn.active
 .app-navbar-open
 {
     border-bottom: 0; 
-    background-color: #05517d;
+    background-color: #274d38;
 }
 
 .app-navbar-open .app-navbar-nav
@@ -11045,51 +11045,51 @@ fieldset[disabled] .app-searchbox-btn.active
 
 .color-swatches .app-primary-darker
 {
-    background-color: #022133;
+    background-color: #0d1a13;
 }
 
 .color-swatches .app-primary-dark
 {
-    background-color: #043958;
+    background-color: #1a3426;
 }
 
 .color-swatches .app-primary
 {
-    background-color: #05517d;
+    background-color: #274d38;
 }
 
 .color-swatches .app-primary-light
 {
-    background-color: #0669a2;
+    background-color: #34664a;
 }
 
 .color-swatches .app-primary-lighter
 {
-    background-color: #0881c7;
+    background-color: #41805d;
 }
 
 .color-swatches .app-secondary-darker
 {
-    background-color: #23495f;
+    background-color: #3a5d4c;
 }
 
 .color-swatches .app-secondary-dark
 {
-    background-color: #2d5e7b;
+    background-color: #497560;
 }
 
 .color-swatches .app-secondary
 {
-    background-color: #377497;
+    background-color: #588c73;
 }
 
 .color-swatches .app-secondary-light
 {
-    background-color: #418ab3;
+    background-color: #69a186;
 }
 
 .color-swatches .app-secondary-lighter
 {
-    background-color: #589cc2;
+    background-color: #81b099;
 }
 /*# sourceMappingURL=lra.css.map */
