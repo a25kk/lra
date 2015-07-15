@@ -43,36 +43,12 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 {% endhighlight %}
-    </div>
+    </div><!-- /sg-section -->
+    <div class="sg-section">
     <h3>Markenfarben</h3>
-    <div class="sg-cards app-card-gutter">
-
-      <!-- App Primary -->
-      <div class="sg-card sg-card-ui-colors">
-        <div class="sg-card-header">
-          <div class="sg-uid-color sg-ui-color-primary">
-            #05517D
-          </div>
-        </div>
-        <div class="sg-card-main">
-          <p>Primary Color</p>
-          <code>$app-primary</code>
-        </div>
-      </div>
-
-      <!-- App Secondary -->
-      <div class="sg-card sg-card-ui-colors">
-        <div class="sg-card-header">
-          <div class="sg-uid-color sg-ui-color-secondary">
-            #377497
-          </div>
-        </div>
-        <div class="sg-card-main">
-          <p>Secondary Color</p>
-          <code>$app-secondary</code>
-        </div>
-      </div>
-    </div>
+    <p>Hauptfarben der Marke werden automatisch als Highlightfarben verwendet und
+      sollten möglichst kontrastreich sein.
+    </p>
 
     <h4>Primäre Farbe</h4>
     <p>Hauptfarbe für Überschriften und den Markennamen.</p>
@@ -80,7 +56,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
     <div class="color-swatches">
       <div class="color-swatch app-primary-darker"></div>
       <div class="color-swatch app-primary-dark"></div>
-      <div class="color-swatch app-primary">#05517D</div>
+      <div class="color-swatch app-primary">#274d38</div>
       <div class="color-swatch app-primary-light"></div>
       <div class="color-swatch app-primary-lighter"></div>
     </div>
@@ -100,7 +76,7 @@ $app-primary-lighter:           lighten($app-primary-base, 20%) !default;
     <div class="color-swatches">
       <div class="color-swatch app-secondary-darker"></div>
       <div class="color-swatch app-secondary-dark"></div>
-      <div class="color-swatch app-secondary">#377497</div>
+      <div class="color-swatch app-secondary">#588c73</div>
       <div class="color-swatch app-secondary-light"></div>
       <div class="color-swatch app-secondary-lighter"></div>
     </div>
@@ -113,92 +89,131 @@ $app-secondary:                   $app-secondary-base                 !default; 
 $app-secondary-light:             lighten($app-secondary-base, 7.5%)  !default;
 $app-secondary-lighter:           lighten($app-secondary-base, 15%)   !default;
 {% endhighlight %}
+    </div><!-- /sg-section -->
 
-    <h3>Sectionen (Rubriken)</h3>
-
-    <!-- Section Startseite -->
-    <div class="app-cards app-card-gutter">
-      <div class="app-card sg-card sg-card-ui-colors">
-        <div class="app-card-header sg-card-header">
-          <div class="sg-uid-color sg-ui-color-primary">
-            #05517D
-          </div>
-        </div>
-        <div class="app-card-content">
-          <p>Section Startseite</p>
-          <code>$app-primary</code>
-        </div>
-      </div>
-
-      <!-- Section Aktuelles -->
-      <div class="app-card sg-card sg-card-ui-colors">
-        <div class="app-card-header sg-card-header">
-          <div class="sg-uid-color sg-ui-color-current">
-            #ccbba4
-          </div>
-        </div>
-        <div class="app-card-content">
-          <p>Section Aktuelles</p>
-          <code>$app-current</code>
-        </div>
-      </div>
+    <div class="sg-section">
+    <h3>Sektionen (Rubriken)</h3>
+    <p>Die einzelnen Sektionen/Rubriken der Seite werden durch vorgegebene
+      Farbwerte repräsentiert.
+    </p>
+    <div class="sg-example">
+    <div class="color-swatches">
+      <div class="color-swatch sg-ui-color-primary">Default</div>
+      <div class="color-swatch sg-ui-color-news">News</div>
+      <div class="color-swatch sg-ui-color-do">District office</div>
+      <div class="color-swatch sg-ui-color-service">Service</div>
+      <div class="color-swatch sg-ui-color-info">Info</div>
+      <div class="color-swatch sg-ui-color-county">County</div>
     </div>
-    <hr />
+  </div>
+{% highlight scss %}
+$app-section-default:         $app-primary-base;
+//** Section: News
+$app-section-news:            $app-secondary-base;
+//** Section: Administrative district office (abbr: DO)
+$app-section-do:              rgba(199, 180, 80, 1) !default;
+//** Section: service
+$app-section-service:         rgba(242, 174, 115, 1) !default;
+//** Section: info
+$app-section-info:            rgba(217, 100, 89, 1) !default;
+//** Section: County
+$app-section-county:          rgba(140, 71, 71, 1) !default;
+{% endhighlight %}
+    </div><!-- /sg-section -->
 
-    <!-- Section Section Verwaltung & Politik -->
-    <div class="app-cards app-card-gutter">
-      <div class="app-card sg-card sg-card-ui-colors">
-        <div class="app-card-header sg-card-header">
-          <div class="sg-uid-color sg-ui-color-administration">
-            #c7b450
-          </div>
-        </div>
-        <div class="app-card-content">
-             <p>Section Verwaltung & Politik</p>
-             <code>$app-administration</code>
-           </div>
+    <div class="sg-section">
+      <h4>Verwendung der Highlightfarben für Sektionen</h4>
+      <p>Die Highlightfarben sollten in der Navigation der Seite zur besseren
+        Orientierung innerhalb der Teilbereiche dienen. Demnach müssen die Farbwerte
+        einheitlich an identischen Stellen im Portal eingesetzt werden.</p>
+      <div class="sg-example">
+        <table class="table">
+          <thead>
+            <th>Anwendungsbeispiel</th>
+            <th>Rubrik</th>
+            <th>Kontrastwert</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="color-swatch app-primary">#274d38</div>
+              </td>
+              <td class="type-info">Startseite (Primärfarbe)
+              </td>
+              <td class="type-info">9.5 <span class="label label-success">sehr gut</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-news">#588c73</div>
+              </td>
+              <td class="type-info">Aktuelles (Sekundärfarbe)
+              </td>
+              <td class="type-info">3.9 <span class="label label-warning">akzeptabel</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-info">#D96459</div>
+              </td>
+              <td class="type-info">Info
+              </td>
+              <td class="type-info">3.5 <span class="label label-info">akzeptabel</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-do">#588c73</div>
+              </td>
+              <td class="type-info">Landratsamt
+              </td>
+              <td class="type-info">3.9 <span class="label label-warning">akzeptabel</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-county">#8C4747</div>
+              </td>
+              <td class="type-info">Leben im Landkreis
+              </td>
+              <td class="type-info">6.8 <span class="label label-success">sehr gut</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-service">#f2ae73</div>
+              </td>
+              <td class="type-info">Service
+              </td>
+              <td class="type-info">1.9 <span class="label label-danger">unzureichend</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <hr>
+      <h5>Legende</h5>
+      <p>Definition der Kontrastwerte hinsichtlich der Barrierefreiheit gemäß
+        <a href="http://www.w3.org/TR/WCAG/#visual-audio-contrast">WCAG 2.0</a>
+      </p>
+      <dl class="dl-horizontal">
+        <dt><span class="label label-success">sehr gut</span></dt>
+        <dd>
+          Erreicht eine AAA Level Einstufung: bei allen Schriftgrößen ist ein optimaler
+          Kontrast gegeben
+        </dd>
+        <dt><span class="label label-success">gut</span></dt>
+        <dd>
+          Erreicht für Schriftgrößen ab 18pt eine AAA Level Einstufung und bei
+          kleineren Schriftgrößen eine gute AA Bewertung
+        </dd>
+        <dt><span class="label label-warning">akzeptabel</span></dt>
+        <dd>
+          Erreicht eine AA Level Einstufung für Schriftgrößen ab 18pt. Bei kleineren
+          Schriftgrößen ist die Lesbarkeit bereits deutlich beeintächtigt bis nicht mehr gegeben.
+        </dd>
+        <dt><span class="label label-danger">unzureichend</span></dt>
+        <dd>
+          Erreicht keinen ausreichenden Kontrast, um Menschen
+          mit einer Farbenblindheit, Achromatopsie oder Achromasie eine ausreichende Lesbarkeit
+          gewährleisten zu können.
+        </dd>
+      </dl>
+    </div><!-- /sg-section  -->
 
-      <!-- Section Tourismus & Wirtschaft -->
-      <div class="app-card sg-card sg-card-ui-colors">
-        <div class="app-card-header sg-card-header">
-          <div class="sg-uid-color sg-ui-color-economy">
-              #588c73
-            </div>
-        </div>
-        <div class="app-card-content">
-            <p>Section Tourismus & Wirtschaft</p>
-            <code>$app-economy</code>
-          </div>
-      </div>
-    </div>
-    <hr />
-
-    <!-- Section (Leben im) Landkreis -->
-    <div class="app-cards app-card-gutter">
-      <div class="app-card sg-card sg-card-ui-colors">
-        <div class="app-card-header sg-card-header">
-          <div class="sg-uid-color sg-ui-color-county">
-            #d96459
-          </div>
-        </div>
-        <div class="app-card-content">
-          <p>Section (Leben im) Landkreis</p>
-          <code>$app-county</code>
-        </div>
-      </div>
-
-      <!-- Section Bürgerportal & Service -->
-      <div class="app-card sg-card sg-card-ui-colors">
-        <div class="app-card-header sg-card-header">
-          <div class="sg-uid-color sg-ui-color-service">
-              #f2ae73
-            </div>
-        </div>
-        <div class="app-card-content">
-            <p>Section Bürgerportal & Service</p>
-            <code>$app-service</code>
-          </div>
-      </div>
     </div>
 </main>
