@@ -3380,7 +3380,7 @@ a
 {
     text-decoration: none; 
 
-    color: #377497;
+    color: #588c73;
 }
 a:hover,
 a:focus
@@ -6671,7 +6671,7 @@ fieldset[disabled] .btn-danger.active
 {
     font-weight: normal;
 
-    color: #377497;
+    color: #588c73;
     border-radius: 0;
 }
 .btn-link,
@@ -7086,7 +7086,7 @@ tbody.collapse.in
 .nav .open > a:focus,
 .app-toolbar-nav .open > a:focus
 {
-    border-color: #377497; 
+    border-color: #588c73; 
     background-color: #eee;
 }
 .nav .nav-divider,
@@ -8972,34 +8972,44 @@ div.riform .label
     background-color: #f2ae73;
 }
 
-.app-do
+.app-department
 {
     color: #c7b450;
 }
 
-.app-do-bg
+.app-department-bg
 {
     background-color: #c7b450;
 }
 
-.app-county
+.app-service
+{
+    color: #f2ae73;
+}
+
+.app-service-bg
+{
+    background-color: #f2ae73;
+}
+
+.app-info
+{
+    color: #d96459;
+}
+
+.app-info-bg
+{
+    background-color: #d96459;
+}
+
+.app-life
 {
     color: #8c4747;
 }
 
-.app-county-bg
+.app-life-bg
 {
     background-color: #8c4747;
-}
-
-.app-cc
-{
-    color: #098227;
-}
-
-.app-cc-bg
-{
-    background-color: #098227;
 }
 
 .app-header
@@ -9285,40 +9295,40 @@ div.riform .label
     background-color: #4b7862;
 }
 
-.app-navitem-tab-verwaltung-und-politik
+.app-navitem-tab-landratsamt
 {
     background-color: #c7b450;
 }
-.app-navitem-tab-verwaltung-und-politik:hover
+.app-navitem-tab-landratsamt:hover
 {
     background-color: #baa63c;
 }
 
-.app-navitem-tab-tourismus-und-wirtschaft
-{
-    background-color: #588c73;
-}
-.app-navitem-tab-tourismus-und-wirtschaft:hover
-{
-    background-color: #4b7862;
-}
-
-.app-navitem-tab-leben-im-landkreis
-{
-    background-color: #8c4747;
-}
-.app-navitem-tab-leben-im-landkreis:hover
-{
-    background-color: #763c3c;
-}
-
-.app-navitem-tab-buergerportal-und-service
+.app-navitem-tab-service
 {
     background-color: #f2ae73;
 }
-.app-navitem-tab-buergerportal-und-service:hover
+.app-navitem-tab-service:hover
 {
     background-color: #ef9c55;
+}
+
+.app-navitem-tab-info
+{
+    background-color: #d96459;
+}
+.app-navitem-tab-info:hover
+{
+    background-color: #d34b3e;
+}
+
+.app-navitem-tab-hier-leben
+{
+    background-color: #8c4747;
+}
+.app-navitem-tab-hier-leben:hover
+{
+    background-color: #763c3c;
 }
 
 .app-footer
@@ -10598,7 +10608,7 @@ fieldset[disabled] .app-searchbox-btn.active
     background-color: #588c73;
 }
 
-.sg-ui-color-do
+.sg-ui-color-department
 {
     background-color: #c7b450;
 }
@@ -10608,7 +10618,7 @@ fieldset[disabled] .app-searchbox-btn.active
     background-color: #f2ae73;
 }
 
-.sg-ui-color-county
+.sg-ui-color-life
 {
     background-color: #8c4747;
 }

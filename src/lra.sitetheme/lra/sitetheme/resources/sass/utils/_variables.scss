@@ -7,30 +7,22 @@
 //
 //## Brand colors used across the project
 
-$app-blue-primary:            rgba(5, 81, 125, 1);
-$app-blue-secondary:          rgba(55, 116, 151, 1);
-$app-brown:                   rgba(159, 123, 15, 1);
-$app-green:                   rgba(9, 130, 39, 1);
-$app-red:                     rgba(144, 7, 7, 1);
-$app-violet:                  rgba(71, 19, 123, 1);
-$app-purple:                  rgba(126, 4, 167, 1);
+$app-green-primary:				rgba(39, 77, 56, 1);
+$app-green-secondary:			rgba(88, 140, 115, 1);
+$app-mustard:					rgba(199, 180, 80, 1);
+$app-skin:						rgba(242, 174, 115, 1);
+$app-red:						rgba(217, 100, 89, 1);
+$app-brown:						rgba(140, 71, 71, 1);
 
 // Gray baseline
 $app-gray:                      rgba(237, 234, 234, 1);
 
-// Brand primary (blue)
-// $app-primary:                   rgba(5, 81, 125, 1);
-// $app-secondary:                 rgba(55, 116, 151, 1);
+// Brand primary (green)
+$app-primary:                   rgba(39, 77, 56, 1);
+$app-secondary:                 rgba(88, 140, 115, 1);
+
 // Brand danger
 $app-danger:                    $app-red;
-
-// Sekundärfarbe ist: rgba(39,77,56,1) ( = Grün)
-// Rubriken: Startseite: rgba(39,77,56,1)
-// Aktuelles: rgba(88,140,115,1)
-// Verwaltung & Politik: rgba(199,180,80,1)
-// Tourismus & Wirtschaft: rgba(242,174,115,1)
-// Leben im Landkreis: rgba(217,100,89,1)
-// Bürgerportal & Service: rgba(140, 71, 71,1)
 
 
 //== Brand and Section specific variables
@@ -46,53 +38,47 @@ $app-primary-light:             lighten($app-primary-base, 7.5%) !default;
 $app-primary-lighter:           lighten($app-primary-base, 15%) !default;
 
 //** Secondary brand color
-$app-secondary-base:              rgba(88, 140, 115, 1) !default;
-$app-secondary-darker:            darken($app-secondary-base, 15%)  !default;
-$app-secondary-dark:              darken($app-secondary-base, 7.5%) !default;
-$app-secondary:                   $app-secondary-base               !default; // #588c73
-$app-secondary-light:             lighten($app-secondary-base, 7.5%) !default;
-$app-secondary-lighter:           lighten($app-secondary-base, 15%) !default;
+$app-secondary-base:			rgba(88, 140, 115, 1) !default;
+$app-secondary-darker:			darken($app-secondary-base, 15%)  !default;
+$app-secondary-dark:			darken($app-secondary-base, 7.5%) !default;
+$app-secondary:					$app-secondary-base               !default; // #588c73
+$app-secondary-light:			lighten($app-secondary-base, 7.5%) !default;
+$app-secondary-lighter:			lighten($app-secondary-base, 15%) !default;
 
 // Section Aktuelles
 $app-current:					$app-secondary-base;
 
-// Section Verwaltung & Politik
-$app-administration:			rgba(199, 180, 80, 1);
+// Section Landratsamt
+$app-department:				$app-mustard;
 
-// Section Tourismus & Wirtschaft
-$app-economy:					rgba(88,140,115,1);
-
-// Section (Leben im) Landkreis
-$app-county:					rgba(140, 71, 71, 1);
-
-// Section Bürgerportal & Service
-$app-service:					rgba(242, 174, 115, 1);
+// Section Service
+$app-service:					$app-skin;
 
 // Section Info
-$app-info:            rgba(217, 100, 89, 1);
+$app-info:            			$app-red;
 
-
-
+// Section Hier Leben
+$app-life:						$app-brown;
 
 
 //** Brand primary color schema used as default
 $app-default:                 $app-primary-base;
 $app-section-default:         $app-primary-base;
-//** Section: News
-$app-section-news:            $app-secondary-base;
-//** Section: Administrative district office (abbr: DO)
-$app-section-do:              rgba(199, 180, 80, 1) !default;
-//** Section: service
-$app-section-service:         rgba(242, 174, 115, 1) !default;
-//** Section: info
-$app-section-info:            rgba(217, 100, 89, 1) !default;
-//** Section: County
-$app-section-county:          rgba(140, 71, 71, 1) !default;
-//** Section: County concil (abbr: CC)
-$app-cc:                      $app-green;
-//** Section: News
-$app-news:                    $app-violet;
 
+// Section News
+$app-section-news:            $app-secondary-base;
+
+// Section Landratsamt
+$app-section-department:      $app-mustard !default;
+
+//** Section Service
+$app-section-service:         $app-skin !default;
+
+//** Section: info
+$app-section-info:            $app-red !default;
+
+//** Section Hier Leben
+$app-section-life:  		  $app-brown !default;
 
 
 //** Font awesome font path
