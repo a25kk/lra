@@ -99,25 +99,31 @@ $app-secondary-lighter:           lighten($app-secondary-base, 15%)   !default;
     <div class="sg-example">
     <div class="color-swatches">
       <div class="color-swatch sg-ui-color-primary">Default</div>
-      <div class="color-swatch sg-ui-color-news">News</div>
-      <div class="color-swatch sg-ui-color-do">District office</div>
+      <div class="color-swatch sg-ui-color-news">Aktuelles</div>
+      <div class="color-swatch sg-ui-color-department">Landratsamt</div>
       <div class="color-swatch sg-ui-color-service">Service</div>
       <div class="color-swatch sg-ui-color-info">Info</div>
-      <div class="color-swatch sg-ui-color-county">County</div>
+      <div class="color-swatch sg-ui-color-life">Hier Leben</div>
     </div>
   </div>
 {% highlight scss %}
 $app-section-default:         $app-primary-base;
+
 //** Section: News
 $app-section-news:            $app-secondary-base;
-//** Section: Administrative district office (abbr: DO)
-$app-section-do:              rgba(199, 180, 80, 1) !default;
-//** Section: service
+
+//** Section: Landratsamt
+$app-section-department:      rgba(199, 180, 80, 1) !default;
+
+//** Section: Service
 $app-section-service:         rgba(242, 174, 115, 1) !default;
-//** Section: info
+
+//** Section: Info
 $app-section-info:            rgba(217, 100, 89, 1) !default;
-//** Section: County
-$app-section-county:          rgba(140, 71, 71, 1) !default;
+
+//** Section: Hier Leben
+$app-section-life:            rgba(140, 71, 71, 1) !default;
+
 {% endhighlight %}
     </div><!-- /sg-section -->
 
@@ -148,32 +154,17 @@ $app-section-county:          rgba(140, 71, 71, 1) !default;
               </td>
               <td class="type-info">Aktuelles (Sekundärfarbe)
               </td>
-              <td class="type-info">3.9 <span class="label label-warning">akzeptabel</span></td>
+              <td class="type-info">3.9 <span class="label label-info">akzeptabel</span></td>
             </tr>
             <tr>
               <td>
-                <div class="color-swatch sg-ui-color-info">#D96459</div>
-              </td>
-              <td class="type-info">Info
-              </td>
-              <td class="type-info">3.5 <span class="label label-info">akzeptabel</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="color-swatch sg-ui-color-do">#588c73</div>
+                <div class="color-swatch sg-ui-color-department">#c7b450</div>
               </td>
               <td class="type-info">Landratsamt
               </td>
-              <td class="type-info">3.9 <span class="label label-warning">akzeptabel</span></td>
+              <td class="type-info">2.1 <span class="label label-danger">unzureichend</span></td>
             </tr>
-            <tr>
-              <td>
-                <div class="color-swatch sg-ui-color-county">#8C4747</div>
-              </td>
-              <td class="type-info">Leben im Landkreis
-              </td>
-              <td class="type-info">6.8 <span class="label label-success">sehr gut</span></td>
-            </tr>
+
             <tr>
               <td>
                 <div class="color-swatch sg-ui-color-service">#f2ae73</div>
@@ -182,6 +173,25 @@ $app-section-county:          rgba(140, 71, 71, 1) !default;
               </td>
               <td class="type-info">1.9 <span class="label label-danger">unzureichend</span></td>
             </tr>
+
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-info">#d96459</div>
+              </td>
+              <td class="type-info">Info
+              </td>
+              <td class="type-info">3.5 <span class="label label-info">akzeptabel</span></td>
+            </tr>
+            
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-life">#8c4747</div>
+              </td>
+              <td class="type-info">Hier Leben
+              </td>
+              <td class="type-info">6.8 <span class="label label-success">sehr gut</span></td>
+            </tr>
+            
           </tbody>
         </table>
       </div>
@@ -201,7 +211,7 @@ $app-section-county:          rgba(140, 71, 71, 1) !default;
           Erreicht für Schriftgrößen ab 18pt eine AAA Level Einstufung und bei
           kleineren Schriftgrößen eine gute AA Bewertung
         </dd>
-        <dt><span class="label label-warning">akzeptabel</span></dt>
+        <dt><span class="label label-info">akzeptabel</span></dt>
         <dd>
           Erreicht eine AA Level Einstufung für Schriftgrößen ab 18pt. Bei kleineren
           Schriftgrößen ist die Lesbarkeit bereits deutlich beeintächtigt bis nicht mehr gegeben.
