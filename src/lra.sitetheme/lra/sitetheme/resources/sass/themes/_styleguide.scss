@@ -433,3 +433,12 @@
 .color-swatches .app-secondary-lighter {
   background-color: $app-secondary-lighter;
 }
+
+.app-icon-list {
+  font-size: $font-size-small;
+  i {
+    padding: $line-height-computed 0;
+  }
+}
+
+

@@ -11102,4 +11102,13 @@ fieldset[disabled] .app-searchbox-btn.active
 {
     background-color: #81b099;
 }
+
+.app-icon-list
+{
+    font-size: .85rem;
+}
+.app-icon-list i
+{
+    padding: 1.428571429rem 0;
+}
 /*# sourceMappingURL=lra.css.map */
