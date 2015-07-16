@@ -10692,10 +10692,9 @@ body.section-front-page .app-pathbar
 
 .app-newsletterbar
 {
-    min-height: 120px;
-    padding: 1.428571429rem; 
+    margin-bottom: .7142857145rem; 
+    padding: 1.428571429rem;
 
-    border: 0 solid red;
     background: #588c73;
 }
 .app-newsletterbar .form-control,
