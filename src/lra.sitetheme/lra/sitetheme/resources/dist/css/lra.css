@@ -10692,9 +10692,23 @@ body.section-front-page .app-pathbar
 
 .app-newsletterbar
 {
-    min-height: 120px; 
+    min-height: 120px;
+    padding: 1.428571429rem; 
 
-    border: 1px solid red;
+    border: 0 solid red;
+    background: #588c73;
+}
+.app-newsletterbar .form-control,
+.app-newsletterbar .app-searchbox-field
+{
+    border: 0;
+    border-radius: 0;
+}
+.app-newsletterbar .input-group-addon
+{
+    color: #fff;
+    border: 0; 
+    background: #274d38;
 }
 
 .app-layout-simple
