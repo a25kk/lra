@@ -10133,6 +10133,97 @@ fieldset[disabled] .app-searchbox-btn.active
     font-weight: 500;
 }
 
+.app-pathbar
+{
+    font-size: .85rem;
+
+    margin-bottom: 0; 
+
+    border-radius: 0;
+    background-color: #f5f5f5;
+}
+.app-pathbar > * > span
+{
+    font-weight: 100; 
+
+    display: inline-block;
+
+    padding: 8px 0 8px 15px;
+
+    color: #777;
+}
+@media (max-width: 768px)
+{
+    .app-pathbar > * > span
+    {
+        display: none;
+    }
+}
+.app-pathbar #breadcrumbs-you-are-here
+{
+    padding-left: .7142857145rem;
+}
+.app-pathbar ol
+{
+    display: inline-block;
+
+    margin: 0; 
+    padding: 8px 15px;
+
+    list-style: none;
+}
+.app-pathbar ol > li
+{
+    font-weight: 100;
+    line-height: 0;
+
+    position: relative;
+
+    display: inline-block;
+
+    padding: 0 30px 0 0;
+}
+.app-pathbar ol > li + li:after
+{
+    position: absolute;
+    top: -15px;
+    left: -21px;
+
+    padding: 0 5px;
+    padding: 0 !important; 
+
+    content: '';
+
+    color: #f5f5f5;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 5px solid;
+}
+.app-pathbar ol > li + li:before
+{
+    position: absolute;
+    top: -15px;
+    left: -20px;
+
+    padding: 0 5px;
+    padding: 0 !important; 
+
+    content: '';
+
+    color: #ccc;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 5px solid;
+}
+.app-pathbar ol > #breadcrumbs-current
+{
+    color: #777;
+}
+body.section-front-page .app-pathbar
+{
+    display: none;
+}
+
 .app-cards
 {
     display: -webkit-box;
@@ -11110,5 +11201,34 @@ fieldset[disabled] .app-searchbox-btn.active
 .app-icon-list i
 {
     padding: 1.428571429rem 0;
+}
+
+/* makes the font 33% larger relative to the icon container */
+.fa-lg
+{
+    font-size: 1.3333333333em;
+    line-height: .75em;
+
+    vertical-align: -15%;
+}
+
+.fa-2x
+{
+    font-size: 2em;
+}
+
+.fa-3x
+{
+    font-size: 3em;
+}
+
+.fa-4x
+{
+    font-size: 4em;
+}
+
+.fa-5x
+{
+    font-size: 5em;
 }
 /*# sourceMappingURL=lra.css.map */
