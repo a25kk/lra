@@ -57,16 +57,16 @@
   background-color: $app-section-news;
 }
 
-.sg-ui-color-do {
-  background-color: $app-section-do;
+.sg-ui-color-department {
+  background-color: $app-section-department;
 }
 
 .sg-ui-color-service {
   background-color: $app-section-service;
 }
 
-.sg-ui-color-county {
-  background-color: $app-section-county;
+.sg-ui-color-life {
+  background-color: $app-section-life;
 }
 
 .sg-ui-color-info {
@@ -433,3 +433,26 @@
 .color-swatches .app-secondary-lighter {
   background-color: $app-secondary-lighter;
 }
+
+.app-icon-list {
+  font-size: $font-size-small;
+  i {
+    padding: $line-height-computed 0;
+  }
+}
+
+// Icon Sizes
+// -------------------------
+
+/* makes the font 33% larger relative to the icon container */
+.#{$fa-css-prefix}-lg {
+  font-size: (4em / 3);
+  line-height: (3em / 4);
+  vertical-align: -15%;
+}
+.#{$fa-css-prefix}-2x { font-size: 2em; }
+.#{$fa-css-prefix}-3x { font-size: 3em; }
+.#{$fa-css-prefix}-4x { font-size: 4em; }
+.#{$fa-css-prefix}-5x { font-size: 5em; }
+
+

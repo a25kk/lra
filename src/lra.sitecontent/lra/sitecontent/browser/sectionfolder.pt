@@ -16,10 +16,7 @@
         tal:content="context/Description" />
     </div>
     <div class="page-body">
-      <h2>
-        Rendered from
-        sectionfolder_templates/<span tal:replace="template/id" />
-      </h2>
+      Body text
     </div>
 
   </metal:content-core>

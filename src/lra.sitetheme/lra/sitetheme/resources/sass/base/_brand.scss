@@ -53,29 +53,38 @@
   background-color: $app-section-service;
 }
 
-//** Section Administrative district office (abbr: DO)
-.app-do {
-  color: $app-section-do;
+//** Section Landratsamt
+.app-department {
+  color: $app-section-department;
 }
 
-.app-do-bg {
-  background-color: $app-section-do;
+.app-department-bg {
+  background-color: $app-section-department;
 }
 
-//** Section County
-.app-county {
-  color: $app-section-county;
+//** Section Service
+.app-service {
+  color: $app-section-service;
 }
 
-.app-county-bg {
-  background-color: $app-section-county;
+.app-service-bg {
+  background-color: $app-section-service;
 }
 
-// Section County concil (abbr: CC)
-.app-cc {
-  color: $app-cc;
+// Section Info
+.app-info {
+  color: $app-info;
 }
 
-.app-cc-bg {
-  background-color: $app-cc;
+.app-info-bg {
+  background-color: $app-info;
+}
+
+// Section Hier Leben
+.app-life {
+  color: $app-life;
+}
+
+.app-life-bg {
+  background-color: $app-life;
 }

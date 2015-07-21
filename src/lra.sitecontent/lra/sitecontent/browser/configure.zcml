@@ -6,7 +6,7 @@
 
   <browser:page
       for="lra.sitecontent.sectionfolder.ISectionFolder"
-      name="sectionfolder_view"
+      name="sectionfolder-view"
       class=".sectionfolder.SectionFolderView"
       template="sectionfolder.pt"
       permission="zope2.View"
@@ -15,7 +15,7 @@
 
   <browser:page
       for="lra.sitecontent.contentpage.IContentPage"
-      name="contentpage_view"
+      name="contentpage-view"
       class=".contentpage.ContentPageView"
       template="contentpage.pt"
       permission="zope2.View"

@@ -150,30 +150,30 @@
   }
 }
 
-.app-navitem-tab-verwaltung-und-politik {
-  background-color: $app-administration;
+.app-navitem-tab-landratsamt {
+  background-color: $app-department;
   &:hover {
-    background-color: darken($app-administration, 6.5%);
+    background-color: darken($app-department, 6.5%);
   }
 }
 
-.app-navitem-tab-tourismus-und-wirtschaft {
-  background-color: $app-economy;
-  &:hover {
-    background-color: darken($app-economy, 6.5%);
-  }
-}
-
-.app-navitem-tab-leben-im-landkreis {
-  background-color: $app-county;
-  &:hover {
-    background-color: darken($app-county, 6.5%);
-  }
-}
-
-.app-navitem-tab-buergerportal-und-service {
+.app-navitem-tab-service {
   background-color: $app-service;
   &:hover {
     background-color: darken($app-service, 6.5%);
+  }
+}
+
+.app-navitem-tab-info {
+  background-color: $app-info;
+  &:hover {
+    background-color: darken($app-info, 6.5%);
+  }
+}
+
+.app-navitem-tab-hier-leben{
+  background-color: $app-life;
+  &:hover {
+    background-color: darken($app-life, 6.5%);
   }
 }

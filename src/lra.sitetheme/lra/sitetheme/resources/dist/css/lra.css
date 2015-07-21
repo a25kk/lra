@@ -3380,7 +3380,7 @@ a
 {
     text-decoration: none; 
 
-    color: #377497;
+    color: #588c73;
 }
 a:hover,
 a:focus
@@ -5668,23 +5668,63 @@ input[type='search']
         line-height: 2.178571429rem;
     }
     input[type='date'].input-sm,
+    .input-group-sm > input[type='date'].form-control,
+    .input-group-sm > input[type='date'].app-searchbox-field,
+    .input-group-sm > input[type='date'].input-group-addon,
+    .input-group-sm > .input-group-btn > input[type='date'].btn,
+    .input-group-sm > .input-group-btn > input[type='date'].searchButton,
     .input-group-sm input[type='date'],
     input[type='time'].input-sm,
+    .input-group-sm > input[type='time'].form-control,
+    .input-group-sm > input[type='time'].app-searchbox-field,
+    .input-group-sm > input[type='time'].input-group-addon,
+    .input-group-sm > .input-group-btn > input[type='time'].btn,
+    .input-group-sm > .input-group-btn > input[type='time'].searchButton,
     .input-group-sm input[type='time'],
     input[type='datetime-local'].input-sm,
+    .input-group-sm > input[type='datetime-local'].form-control,
+    .input-group-sm > input[type='datetime-local'].app-searchbox-field,
+    .input-group-sm > input[type='datetime-local'].input-group-addon,
+    .input-group-sm > .input-group-btn > input[type='datetime-local'].btn,
+    .input-group-sm > .input-group-btn > input[type='datetime-local'].searchButton,
     .input-group-sm input[type='datetime-local'],
     input[type='month'].input-sm,
+    .input-group-sm > input[type='month'].form-control,
+    .input-group-sm > input[type='month'].app-searchbox-field,
+    .input-group-sm > input[type='month'].input-group-addon,
+    .input-group-sm > .input-group-btn > input[type='month'].btn,
+    .input-group-sm > .input-group-btn > input[type='month'].searchButton,
     .input-group-sm input[type='month']
     {
         line-height: 1.9rem;
     }
     input[type='date'].input-lg,
+    .input-group-lg > input[type='date'].form-control,
+    .input-group-lg > input[type='date'].app-searchbox-field,
+    .input-group-lg > input[type='date'].input-group-addon,
+    .input-group-lg > .input-group-btn > input[type='date'].btn,
+    .input-group-lg > .input-group-btn > input[type='date'].searchButton,
     .input-group-lg input[type='date'],
     input[type='time'].input-lg,
+    .input-group-lg > input[type='time'].form-control,
+    .input-group-lg > input[type='time'].app-searchbox-field,
+    .input-group-lg > input[type='time'].input-group-addon,
+    .input-group-lg > .input-group-btn > input[type='time'].btn,
+    .input-group-lg > .input-group-btn > input[type='time'].searchButton,
     .input-group-lg input[type='time'],
     input[type='datetime-local'].input-lg,
+    .input-group-lg > input[type='datetime-local'].form-control,
+    .input-group-lg > input[type='datetime-local'].app-searchbox-field,
+    .input-group-lg > input[type='datetime-local'].input-group-addon,
+    .input-group-lg > .input-group-btn > input[type='datetime-local'].btn,
+    .input-group-lg > .input-group-btn > input[type='datetime-local'].searchButton,
     .input-group-lg input[type='datetime-local'],
     input[type='month'].input-lg,
+    .input-group-lg > input[type='month'].form-control,
+    .input-group-lg > input[type='month'].app-searchbox-field,
+    .input-group-lg > input[type='month'].input-group-addon,
+    .input-group-lg > .input-group-btn > input[type='month'].btn,
+    .input-group-lg > .input-group-btn > input[type='month'].searchButton,
     .input-group-lg input[type='month']
     {
         line-height: 2.916666625rem;
@@ -5792,13 +5832,28 @@ fieldset[disabled] .checkbox label
     padding-bottom: 1.375rem;
 }
 .form-control-static.input-lg,
-.form-control-static.input-sm
+.input-group-lg > .form-control-static.form-control,
+.input-group-lg > .form-control-static.app-searchbox-field,
+.input-group-lg > .form-control-static.input-group-addon,
+.input-group-lg > .input-group-btn > .form-control-static.btn,
+.input-group-lg > .input-group-btn > .form-control-static.searchButton,
+.form-control-static.input-sm,
+.input-group-sm > .form-control-static.form-control,
+.input-group-sm > .form-control-static.app-searchbox-field,
+.input-group-sm > .form-control-static.input-group-addon,
+.input-group-sm > .input-group-btn > .form-control-static.btn,
+.input-group-sm > .input-group-btn > .form-control-static.searchButton
 {
     padding-right: 0; 
     padding-left: 0;
 }
 
-.input-sm
+.input-sm,
+.input-group-sm > .form-control,
+.input-group-sm > .app-searchbox-field,
+.input-group-sm > .input-group-addon,
+.input-group-sm > .input-group-btn > .btn,
+.input-group-sm > .input-group-btn > .searchButton
 {
     font-size: .85rem;
     line-height: 1.5;
@@ -5809,7 +5864,12 @@ fieldset[disabled] .checkbox label
     border-radius: 3px;
 }
 
-select.input-sm
+select.input-sm,
+.input-group-sm > select.form-control,
+.input-group-sm > select.app-searchbox-field,
+.input-group-sm > select.input-group-addon,
+.input-group-sm > .input-group-btn > select.btn,
+.input-group-sm > .input-group-btn > select.searchButton
 {
     line-height: 1.9rem; 
 
@@ -5817,7 +5877,17 @@ select.input-sm
 }
 
 textarea.input-sm,
-select[multiple].input-sm
+.input-group-sm > textarea.form-control,
+.input-group-sm > textarea.app-searchbox-field,
+.input-group-sm > textarea.input-group-addon,
+.input-group-sm > .input-group-btn > textarea.btn,
+.input-group-sm > .input-group-btn > textarea.searchButton,
+select[multiple].input-sm,
+.input-group-sm > select[multiple].form-control,
+.input-group-sm > select[multiple].app-searchbox-field,
+.input-group-sm > select[multiple].input-group-addon,
+.input-group-sm > .input-group-btn > select[multiple].btn,
+.input-group-sm > .input-group-btn > select[multiple].searchButton
 {
     height: auto;
 }
@@ -5860,7 +5930,12 @@ select[multiple].input-sm
     padding: .3125rem .625rem;
 }
 
-.input-lg
+.input-lg,
+.input-group-lg > .form-control,
+.input-group-lg > .app-searchbox-field,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .btn,
+.input-group-lg > .input-group-btn > .searchButton
 {
     font-size: 1.25rem;
     line-height: 1.3333333;
@@ -5871,7 +5946,12 @@ select[multiple].input-sm
     border-radius: 6px;
 }
 
-select.input-lg
+select.input-lg,
+.input-group-lg > select.form-control,
+.input-group-lg > select.app-searchbox-field,
+.input-group-lg > select.input-group-addon,
+.input-group-lg > .input-group-btn > select.btn,
+.input-group-lg > .input-group-btn > select.searchButton
 {
     line-height: 2.916666625rem; 
 
@@ -5879,7 +5959,17 @@ select.input-lg
 }
 
 textarea.input-lg,
-select[multiple].input-lg
+.input-group-lg > textarea.form-control,
+.input-group-lg > textarea.app-searchbox-field,
+.input-group-lg > textarea.input-group-addon,
+.input-group-lg > .input-group-btn > textarea.btn,
+.input-group-lg > .input-group-btn > textarea.searchButton,
+select[multiple].input-lg,
+.input-group-lg > select[multiple].form-control,
+.input-group-lg > select[multiple].app-searchbox-field,
+.input-group-lg > select[multiple].input-group-addon,
+.input-group-lg > .input-group-btn > select[multiple].btn,
+.input-group-lg > .input-group-btn > select[multiple].searchButton
 {
     height: auto;
 }
@@ -5950,7 +6040,12 @@ select[multiple].input-lg
     pointer-events: none;
 }
 
-.input-lg + .form-control-feedback
+.input-lg + .form-control-feedback,
+.input-group-lg > .form-control + .form-control-feedback,
+.input-group-lg > .app-searchbox-field + .form-control-feedback,
+.input-group-lg > .input-group-addon + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn + .form-control-feedback,
+.input-group-lg > .input-group-btn > .searchButton + .form-control-feedback
 {
     line-height: 2.916666625rem; 
 
@@ -5958,7 +6053,12 @@ select[multiple].input-lg
     height: 2.916666625rem;
 }
 
-.input-sm + .form-control-feedback
+.input-sm + .form-control-feedback,
+.input-group-sm > .form-control + .form-control-feedback,
+.input-group-sm > .app-searchbox-field + .form-control-feedback,
+.input-group-sm > .input-group-addon + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn + .form-control-feedback,
+.input-group-sm > .input-group-btn > .searchButton + .form-control-feedback
 {
     line-height: 1.9rem; 
 
@@ -6671,7 +6771,7 @@ fieldset[disabled] .btn-danger.active
 {
     font-weight: normal;
 
-    color: #377497;
+    color: #588c73;
     border-radius: 0;
 }
 .btn-link,
@@ -7016,6 +7116,186 @@ tbody.collapse.in
     }
 }
 
+.input-group
+{
+    position: relative;
+
+    display: table;
+
+    border-collapse: separate;
+}
+.input-group[class*='col-']
+{
+    float: none;
+
+    padding-right: 0; 
+    padding-left: 0;
+}
+.input-group .form-control,
+.input-group .app-searchbox-field
+{
+    position: relative;
+    z-index: 2;
+
+    float: left;
+
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control,
+.input-group .app-searchbox-field
+{
+    display: table-cell;
+}
+.input-group-addon:not(:first-child):not(:last-child),
+.input-group-btn:not(:first-child):not(:last-child),
+.input-group .form-control:not(:first-child):not(:last-child),
+.input-group .app-searchbox-field:not(:first-child):not(:last-child)
+{
+    border-radius: 0;
+}
+
+.input-group-addon,
+.input-group-btn
+{
+    width: 1%;
+
+    vertical-align: middle; 
+    white-space: nowrap;
+}
+
+.input-group-addon
+{
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1;
+
+    padding: .375rem .75rem;
+
+    text-align: center;
+
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 0; 
+    background-color: #eee;
+}
+.input-group-addon.input-sm,
+.input-group-sm > .input-group-addon,
+.input-group-sm > .input-group-btn > .input-group-addon.btn,
+.input-group-sm > .input-group-btn > .input-group-addon.searchButton
+{
+    font-size: .85rem;
+
+    padding: .3125rem .625rem;
+
+    border-radius: 0;
+}
+.input-group-addon.input-lg,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .input-group-addon.btn,
+.input-group-lg > .input-group-btn > .input-group-addon.searchButton
+{
+    font-size: 1.25rem;
+
+    padding: .625rem 1rem;
+
+    border-radius: 0;
+}
+.input-group-addon input[type='radio'],
+.input-group-addon input[type='checkbox']
+{
+    margin-top: 0;
+}
+
+.input-group .form-control:first-child,
+.input-group .app-searchbox-field:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .searchButton,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .btn-group > .searchButton,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .searchButton:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn,
+.input-group-btn:last-child > .btn-group:not(:last-child) > .searchButton
+{
+    border-top-right-radius: 0; 
+    border-bottom-right-radius: 0;
+}
+
+.input-group-addon:first-child
+{
+    border-right: 0;
+}
+
+.input-group .form-control:last-child,
+.input-group .app-searchbox-field:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .searchButton,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .btn-group > .searchButton,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .searchButton:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn,
+.input-group-btn:first-child > .btn-group:not(:first-child) > .searchButton
+{
+    border-top-left-radius: 0; 
+    border-bottom-left-radius: 0;
+}
+
+.input-group-addon:last-child
+{
+    border-left: 0;
+}
+
+.input-group-btn
+{
+    font-size: 0;
+
+    position: relative;
+
+    white-space: nowrap;
+}
+.input-group-btn > .btn,
+.input-group-btn > .searchButton
+{
+    position: relative;
+}
+.input-group-btn > .btn + .btn,
+.input-group-btn > .searchButton + .btn,
+.input-group-btn > .btn + .searchButton,
+.input-group-btn > .searchButton + .searchButton
+{
+    margin-left: -1px;
+}
+.input-group-btn > .btn:hover,
+.input-group-btn > .searchButton:hover,
+.input-group-btn > .btn:focus,
+.input-group-btn > .searchButton:focus,
+.input-group-btn > .btn:active,
+.input-group-btn > .searchButton:active
+{
+    z-index: 2;
+}
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .searchButton,
+.input-group-btn:first-child > .btn-group
+{
+    margin-right: -1px;
+}
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .searchButton,
+.input-group-btn:last-child > .btn-group
+{
+    margin-left: -1px;
+}
+
 .nav,
 .app-toolbar-nav
 {
@@ -7086,7 +7366,7 @@ tbody.collapse.in
 .nav .open > a:focus,
 .app-toolbar-nav .open > a:focus
 {
-    border-color: #377497; 
+    border-color: #588c73; 
     background-color: #eee;
 }
 .nav .nav-divider,
@@ -8849,7 +9129,12 @@ pre
     height:         calc($input-height-base + 2px);
 }
 
-.input-lg + .form-control-feedback
+.input-lg + .form-control-feedback,
+.input-group-lg > .form-control + .form-control-feedback,
+.input-group-lg > .app-searchbox-field + .form-control-feedback,
+.input-group-lg > .input-group-addon + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn + .form-control-feedback,
+.input-group-lg > .input-group-btn > .searchButton + .form-control-feedback
 {
     width: -webkit-calc($input-height-large + 2px);
     width:         calc($input-height-large + 2px);
@@ -8857,7 +9142,12 @@ pre
     height:         calc($input-height-large + 2px);
 }
 
-.input-sm + .form-control-feedback
+.input-sm + .form-control-feedback,
+.input-group-sm > .form-control + .form-control-feedback,
+.input-group-sm > .app-searchbox-field + .form-control-feedback,
+.input-group-sm > .input-group-addon + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn + .form-control-feedback,
+.input-group-sm > .input-group-btn > .searchButton + .form-control-feedback
 {
     width: -webkit-calc($input-height-small + 2px);
     width:         calc($input-height-small + 2px);
@@ -8972,34 +9262,44 @@ div.riform .label
     background-color: #f2ae73;
 }
 
-.app-do
+.app-department
 {
     color: #c7b450;
 }
 
-.app-do-bg
+.app-department-bg
 {
     background-color: #c7b450;
 }
 
-.app-county
+.app-service
+{
+    color: #f2ae73;
+}
+
+.app-service-bg
+{
+    background-color: #f2ae73;
+}
+
+.app-info
+{
+    color: #d96459;
+}
+
+.app-info-bg
+{
+    background-color: #d96459;
+}
+
+.app-life
 {
     color: #8c4747;
 }
 
-.app-county-bg
+.app-life-bg
 {
     background-color: #8c4747;
-}
-
-.app-cc
-{
-    color: #098227;
-}
-
-.app-cc-bg
-{
-    background-color: #098227;
 }
 
 .app-header
@@ -9285,40 +9585,40 @@ div.riform .label
     background-color: #4b7862;
 }
 
-.app-navitem-tab-verwaltung-und-politik
+.app-navitem-tab-landratsamt
 {
     background-color: #c7b450;
 }
-.app-navitem-tab-verwaltung-und-politik:hover
+.app-navitem-tab-landratsamt:hover
 {
     background-color: #baa63c;
 }
 
-.app-navitem-tab-tourismus-und-wirtschaft
-{
-    background-color: #588c73;
-}
-.app-navitem-tab-tourismus-und-wirtschaft:hover
-{
-    background-color: #4b7862;
-}
-
-.app-navitem-tab-leben-im-landkreis
-{
-    background-color: #8c4747;
-}
-.app-navitem-tab-leben-im-landkreis:hover
-{
-    background-color: #763c3c;
-}
-
-.app-navitem-tab-buergerportal-und-service
+.app-navitem-tab-service
 {
     background-color: #f2ae73;
 }
-.app-navitem-tab-buergerportal-und-service:hover
+.app-navitem-tab-service:hover
 {
     background-color: #ef9c55;
+}
+
+.app-navitem-tab-info
+{
+    background-color: #d96459;
+}
+.app-navitem-tab-info:hover
+{
+    background-color: #d34b3e;
+}
+
+.app-navitem-tab-hier-leben
+{
+    background-color: #8c4747;
+}
+.app-navitem-tab-hier-leben:hover
+{
+    background-color: #763c3c;
 }
 
 .app-footer
@@ -10123,6 +10423,148 @@ fieldset[disabled] .app-searchbox-btn.active
     font-weight: 500;
 }
 
+.app-page-hero
+{
+    min-height: 500px;
+    padding: 100px 0;
+
+    background: url(../assets/img/intro.jpg) no-repeat top center;
+    -webkit-background-size: cover;
+            background-size: cover;
+}
+.app-page-hero .app-brand-panel
+{
+    margin: 100px auto;
+}
+.app-page-hero .app-brandname
+{
+    font-size: 1.75rem; 
+
+    text-decoration: none;
+
+    color: #fff !important;
+}
+
+.app-search
+{
+    margin: 100px;
+
+    border: 10px solid #edeaea;
+}
+.app-search .form-control,
+.app-search .app-searchbox-field
+{
+    border: 0;
+    border-radius: 0;
+}
+.app-search .input-group-addon
+{
+    color: #fff; 
+    background: #274d38;
+}
+
+.app-page-scroll
+{
+    margin: 100px auto;
+
+    text-align: center;
+}
+.app-page-scroll a
+{
+    color: #fff;
+}
+
+.app-pathbar
+{
+    font-size: .85rem;
+
+    margin-bottom: 0; 
+
+    border-radius: 0;
+    background-color: #f5f5f5;
+}
+.app-pathbar > * > span
+{
+    font-weight: 100; 
+
+    display: inline-block;
+
+    padding: 8px 0 8px 15px;
+
+    color: #777;
+}
+@media (max-width: 768px)
+{
+    .app-pathbar > * > span
+    {
+        display: none;
+    }
+}
+.app-pathbar #breadcrumbs-you-are-here
+{
+    padding-left: .7142857145rem;
+}
+.app-pathbar ol
+{
+    display: inline-block;
+
+    margin: 0; 
+    padding: 8px 15px;
+
+    list-style: none;
+}
+.app-pathbar ol > li
+{
+    font-weight: 100;
+    line-height: 0;
+
+    position: relative;
+
+    display: inline-block;
+
+    padding: 0 30px 0 0;
+}
+.app-pathbar ol > li + li:after
+{
+    position: absolute;
+    top: -15px;
+    left: -21px;
+
+    padding: 0 5px;
+    padding: 0 !important; 
+
+    content: '';
+
+    color: #f5f5f5;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 5px solid;
+}
+.app-pathbar ol > li + li:before
+{
+    position: absolute;
+    top: -15px;
+    left: -20px;
+
+    padding: 0 5px;
+    padding: 0 !important; 
+
+    content: '';
+
+    color: #ccc;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 5px solid;
+}
+.app-pathbar ol > #breadcrumbs-current
+{
+    color: #777;
+}
+body.section-front-page .app-pathbar
+{
+    display: none;
+}
+
 .app-cards
 {
     display: -webkit-box;
@@ -10250,9 +10692,22 @@ fieldset[disabled] .app-searchbox-btn.active
 
 .app-newsletterbar
 {
-    min-height: 120px; 
+    margin-bottom: .7142857145rem; 
+    padding: 1.428571429rem;
 
-    border: 1px solid red;
+    background: #588c73;
+}
+.app-newsletterbar .form-control,
+.app-newsletterbar .app-searchbox-field
+{
+    border: 0;
+    border-radius: 0;
+}
+.app-newsletterbar .input-group-addon
+{
+    color: #fff;
+    border: 0; 
+    background: #274d38;
 }
 
 .app-layout-simple
@@ -10598,7 +11053,7 @@ fieldset[disabled] .app-searchbox-btn.active
     background-color: #588c73;
 }
 
-.sg-ui-color-do
+.sg-ui-color-department
 {
     background-color: #c7b450;
 }
@@ -10608,7 +11063,7 @@ fieldset[disabled] .app-searchbox-btn.active
     background-color: #f2ae73;
 }
 
-.sg-ui-color-county
+.sg-ui-color-life
 {
     background-color: #8c4747;
 }
@@ -11091,5 +11546,43 @@ fieldset[disabled] .app-searchbox-btn.active
 .color-swatches .app-secondary-lighter
 {
     background-color: #81b099;
+}
+
+.app-icon-list
+{
+    font-size: .85rem;
+}
+.app-icon-list i
+{
+    padding: 1.428571429rem 0;
+}
+
+/* makes the font 33% larger relative to the icon container */
+.fa-lg
+{
+    font-size: 1.3333333333em;
+    line-height: .75em;
+
+    vertical-align: -15%;
+}
+
+.fa-2x
+{
+    font-size: 2em;
+}
+
+.fa-3x
+{
+    font-size: 3em;
+}
+
+.fa-4x
+{
+    font-size: 4em;
+}
+
+.fa-5x
+{
+    font-size: 5em;
 }
 /*# sourceMappingURL=lra.css.map */
