@@ -10,17 +10,44 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <div class="page-header">
-      <h1 class="page-title" tal:content="context/Title" />
-      <p class="page-abstract" tal:condition="context/Description"
-        tal:content="context/Description" />
-    </div>
-    <div class="page-body">
-      <h2>
-        Rendered from
-        contentpage_templates/<span tal:replace="template/id" />
-      </h2>
-    </div>
+      <div class="app-page-header">
+          <div class="app-page-title">
+              <h1 class="app-page-headline" tal:content="context/Title">
+                      ${context/Title}
+              </h1>
+          </div>
+          <p class="app-page-abstract" tal:condition="context/Description">
+                  ${context/Description}
+          </p>
+      </div>
+      <div class="app-page-leadimage" tal:condition="view/has_leadimage">
+          <figure class="app-page-image-container"
+                  tal:define="image_data view/image_data">
+              <div class="ratio-container">
+                  <img  class="lazyload"
+                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-sizes="auto"
+                        data-srcset="${image_data/small},
+                                     s${image_data/medium},
+                                     s${image_data/large}" />
+              </div>
+              <noscript>
+                  <!-- Provide fallback for missing lazyload javascript -->
+                  <img tal:define="has_img context/image|nothing;
+                          scales context/@@images|nothing"
+                          tal:condition="python:has_img and scales"
+                          tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
+              </noscript>
+              <figcaption tal:condition="context/image_caption">
+                      ${context/image_caption}
+              </figcaption>
+          </figure>
+      </div>
+      <div class="app-page-body">
+          <div class="app-page-text" id="parent-fieldname-text"
+                  tal:condition="context/text"
+                  tal:content="structure context/text/output" />
+      </div>
 
   </metal:content-core>
 </metal:main>
