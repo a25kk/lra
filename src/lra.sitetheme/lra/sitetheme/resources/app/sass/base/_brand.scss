@@ -1,0 +1,90 @@
+//
+// Brand
+// --------------------------------------------
+
+
+//== Site section utility classes and mixins
+//
+//## Site section specific color definitions
+//## intendend to be used as mixin or modifier classes
+
+
+//** Default brand color scheme
+.app-default {
+  color: $app-default;
+}
+
+//** Primary brand color scheme
+.app-primary-darker {
+
+}
+.app-primary-dark {
+
+}
+.app-primary {
+  background-color: $app-primary;
+}
+.app-primary-light {
+
+}
+.app-primary-lighter {
+
+}
+
+.app-default-bg {
+  background-color: $app-section-default;
+}
+
+//** News section
+.app-news {
+  color: $app-section-news;
+}
+
+.app-news-bg {
+  background-color: $app-section-news;
+}
+
+//** Service section
+.app-service {
+  color: $app-section-service;
+}
+
+.app-service-bg {
+  background-color: $app-section-service;
+}
+
+//** Section Landratsamt
+.app-department {
+  color: $app-section-department;
+}
+
+.app-department-bg {
+  background-color: $app-section-department;
+}
+
+//** Section Service
+.app-service {
+  color: $app-section-service;
+}
+
+.app-service-bg {
+  background-color: $app-section-service;
+}
+
+// Section Info
+.app-info {
+  color: $app-info;
+}
+
+.app-info-bg {
+  background-color: $app-info;
+}
+
+// Section Hier Leben
+.app-life {
+  color: $app-life;
+}
+
+.app-life-bg {
+  background-color: $app-life;
+}
