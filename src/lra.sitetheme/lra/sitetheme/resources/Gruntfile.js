@@ -89,10 +89,10 @@ module.exports = function (grunt) {
             loadPath: 'bower_components'
           },
           dist: {
-            files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': 'sass/main.scss' }
+            files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': '<%= config.app %>/sass/main.scss' }
           },
           server: {
-            files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': 'sass/main.scss' }
+            files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': '<%= config.app %>/sass/main.scss' }
           }
         },
         autoprefixer: {
@@ -114,12 +114,12 @@ module.exports = function (grunt) {
                 keepSpecialComments: '*',
                 noAdvanced: true
             },
-            core: { files: { '<%= config.dist %>/styles/<%= pkg.name %>.min.css': 'dist/styles/<%= pkg.name %>.css' } }
+            core: { files: { '<%= config.dist %>/styles/<%= pkg.name %>.min.css': '<%= config.dist %>/styles/<%= pkg.name %>.css' } }
         },
         csscomb: {
             sort: {
                 options: { config: 'sass/.csscomb.json' },
-                files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': ['dist/styles/<%= pkg.name %>.css'] }
+                files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': ['<%= config.dist %>/styles/<%= pkg.name %>.css'] }
             }
         },
         criticalcss: {

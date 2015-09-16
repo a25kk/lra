@@ -10610,444 +10610,6 @@ window.Modernizr = (function( window, document, undefined ) {
 
 })(this, this.document);
 
-/* ========================================================================
- * Bootstrap: transition.js v3.3.4
- * http://getbootstrap.com/javascript/#transitions
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-+function ($) {
-  'use strict';
-
-  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
-  // ============================================================
-
-  function transitionEnd() {
-    var el = document.createElement('bootstrap')
-
-    var transEndEventNames = {
-      WebkitTransition : 'webkitTransitionEnd',
-      MozTransition    : 'transitionend',
-      OTransition      : 'oTransitionEnd otransitionend',
-      transition       : 'transitionend'
-    }
-
-    for (var name in transEndEventNames) {
-      if (el.style[name] !== undefined) {
-        return { end: transEndEventNames[name] }
-      }
-    }
-
-    return false // explicit for ie8 (  ._.)
-  }
-
-  // http://blog.alexmaccaw.com/css-transitions
-  $.fn.emulateTransitionEnd = function (duration) {
-    var called = false
-    var $el = this
-    $(this).one('bsTransitionEnd', function () { called = true })
-    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
-    setTimeout(callback, duration)
-    return this
-  }
-
-  $(function () {
-    $.support.transition = transitionEnd()
-
-    if (!$.support.transition) return
-
-    $.event.special.bsTransitionEnd = {
-      bindType: $.support.transition.end,
-      delegateType: $.support.transition.end,
-      handle: function (e) {
-        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
-      }
-    }
-  })
-
-}(jQuery);
-
-/* ========================================================================
- * Bootstrap: collapse.js v3.3.4
- * http://getbootstrap.com/javascript/#collapse
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-+function ($) {
-  'use strict';
-
-  // COLLAPSE PUBLIC CLASS DEFINITION
-  // ================================
-
-  var Collapse = function (element, options) {
-    this.$element      = $(element)
-    this.options       = $.extend({}, Collapse.DEFAULTS, options)
-    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
-                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
-    this.transitioning = null
-
-    if (this.options.parent) {
-      this.$parent = this.getParent()
-    } else {
-      this.addAriaAndCollapsedClass(this.$element, this.$trigger)
-    }
-
-    if (this.options.toggle) this.toggle()
-  }
-
-  Collapse.VERSION  = '3.3.4'
-
-  Collapse.TRANSITION_DURATION = 350
-
-  Collapse.DEFAULTS = {
-    toggle: true
-  }
-
-  Collapse.prototype.dimension = function () {
-    var hasWidth = this.$element.hasClass('width')
-    return hasWidth ? 'width' : 'height'
-  }
-
-  Collapse.prototype.show = function () {
-    if (this.transitioning || this.$element.hasClass('in')) return
-
-    var activesData
-    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
-
-    if (actives && actives.length) {
-      activesData = actives.data('bs.collapse')
-      if (activesData && activesData.transitioning) return
-    }
-
-    var startEvent = $.Event('show.bs.collapse')
-    this.$element.trigger(startEvent)
-    if (startEvent.isDefaultPrevented()) return
-
-    if (actives && actives.length) {
-      Plugin.call(actives, 'hide')
-      activesData || actives.data('bs.collapse', null)
-    }
-
-    var dimension = this.dimension()
-
-    this.$element
-      .removeClass('collapse')
-      .addClass('collapsing')[dimension](0)
-      .attr('aria-expanded', true)
-
-    this.$trigger
-      .removeClass('collapsed')
-      .attr('aria-expanded', true)
-
-    this.transitioning = 1
-
-    var complete = function () {
-      this.$element
-        .removeClass('collapsing')
-        .addClass('collapse in')[dimension]('')
-      this.transitioning = 0
-      this.$element
-        .trigger('shown.bs.collapse')
-    }
-
-    if (!$.support.transition) return complete.call(this)
-
-    var scrollSize = $.camelCase(['scroll', dimension].join('-'))
-
-    this.$element
-      .one('bsTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
-  }
-
-  Collapse.prototype.hide = function () {
-    if (this.transitioning || !this.$element.hasClass('in')) return
-
-    var startEvent = $.Event('hide.bs.collapse')
-    this.$element.trigger(startEvent)
-    if (startEvent.isDefaultPrevented()) return
-
-    var dimension = this.dimension()
-
-    this.$element[dimension](this.$element[dimension]())[0].offsetHeight
-
-    this.$element
-      .addClass('collapsing')
-      .removeClass('collapse in')
-      .attr('aria-expanded', false)
-
-    this.$trigger
-      .addClass('collapsed')
-      .attr('aria-expanded', false)
-
-    this.transitioning = 1
-
-    var complete = function () {
-      this.transitioning = 0
-      this.$element
-        .removeClass('collapsing')
-        .addClass('collapse')
-        .trigger('hidden.bs.collapse')
-    }
-
-    if (!$.support.transition) return complete.call(this)
-
-    this.$element
-      [dimension](0)
-      .one('bsTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
-  }
-
-  Collapse.prototype.toggle = function () {
-    this[this.$element.hasClass('in') ? 'hide' : 'show']()
-  }
-
-  Collapse.prototype.getParent = function () {
-    return $(this.options.parent)
-      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
-      .each($.proxy(function (i, element) {
-        var $element = $(element)
-        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
-      }, this))
-      .end()
-  }
-
-  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
-    var isOpen = $element.hasClass('in')
-
-    $element.attr('aria-expanded', isOpen)
-    $trigger
-      .toggleClass('collapsed', !isOpen)
-      .attr('aria-expanded', isOpen)
-  }
-
-  function getTargetFromTrigger($trigger) {
-    var href
-    var target = $trigger.attr('data-target')
-      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
-
-    return $(target)
-  }
-
-
-  // COLLAPSE PLUGIN DEFINITION
-  // ==========================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.collapse')
-      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
-
-      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
-      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  var old = $.fn.collapse
-
-  $.fn.collapse             = Plugin
-  $.fn.collapse.Constructor = Collapse
-
-
-  // COLLAPSE NO CONFLICT
-  // ====================
-
-  $.fn.collapse.noConflict = function () {
-    $.fn.collapse = old
-    return this
-  }
-
-
-  // COLLAPSE DATA-API
-  // =================
-
-  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
-    var $this   = $(this)
-
-    if (!$this.attr('data-target')) e.preventDefault()
-
-    var $target = getTargetFromTrigger($this)
-    var data    = $target.data('bs.collapse')
-    var option  = data ? 'toggle' : $this.data()
-
-    Plugin.call($target, option)
-  })
-
-}(jQuery);
-
-/* ========================================================================
- * Bootstrap: dropdown.js v3.3.4
- * http://getbootstrap.com/javascript/#dropdowns
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-+function ($) {
-  'use strict';
-
-  // DROPDOWN CLASS DEFINITION
-  // =========================
-
-  var backdrop = '.dropdown-backdrop'
-  var toggle   = '[data-toggle="dropdown"]'
-  var Dropdown = function (element) {
-    $(element).on('click.bs.dropdown', this.toggle)
-  }
-
-  Dropdown.VERSION = '3.3.4'
-
-  function getParent($this) {
-    var selector = $this.attr('data-target')
-
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
-    }
-
-    var $parent = selector && $(selector)
-
-    return $parent && $parent.length ? $parent : $this.parent()
-  }
-
-  function clearMenus(e) {
-    if (e && e.which === 3) return
-    $(backdrop).remove()
-    $(toggle).each(function () {
-      var $this         = $(this)
-      var $parent       = getParent($this)
-      var relatedTarget = { relatedTarget: this }
-
-      if (!$parent.hasClass('open')) return
-
-      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
-
-      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
-
-      if (e.isDefaultPrevented()) return
-
-      $this.attr('aria-expanded', 'false')
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
-    })
-  }
-
-  Dropdown.prototype.toggle = function (e) {
-    var $this = $(this)
-
-    if ($this.is('.disabled, :disabled')) return
-
-    var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
-
-    clearMenus()
-
-    if (!isActive) {
-      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-        // if mobile we use a backdrop because click events don't delegate
-        $(document.createElement('div'))
-          .addClass('dropdown-backdrop')
-          .insertAfter($(this))
-          .on('click', clearMenus)
-      }
-
-      var relatedTarget = { relatedTarget: this }
-      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
-
-      if (e.isDefaultPrevented()) return
-
-      $this
-        .trigger('focus')
-        .attr('aria-expanded', 'true')
-
-      $parent
-        .toggleClass('open')
-        .trigger('shown.bs.dropdown', relatedTarget)
-    }
-
-    return false
-  }
-
-  Dropdown.prototype.keydown = function (e) {
-    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
-
-    var $this = $(this)
-
-    e.preventDefault()
-    e.stopPropagation()
-
-    if ($this.is('.disabled, :disabled')) return
-
-    var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
-
-    if (!isActive && e.which != 27 || isActive && e.which == 27) {
-      if (e.which == 27) $parent.find(toggle).trigger('focus')
-      return $this.trigger('click')
-    }
-
-    var desc = ' li:not(.disabled):visible a'
-    var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
-
-    if (!$items.length) return
-
-    var index = $items.index(e.target)
-
-    if (e.which == 38 && index > 0)                 index--         // up
-    if (e.which == 40 && index < $items.length - 1) index++         // down
-    if (!~index)                                    index = 0
-
-    $items.eq(index).trigger('focus')
-  }
-
-
-  // DROPDOWN PLUGIN DEFINITION
-  // ==========================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this = $(this)
-      var data  = $this.data('bs.dropdown')
-
-      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
-      if (typeof option == 'string') data[option].call($this)
-    })
-  }
-
-  var old = $.fn.dropdown
-
-  $.fn.dropdown             = Plugin
-  $.fn.dropdown.Constructor = Dropdown
-
-
-  // DROPDOWN NO CONFLICT
-  // ====================
-
-  $.fn.dropdown.noConflict = function () {
-    $.fn.dropdown = old
-    return this
-  }
-
-
-  // APPLY TO STANDARD DROPDOWN ELEMENTS
-  // ===================================
-
-  $(document)
-    .on('click.bs.dropdown.data-api', clearMenus)
-    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
-    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
-
-}(jQuery);
-
 /*
  * Mailcheck https://github.com/mailcheck/mailcheck
  * Author
@@ -11055,21 +10617,35 @@ window.Modernizr = (function( window, document, undefined ) {
  *
  * Released under the MIT License.
  *
- * v 1.1.0
+ * v 1.1.1
  */
 
 var Mailcheck = {
-  domainThreshold: 4,
-  topLevelThreshold: 3,
+  domainThreshold: 2,
+  secondLevelThreshold: 2,
+  topLevelThreshold: 2,
 
-  defaultDomains: ["yahoo.com", "google.com", "hotmail.com", "gmail.com", "me.com", "aol.com", "mac.com",
-    "live.com", "comcast.net", "googlemail.com", "msn.com", "hotmail.co.uk", "yahoo.co.uk",
-    "facebook.com", "verizon.net", "sbcglobal.net", "att.net", "gmx.com", "mail.com", "outlook.com", "icloud.com"],
+  defaultDomains: ['msn.com', 'bellsouth.net',
+    'telus.net', 'comcast.net', 'optusnet.com.au',
+    'earthlink.net', 'qq.com', 'sky.com', 'icloud.com',
+    'mac.com', 'sympatico.ca', 'googlemail.com',
+    'att.net', 'xtra.co.nz', 'web.de',
+    'cox.net', 'gmail.com', 'ymail.com',
+    'aim.com', 'rogers.com', 'verizon.net',
+    'rocketmail.com', 'google.com', 'optonline.net',
+    'sbcglobal.net', 'aol.com', 'me.com', 'btinternet.com',
+    'charter.net', 'shaw.ca'],
 
-  defaultTopLevelDomains: ["co.jp", "co.uk", "com", "net", "org", "info", "edu", "gov", "mil", "ca"],
+  defaultSecondLevelDomains: ["yahoo", "hotmail", "mail", "live", "outlook", "gmx"],
+
+  defaultTopLevelDomains: ["com", "com.au", "com.tw", "ca", "co.nz", "co.uk", "de",
+    "fr", "it", "ru", "net", "org", "edu", "gov", "jp", "nl", "kr", "se", "eu",
+    "ie", "co.il", "us", "at", "be", "dk", "hk", "es", "gr", "ch", "no", "cz",
+    "in", "net", "net.au", "info", "biz", "mil", "co.jp", "sg", "hu"],
 
   run: function(opts) {
     opts.domains = opts.domains || Mailcheck.defaultDomains;
+    opts.secondLevelDomains = opts.secondLevelDomains || Mailcheck.defaultSecondLevelDomains;
     opts.topLevelDomains = opts.topLevelDomains || Mailcheck.defaultTopLevelDomains;
     opts.distanceFunction = opts.distanceFunction || Mailcheck.sift3Distance;
 
@@ -11077,33 +10653,60 @@ var Mailcheck = {
     var suggestedCallback = opts.suggested || defaultCallback;
     var emptyCallback = opts.empty || defaultCallback;
 
-    var result = Mailcheck.suggest(Mailcheck.encodeEmail(opts.email), opts.domains, opts.topLevelDomains, opts.distanceFunction);
+    var result = Mailcheck.suggest(Mailcheck.encodeEmail(opts.email), opts.domains, opts.secondLevelDomains, opts.topLevelDomains, opts.distanceFunction);
 
     return result ? suggestedCallback(result) : emptyCallback()
   },
 
-  suggest: function(email, domains, topLevelDomains, distanceFunction) {
+  suggest: function(email, domains, secondLevelDomains, topLevelDomains, distanceFunction) {
     email = email.toLowerCase();
 
     var emailParts = this.splitEmail(email);
 
+    if (secondLevelDomains && topLevelDomains) {
+        // If the email is a valid 2nd-level + top-level, do not suggest anything.
+        if (secondLevelDomains.indexOf(emailParts.secondLevelDomain) !== -1 && topLevelDomains.indexOf(emailParts.topLevelDomain) !== -1) {
+            return false;
+        }
+    }
+
     var closestDomain = this.findClosestDomain(emailParts.domain, domains, distanceFunction, this.domainThreshold);
 
     if (closestDomain) {
-      if (closestDomain != emailParts.domain) {
+      if (closestDomain == emailParts.domain) {
+        // The email address exactly matches one of the supplied domains; do not return a suggestion.
+        return false;
+      } else {
         // The email address closely matches one of the supplied domains; return a suggestion
         return { address: emailParts.address, domain: closestDomain, full: emailParts.address + "@" + closestDomain };
       }
-    } else {
-      // The email address does not closely match one of the supplied domains
-      var closestTopLevelDomain = this.findClosestDomain(emailParts.topLevelDomain, topLevelDomains, distanceFunction, this.topLevelThreshold);
-      if (emailParts.domain && closestTopLevelDomain && closestTopLevelDomain != emailParts.topLevelDomain) {
+    }
+
+    // The email address does not closely match one of the supplied domains
+    var closestSecondLevelDomain = this.findClosestDomain(emailParts.secondLevelDomain, secondLevelDomains, distanceFunction, this.secondLevelThreshold);
+    var closestTopLevelDomain    = this.findClosestDomain(emailParts.topLevelDomain, topLevelDomains, distanceFunction, this.topLevelThreshold);
+
+    if (emailParts.domain) {
+      var closestDomain = emailParts.domain;
+      var rtrn = false;
+
+      if(closestSecondLevelDomain && closestSecondLevelDomain != emailParts.secondLevelDomain) {
+        // The email address may have a mispelled second-level domain; return a suggestion
+        closestDomain = closestDomain.replace(emailParts.secondLevelDomain, closestSecondLevelDomain);
+        rtrn = true;
+      }
+
+      if(closestTopLevelDomain && closestTopLevelDomain != emailParts.topLevelDomain) {
         // The email address may have a mispelled top-level domain; return a suggestion
-        var domain = emailParts.domain;
-        closestDomain = domain.substring(0, domain.lastIndexOf(emailParts.topLevelDomain)) + closestTopLevelDomain;
+        closestDomain = closestDomain.replace(emailParts.topLevelDomain, closestTopLevelDomain);
+        rtrn = true;
+      }
+
+      if (rtrn == true) {
         return { address: emailParts.address, domain: closestDomain, full: emailParts.address + "@" + closestDomain };
       }
     }
+
     /* The email address exactly matches one of the supplied domains, does not closely
      * match any domain and does not appear to simply have a mispelled top-level domain,
      * or is an invalid email address; do not return a suggestion.
@@ -11199,6 +10802,7 @@ var Mailcheck = {
 
     var domain = parts.pop();
     var domainParts = domain.split('.');
+    var sld = '';
     var tld = '';
 
     if (domainParts.length == 0) {
@@ -11209,16 +10813,16 @@ var Mailcheck = {
       tld = domainParts[0];
     } else {
       // The address has a domain and a top-level domain
+      sld = domainParts[0];
       for (var i = 1; i < domainParts.length; i++) {
         tld += domainParts[i] + '.';
       }
-      if (domainParts.length >= 2) {
-        tld = tld.substring(0, tld.length - 1);
-      }
+      tld = tld.substring(0, tld.length - 1);
     }
 
     return {
       topLevelDomain: tld,
+      secondLevelDomain: sld,
       domain: domain,
       address: parts.join('@')
     }
@@ -11240,6 +10844,14 @@ var Mailcheck = {
 // Modeled off of Underscore.js.
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Mailcheck;
+}
+
+// Support AMD style definitions
+// Based on jQuery (see http://stackoverflow.com/a/17954882/1322410)
+if (typeof define === "function" && define.amd) {
+  define("mailcheck", [], function() {
+    return Mailcheck;
+  });
 }
 
 if (typeof window !== 'undefined' && window.jQuery) {
@@ -11265,6 +10877,82 @@ if (typeof window !== 'undefined' && window.jQuery) {
     }
   })(jQuery);
 }
+
+/*
+ * JVFloat.js
+ * modified on: 18/09/2014
+ */
+
+(function($) {
+  'use strict';
+  
+  // Init Plugin Functions
+  $.fn.jvFloat = function () {
+    // Check input type - filter submit buttons.
+    return this.filter('input:not([type=submit]), textarea, select').each(function() {
+      function getPlaceholderText($el) {
+        var text = $el.attr('placeholder');
+
+        if (typeof text == 'undefined') {
+            text = $el.attr('title');
+        }
+
+        return text;
+      }
+      function setState () {
+        // change span.placeHolder to span.placeHolder.active
+        var currentValue = $el.val();
+
+        if (currentValue == null) {
+          currentValue = '';
+        }
+        else if ($el.is('select')) {
+          var placeholderValue = getPlaceholderText($el);
+
+          if (placeholderValue == currentValue) {
+            currentValue = '';
+          }
+        }
+
+        placeholder.toggleClass('active', currentValue !== '');
+      }
+      function generateUIDNotMoreThan1million () {
+        var id = '';
+        do {
+          id = ('0000' + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4);
+        } while (!!$('#' + id).length);
+        return id;
+      }
+      function createIdOnElement($el) {
+        var id = generateUIDNotMoreThan1million();
+        $el.prop('id', id);
+        return id;
+      }
+      // Wrap the input in div.jvFloat
+      var $el = $(this).wrap('<div class=jvFloat>');
+      var forId = $el.attr('id');
+      if (!forId) { forId = createIdOnElement($el);}
+      // Store the placeholder text in span.placeHolder
+      // added `required` input detection and state
+      var required = $el.attr('required') || '';
+      
+      // adds a different class tag for text areas (.jvFloat .placeHolder.textarea) 
+      // to allow better positioning of the element for multiline text area inputs
+      var placeholder = '';
+      var placeholderText = getPlaceholderText($el);
+
+      if ($(this).is('textarea')) {
+        placeholder = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + placeholderText + '</label>').insertBefore($el);
+      } else {
+        placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + placeholderText + '</label>').insertBefore($el);
+      }
+      // checks to see if inputs are pre-populated and adds active to span.placeholder
+      setState();
+      $el.bind('keyup blur', setState);
+    });
+  };
+// Make Zeptojs & jQuery Compatible
+})(window.jQuery || window.Zepto || window.$);
 
 (function (factory, global) {
 
@@ -11711,42 +11399,3 @@ if (typeof window !== 'undefined' && window.jQuery) {
   });
 
 }, this));
-
-'use strict';
-(function ($) {
-  $(document).ready(function () {
-    $('.app-signin-input').jvFloat();
-    var $mcNote = $('#app-signin-suggestion');
-    Mailcheck.defaultDomains.push('lra-aic-fdb.de')
-    $('#ac-name').on('blur', function(event) {
-        console.log("event ", event);
-        console.log("this ", $(this));
-        $(this).mailcheck({
-            // domains: domains,                       // optional
-            // topLevelDomains: topLevelDomains,       // optional
-            suggested: function(element, suggestion) {
-              // callback code
-              console.log("suggestion ", suggestion.full);
-              $mcNote.removeClass('hidden').addClass('fadeInDown');
-              $mcNote.html("Meinten Sie <i>" + suggestion.full + "</i>?");
-              $mcNote.on('click', function(evt) {
-                evt.preventDefault();
-                $('#ac-name').val(suggestion.full);
-                $mcNote.removeClass('fadeInDown').addClass('fadeOutUp').delay(2000).addClass('hidden');
-              });
-            },
-            empty: function(element) {
-              // callback code
-              $mcNote.html('').addClass('hidden');
-            }
-        });
-    });
-    $('input[type="password"]').showPassword('focus', {
-        // toggle: { className: 'my-toggle' }
-    });
-    var bLazy = new Blazy({
-        selector: '.b-lazy'
-    });
-  }
-  );
-}(jQuery));
