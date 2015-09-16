@@ -3922,8 +3922,7 @@ th
     {
         page-break-after: avoid;
     }
-    .navbar,
-    .app-navbar
+    .navbar
     {
         display: none;
     }
@@ -6930,15 +6929,13 @@ input[type='button'].btn-block
     margin-top: -1px;
 }
 
-.navbar,
-.app-navbar
+.navbar
 {
     position: relative;
 
     padding: .5rem 1rem;
 }
-.navbar::after,
-.app-navbar::after
+.navbar::after
 {
     display: table;
     clear: both; 
@@ -8703,6 +8700,10 @@ div.riform .label
     {
         border-bottom: 10px solid #274d38; 
         background: transparent;
+
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
     }
 }
 
@@ -8726,6 +8727,13 @@ div.riform .label
     clear: both; 
 
     content: '';
+}
+@media (min-width: 34em)
+{
+    .app-navbar-header
+    {
+        display: none;
+    }
 }
 
 .app-navbar-header-title
@@ -8847,7 +8855,9 @@ div.riform .label
     margin-bottom: 0;
     padding-left: 0;
 
-    list-style: none; 
+    list-style: none;
+
+    border: 1px solid blue; 
 
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
@@ -8870,8 +8880,12 @@ div.riform .label
 {
     .app-navitem
     {
-        width: 16.66666667%;
-        padding-right: 2px;
+        width: auto;
+        padding-right: 2px; 
+
+        -webkit-flex: 0 0 16.66666667%;
+            -ms-flex: 0 0 16.66666667%;
+                flex: 0 0 16.66666667%;
     }
     .app-navitem:last-child
     {
@@ -10510,7 +10524,6 @@ label
 .sg-example > .app-searchbox-field:last-child,
 .sg-example > .table:last-child,
 .sg-example > .navbar:last-child,
-.sg-example > .app-navbar:last-child,
 .sg-example > .jumbotron:last-child,
 .sg-example > .alert:last-child,
 .sg-example > .panel:last-child,

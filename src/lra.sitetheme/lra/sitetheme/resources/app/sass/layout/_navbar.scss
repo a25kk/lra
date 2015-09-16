@@ -3,10 +3,11 @@
 // -----------------------------------------
 
 .app-navbar {
-    @extend .navbar;
+    //@extend .navbar;
     background-color: $app-primary;
     border-radius: 0;
     @include media-breakpoint-up(md) {
+        flex: 1;
         background: transparent;
         border-bottom: 10px solid $app-primary;
     }
@@ -22,6 +23,9 @@
   align-items: center;
   padding: 0;
   background: $app-primary;
+    @include media-breakpoint-up(sm) {
+        display: none;
+    }
 }
 
 //** Navbar toggle text
@@ -123,6 +127,7 @@
   padding-left: 0; // Override default ul/ol
   list-style: none;
   @extend clearfix;
+    border: 1px solid blue;
 }
 
 //== Navitems
@@ -131,7 +136,8 @@
 .app-navitem {
   width: 100%;
   @include media-breakpoint-up(md) {
-    width: 16.66666667%;
+    width: auto;
+    flex: 0 0 16.66666667%;
     padding-right: 2px;
     &:last-child {
       padding-right: 0;
@@ -177,36 +183,36 @@
 }
 
 .app-navitem-tab-aktuelles {
-  background-color: $app-current;
+  background-color: $app-section-news;
   &:hover {
-    background-color: darken($app-current, 6.5%);
+    background-color: darken($app-section-news, 6.5%);
   }
 }
 
 .app-navitem-tab-landratsamt {
-  background-color: $app-department;
+  background-color: $app-section-department;
   &:hover {
-    background-color: darken($app-department, 6.5%);
+    background-color: darken($app-section-department, 6.5%);
   }
 }
 
 .app-navitem-tab-service {
-  background-color: $app-service;
+  background-color: $app-section-service;
   &:hover {
-    background-color: darken($app-service, 6.5%);
+    background-color: darken($app-section-service, 6.5%);
   }
 }
 
 .app-navitem-tab-info {
-  background-color: $app-info;
+  background-color: $app-section-info;
   &:hover {
-    background-color: darken($app-info, 6.5%);
+    background-color: darken($app-section-info, 6.5%);
   }
 }
 
 .app-navitem-tab-hier-leben{
-  background-color: $app-life;
+  background-color: $app-section-life;
   &:hover {
-    background-color: darken($app-life, 6.5%);
+    background-color: darken($app-section-life, 6.5%);
   }
 }

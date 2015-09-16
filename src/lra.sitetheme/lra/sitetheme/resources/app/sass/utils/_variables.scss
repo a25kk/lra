@@ -45,21 +45,6 @@ $app-secondary:					$app-secondary-base               !default; // #588c73
 $app-secondary-light:			lighten($app-secondary-base, 7.5%) !default;
 $app-secondary-lighter:			lighten($app-secondary-base, 15%) !default;
 
-// Section Aktuelles
-$app-current:					$app-secondary-base;
-
-// Section Landratsamt
-$app-department:				$app-mustard;
-
-// Section Service
-$app-service:					$app-skin;
-
-// Section Info
-$app-info:            			$app-red;
-
-// Section Hier Leben
-$app-life:						$app-brown;
-
 
 //** Brand primary color schema used as default
 $app-default:                 $app-primary-base;
