@@ -4,8 +4,8 @@
 
 .app-newsletterbar {
 	background: $app-green-secondary;
-	padding: $line-height-computed;
-	margin-bottom: $line-height-computed / 2;
+	padding: $spacer;
+	margin-bottom: $spacer / 2;
 
 	.form-control {
 		border: 0;

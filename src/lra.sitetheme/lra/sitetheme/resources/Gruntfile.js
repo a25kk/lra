@@ -502,16 +502,16 @@ module.exports = function (grunt) {
         },
         watch: {
             js: {
-                files: ['js/{,*/}*.js'],
+                files: ['<%= config.app %>/scripts/{,*/}*.js'],
                 tasks: ['concat', 'uglify'],
                 options: { livereload: true }
             },
             html: {
-                files: ['*.html'],
+                files: ['<%= config.app %>/{,*/}*.html'],
                 tasks: ['jekyll:theme', 'replace:server', 'htmlmin']
             },
             sass: {
-              files: ['sass/{,*/}*.{scss,sass}'],
+              files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
               tasks: ['sass:server', 'autoprefixer', 'csscomb', 'cssmin'],
               options: { livereload: true }
             }

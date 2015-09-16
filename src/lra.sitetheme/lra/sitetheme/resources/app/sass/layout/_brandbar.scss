@@ -3,10 +3,10 @@
 // -----------------------------------------
 
 .app-brandbar {
-  padding-top: ceil(($line-height-computed * 1.5));
+  padding-top: ceil(($spacer * 1.5));
   @media (min-width: $grid-float-breakpoint-max) {
-    padding-left: $line-height-computed;
-    padding-bottom: ceil(($line-height-computed * 1.5));
+    padding-left: $spacer;
+    padding-bottom: ceil(($spacer * 1.5));
   }
 }
 

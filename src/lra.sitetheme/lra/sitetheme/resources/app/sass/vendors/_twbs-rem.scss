@@ -24,7 +24,7 @@ $font-size-h4: ($font-size-h4 / $font-size-root) * $font-unit;
 $font-size-h5: ($font-size-h5 / $font-size-root) * $font-unit;
 $font-size-h6: ($font-size-h6 / $font-size-root) * $font-unit;
 
-$line-height-computed: ($font-size-base * $line-height-base);
+$spacer: ($font-size-base * $line-height-base);
 
 $padding-base-vertical: (($padding-base-vertical / $font-size-root) * $font-unit);
 $padding-base-horizontal: (($padding-base-horizontal / $font-size-root) * $font-unit);
@@ -49,7 +49,7 @@ $table-cell-padding: (($table-cell-padding / $font-size-root) * $font-unit);
 $table-condensed-cell-padding: (($table-condensed-cell-padding / $font-size-root) * $font-unit);
 
 //** Default `.form-control` height
-$input-height-base: ($line-height-computed + ($padding-base-vertical * 2));
+$input-height-base: ($spacer + ($padding-base-vertical * 2));
 //** Large `.form-control` height
 $input-height-large: (($font-size-large * $line-height-large) + ($padding-large-vertical * 2));
 //** Small `.form-control` height
@@ -92,7 +92,7 @@ padding: $padding-base-vertical;
 border: 1px solid transparent;
 }
 .radio, .checkbox {
-min-height: calc(($line-height-computed + $padding-base-vertical) + 1px);
+min-height: calc(($spacer + $padding-base-vertical) + 1px);
 }
 .form-control-static {
 padding-top: $padding-base-vertical;

@@ -22,25 +22,31 @@ base_url: "../../"
     <div class="sg-example">
 
     <form>
-      <div class="form-group">
+      <fieldset class="form-group">
         <label for="exampleInputEmail1">E-Mail Adresse</label>
         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Geben Sie bitte Ihre E-Mail Adresse ein.">
-      </div>
-      <div class="form-group">
+          <small class="text-muted">We will never share your email with anyone else</small>
+      </fieldset>
+      <fieldset class="form-group has-warning">
         <label for="exampleInputPassword1">Passwort</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Geben Sie bitte Ihren Passwort ein">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputFile">Dateien hochladen</label>
-        <input type="file" id="exampleInputFile">
-        <p class="help-block">Beispiel für einen Hilfetext.</p>
-      </div>
+        <input type="password" class="form-control form-control-warning" id="exampleInputPassword1" placeholder="Geben Sie bitte Ihren Passwort ein">
+          <small class="text-muted">This is another text input widget specifically for password entries</small>
+      </fieldset>
+      <fieldset class="form-group">
+        <label class="file" for="exampleInputFile">
+            <input type="file" id="exampleInputFile">
+            <span class="file-custom"></span>
+            Dateien hochladen
+        </label>
+      </fieldset>
       <div class="checkbox">
-        <label>
-          <input type="checkbox"> Checkbox
+        <label class="c-input c-checkbox">
+          <input type="checkbox">
+            <span class="c-indicator"></span>
+            Please select if you like checkboxes
         </label>
       </div>
-      <button type="submit" class="btn btn-default">Absenden</button>
+      <button type="submit" class="btn btn-primary">Absenden</button>
     </form>
     </div>
 

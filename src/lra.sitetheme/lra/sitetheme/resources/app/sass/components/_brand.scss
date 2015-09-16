@@ -7,8 +7,8 @@
 .app-brand {
   display: flex;
   align-items: center;
-  width: $screen-xs;
-  margin-right: $padding-small-horizontal;
+  width: 34rem;
+  margin-right: $spacer;
   &-panel-inverse {
     width: 100%;
   }
@@ -31,15 +31,15 @@
     width: 272.576px
   }
   .app-brand-panel & {
-    flex: 1;
-     @media (min-width: $grid-float-breakpoint) {
-        flex: 0 0 33.3333%;
-     }
+      flex: 1;
+      @include media-breakpoint-up(md) {
+          flex: 0 0 33.3333%;
+      }
   }
   .app-brand-panel-inverse & {
-    @media (min-width: $grid-float-breakpoint) {
+      @include media-breakpoint-up(md) {
         flex: 0 0 25%;
-    }
+      }
   }
 }
 
@@ -66,23 +66,23 @@
 
 .app-brandname {
   display: block;
-  padding: $padding-small-horizontal $padding-small-vertical;
+  padding: $spacer;
   font-size: 1.65rem;
   font-weight: 500;
   line-height: 1.25;
   color: $app-primary;
   .app-brand-panel & {
     flex: 1;
-     @media (min-width: $grid-float-breakpoint) {
+    @include media-breakpoint-up(md) {
         flex: 0 0 66.6666%;
      }
-    margin-top: -($line-height-computed);
+    margin-top: -($spacer);
   }
   .app-brand-panel-inverse & {
     font-size: 1.25rem;
     line-height: 1;
     color: #fff;
-    @media (min-width: $grid-float-breakpoint) {
+    @include media-breakpoint-up(md) {
         flex: 0 0 75%;
     }
   }
@@ -90,5 +90,6 @@
 
 // Sitewide claim
 .app-brand-aside {
-  @include make-md-column(4);
+    @include make-col();
+    @include make-col-span(4);
 }

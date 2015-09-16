@@ -5,17 +5,17 @@
 
 .app-header {
   padding-top: 3rem;
-  @media (min-width: $grid-float-breakpoint-max) {
-    padding-left: $line-height-computed;
+  @include media-breakpoint-up(md) {
+    padding-left: $spacer;
     padding-bottom: 1rem;
   }
 }
 
 .app-header-content {
-  @media (min-width: $grid-float-breakpoint) {
-    @extend .container;
-    display: flex;
-  }
+    @include media-breakpoint-up(md) {
+        @extend .container;
+        display: flex;
+    }
 }
 
 .app-header-content + .app-header-content {
@@ -30,11 +30,11 @@
 //
 //## Starting from the grid breakpoint the header
 //## should display in the standard 2:1 ratio
-@media (min-width: $grid-float-breakpoint-max) {
-  .app-header-brandbar {
-    flex: 0 0 66.6666%;
-  }
-  .app-header-actionbar {
-    flex: 0 0 33.3333%;
-  }
+@include media-breakpoint-up(md) {
+    .app-header-brandbar {
+        flex: 0 0 66.6666%;
+    }
+    .app-header-actionbar {
+        flex: 0 0 33.3333%;
+    }
 }
