@@ -21,7 +21,7 @@ base_url: "../../"
     <h3>Beispiele</h3>
       <h4>Eine Tabelle ohne Rahmen</h4>
         <div class="sg-example">
-          <table class="table">
+          <table class="app-table">
             <thead>
               <tr>
                 <th>#</th>
@@ -53,13 +53,13 @@ base_url: "../../"
           </table>
         </div>
 {% highlight scss %}
-<table class="table">
+<table class="app-table">
   ...
 </table>
 {% endhighlight %}
         <h4>Eine Tabelle mit dünnen Rahmen</h4>
         <div class="sg-example">
-          <table class="table table-bordered">
+          <table class="app-table app-table-inverse">
             <thead>
               <tr>
                 <th>#</th>
@@ -91,10 +91,48 @@ base_url: "../../"
           </table>
         </div><!-- /example -->
 {% highlight scss %}
-<table class="table table-bordered">
+<table class="app-table app-table-inverse">
   ...
 </table>
 {% endhighlight %}
 
+      <h4>Eine Tabelle mit dünnen Rahmen</h4>
+      <div class="sg-example">
+          <table class="app-table app-table-bordered app-table-striped">
+              <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Vorname</th>
+                  <th>Nachname</th>
+                  <th>Benutzername</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Twain</td>
+                  <td>@mtwain</td>
+              </tr>
+              <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Black</td>
+                  <td>@jblack</td>
+              </tr>
+              <tr>
+                  <th scope="row">3</th>
+                  <td>Leo</td>
+                  <td>Stein</td>
+                  <td>@lstein</td>
+              </tr>
+              </tbody>
+          </table>
+      </div><!-- /example -->
+{% highlight scss %}
+<table class="app-table app-table-bordered app-table-striped">
+    ...
+</table>
+{% endhighlight %}
   </div>
 </main>

@@ -11,6 +11,26 @@ label {
   }
 }
 
+input[type='submit'],
+input[type='button'] {
+    @extend .btn;
+    @extend .btn-default;
+    &.context {
+        @extend .btn-default;
+    }
+    &.standalone {
+        @extend .btn-primary;
+    }
+    &.destructive {
+        @extend .btn-danger;
+    }
+}
+
+// Space out form controls
+.formControls {
+    @extend .form-group;
+}
+
 //== Password toggle
 //
 //## Hide/show password in [type="password"] fields

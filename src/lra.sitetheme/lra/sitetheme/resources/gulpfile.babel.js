@@ -30,12 +30,12 @@ var sourcesJS = {
         basePaths.bower + 'flickity/dist/flickity.pkgd.js'
     ],
     all: [
-        basePaths.bower +'jquery/dist/jquery.js',
-        basePaths.bower +'modernizr/modernizr.js',
+        basePaths.bower + 'jquery/dist/jquery.js',
+        basePaths.bower + 'modernizr/modernizr.js',
         basePaths.bower + 'bootstrap-without-jquery/bootstrap3/bootstrap-without-jquery.js',
-        basePaths.bower +'mailcheck/src/mailcheck.js',
-        basePaths.bower +'JVFloat/jvfloat.js',
-        basePaths.bower +'hideShowPassword/hideShowPassword.js',
+        basePaths.bower + 'mailcheck/src/mailcheck.js',
+        basePaths.bower + 'JVFloat/jvfloat.js',
+        basePaths.bower + 'hideShowPassword/hideShowPassword.js',
         basePaths.bower + 'lazysizes/lazysizes.js',
         basePaths.bower + 'flickity/dist/flickity.pkgd.js'
 
@@ -53,7 +53,7 @@ gulp.task('jekyll-build', function (done) {
         .on('close', done);
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
     browserSync({
         server: {
             baseDir: "./"
@@ -65,8 +65,8 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('styles', () =>  {
-    return gulp.src(basePaths.app + '/scss/main.scss')
+gulp.task('styles', () = > {
+    return gulp.src(basePaths.app + '/sass/main.scss')
         .pipe($.plumber())
         .pipe($.sourcemaps.init())
         .pipe($.sass.sync({
@@ -75,21 +75,26 @@ gulp.task('styles', () =>  {
             includePaths: [basePaths.bower]
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer({browsers: ['last 1 version']}))
-        .pipe(gulp.dest(basePaths.app + '/css'))
+        .pipe(gulp.dest(basePaths.dist + '/styles/'))
         .pipe($.minifyCss())
-        .pipe($.rename({suffix: '.min'}))
+        .pipe($.rename({
+            basename: pkg.name,
+            suffix: '.min'
+        }))
         .pipe($.sourcemaps.write())
-        .pipe(gulp.dest(basePaths.app + '/css/'))
+        .pipe(gulp.dest(basePaths.dist + '/styles/'))
         .pipe(reload({stream: true}));
-});
+})
+;
 
-gulp.task('scripts', () => {
+gulp.task('scripts', () = > {
     return gulp.src(isProduction ? sourcesJS.all : sourcesJS.base)
         .pipe($.plumber({
             errorHandler: function (error) {
                 console.log(error.message);
                 this.emit('end');
-            }}))
+            }
+        }))
         .pipe($.jshint())
         .pipe($.jshint.reporter('default'))
         .pipe($.concat(pkg.name + '.js'))
@@ -97,10 +102,11 @@ gulp.task('scripts', () => {
         .pipe($.rename({suffix: '.min'}))
         .pipe($.uglify())
         .pipe(gulp.dest(basePaths.dist + '/scripts/'))
-        .pipe(browserSync.reload({stream:true}));
-});
+        .pipe(browserSync.reload({stream: true}));
+})
+;
 
-gulp.task('images', () => {
+gulp.task('images', () = > {
     return gulp.src(basePaths.app + 'assets/img/**/*')
         .pipe($.if($.if.isFile, $.cache($.imagemin({
             progressive: true,
@@ -114,23 +120,60 @@ gulp.task('images', () => {
                 this.end();
             })))
         .pipe(gulp.dest(basePaths.dist + 'assets/img'));
-});
+})
+;
 
-gulp.task('fonts', () => {
+gulp.task('fonts', () = > {
     return gulp.src(require('main-bower-files')({
         filter: '**/*.{eot,svg,ttf,woff,woff2}'
     }).concat(basePaths.app + 'assets/fonts/**/*'))
         .pipe(gulp.dest('.tmp/fonts'))
         .pipe(gulp.dest(basePaths.dist + 'assets/fonts'));
+})
+;
+
+gulp.task('html', () = > {
+    return gulp.src(basePaths.dev + '{,*/}*.html')
+        .pipe($.minifyHtml())
+        .pipe(gulp.dest(basePaths.dist));
+})
+;
+
+gulp.task('cb', () = > {
+    return gulp.src(basePaths.dist + 'styles/*.min.css')
+        .pipe($.rev())
+        .pipe(gulp.dest(basePaths.dist + '/styles'))
+        .pipe($.rev.manifest())
+        .pipe($.revDel({dest: basePaths.dist + '/styles'}))
+        .pipe(gulp.dest(basePaths.dist + '/styles'))
+}
+)
+;
+
+gulp.task('revreplace', () = > {
+    var manifest = gulp.src(basePaths.dist + '/styles/rev-manifest.json');
+    return gulp.src(basePaths.dev + '/{,*/}*.html')
+        .pipe(revReplace({manifest: manifest}))
+        .pipe(gulp.dest(basePaths.dev));
+})
+;
+
+gulp.task('replace', () = > {
+    return gulp.src(basePaths.dev + '/{,*/}*.html')
+        .pipe(replace({
+            patterns: [
+                {
+                    match: '../../assets/',
+                    replacement: '../assets/'
+                }
+            ],
+            usePrefix: false,
+            preserveOrder: true
+        }))
+        .pipe(gulp.dest(basePaths.dev))
 });
 
-gulp.task('html', () => {
-        return gulp.src(basePaths.dev + '{,*/}*.html')
-            .pipe($.minifyHtml())
-            .pipe(gulp.dest(basePaths.dist));
-});
-
-gulp.task('default', ['browser-sync'], function(){
+gulp.task('default', ['browser-sync'], function () {
     gulp.watch(basePaths.app + "sass/**/*.scss", ['styles']);
     gulp.watch(basePaths.app + "scripts/**/*.js", ['scripts']);
     gulp.watch(basePaths.app + "*.html", ['bs-reload']);

@@ -19,6 +19,9 @@
 // Make a gridrow
 .app-brand {
   @include make-row();
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 // The actual brandname/title

@@ -184,7 +184,7 @@ base_url: "../../"
             <h2>Plone tables styles</h2>
             <div class="test-example">
               <h3>Table</h3>
-              <table summary="Sortable table example">
+              <table class="app-table">
                   <!-- By giving a table an ID, it gets the sortable option.
                        Use class="nosort" to override on a table or column basis. -->
                   <thead>
@@ -213,7 +213,7 @@ base_url: "../../"
                   </tbody>
               </table>
               <h3>Table .listing</h3>
-              <table class="listing" id="someid" summary="Sortable table example">
+              <table class="app-table app-table-inverse" id="someid" summary="Sortable table example">
                   <!-- By giving a table an ID, it gets the sortable option.
                        Use class="nosort" to override on a table or column basis. -->
                   <thead>
@@ -242,7 +242,7 @@ base_url: "../../"
                   </tbody>
               </table>
               <h3>Table .vertical</h3>
-              <table class="vertical listing" summary="Vertical listing example">
+              <table class="app-table app-table-striped" summary="Vertical listing example">
                 <tbody>
                     <tr>
                         <th>.vertical.listing</th>
@@ -261,7 +261,7 @@ base_url: "../../"
             <h2 id="basic">Basic</h2>
             <div class="test-example">
               <form>
-                <fieldset>
+                <fieldset class="form-group">
                   <legend>Fieldset legend</legend>
 
                   <div class="field">
@@ -270,7 +270,7 @@ base_url: "../../"
                       <div class="formHelp">
                           This is the help for this form field. And <a href="#">links are also possible</a>.
                       </div>
-                      <input type="text" id="onefield" value="Some content">
+                      <input type="text" class="form-control" id="onefield" value="Some content">
                   </div>
                   <div class="field error">
                       <label for="anotherfield">Text field with error</label>
@@ -286,9 +286,17 @@ base_url: "../../"
                     <p class="formHelp">Example block-level help text here.</p>
                     <input type="file" id="exampleInputFile">
                   </div>
-                  <div class="field">
+                    <fieldset class="form-group">
+                        <label class="file" for="exampleInputFile">
+                            <input type="file" id="exampleInputFile">
+                            <span class="file-custom"></span>
+                            Dateien hochladen
+                        </label>
+                    </fieldset>
+                  <div class="form-group">
                     <label for="exampleInputFile">Select</label>
-                    <select>
+                    <select class="form-control c-select">
+                    <select class="form-control c-select">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -296,9 +304,9 @@ base_url: "../../"
                       <option>5</option>
                     </select>
                   </div>
-                  <div class="field">
+                  <div class="form-group">
                     <label for="exampleInputFile">Select Multiple</label>
-                    <select multiple>
+                    <select class="form-control" multiple>
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -306,9 +314,9 @@ base_url: "../../"
                       <option>5</option>
                     </select>
                   </div>
-                  <div class="field">
+                  <div class="form-group">
                     <label for="exampleInputFile">Textarea</label>
-                    <textarea rows="3"></textarea>
+                    <textarea class="form-control" rows="3"></textarea>
                   </div>
                 </fieldset>
               </form>

@@ -3,6 +3,12 @@
 // --------------------------------------
 
 
+// Hide toolbar
+// NOTE: re-activate for CMS backend integration
+.app-toolbar {
+    visibility: hidden;
+}
+
 //== Main content area
 //
 //## Provides optional fullscreen layouts
@@ -41,13 +47,7 @@
 // that has proper line-height on all media types
 .app-page-lead,
 .app-page-abstract {
-  margin-bottom: $spacer;
-  font-size: 1.25rem;
-  font-weight: 300;
-  line-height: 1.5;
-  @include media-breakpoint-up(sm) {
-    font-size: 1.5rem;
-  }
+    @extend .lead;
 }
 
 
@@ -56,4 +56,20 @@
 //## Container providing visual separation
 .app-page-section {
   margin: 1rem 0 2rem;
+}
+
+//
+// Table styles
+//
+.app-table {
+    @extend .table;
+    &-inverse {
+        @extend .table-inverse;
+    }
+    &-striped {
+        @extend .table-striped;
+    }
+    &-bordered {
+        @extend .table-bordered;
+    }
 }

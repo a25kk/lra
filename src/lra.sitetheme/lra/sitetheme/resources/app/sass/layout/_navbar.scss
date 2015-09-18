@@ -110,12 +110,6 @@
     }
 }
 
-
-.app-navbar-collapse {
-  margin-left: -30px !important;
-  margin-right: -30px !important;
-}
-
 // Unordered list main navigation
 .app-navbar-nav {
   display: flex;
@@ -127,7 +121,6 @@
   padding-left: 0; // Override default ul/ol
   list-style: none;
   @extend clearfix;
-    border: 1px solid blue;
 }
 
 //== Navitems
@@ -147,6 +140,7 @@
 
 .app-navitem-tab {
     display: flex;
+    height: 40px;
     align-items: center;
     color: #fff;
     background-color: $app-primary;
