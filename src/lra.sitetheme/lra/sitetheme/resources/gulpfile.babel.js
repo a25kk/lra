@@ -65,12 +65,6 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('images', function(){
-    gulp.src('src/images/**/*')
-        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest('dist/images/'));
-});
-
 gulp.task('styles', () =>  {
     return gulp.src(basePaths.app + '/scss/main.scss')
         .pipe($.plumber())
@@ -89,7 +83,7 @@ gulp.task('styles', () =>  {
         .pipe(reload({stream: true}));
 });
 
-gulp.task('scripts', function(){
+gulp.task('scripts', () => {
     return gulp.src(isProduction ? sourcesJS.all : sourcesJS.base)
         .pipe($.plumber({
             errorHandler: function (error) {
@@ -98,16 +92,46 @@ gulp.task('scripts', function(){
             }}))
         .pipe($.jshint())
         .pipe($.jshint.reporter('default'))
-        .pipe(concat(pkg.name + '.js'))
+        .pipe($.concat(pkg.name + '.js'))
         .pipe(gulp.dest(basePaths.dist + 'scripts/'))
         .pipe($.rename({suffix: '.min'}))
         .pipe($.uglify())
-        .pipe(gulp.dest(basePaths.dist + 'scripts/'))
+        .pipe(gulp.dest(basePaths.dist + '/scripts/'))
         .pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task('images', () => {
+    return gulp.src(basePaths.app + 'assets/img/**/*')
+        .pipe($.if($.if.isFile, $.cache($.imagemin({
+            progressive: true,
+            interlaced: true,
+            // don't remove IDs from SVGs, they are often used
+            // as hooks for embedding and styling
+            svgoPlugins: [{cleanupIDs: false}]
+        }))
+            .on('error', function (err) {
+                console.log(err);
+                this.end();
+            })))
+        .pipe(gulp.dest(basePaths.dist + 'assets/img'));
+});
+
+gulp.task('fonts', () => {
+    return gulp.src(require('main-bower-files')({
+        filter: '**/*.{eot,svg,ttf,woff,woff2}'
+    }).concat(basePaths.app + 'assets/fonts/**/*'))
+        .pipe(gulp.dest('.tmp/fonts'))
+        .pipe(gulp.dest(basePaths.dist + 'assets/fonts'));
+});
+
+gulp.task('html', () => {
+        return gulp.src(basePaths.dev + '{,*/}*.html')
+            .pipe($.minifyHtml())
+            .pipe(gulp.dest(basePaths.dist));
+});
+
 gulp.task('default', ['browser-sync'], function(){
-    gulp.watch("sass/**/*.scss", ['styles']);
-    gulp.watch("src/scripts/**/*.js", ['scripts']);
-    gulp.watch("*.html", ['bs-reload']);
+    gulp.watch(basePaths.app + "sass/**/*.scss", ['styles']);
+    gulp.watch(basePaths.app + "scripts/**/*.js", ['scripts']);
+    gulp.watch(basePaths.app + "*.html", ['bs-reload']);
 });
