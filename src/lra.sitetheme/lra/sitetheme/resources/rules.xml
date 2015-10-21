@@ -143,7 +143,7 @@
         </replace>
 
         <!-- Columns example -->
-        <replace css:content-children="#portal-column-two > *"
+        <replace css:content-children="#portal-column-one > *"
             css:theme-children="#app-sidebar" />
 
     </rules>

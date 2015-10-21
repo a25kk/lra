@@ -12,9 +12,16 @@
     {% include components/toolbar.html %}
     {% include layout/header.html %}
 
-    <main class="app-main" role="main">
-          {{ content }}
-    </main>
+    <div class="app-wrapper">
+      <div class="app-aside" id="app-aside">
+        {% include layout/sidebar.html %}
+      </div>
+      <div class="app-main">
+        <div class="app-content" role="main">
+              {{ content }}
+        </div>
+      </div>
+    </div>
 
     {% include layout/footer.html %}
     {% include base/javascript.html %}
