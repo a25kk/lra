@@ -14,7 +14,7 @@
       class=".sectionfolder.SectionFolderView"
       template="sectionfolder.pt"
       permission="zope2.View"
-      layer="..interfaces.ILRASiteContentLayer"
+      layer="..interfaces.ILraSitecontentLayer"
       />
 
   <browser:page
@@ -23,7 +23,7 @@
       class=".contentpage.ContentPageView"
       template="contentpage.pt"
       permission="zope2.View"
-      layer="..interfaces.ILRASiteContentLayer"
+      layer="..interfaces.ILraSitecontentLayer"
       />
 
 </configure>

@@ -2,6 +2,6 @@
 <layers>
   <layer
     name="lra.sitecontent"
-    interface="lra.sitecontent.interfaces.ILRASiteContentLayer"
+    interface="lra.sitecontent.interfaces.ILraSitecontentLayer"
   />
 </layers>
