@@ -29,4 +29,9 @@
         type="theme"
     />
 
+    <utility
+        provides="lra.sitecontent.interfaces.IResponsiveImagesTool"
+        factory="lra.sitecontent.imagetool.ResponsiveImagesTool"
+        />
+
 </configure>

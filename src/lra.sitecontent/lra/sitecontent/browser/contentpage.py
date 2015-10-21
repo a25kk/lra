@@ -3,6 +3,9 @@
 from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
 from zope.component import getMultiAdapter
+from zope.component import getUtility
+
+from lra.sitecontent.interfaces import IResponsiveImagesTool
 
 IMG = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs='
 
@@ -30,40 +33,14 @@ class ContentPageView(BrowserView):
             return display
         return False
 
+    def get_image_data(self, uuid):
+        tool = getUtility(IResponsiveImagesTool)
+        return tool.create(uuid)
+
     def rendered_gallery(self):
         context = aq_inner(self.context)
         template = context.restrictedTraverse('@@gallery-view')()
         return template
-
-    def image_data(self):
-        data = {}
-        sizes = ['small', 'medium', 'large']
-        idx = 0
-        for size in sizes:
-            idx += 0
-            img = self._get_scaled_img(size)
-            data[size] = '{0} {1}w'.format(img['url'], img['width'])
-        return data
-
-    def _get_scaled_img(self, size):
-        context = aq_inner(self.context)
-        scales = getMultiAdapter((context, self.request), name='images')
-        if size == 'small':
-            scale = scales.scale('image', width=300, height=300)
-        if size == 'medium':
-            scale = scales.scale('image', width=600, height=600)
-        else:
-            scale = scales.scale('image', width=900, height=900)
-        item = {}
-        if scale is not None:
-            item['url'] = scale.url
-            item['width'] = scale.width
-            item['height'] = scale.height
-        else:
-            item['url'] = IMG
-            item['width'] = '1px'
-            item['height'] = '1px'
-        return item
 
 
 class GalleryPreview(BrowserView):
