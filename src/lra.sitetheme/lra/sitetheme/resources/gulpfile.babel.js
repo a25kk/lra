@@ -65,7 +65,7 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('styles', () = > {
+gulp.task('styles', () => {
     return gulp.src(basePaths.app + '/sass/main.scss')
         .pipe($.plumber())
         .pipe($.sourcemaps.init())
@@ -84,10 +84,9 @@ gulp.task('styles', () = > {
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest(basePaths.dist + '/styles/'))
         .pipe(reload({stream: true}));
-})
-;
+});
 
-gulp.task('scripts', () = > {
+gulp.task('scripts', () => {
     return gulp.src(isProduction ? sourcesJS.all : sourcesJS.base)
         .pipe($.plumber({
             errorHandler: function (error) {
@@ -106,7 +105,7 @@ gulp.task('scripts', () = > {
 })
 ;
 
-gulp.task('images', () = > {
+gulp.task('images', () => {
     return gulp.src(basePaths.app + 'assets/img/**/*')
         .pipe($.if($.if.isFile, $.cache($.imagemin({
             progressive: true,
@@ -123,7 +122,7 @@ gulp.task('images', () = > {
 })
 ;
 
-gulp.task('fonts', () = > {
+gulp.task('fonts', () => {
     return gulp.src(require('main-bower-files')({
         filter: '**/*.{eot,svg,ttf,woff,woff2}'
     }).concat(basePaths.app + 'assets/fonts/**/*'))
@@ -132,25 +131,25 @@ gulp.task('fonts', () = > {
 })
 ;
 
-gulp.task('html', () = > {
+gulp.task('html', () => {
     return gulp.src(basePaths.dev + '{,*/}*.html')
         .pipe($.minifyHtml())
         .pipe(gulp.dest(basePaths.dist));
 })
 ;
 
-gulp.task('cb', () = > {
-    return gulp.src(basePaths.dist + 'styles/*.min.css')
-        .pipe($.rev())
-        .pipe(gulp.dest(basePaths.dist + '/styles'))
-        .pipe($.rev.manifest())
-        .pipe($.revDel({dest: basePaths.dist + '/styles'}))
-        .pipe(gulp.dest(basePaths.dist + '/styles'))
-}
+gulp.task('cb', () => {
+        return gulp.src(basePaths.dist + 'styles/*.min.css')
+            .pipe($.rev())
+            .pipe(gulp.dest(basePaths.dist + '/styles'))
+            .pipe($.rev.manifest())
+            .pipe($.revDel({dest: basePaths.dist + '/styles'}))
+            .pipe(gulp.dest(basePaths.dist + '/styles'))
+    }
 )
 ;
 
-gulp.task('revreplace', () = > {
+gulp.task('revreplace', () => {
     var manifest = gulp.src(basePaths.dist + '/styles/rev-manifest.json');
     return gulp.src(basePaths.dev + '/{,*/}*.html')
         .pipe(revReplace({manifest: manifest}))
@@ -158,7 +157,7 @@ gulp.task('revreplace', () = > {
 })
 ;
 
-gulp.task('replace', () = > {
+gulp.task('replace', () => {
     return gulp.src(basePaths.dev + '/{,*/}*.html')
         .pipe(replace({
             patterns: [
