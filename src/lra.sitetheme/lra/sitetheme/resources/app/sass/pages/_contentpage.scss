@@ -1,0 +1,42 @@
+//== Page styles
+//
+//## Define content specific styles
+.app-page {
+    padding: $spacer 0;
+}
+
+.app-page-title {
+    @extend .page-header;
+}
+
+
+// Use custom lead element for page desciptions
+// that has proper line-height on all media types
+.app-page-lead,
+.app-page-abstract {
+    @extend .lead;
+}
+
+
+//== Page section
+//
+//## Container providing visual separation
+.app-page-section {
+    margin: 1rem 0 2rem;
+}
+
+//
+// Table styles
+//
+.app-table {
+    @extend .table;
+    &-inverse {
+        @extend .table-inverse;
+    }
+    &-striped {
+        @extend .table-striped;
+    }
+    &-bordered {
+        @extend .table-bordered;
+    }
+}

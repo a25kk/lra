@@ -9,74 +9,50 @@
     visibility: hidden;
 }
 
-.app-wrapper {
-  //background: transparent url("../assets/img/top.png") repeat-x scroll top center;
-  @extend .container;
-  display: flex;
-}
-
 //== Main content area
 //
 //## Provides optional fullscreen layouts
 .app-main {
-  //@extend .container-fluid;
-  &-fullscreen {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    @extend .container;
+    &-fullscreen {
+        @extend .container-fluid;
+    }
 }
 
+.app-main-section {
+    @include make-row();
+    @include media-breakpoint-up(md) {
+        flex-wrap: nowrap;
+    }
+}
+
+.app-main-aside,
+.app-main-content {
+    @include make-col();
+}
+
+.app-main-aside {
+    @include media-breakpoint-up(md) {
+        @include make-col-span(4);
+    }
+}
+
+.app-main-content {
+    @include media-breakpoint-up(md) {
+        @include make-col-span(8);
+    }
+}
+
+// Site content area layout/theme
+//
+// Note: content specific styles
+// should be added to: pages/_contentpage.scss
 .app-content {
   background: $app-gray;
   padding: 1rem;
 }
 
 .app-aside {
-  min-width: 15rem;
+  //min-width: 15rem;
   padding: 1rem 1rem 1rem 0.5rem;
-}
-
-
-//== Page styles
-//
-//## Define content specific styles
-.app-page {
-  padding: $spacer 0;
-}
-
-.app-page-title {
-  @extend .page-header;
-}
-
-
-// Use custom lead element for page desciptions
-// that has proper line-height on all media types
-.app-page-lead,
-.app-page-abstract {
-    @extend .lead;
-}
-
-
-//== Page section
-//
-//## Container providing visual separation
-.app-page-section {
-  margin: 1rem 0 2rem;
-}
-
-//
-// Table styles
-//
-.app-table {
-    @extend .table;
-    &-inverse {
-        @extend .table-inverse;
-    }
-    &-striped {
-        @extend .table-striped;
-    }
-    &-bordered {
-        @extend .table-bordered;
-    }
 }

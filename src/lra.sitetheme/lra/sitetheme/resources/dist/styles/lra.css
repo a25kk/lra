@@ -4534,7 +4534,7 @@ pre code
 .app-header-content,
 .app-footer-content,
 .app-banner,
-.app-wrapper
+.app-main
 {
     margin-right: auto;
     margin-left: auto;
@@ -4547,7 +4547,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
-    .app-wrapper
+    .app-main
     {
         max-width: 34rem;
     }
@@ -4558,7 +4558,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
-    .app-wrapper
+    .app-main
     {
         max-width: 45rem;
     }
@@ -4569,7 +4569,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
-    .app-wrapper
+    .app-main
     {
         max-width: 60rem;
     }
@@ -4580,13 +4580,14 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
-    .app-wrapper
+    .app-main
     {
         max-width: 72.25rem;
     }
 }
 
-.container-fluid
+.container-fluid,
+.app-main-fullscreen
 {
     margin-right: auto;
     margin-left: auto;
@@ -10825,30 +10826,72 @@ dl.portlet ul.navTree .navTreeCurrentItem
     opacity: 1;
 }
 
+.app-page
+{
+    padding: 1rem 0;
+}
+
+.app-page-section
+{
+    margin: 1rem 0 2rem;
+}
+
 .app-toolbar
 {
     visibility: hidden;
 }
 
-.app-wrapper
+.app-main-section
 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
+
+    margin-right: -.9375rem; 
+    margin-left: -.9375rem;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+@media (min-width: 48em)
+{
+    .app-main-section
+    {
+        -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+    }
 }
 
-.app-main-fullscreen
+.app-main-aside,
+.app-main-content
 {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
+    position: relative;
 
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-            align-items: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-            justify-content: center;
+    min-height: 1px;
+    padding-right: .9375rem; 
+    padding-left: .9375rem;
+}
+
+@media (min-width: 48em)
+{
+    .app-main-aside
+    {
+        -webkit-flex: 0 0 33.3333333333%;
+            -ms-flex: 0 0 33.3333333333%;
+                flex: 0 0 33.3333333333%;
+    }
+}
+
+@media (min-width: 48em)
+{
+    .app-main-content
+    {
+        -webkit-flex: 0 0 66.6666666667%;
+            -ms-flex: 0 0 66.6666666667%;
+                flex: 0 0 66.6666666667%;
+    }
 }
 
 .app-content
@@ -10860,18 +10903,7 @@ dl.portlet ul.navTree .navTreeCurrentItem
 
 .app-aside
 {
-    min-width: 15rem;
     padding: 1rem 1rem 1rem .5rem;
-}
-
-.app-page
-{
-    padding: 1rem 0;
-}
-
-.app-page-section
-{
-    margin: 1rem 0 2rem;
 }
 
 .app-styleguide
@@ -11167,7 +11199,7 @@ dl.portlet ul.navTree .navTreeCurrentItem
 .sg-example .app-header-content,
 .sg-example .app-footer-content,
 .sg-example .app-banner,
-.sg-example .app-wrapper
+.sg-example .app-main
 {
     width: auto;
 }
