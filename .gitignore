@@ -27,6 +27,7 @@ fake-eggs
 known-good-versions.cfg
 parts
 pip*
+secret.cfg
 src/Plone
 src/Products.*
 src/ade25.*
