@@ -9071,7 +9071,7 @@ div.riform .label
             flex: 0 0 25%;
 }
 
-.app-navbar-toggle
+.xapp-navbar-toggle
 {
     width: 100%;
 
@@ -9080,17 +9080,17 @@ div.riform .label
     border-color: transparent;
     background: transparent;
 }
-.app-navbar-toggle:hover,
-.app-navbar-toggle:focus
+.xapp-navbar-toggle:hover,
+.xapp-navbar-toggle:focus
 {
     border-color: transparent; 
     background: transparent;
 }
-.app-navbar-toggle .icon-bar
+.xapp-navbar-toggle .icon-bar
 {
     background-color: transparent;
 }
-.app-navbar-toggle .icon-bar
+.xapp-navbar-toggle .icon-bar
 {
     display: block;
 
@@ -9099,7 +9099,7 @@ div.riform .label
 
     border-radius: 1px;
 }
-.app-navbar-toggle .icon-bar + .icon-bar
+.xapp-navbar-toggle .icon-bar + .icon-bar
 {
     margin-top: 12px;
 }

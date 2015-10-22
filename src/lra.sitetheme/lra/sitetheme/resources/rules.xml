@@ -142,6 +142,25 @@
             </ul>
         </replace>
 
+        <!--  transform all portlets  -->
+        <replace css:content=".portlet">
+            <div class="card">
+                <xsl:for-each css:select=".portlet > *">
+                    <div>
+                        <xsl:if test="@class[contains(.,'portletHeader')]">
+                            <xsl:attribute name="class">card-header</xsl:attribute>
+                        </xsl:if>
+                        <xsl:if test="@class[contains(.,'portletContent')]">
+                            <xsl:attribute name="class">card-block</xsl:attribute>
+                        </xsl:if>
+                        <xsl:if test="@class[contains(.,'portletFooter')]">
+                            <xsl:attribute name="class">card-footer</xsl:attribute>
+                        </xsl:if>
+                        <xsl:copy-of select="node()"/>
+                    </div>
+                </xsl:for-each>
+            </div>
+        </replace>
         <!-- Columns example -->
         <replace css:content-children="#portal-column-one > *"
             css:theme-children="#app-sidebar" />
