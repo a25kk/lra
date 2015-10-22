@@ -3,23 +3,23 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
     require('jit-grunt')(grunt);
     var config = {
-            app: 'app',
-            dev: '_site',
-            dist: 'dist',
-            diazoPrefix: '/++theme++<%= pkg.name %>.sitetheme'
-        };
+        app: 'app',
+        dev: '_site',
+        dist: 'dist',
+        diazoPrefix: '/++theme++<%= pkg.name %>.sitetheme'
+    };
     grunt.initConfig({
         config: config,
         pkg: grunt.file.readJSON('package.json'),
         banner: '/*!\n' + '* <%= pkg.name %> v<%= pkg.version %> by Ade25\n' + '* Copyright <%= pkg.author %>\n' + '* Licensed under <%= pkg.licenses %>.\n' + '*\n' + '* Designed and built by ade25\n' + '*/\n',
         jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error("We require jQuery") }\n\n',
         jshint: {
-            options: { jshintrc: 'js/.jshintrc' },
+            options: { jshintrc: '<%= config.app %>/js/.jshintrc' },
             grunt: { src: 'Gruntfile.js' },
-            src: { src: ['js/*.js'] }
+            src: { src: ['<%= config.app %>/js/*.js'] }
         },
         jscs: {
-            options: { config: 'js/.jscsrc' },
+            options: { config: '<%= config.app %>/js/.jscsrc' },
             grunt: { src: '<%= jshint.grunt.src %>' },
             src: { src: '<%= jshint.src.src %>' }
         },
@@ -30,30 +30,32 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    'bower_components/jquery/dist/jquery.js',
-                    'bower_components/modernizr/modernizr.js',
-                    'bower_components/bootstrap/js/transition.js',
-                    'bower_components/bootstrap/js/collapse.js',
-                    'bower_components/bootstrap/js/dropdown.js',
-                    'bower_components/mailcheck/src/mailcheck.js',
-                    'bower_components/JVFloat/jvfloat.js',
-                    'bower_components/hideShowPassword/hideShowPassword.js',
-                    'bower_components/blazy/blazy.js',
-                    'scripts/main.js'
+                  'bower_components/jquery/dist/jquery.js',
+                  'bower_components/modernizr/modernizr.js',
+                  'bower_components/bootstrap/dist/js/bootstrap.js',
+                  'bower_components/mailcheck/src/mailcheck.js',
+                  'bower_components/JVFloat/jvfloat.js',
+                  'bower_components/hideShowPassword/hideShowPassword.js',
+                  'bower_components/lazysizes/plugins/ls.parent-fit.js',
+                  'bower_components/lazysizes/plugins/ls.bgset.js',
+                  'bower_components/lazysizes/plugins/ls.unveilhooks.js',
+                  'bower_components/lazysizes/lazysizes.js',
+                  'bower_components/respimage/respimage.js',
+                  'bower_components/flickity/dist/flickity.pkgd.js',
+                  '<%= config.app %>/js/main.js'
                 ],
                 dest: '<%= config.dist %>/scripts/<%= pkg.name %>.js'
             },
             theme: {
                 src: [
-                    'bower_components/jquery/dist/jquery.js',
-                    'bower_components/modernizr/modernizr.js',
-                    'bower_components/bootstrap/js/transition.js',
-                    'bower_components/bootstrap/js/collapse.js',
-                    'bower_components/bootstrap/js/dropdown.js',
-                    'bower_components/mailcheck/src/mailcheck.js',
-                    'bower_components/hideShowPassword/hideShowPassword.js',
-                    'bower_components/blazy/blazy.js',
-                    'scripts/main.js'
+                    'bower_components/bootstrap/dist/js/bootstrap.js',
+                    'bower_components/lazysizes/plugins/ls.parent-fit.js',
+                    'bower_components/lazysizes/plugins/ls.bgset.js',
+                    'bower_components/lazysizes/plugins/ls.unveilhooks.js',
+                    'bower_components/lazysizes/lazysizes.js',
+                    'bower_components/respimage/respimage.js',
+                    'bower_components/flickity/dist/flickity.pkgd.js',
+                    '<%= config.app %>/js/main.js'
                 ],
                 dest: '<%= config.dist %>/scripts/main.js'
             }
@@ -68,32 +70,32 @@ module.exports = function (grunt) {
         // Generates a custom Modernizr build that includes only the tests you
         // reference in your app
         modernizr: {
-          dist: {
-            devFile: 'bower_components/modernizr/modernizr.js',
-            outputFile: '<%%= config.dist %>/scripts/vendor/modernizr.js',
-            files: {
-              src: [
-                '<%%= config.dist %>/scripts/{,*/}*.js',
-                '<%%= config.dist %>/styles/{,*/}*.css',
-                '!<%%= config.dist %>/scripts/vendor/*'
-              ]
-            },
-            uglify: true
-          }
+            dist: {
+                devFile: 'bower_components/modernizr/modernizr.js',
+                outputFile: '<%%= config.dist %>/scripts/vendor/modernizr.js',
+                files: {
+                    src: [
+                        '<%%= config.dist %>/scripts/{,*/}*.js',
+                        '<%%= config.dist %>/stypes/{,*/}*.css',
+                        '!<%%= config.dist %>/scripts/vendor/*'
+                    ]
+                },
+                uglify: true
+            }
         },
         // Compiles Sass to CSS and generates necessary files if requested
         sass: {
-          options: {
-            sourceMap: true,
-            includePaths: ['bower_components'],
-            loadPath: 'bower_components'
-          },
-          dist: {
-            files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': '<%= config.app %>/sass/main.scss' }
-          },
-          server: {
-            files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': '<%= config.app %>/sass/main.scss' }
-          }
+            options: {
+                sourceMap: true,
+                includePaths: ['bower_components'],
+                loadPath: 'bower_components'
+            },
+            dist: {
+                files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': '<%= config.app %>/sass/main.scss' }
+            },
+            server: {
+                files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': '<%= config.app %>/sass/main.scss' }
+            }
         },
         autoprefixer: {
             options: {
@@ -105,31 +107,31 @@ module.exports = function (grunt) {
             }
         },
         csslint: {
-            options: { csslintrc: 'sass/.csslintrc' },
-            src: '<%= config.dist %>/css/<%= pkg.name %>.css'
+            options: { csslintrc: '<%= config.app %>/sass/.csslintrc' },
+            src: '<%= config.dist %>/styles/<%= pkg.name %>.css'
         },
         cssmin: {
             options: {
                 compatibility: 'ie8',
                 keepSpecialComments: '*',
-                noAdvanced: true
+                advanced: false
             },
             core: { files: { '<%= config.dist %>/styles/<%= pkg.name %>.min.css': '<%= config.dist %>/styles/<%= pkg.name %>.css' } }
         },
         csscomb: {
             sort: {
-                options: { config: 'sass/.csscomb.json' },
+                options: { config: '<%= config.app %>/sass/.csscomb.json' },
                 files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': ['<%= config.dist %>/styles/<%= pkg.name %>.css'] }
             }
         },
         criticalcss: {
             frontpage: {
                 options: {
-                    url: 'http://localhost:8499/rms',
+                    url: 'http://localhost:8499/<%= pkg.name %>',
                     width: 1200,
                     height: 900,
-                    outputfile: 'assets/css/critical-lp.css',
-                    filename: '<%= config.dist %>/styles/<%= pkg.name %>.css'
+                    outputfile: '<%= config.app %>/assets/css/critical-lp.css',
+                    filename: '<%= config.dist %>/css/<%= pkg.name %>.css'
                 }
             },
             theme: {
@@ -137,7 +139,7 @@ module.exports = function (grunt) {
                     url: 'http://localhost:8499/rms/stellplatz-am-wassersportzentrum',
                     width: 1200,
                     height: 900,
-                    outputfile: 'assets/css/critical.css',
+                    outputfile: '<%= config.app %>/assets/styles/critical.css',
                     filename: '<%= config.dist %>/styles/<%= pkg.name %>.css'
                 }
             }
@@ -167,7 +169,7 @@ module.exports = function (grunt) {
             favicon: {
                 expand: true,
                 flatten: true,
-                src: ['assets/ico/*'],
+                src: ['<%= config.app %>/assets/ico/*'],
                 dest: '<%= config.dist %>/assets/ico/'
             }
         },
@@ -175,32 +177,32 @@ module.exports = function (grunt) {
             png: {
                 options: { optimizationLevel: 7 },
                 files: [{
-                        expand: true,
-                        cwd: 'assets/img',
-                        src: ['**/*.png'],
-                        dest: '<%= config.dist %>/assets/img/',
-                        ext: '.png'
-                    }]
+                    expand: true,
+                    cwd: '<%= config.app %>/assets/img',
+                    src: ['**/*.png'],
+                    dest: '<%= config.dist %>/assets/img/',
+                    ext: '.png'
+                }]
             },
             jpg: {
                 options: { progressive: true },
                 files: [{
-                        expand: true,
-                        cwd: 'assets/img/',
-                        src: ['**/*.jpg'],
-                        dest: '<%= config.dist %>/assets/img/',
-                        ext: '.jpg'
-                    }]
+                    expand: true,
+                    cwd: '<%= config.app %>/assets/img/',
+                    src: ['**/*.jpg'],
+                    dest: '<%= config.dist %>/assets/img/',
+                    ext: '.jpg'
+                }]
             }
         },
         svgmin: {
             dist: {
                 files: [{
-                        expand: true,
-                        cwd: 'assets/img/',
-                        src: '{,*/}*.svg',
-                        dest: '<%= config.dist %>/assets/img/'
-                    }]
+                    expand: true,
+                    cwd: '<%= config.app %>/assets/img/',
+                    src: '{,*/}*.svg',
+                    dest: '<%= config.dist %>/assets/img/'
+                }]
             }
         },
         filerev: {
@@ -229,7 +231,7 @@ module.exports = function (grunt) {
             options: {
                 assetsDirs: [
                     '<%= config.dist %>',
-                    '<%= config.dist %>/css',
+                    '<%= config.dist %>/styles',
                     '<%= config.dist %>/assets'
                 ],
                 patterns: {
@@ -279,14 +281,14 @@ module.exports = function (grunt) {
                     minifyJS: true
                 },
                 files: [{
-                        expand: true,
-                        cwd: '<%= config.dev %>',
-                        src: [
-                            '*.html',
-                            '{,*/}*.html'
-                        ],
-                        dest: '<%= config.dist %>'
-                    }]
+                    expand: true,
+                    cwd: '<%= config.dev %>',
+                    src: [
+                        '*.html',
+                        '{,*/}*.html'
+                    ],
+                    dest: '<%= config.dist %>'
+                }]
             }
         },
         replace: {
@@ -294,12 +296,12 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [
                         {
-                            match: '../../assets/',
-                            replacement: '../assets/'
-                        },
-                        {
                             match: '../assets/',
                             replacement: 'assets/'
+                        },
+                        {
+                            match: '../../assets/',
+                            replacement: '../assets/'
                         },
                         {
                             match: '../../<%= config.dist %>/styles/<%= pkg.name %>.min.css',
@@ -322,14 +324,14 @@ module.exports = function (grunt) {
                     preserveOrder: true
                 },
                 files: [{
-                        expand: true,
-                        cwd: '<%= config.dev %>',
-                        src: [
-                            '*.html',
-                            '{,*/}*.html'
-                        ],
-                        dest: '<%= config.dev %>'
-                    }]
+                    expand: true,
+                    cwd: '<%= config.dev %>',
+                    src: [
+                        '*.html',
+                        '{,*/}*.html'
+                    ],
+                    dest: '<%= config.dev %>'
+                }]
             },
             diazo: {
                 options: {
@@ -348,7 +350,7 @@ module.exports = function (grunt) {
                         },
                         {
                             match: 'styles/',
-                            replacement: 'http://<%= connect.options.hostname %>:<%= connect.options.port %>/css/'
+                            replacement: 'http://<%= connect.options.hostname %>:<%= connect.options.port %>/styles/'
                         },
                         {
                             match: '../scripts/<%= pkg.name %>',
@@ -363,14 +365,14 @@ module.exports = function (grunt) {
                     preserveOrder: true
                 },
                 files: [{
-                        expand: true,
-                        cwd: '<%= config.dist %>',
-                        src: [
-                            '*.html',
-                            '{,*/}*.html'
-                        ],
-                        dest: '<%= config.dist %>'
-                    }]
+                    expand: true,
+                    cwd: '<%= config.dist %>',
+                    src: [
+                        '*.html',
+                        '{,*/}*.html'
+                    ],
+                    dest: '<%= config.dist %>'
+                }]
             },
             pat: {
                 options: {
@@ -404,14 +406,14 @@ module.exports = function (grunt) {
                     preserveOrder: true
                 },
                 files: [{
-                        expand: true,
-                        cwd: '<%= config.dist %>',
-                        src: [
-                            '*.html',
-                            '{,*/}*.html'
-                        ],
-                        dest: '<%= config.dist %>'
-                    }]
+                    expand: true,
+                    cwd: '<%= config.dist %>',
+                    src: [
+                        '*.html',
+                        '{,*/}*.html'
+                    ],
+                    dest: '<%= config.dist %>'
+                }]
             },
             dist: {
                 options: {
@@ -445,46 +447,46 @@ module.exports = function (grunt) {
                     preserveOrder: true
                 },
                 files: [{
-                        expand: true,
-                        cwd: '<%= config.dist %>',
-                        src: [
-                            '*.html',
-                            '{,*/}*.html'
-                        ],
-                        dest: '<%= config.dist %>'
-                    }]
+                    expand: true,
+                    cwd: '<%= config.dist %>',
+                    src: [
+                        '*.html',
+                        '{,*/}*.html'
+                    ],
+                    dest: '<%= config.dist %>'
+                }]
             }
         },
         clean: {
             dist: {
                 files: [{
-                        dot: true,
-                        src: ['<%= config.dist %>']
-                    }]
+                    dot: true,
+                    src: ['<%= config.dist %>']
+                }]
             },
             revved: {
                 files: [{
-                        dot: true,
-                        src: [
-                            '<%= config.dist %>/scripts/*.min.*.js',
-                            '<%= config.dist %>/styles/*.min.*.css'
-                        ]
-                    }]
+                    dot: true,
+                    src: [
+                        '<%= config.dist %>/scripts/*.min.*.js',
+                        '<%= config.dist %>/styles/*.min.*.css'
+                    ]
+                }]
             },
             assets: {
                 files: [{
-                        dot: true,
-                        src: ['<%= config.dist %>/assets/*']
-                    }]
+                    dot: true,
+                    src: ['<%= config.dist %>/assets/*']
+                }]
             },
             server: {
                 files: [{
-                        dot: true,
-                        src: [
-                            '<%= config.dist %>/*',
-                            '!<%= config.dist %>/assets'
-                        ]
-                    }]
+                    dot: true,
+                    src: [
+                        '<%= config.dist %>/*',
+                        '!<%= config.dist %>/assets'
+                    ]
+                }]
             }
         },
         validation: {
@@ -510,10 +512,20 @@ module.exports = function (grunt) {
                 files: ['<%= config.app %>/{,*/}*.html'],
                 tasks: ['jekyll:theme', 'replace:server', 'htmlmin']
             },
+            // less: {
+            //     files: 'less/*.less',
+            //     tasks: [
+            //         'less',
+            //         'autoprefixer',
+            //         'csscomb',
+            //         'cssmin'
+            //     ],
+            //     options: { spawn: false }
+            // },
             sass: {
-              files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
-              tasks: ['sass:server', 'autoprefixer', 'csscomb', 'cssmin'],
-              options: { livereload: true }
+                files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
+                tasks: ['sass:server', 'autoprefixer', 'csscomb', 'cssmin'],
+                options: { livereload: true }
             }
         },
         connect: {
@@ -564,8 +576,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    url: 'http://d9.ade25.de',
-                    paths: ['/', '/landratsamt'],
+                    url: 'http://aha.kreativkombinat.de',
+                    paths: ['/', '/licht', '/raum'],
                     locale: 'de_DE',
                     strategy: 'desktop',
                     threshold: 80
@@ -585,6 +597,7 @@ module.exports = function (grunt) {
             ]);
         }
         grunt.task.run([
+            'html',
             'js',
             'css',
             'connect:livereload',
@@ -616,6 +629,7 @@ module.exports = function (grunt) {
         'concat',
         'uglify'
     ]);
+    grunt.registerTask('less-compile', ['less:compileTheme']);
     grunt.registerTask('css', [
         'sass:dist',
         'autoprefixer',

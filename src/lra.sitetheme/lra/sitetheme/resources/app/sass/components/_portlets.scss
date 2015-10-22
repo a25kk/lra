@@ -1,0 +1,242 @@
+/* Portlets specific styles */
+
+.portlet {
+    margin: 0 !important;
+    background: #fff;
+}
+
+.portletHeader, .managedPortlet .portletHeader {
+    font-size: ($font-size-base * 1.2);
+    font-weight: 700;
+    background: $app-gray;
+    color: #fff;
+    padding: 1rem;
+    margin: 0;
+    display: none;
+}
+
+.portletHeader a, .managedPortlet .portletHeader a {
+    font-size: ($font-size-base * 1.2);
+    outline: none;
+    color: #fff;
+    font-weight: 700;
+}
+
+.portletItem {
+    margin: 0px 0px 0px 0px;
+    padding: 0;
+
+    h2, h3 {
+        font-size: ($font-size-base / 1.2);
+        font-weight: 600;
+        margin-top: 0;
+    }
+}
+
+.portletItem ol {
+    margin: 0 0 0 1em;
+}
+
+.portletItemDetails {
+    text-align: left;
+    display: block;
+    color: black;
+    font-size: 100%;
+    color: #999999;
+}
+
+span.portletItemDetails {
+    display: block;
+}
+
+.portletFooter {
+    background: transparent !important;
+    margin: 0px !important;
+    padding: 1rem 0;
+    border: 0px;
+    text-align: left;
+}
+
+.portlet a {
+    text-decoration: none;
+}
+
+.portlet a.tile {
+    display: block;
+    font-size: 100%;
+}
+
+.portletItem ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lastItem {
+    padding: 0px 0px 20px 0px !important;
+    border: 0px solid black;
+}
+
+.portletItem p {
+    margin: 0px;
+    font-size: ($font-size-base / 1.2);
+}
+
+.portletItem a, .portletFooter a {
+  border-bottom: none;
+}
+
+.portletFooter a {
+    border-bottom: none;
+    background: transparent !important;
+    padding: 0px 20px 0px 0px;
+    font-weight: normal !important;
+}
+
+.portletFilterNavigationPortlet {
+    border-bottom: 0px !important;
+}
+
+.portletFilterNavigationPortlet .portletHeader {
+    border: 0px solid red !important;
+    font-size: 0.8em;
+}
+
+.portletFilterNavigationPortlet .portletHeader a {
+    font-weight: bold !important;
+}
+
+.portletStaticText {
+    background: transparent;
+    margin: 0px 0px 20px 0px;
+    vertical-align: top;
+    padding: 0px 0px 0px 0px;
+
+    .image-inline {
+        margin-bottom: 1rem;
+    }
+}
+
+.portletStaticText td {
+    vertical-align: top;
+}
+
+.portletStaticText p {
+    padding: 0px 0px 0px 0px;
+    line-height: 1rem;
+    margin-bottom: 1rem;
+}
+
+.section-gruendach .portletStaticText p {
+    padding: 0px 1rem 0px 1rem !important;
+    line-height: 1rem;
+    margin-bottom: 1rem;
+}
+
+.portletStaticText ul {
+    list-style-image: none;
+    list-style-type: square;
+    margin: 0.5em 0 0 1.5em;
+}
+
+.portletStaticText ol {
+    margin: 0.5em 0 0 2em;
+}
+
+/* Portlets Navigation Styles */
+
+.portletNavigationTree {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    list-style: none !important;
+    list-style-image: none !important;
+    line-height: 1em;
+    width: 100%;
+}
+
+.portletNavigationTree .portletItem {
+    margin: 0px !important;
+}
+
+.portletNavigationTree .lastItem {
+    padding: 0px !important;
+}
+
+.navTree {
+    list-style: none;
+    list-style-image: none;
+    padding-left: 0;
+}
+
+
+.navTree li {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+.navTreeItem {
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.navTreeItem a, dd.portletItem .navTreeItem a {
+    display: block;
+    text-decoration: none;
+    padding: 1rem 0 !important;
+    margin: 0;
+    font-weight: normal;
+    font-size: ($font-size-base / 1.2);
+    text-align: left;
+    border-bottom: 1px solid $app-gray!important;
+}
+
+.navTreeItem a {
+    background: url(../assets/img/arrow.gif) no-repeat 0px 12px;
+    //color: $app-gray;
+    line-height: 1rem;
+}
+
+.navTreeItem a:hover {
+    color: $link-color !important;
+}
+
+dl.portlet ul.navTree .navTreeCurrentItem {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.navTreeCurrentItem {
+    color: $link-color !important;
+}
+
+.navTreeItem .active {
+    color: black !important;
+}
+
+.navTreeItemInPath {
+    color: black !important;
+}
+
+
+.navTreeLevel0 {
+    margin: 0px 0px 0px 0px !important;
+    border: 0px solid red !important;
+    text-transform: uppercase;
+}
+
+.navTreeLevel1 {
+    margin-left: 0px !important;
+    padding-left: 0;
+    text-transform: none;
+}
+
+.navTreeItem .navTreeLevel1 li a:link {
+    padding-left: 1rem !important;
+}
+
+.navTreeLevel2 {
+    margin-left: 0px !important;
+}
+
+.navTreeLevel3 {
+    margin-left: 0px !important;
+}

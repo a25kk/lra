@@ -9,11 +9,17 @@
     visibility: hidden;
 }
 
+.app-wrapper {
+  //background: transparent url("../assets/img/top.png") repeat-x scroll top center;
+  @extend .container;
+  display: flex;
+}
+
 //== Main content area
 //
 //## Provides optional fullscreen layouts
 .app-main {
-  @extend .container-fluid;
+  //@extend .container-fluid;
   &-fullscreen {
     display: flex;
     align-items: center;
@@ -22,12 +28,13 @@
 }
 
 .app-content {
-  @extend .container;
-  &-centerstage {
-    @extend .container-fluid;
-    @extend .center-block;
-    max-width: 480px;
-  }
+  background: $app-gray;
+  padding: 1rem;
+}
+
+.app-aside {
+  min-width: 15rem;
+  padding: 1rem 1rem 1rem 0.5rem;
 }
 
 
