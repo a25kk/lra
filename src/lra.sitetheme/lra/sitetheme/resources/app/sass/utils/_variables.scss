@@ -6,23 +6,25 @@
 //== Colors
 //
 //## Brand colors used across the project
+$bottle-green:                  rgba(39, 77, 56, 1);
+$spring-leaves:                 rgba(88, 140, 115, 1);
+$sundance:                      rgba(199, 180, 80, 1);
+$sandy-brown:                   rgba(242, 174, 115, 1);
+$roman:                         rgba(217, 100, 89, 1);
+$copper-rust:                   rgba(140, 71, 71, 1);
 
-$app-green-primary:				rgba(39, 77, 56, 1);
-$app-green-secondary:			rgba(88, 140, 115, 1);
-$app-mustard:					rgba(199, 180, 80, 1);
-$app-skin:						rgba(242, 174, 115, 1);
-$app-red:						rgba(217, 100, 89, 1);
-$app-brown:						rgba(140, 71, 71, 1);
+$app-green-primary:				$bottle-green;
+$app-green-secondary:			$spring-leaves;
+$app-mustard:					$sundance;
+$app-skin:						$sandy-brown;
+$app-red:						$roman;
+$app-brown:						$copper-rust;
 
 // Gray baseline
 $app-gray:                      rgba(237, 234, 234, 1);
 
-// Brand primary (green)
-$app-primary:                   rgba(39, 77, 56, 1);
-$app-secondary:                 rgba(88, 140, 115, 1);
-
 // Brand danger
-$app-danger:                    $app-red;
+$app-danger:                    $roman;
 
 
 //== Brand and Section specific variables
