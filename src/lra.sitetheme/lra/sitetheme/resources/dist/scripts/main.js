@@ -17,8 +17,8 @@ if (typeof jQuery === 'undefined') {
 
 +function ($) {
   var version = $.fn.jquery.split(' ')[0].split('.')
-  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
-    throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
+  if (version[0] !== '2') {
+    throw new Error('Bootstrap\'s JavaScript requires jQuery version 2.x.x')
   }
 }(jQuery);
 
@@ -658,6 +658,14 @@ var Carousel = (function ($) {
         }
       }
     }, {
+      key: 'nextWhenVisible',
+      value: function nextWhenVisible() {
+        // Don't call next when the page isn't visible
+        if (!document.hidden) {
+          this.next();
+        }
+      }
+    }, {
       key: 'prev',
       value: function prev() {
         if (!this._isSliding) {
@@ -692,7 +700,7 @@ var Carousel = (function ($) {
         }
 
         if (this._config.interval && !this._isPaused) {
-          this._interval = setInterval($.proxy(this.next, this), this._config.interval);
+          this._interval = setInterval($.proxy(document.visibilityState ? this.nextWhenVisible : this.next, this), this._config.interval);
         }
       }
     }, {
@@ -925,7 +933,10 @@ var Carousel = (function ($) {
 
           if (typeof config === 'number') {
             data.to(config);
-          } else if (action) {
+          } else if (typeof action === 'string') {
+            if (data[action] === undefined) {
+              throw new Error('No method named "' + action + '"');
+            }
             data[action]();
           } else if (_config.interval) {
             data.pause();
@@ -1313,6 +1324,9 @@ var Collapse = (function ($) {
           }
 
           if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            }
             data[config]();
           }
         });
@@ -1503,6 +1517,9 @@ var Dropdown = (function ($) {
           }
 
           if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            }
             data[config].call(this);
           }
         });
@@ -2100,6 +2117,9 @@ var Modal = (function ($) {
           }
 
           if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            }
             data[config](relatedTarget);
           } else if (_config.show) {
             data.show(relatedTarget);
@@ -2436,6 +2456,9 @@ var ScrollSpy = (function ($) {
           }
 
           if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            }
             data[config]();
           }
         });
@@ -2699,6 +2722,9 @@ var Tab = (function ($) {
           }
 
           if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            }
             data[config]();
           }
         });
@@ -3290,6 +3316,9 @@ var Tooltip = (function ($) {
           }
 
           if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            }
             data[config]();
           }
         });
@@ -3475,6 +3504,9 @@ var Popover = (function ($) {
           }
 
           if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            }
             data[config]();
           }
         });
@@ -3561,8 +3593,6 @@ var Popover = (function ($) {
 
 	var rAF = window.requestAnimationFrame || setTimeout;
 
-	var setImmediate = window.setImmediate || setTimeout;
-
 	var regPicture = /^picture$/i;
 
 	var loadEvents = ['load', 'error', 'lazyincluded', '_lazyloaded'];
@@ -3612,7 +3642,7 @@ var Popover = (function ($) {
 
 	var updatePolyfill = function (el, full){
 		var polyfill;
-		if( !supportPicture && ( polyfill = (window.picturefill || window.respimage || lazySizesConfig.pf) ) ){
+		if( !supportPicture && ( polyfill = (window.picturefill || lazySizesConfig.pf) ) ){
 			polyfill({reevaluate: true, elements: [el]});
 		} else if(full && full.src){
 			el.src = full.src;
@@ -3644,7 +3674,7 @@ var Popover = (function ($) {
 			fn();
 		};
 		var afterAF = function(){
-			setImmediate(run);
+			setTimeout(run);
 		};
 		var getAF = function(){
 			rAF(afterAF);
@@ -3674,22 +3704,24 @@ var Popover = (function ($) {
 		var gDelay = 125;
 		var dTimeout = 999;
 		var timeout = dTimeout;
+		var fastCallThreshold = 0;
 		var run = function(){
 			running = false;
 			lastTime = Date.now();
 			fn();
 		};
 		var afterAF = function(){
-			setImmediate(run);
+			setTimeout(run);
 		};
 		var getAF = function(){
 			rAF(afterAF);
 		};
 
 		if(requestIdleCallback){
-			gDelay = 99;
+			gDelay = 66;
+			fastCallThreshold = 22;
 			getAF = function(){
-				requestIdleCallback(run, timeout);
+				requestIdleCallback(run, {timeout: timeout});
 				if(timeout !== dTimeout){
 					timeout = dTimeout;
 				}
@@ -3697,7 +3729,7 @@ var Popover = (function ($) {
 		}
 
 		return function(isPriority){
-
+			var delay;
 			if((isPriority = isPriority === true)){
 				timeout = 40;
 			}
@@ -3705,11 +3737,10 @@ var Popover = (function ($) {
 			if(running){
 				return;
 			}
-			var delay = gDelay - (Date.now() - lastTime);
 
 			running =  true;
 
-			if(isPriority || delay < 0){
+			if(isPriority || (delay = gDelay - (Date.now() - lastTime)) < fastCallThreshold){
 				getAF();
 			} else {
 				setTimeout(getAF, delay);
@@ -3723,7 +3754,7 @@ var Popover = (function ($) {
 
 		var eLvW, elvH, eLtop, eLleft, eLright, eLbottom;
 
-		var _defaultExpand, scrollingExpand, defaultExpand, preloadExpand;
+		var defaultExpand, preloadExpand, hFac;
 
 		var regImg = /^img$/i;
 		var regIframe = /^iframe$/i;
@@ -3802,7 +3833,7 @@ var Popover = (function ($) {
 					}
 
 					if(beforeExpandVal !== elemExpand){
-						eLvW = innerWidth + elemExpand;
+						eLvW = innerWidth + (elemExpand * hFac);
 						elvH = innerHeight + elemExpand;
 						elemNegativeExpand = elemExpand * -1;
 						beforeExpandVal = elemExpand;
@@ -3812,14 +3843,13 @@ var Popover = (function ($) {
 
 					if ((eLbottom = rect.bottom) >= elemNegativeExpand &&
 						(eLtop = rect.top) <= elvH &&
-						(eLright = rect.right) >= elemNegativeExpand &&
+						(eLright = rect.right) >= elemNegativeExpand * hFac &&
 						(eLleft = rect.left) <= eLvW &&
 						(eLbottom || eLright || eLleft || eLtop) &&
-						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){ // && lazyloadElems[i].className.indexOf(lazySizesConfig.strictClass) == -1
+						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){
 						unveilElement(lazyloadElems[i]);
 						loadedSomething = true;
 						if(isLoading > 9){break;}
-						if(isLoading > 6){currentExpand = shrinkExpand;}
 					} else if(!loadedSomething && isCompleted && !autoLoadElem &&
 						isLoading < 4 && lowRuns < 4 && loadMode > 2 &&
 						(preloadElems[0] || lazySizesConfig.preloadAfterLoad) &&
@@ -3846,7 +3876,7 @@ var Popover = (function ($) {
 			try {
 				elem.contentWindow.location.replace(src);
 			} catch(e){
-				elem.setAttribute('src', src);
+				elem.src = src;
 			}
 		};
 
@@ -3955,7 +3985,7 @@ var Popover = (function ($) {
 						if(regIframe.test(elem.nodeName)){
 							changeIframeSrc(elem, src);
 						} else {
-							elem.setAttribute('src', src);
+							elem.src = src;
 						}
 					}
 
@@ -3984,7 +4014,6 @@ var Popover = (function ($) {
 			var scrollTimer;
 			var afterScroll = function(){
 				lazySizesConfig.loadMode = 3;
-				defaultExpand = _defaultExpand;
 				throttledCheckElements();
 			};
 
@@ -3998,7 +4027,6 @@ var Popover = (function ($) {
 
 			addEventListener('scroll', function(){
 				if(lazySizesConfig.loadMode == 3){
-					defaultExpand = scrollingExpand;
 					lazySizesConfig.loadMode = 2;
 				}
 				clearTimeout(scrollTimer);
@@ -4047,10 +4075,9 @@ var Popover = (function ($) {
 
 				lazyloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass);
 				preloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass + ' ' + lazySizesConfig.preloadClass);
+				hFac = lazySizesConfig.hFac;
 
 				defaultExpand = lazySizesConfig.expand;
-				_defaultExpand = defaultExpand;
-				scrollingExpand = defaultExpand * ((lazySizesConfig.expFactor + 1) / 2);
 				preloadExpand = defaultExpand * lazySizesConfig.expFactor;
 
 				addEventListener('scroll', throttledCheckElements, true);
@@ -4156,6 +4183,7 @@ var Popover = (function ($) {
 
 	(function(){
 		var prop;
+
 		var lazySizesDefaults = {
 			lazyClass: 'lazyload',
 			loadedClass: 'lazyloaded',
@@ -4171,8 +4199,9 @@ var Popover = (function ($) {
 			minSize: 40,
 			customMedia: {},
 			init: true,
-			expFactor: 2,
-			expand: 359,
+			expFactor: 1.7,
+			hFac: 0.8,
+			expand: docElem.clientHeight > 600 ? docElem.clientWidth > 860 ? 500 : 410 : 359,
 			loadMode: 2
 		};
 
