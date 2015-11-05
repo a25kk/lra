@@ -512,16 +512,6 @@ module.exports = function (grunt) {
                 files: ['<%= config.app %>/{,*/}*.html'],
                 tasks: ['jekyll:theme', 'replace:server', 'htmlmin']
             },
-            // less: {
-            //     files: 'less/*.less',
-            //     tasks: [
-            //         'less',
-            //         'autoprefixer',
-            //         'csscomb',
-            //         'cssmin'
-            //     ],
-            //     options: { spawn: false }
-            // },
             sass: {
                 files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
                 tasks: ['sass:server', 'autoprefixer', 'csscomb', 'cssmin'],

@@ -9065,9 +9065,9 @@ div.riform .label
 
 .app-navbar-header-title
 {
-    -webkit-flex: 0 0 75%;
-        -ms-flex: 0 0 75%;
-            flex: 0 0 75%;
+    -webkit-flex: 0 0 66.6666%;
+        -ms-flex: 0 0 66.6666%;
+            flex: 0 0 66.6666%;
 }
 
 .app-navbar-brand
@@ -9088,9 +9088,9 @@ div.riform .label
 
     background: #588c73;
 
-    -webkit-flex: 0 0 25%;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+    -webkit-flex: 0 0 33.3333%;
+        -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
 }
 
 .xapp-navbar-toggle
@@ -9224,7 +9224,6 @@ div.riform .label
     height: 40px;
 
     transition: background-color .5s ease; 
-    text-align: center;
     text-transform: uppercase;
 
     color: #fff;
@@ -9245,7 +9244,14 @@ div.riform .label
 {
     display: block;
 
-    margin: 0 auto;
+    margin-left: 1rem;
+}
+@media (min-width: 768px)
+{
+    .app-navitem-tab > span
+    {
+        margin: 0 auto;
+    }
 }
 @media (min-width: 768px)
 {
@@ -9253,6 +9259,8 @@ div.riform .label
     {
         height: 70px;
         min-height: 70px;
+
+        text-align: center;
     }
 }
 

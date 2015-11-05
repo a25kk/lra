@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-10-22 11:44+0000\n"
+"Last-Translator: Christoph Boehner-Figas <boehner@team23.de>\n"
+"Language-Team: KK Language Team <info@kreativkombinat.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: lra.sitecontent\n"
+"Language: de\n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.8.5\n"
+
+#: ../profiles/default/types/lra.sitecontent.contentpage.xml
+msgid "Contentpage"
+msgstr "Inhaltsseite"
+
+#: ../profiles/default/types/lra.sitecontent.contentpage.xml
+msgid "Folderish content page"
+msgstr "Erfassen der Seiteninhalte"
+
+#: ../profiles/default/types/lra.sitecontent.sectionfolder.xml
+msgid "SectionFolder"
+msgstr "Sektion"
+
+#: ../profiles/default/types/lra.sitecontent.sectionfolder.xml
+msgid "Site Section Folder"
+msgstr "Ordner, die auch in der Hauptnavigation gelistet werden"
