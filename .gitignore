@@ -24,7 +24,9 @@ eggs
 etc/**/*
 fabfile.py
 fake-eggs
+include
 known-good-versions.cfg
+lib
 parts
 pip*
 secret.cfg
