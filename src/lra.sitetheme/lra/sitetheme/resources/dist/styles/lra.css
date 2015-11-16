@@ -10280,7 +10280,16 @@ label
 
 .app-bannerbar
 {
-    background: #274d38;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d3a24+0,588c73+100 */
+    background: #1d3a24;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3a24', endColorstr='#588c73',GradientType=0 );
+    /* IE6-9 */
 }
 
 .app-banner
@@ -10460,10 +10469,26 @@ label
 .app-pathbar
 {
     font-size: .85rem;
+    /* IE6-9 */
 
-    margin-bottom: 0; 
+    margin-bottom: 1rem; 
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d3a24+0,588c73+100 */
 
-    background-color: #eceeef;
+    background: #1d3a24;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3a24', endColorstr='#588c73',GradientType=0 );
+}
+@media (max-width: 543px)
+{
+    .app-pathbar
+    {
+        display: none;
+    }
 }
 .app-pathbar > * > span
 {
@@ -10471,16 +10496,55 @@ label
 
     display: inline-block;
 
-    padding: .75rem 0 .75rem 1rem;
+    padding: 3rem 0 3rem 0;
 
-    color: #818a91;
+    color: #fff;
 }
-@media (max-width: 767px)
+.app-pathbar #breadcrumbs-you-are-here
 {
-    .app-pathbar > * > span
-    {
-        display: none;
-    }
+    padding-left: .5rem;
+
+    color: #fff;
+}
+.app-pathbar ol
+{
+    display: inline-block;
+
+    margin: 0; 
+    padding: .75rem 1rem;
+
+    list-style: none;
+}
+.app-pathbar ol > li
+{
+    font-weight: 100;
+    line-height: 0;
+
+    position: relative;
+
+    display: inline-block;
+
+    padding: 0;
+}
+.app-pathbar ol > li + li:before
+{
+    padding: 0 .5rem;
+
+    content: ' > ';
+
+    color: #fff;
+}
+.app-pathbar ol > li > a
+{
+    color: #fff !important;
+}
+.app-pathbar ol #breadcrumbs-current
+{
+    color: #fff;
+}
+body.section-front-page .app-pathbar
+{
+    display: none;
 }
 
 /* Portlets specific styles */
