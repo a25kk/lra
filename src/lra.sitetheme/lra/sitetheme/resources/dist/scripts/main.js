@@ -9821,9 +9821,9 @@ return Flickity;
     var mq = window.matchMedia("(min-width: 480px)");
     // Enable gallery and masonry scripts based on screen size
     if (mq.matches) {
-      var $bannerBar = document.querySelectorAll('.app-banner');
+      var $bannerBar = document.querySelectorAll('.app-js-carousel');
       if ($bannerBar.length) {
-        var bannerflkty = new Flickity('.app-banner', {
+        var bannerflkty = new Flickity('.app-js-carousel', {
           autoPlay: 7000,
           contain: true,
           wrapAround: true,
