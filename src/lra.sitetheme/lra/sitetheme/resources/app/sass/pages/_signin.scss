@@ -12,7 +12,7 @@
 }
 
 .app-signin {
-  margin-top: 6rem;
+  margin-top: ($spacer * 2);
   border-radius: 0;
 }
 
@@ -20,6 +20,12 @@
   padding-bottom: 1.5rem;
   text-align: center;
 }
+
+.app-signin-brand {
+    width: 200px;
+    margin: 0 auto;
+}
+
 .app-signin-title {
   font-weight: 400;
   color: $app-primary;
@@ -61,7 +67,7 @@
 
 .page-aside {
   position:relative;
-  padding: ceil(($spacer * 2)) $spacer;
+  padding: ($spacer * 2) $spacer;
 }
 
 .page-signin {
@@ -77,7 +83,7 @@
 
 // registration
 .app-register {
-  margin-bottom: 2rem;
+  margin-bottom: ($spacer * 2);
   border-bottom: 5px solid $brand-success;
 }
 

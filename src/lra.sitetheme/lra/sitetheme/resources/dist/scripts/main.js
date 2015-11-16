@@ -658,14 +658,6 @@ var Carousel = (function ($) {
         }
       }
     }, {
-      key: 'nextWhenVisible',
-      value: function nextWhenVisible() {
-        // Don't call next when the page isn't visible
-        if (!document.hidden) {
-          this.next();
-        }
-      }
-    }, {
       key: 'prev',
       value: function prev() {
         if (!this._isSliding) {
@@ -700,7 +692,7 @@ var Carousel = (function ($) {
         }
 
         if (this._config.interval && !this._isPaused) {
-          this._interval = setInterval($.proxy(document.visibilityState ? this.nextWhenVisible : this.next, this), this._config.interval);
+          this._interval = setInterval($.proxy(this.next, this), this._config.interval);
         }
       }
     }, {
@@ -933,10 +925,7 @@ var Carousel = (function ($) {
 
           if (typeof config === 'number') {
             data.to(config);
-          } else if (typeof action === 'string') {
-            if (data[action] === undefined) {
-              throw new Error('No method named "' + action + '"');
-            }
+          } else if (action) {
             data[action]();
           } else if (_config.interval) {
             data.pause();
@@ -1324,9 +1313,6 @@ var Collapse = (function ($) {
           }
 
           if (typeof config === 'string') {
-            if (data[config] === undefined) {
-              throw new Error('No method named "' + config + '"');
-            }
             data[config]();
           }
         });
@@ -1517,9 +1503,6 @@ var Dropdown = (function ($) {
           }
 
           if (typeof config === 'string') {
-            if (data[config] === undefined) {
-              throw new Error('No method named "' + config + '"');
-            }
             data[config].call(this);
           }
         });
@@ -2117,9 +2100,6 @@ var Modal = (function ($) {
           }
 
           if (typeof config === 'string') {
-            if (data[config] === undefined) {
-              throw new Error('No method named "' + config + '"');
-            }
             data[config](relatedTarget);
           } else if (_config.show) {
             data.show(relatedTarget);
@@ -2456,9 +2436,6 @@ var ScrollSpy = (function ($) {
           }
 
           if (typeof config === 'string') {
-            if (data[config] === undefined) {
-              throw new Error('No method named "' + config + '"');
-            }
             data[config]();
           }
         });
@@ -2722,9 +2699,6 @@ var Tab = (function ($) {
           }
 
           if (typeof config === 'string') {
-            if (data[config] === undefined) {
-              throw new Error('No method named "' + config + '"');
-            }
             data[config]();
           }
         });
@@ -3316,9 +3290,6 @@ var Tooltip = (function ($) {
           }
 
           if (typeof config === 'string') {
-            if (data[config] === undefined) {
-              throw new Error('No method named "' + config + '"');
-            }
             data[config]();
           }
         });
@@ -3504,9 +3475,6 @@ var Popover = (function ($) {
           }
 
           if (typeof config === 'string') {
-            if (data[config] === undefined) {
-              throw new Error('No method named "' + config + '"');
-            }
             data[config]();
           }
         });
@@ -3593,6 +3561,8 @@ var Popover = (function ($) {
 
 	var rAF = window.requestAnimationFrame || setTimeout;
 
+	var setImmediate = window.setImmediate || setTimeout;
+
 	var regPicture = /^picture$/i;
 
 	var loadEvents = ['load', 'error', 'lazyincluded', '_lazyloaded'];
@@ -3642,7 +3612,7 @@ var Popover = (function ($) {
 
 	var updatePolyfill = function (el, full){
 		var polyfill;
-		if( !supportPicture && ( polyfill = (window.picturefill || lazySizesConfig.pf) ) ){
+		if( !supportPicture && ( polyfill = (window.picturefill || window.respimage || lazySizesConfig.pf) ) ){
 			polyfill({reevaluate: true, elements: [el]});
 		} else if(full && full.src){
 			el.src = full.src;
@@ -3674,7 +3644,7 @@ var Popover = (function ($) {
 			fn();
 		};
 		var afterAF = function(){
-			setTimeout(run);
+			setImmediate(run);
 		};
 		var getAF = function(){
 			rAF(afterAF);
@@ -3753,7 +3723,7 @@ var Popover = (function ($) {
 
 		var eLvW, elvH, eLtop, eLleft, eLright, eLbottom;
 
-		var defaultExpand, preloadExpand, hFac;
+		var _defaultExpand, scrollingExpand, defaultExpand, preloadExpand;
 
 		var regImg = /^img$/i;
 		var regIframe = /^iframe$/i;
@@ -3832,7 +3802,7 @@ var Popover = (function ($) {
 					}
 
 					if(beforeExpandVal !== elemExpand){
-						eLvW = innerWidth + (elemExpand * hFac);
+						eLvW = innerWidth + elemExpand;
 						elvH = innerHeight + elemExpand;
 						elemNegativeExpand = elemExpand * -1;
 						beforeExpandVal = elemExpand;
@@ -3842,13 +3812,14 @@ var Popover = (function ($) {
 
 					if ((eLbottom = rect.bottom) >= elemNegativeExpand &&
 						(eLtop = rect.top) <= elvH &&
-						(eLright = rect.right) >= elemNegativeExpand * hFac &&
+						(eLright = rect.right) >= elemNegativeExpand &&
 						(eLleft = rect.left) <= eLvW &&
 						(eLbottom || eLright || eLleft || eLtop) &&
-						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){
+						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){ // && lazyloadElems[i].className.indexOf(lazySizesConfig.strictClass) == -1
 						unveilElement(lazyloadElems[i]);
 						loadedSomething = true;
 						if(isLoading > 9){break;}
+						if(isLoading > 6){currentExpand = shrinkExpand;}
 					} else if(!loadedSomething && isCompleted && !autoLoadElem &&
 						isLoading < 4 && lowRuns < 4 && loadMode > 2 &&
 						(preloadElems[0] || lazySizesConfig.preloadAfterLoad) &&
@@ -3875,7 +3846,7 @@ var Popover = (function ($) {
 			try {
 				elem.contentWindow.location.replace(src);
 			} catch(e){
-				elem.src = src;
+				elem.setAttribute('src', src);
 			}
 		};
 
@@ -3984,7 +3955,7 @@ var Popover = (function ($) {
 						if(regIframe.test(elem.nodeName)){
 							changeIframeSrc(elem, src);
 						} else {
-							elem.src = src;
+							elem.setAttribute('src', src);
 						}
 					}
 
@@ -4013,6 +3984,7 @@ var Popover = (function ($) {
 			var scrollTimer;
 			var afterScroll = function(){
 				lazySizesConfig.loadMode = 3;
+				defaultExpand = _defaultExpand;
 				throttledCheckElements();
 			};
 
@@ -4026,6 +3998,7 @@ var Popover = (function ($) {
 
 			addEventListener('scroll', function(){
 				if(lazySizesConfig.loadMode == 3){
+					defaultExpand = scrollingExpand;
 					lazySizesConfig.loadMode = 2;
 				}
 				clearTimeout(scrollTimer);
@@ -4074,9 +4047,10 @@ var Popover = (function ($) {
 
 				lazyloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass);
 				preloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass + ' ' + lazySizesConfig.preloadClass);
-				hFac = lazySizesConfig.hFac;
 
 				defaultExpand = lazySizesConfig.expand;
+				_defaultExpand = defaultExpand;
+				scrollingExpand = defaultExpand * ((lazySizesConfig.expFactor + 1) / 2);
 				preloadExpand = defaultExpand * lazySizesConfig.expFactor;
 
 				addEventListener('scroll', throttledCheckElements, true);
@@ -4182,7 +4156,6 @@ var Popover = (function ($) {
 
 	(function(){
 		var prop;
-
 		var lazySizesDefaults = {
 			lazyClass: 'lazyload',
 			loadedClass: 'lazyloaded',
@@ -4198,9 +4171,8 @@ var Popover = (function ($) {
 			minSize: 40,
 			customMedia: {},
 			init: true,
-			expFactor: 1.7,
-			hFac: 0.9,
-			expand: docElem.clientHeight > 630 ? docElem.clientWidth > 860 ? 500 : 410 : 359,
+			expFactor: 2,
+			expand: 359,
 			loadMode: 2
 		};
 
@@ -9847,6 +9819,22 @@ return Flickity;
     // Setup media query for enabling dynamic layouts only on
     // larger screen sizes
     var mq = window.matchMedia("(min-width: 480px)");
+    // Enable gallery and masonry scripts based on screen size
+    if (mq.matches) {
+      var $bannerBar = document.querySelectorAll('.app-banner');
+      if ($bannerBar.length) {
+        var bannerflkty = new Flickity('.app-banner', {
+          autoPlay: 7000,
+          contain: true,
+          wrapAround: true,
+          imagesLoaded: true,
+          cellSelector: '.app-banner-item',
+          cellAlign: 'left',
+          selectedAttraction: 0.025,
+          friction: 0.28
+        });
+      }
+    }
     if ($(".userrole-anonymous")[0]){
       $('input[type="password"]').showPassword('focus', {
       });
@@ -9876,31 +9864,7 @@ return Flickity;
               }
         });
       });
-      // Enable gallery and masonry scripts based on screen size
-      if (mq.matches) {
-        var bannerflkty = new Flickity('.app-banner', {
-          autoPlay: 7000,
-          contain: true,
-          wrapAround: true,
-          imagesLoaded: true,
-          cellSelector: '.app-banner-item',
-          cellAlign: 'left',
-          selectedAttraction: 0.025,
-          friction: 0.28
-          // lower attraction and lower friction
-          // slower transitions
-          // easier to flick past cells
-        });
-        var flkty = new Flickity('.main-gallery', {
-          autoPlay: true,
-          contain: true,
-          wrapAround: true,
-          imagesLoaded: true,
-          cellSelector: '.app-gallery-cell',
-          cellAlign: 'left'
-        });
-      }
-    };
+    }
   }
   );
 }(jQuery));

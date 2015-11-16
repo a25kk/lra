@@ -47,8 +47,9 @@ a:hover {
 // display errors caused by grid system inconsistencies
 
 // Combat plone hidden element class via mixin
+.hidden,
 .hiddenStructure {
-    @extend .hidden;
+    visibility: hidden;
 }
 
 // Reenable type selection in navigation control panel

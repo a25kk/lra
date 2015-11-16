@@ -4,6 +4,22 @@
     // Setup media query for enabling dynamic layouts only on
     // larger screen sizes
     var mq = window.matchMedia("(min-width: 480px)");
+    // Enable gallery and masonry scripts based on screen size
+    if (mq.matches) {
+      var $bannerBar = document.querySelectorAll('.app-banner');
+      if ($bannerBar.length) {
+        var bannerflkty = new Flickity('.app-banner', {
+          autoPlay: 7000,
+          contain: true,
+          wrapAround: true,
+          imagesLoaded: true,
+          cellSelector: '.app-banner-item',
+          cellAlign: 'left',
+          selectedAttraction: 0.025,
+          friction: 0.28
+        });
+      }
+    }
     if ($(".userrole-anonymous")[0]){
       $('input[type="password"]').showPassword('focus', {
       });
@@ -33,31 +49,7 @@
               }
         });
       });
-      // Enable gallery and masonry scripts based on screen size
-      if (mq.matches) {
-        var bannerflkty = new Flickity('.app-banner', {
-          autoPlay: 7000,
-          contain: true,
-          wrapAround: true,
-          imagesLoaded: true,
-          cellSelector: '.app-banner-item',
-          cellAlign: 'left',
-          selectedAttraction: 0.025,
-          friction: 0.28
-          // lower attraction and lower friction
-          // slower transitions
-          // easier to flick past cells
-        });
-        var flkty = new Flickity('.main-gallery', {
-          autoPlay: true,
-          contain: true,
-          wrapAround: true,
-          imagesLoaded: true,
-          cellSelector: '.app-gallery-cell',
-          cellAlign: 'left'
-        });
-      }
-    };
+    }
   }
   );
 }(jQuery));
