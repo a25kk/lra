@@ -35,7 +35,7 @@
       @include make-col();
       @include make-col-span(4);
       @include media-breakpoint-up(md) {
-          @include make-col-span(4);
+          @include make-col-span(3);
       }
   }
   .app-brand-panel-inverse & {
@@ -48,6 +48,7 @@
 
 .app-brandname-logo {
   width: 140px;
+  margin: 0 auto;
   .app-brand-img-xs & {
     width: 32px;
   }
