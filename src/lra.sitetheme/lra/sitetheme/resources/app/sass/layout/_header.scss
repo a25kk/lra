@@ -6,9 +6,8 @@
 .app-header {
   padding-top: 1rem;
   @include media-breakpoint-up(md) {
-      padding-top: 3rem;
-    padding-left: $spacer;
-    padding-bottom: 1rem;
+    padding-top: 3rem;
+    border-bottom: 10px solid $app-primary;
   }
 }
 

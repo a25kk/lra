@@ -12,6 +12,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="dist/frontpage/index.html" css:if-content="body.template-frontpage-view" />
 
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
@@ -82,6 +83,14 @@
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'
             css:theme-children='#app-pathbar' />
+
+        <!-- Banner -->
+        <drop css:theme="#app-banner"
+                css:if-not-content="#app-banner" />
+
+        <replace css:content="#app-banner"
+                css:theme="#app-banner"
+                css:if-content="#app-banner" />
 
          <!-- Login form rules -->
         <replace css:content-children="#content-core"

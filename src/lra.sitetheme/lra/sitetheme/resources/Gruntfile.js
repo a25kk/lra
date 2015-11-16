@@ -42,7 +42,7 @@ module.exports = function (grunt) {
                   'bower_components/lazysizes/lazysizes.js',
                   'bower_components/respimage/respimage.js',
                   'bower_components/flickity/dist/flickity.pkgd.js',
-                  '<%= config.app %>/js/main.js'
+                  '<%= config.app %>/scripts/main.js'
                 ],
                 dest: '<%= config.dist %>/scripts/<%= pkg.name %>.js'
             },
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                     'bower_components/lazysizes/lazysizes.js',
                     'bower_components/respimage/respimage.js',
                     'bower_components/flickity/dist/flickity.pkgd.js',
-                    '<%= config.app %>/js/main.js'
+                    '<%= config.app %>/scripts/main.js'
                 ],
                 dest: '<%= config.dist %>/scripts/main.js'
             }

@@ -7,16 +7,24 @@
   background: $app-primary;
 }
 
-//== Banner container
-//
-//## Uses a container mixin for responsive sizing
 .app-banner {
-  @extend .container;
-  position: relative;
-	// min-height: 430px;
+  display: none;
+  @include media-breakpoint-up(sm) {
+    @extend .container;
+    height: 430px;
+    min-height: 430px;
+    background: transparent;
+    //margin-top: 1rem;
+    margin-bottom: 3rem;
+    display: block;
+  }
 }
 
-//== Single banner item
+.app-banner-image {
+  @extend.img-responsive;
+}
+
+/* ---- Single banner item ---- */
 //
 //## This part will be filled dynamically with
 //## content and a lazyloaded background image
@@ -24,24 +32,81 @@
   position: relative;
   height: 100%;
   min-height: 430px;
+  width: 100%;
+  background-size: cover;
+  background-position: top center;
 }
 
-//** Banner caption
-.app-banner-item-caption {
+.app-banner-item-content {
   position: absolute;
-  top: 66%;
-  left: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  line-height: 1.25;
-  color: $gray-lighter;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  min-height: 100px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+30,000000+58&amp;0+0,0.65+100 */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.38) 58%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(30%,rgba(0,0,0,0.2)), color-stop(58%,rgba(0,0,0,0.38)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.38) 58%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.38) 58%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.38) 58%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.38) 58%,rgba(0,0,0,0.65) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+}
+
+.app-banner-item-body {
+    color: #fff;
+    padding: 0rem 3rem 0rem 3rem;
+    width: 100%;
+}
+
+.app-baner-item-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.app-banner-item-description {
+  font-size: 0.9rem;
+}
+
+.app-banner-text {
+  font-size: 1rem;
   a {
-    color: $gray-lighter;
-    text-decoration: underline;
+    color: #fff;
   }
 }
 
-.app-banner-item-title {
-  font-size: 1.5rem;
-  font-weight: 500;
+/* ---- flickity overrides ---- */
+
+.flickity-prev-next-button {
+  background: transparent;
+}
+
+.flickity-prev-next-button .arrow {
+  fill: #fff;
+}
+
+.flickity-prev-next-button:hover {
+    background: none;
+}
+
+.flickity-page-dots {
+  @include media-breakpoint-up(sm) {
+    text-align: right;
+    bottom: -43px;
+  }
+}
+
+/* ---- static banner ---- */
+
+.app-staticbanner {
+  margin-top: 1rem;
+  height: 135px;
+  background: transparent url("../assets/img/sb01.jpg") repeat-x scroll top center;
+  background-size: cover;
+  .app-banner-item-title {
+    padding-top: 4rem;
+    padding-left: 1rem;
+    color: #fff;
+  }
 }

@@ -26,4 +26,14 @@
       layer="..interfaces.ILraSitecontentLayer"
       />
 
+  <!-- Frontpage Views -->
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="frontpage-view"
+      class=".frontpage.FrontPageView"
+      template="frontpage.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+      />
+
 </configure>

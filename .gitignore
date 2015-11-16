@@ -44,3 +44,5 @@ src/vwc.*
 src/watchdog
 src/z3c.*
 var
+.DS_Store
+.Python
