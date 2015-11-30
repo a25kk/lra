@@ -32,12 +32,14 @@
 }
 
 .app-main-aside {
+    @include make-col-span(12);
     @include media-breakpoint-up(md) {
         @include make-col-span(4);
     }
 }
 
 .app-main-content {
+    @include make-col-span(12);
     @include media-breakpoint-up(md) {
         @include make-col-span(8);
     }

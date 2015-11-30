@@ -86,5 +86,8 @@
     "wiredep": "^2.2.2",
     "xmlbuilder": "~2.6.2",
     "yargs": "^3.18.0"
+  },
+  "dependencies": {
+    "tether": "^1.1.1"
   }
 }

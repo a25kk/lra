@@ -1,0 +1,46 @@
+// Listing
+
+.app-summary-wrapper {
+  //@extend .make-row;
+  //border-bottom: 1px solid $app-gray;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  .app-sumary-left {
+    //@include make-col-span(3);
+    display: block;
+    margin-bottom: 1rem;
+    //border: 1px solid green;
+  }
+  .app-sumary-right {
+    //@include make-col-span(9);
+  }
+}
+
+// News
+
+.newsImage {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem
+}
+
+.tileImage {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  //float: left;
+}
+
+.tileHeadline {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+  //border: 1px solid red;
+}
+
+.option {
+  display: block;
+}

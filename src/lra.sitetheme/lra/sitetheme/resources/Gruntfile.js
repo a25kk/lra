@@ -32,6 +32,7 @@ module.exports = function (grunt) {
                 src: [
                   'bower_components/jquery/dist/jquery.js',
                   'bower_components/modernizr/modernizr.js',
+                  'node_modules/tether/dist/js/tether.min.js',
                   'bower_components/bootstrap/dist/js/bootstrap.js',
                   'bower_components/mailcheck/src/mailcheck.js',
                   'bower_components/JVFloat/jvfloat.js',
@@ -48,6 +49,7 @@ module.exports = function (grunt) {
             },
             theme: {
                 src: [
+                    'node_modules/tether/dist/js/tether.min.js',
                     'bower_components/bootstrap/dist/js/bootstrap.js',
                     'bower_components/lazysizes/plugins/ls.parent-fit.js',
                     'bower_components/lazysizes/plugins/ls.bgset.js',
