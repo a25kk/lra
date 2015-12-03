@@ -11128,6 +11128,11 @@ dl.portlet ul.navTree .navTreeCurrentItem
     display: block;
 }
 
+.app-contact-panel
+{
+    margin-top: 1rem;
+}
+
 .app-layout-simple
 {
     background: #373a3c;
