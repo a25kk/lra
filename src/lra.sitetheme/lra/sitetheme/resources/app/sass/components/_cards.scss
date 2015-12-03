@@ -22,11 +22,14 @@
 //## Reflow card contents based on viewport size
 .app-card-header {
   display: flex;
-  align-items: center;
+  align-items: top;
   height: 10rem;
   min-height: 10rem;
-  padding: $spacer ($spacer / 2);
+  padding: $spacer;
   background: $app-secondary;
+  .app-card-header-icon {
+    color: #fff;
+  }
 }
 
 //** Card content
@@ -71,10 +74,12 @@
 
 //** Set card content specific styles
 .app-card-content {
-  padding-top: 1rem;
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
   font-size: 1rem;
+  height: 10rem;
+  min-height: 10rem;
   address {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0;
   }
   a {
     font-weight: 400;
@@ -113,8 +118,15 @@
 //== Map Card
 
 .app-card-map {
-  border: 1px solid red;
   .app-card-header {
     background: url(../assets/img/map.jpg) no-repeat top center;
+  }
+}
+
+//== Map Card
+
+.app-card-opening {
+  .app-card-header {
+    background: url(../assets/img/opening.jpg) no-repeat top center;
   }
 }
