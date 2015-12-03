@@ -4,13 +4,15 @@
 
 
 @import 'utils/variables';
-@import 'utils/syntax';
+@import 'utils/functions';
+@import 'utils/mixins';
 
 @import 'vendors/font-awesome';
 @import 'vendors/bootstrap';
 @import 'vendors/flickity';
 
 @import 'base/animation';
+@import 'base/syntax';
 @import 'base/scaffolding';
 @import 'base/brand';
 
