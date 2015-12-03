@@ -60,9 +60,11 @@
 //
 //## Add spacing to cards
 .app-card-gutter {
-  margin: (-$spacer) 0 0 (-$spacer);
+  //margin: (-$spacer) 0 0 (-$spacer);
+  margin: -2rem 0 0 -2rem;
   .app-card {
-    padding: $spacer 0 0 $spacer;
+    //padding: $spacer 0 0 $spacer;
+    padding: 2rem 0 0 2rem;
   }
 }
 
