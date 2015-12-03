@@ -27,15 +27,28 @@
   min-height: 10rem;
   padding: $spacer;
   background: $app-secondary;
-  .app-card-header-icon {
-    color: #fff;
+    @include when-inside('.app-nav-list') {
+        display: none;
+    }
+  &-opening-hours {
+      background: url(../assets/img/opening.jpg) no-repeat top center;
   }
+  &-map {
+      background: url(../assets/img/map.jpg) no-repeat top center;
+  }
+}
+
+.app-card-header-icon {
+  color: #fff;
 }
 
 //** Card content
 .app-card-main {
   padding: ($spacer / 2);
   background: $app-primary;
+    @include when-inside('app-nav-list') {
+        color: $app-secondary;
+    }
 }
 
 //** Card footer
@@ -112,21 +125,4 @@
   border: 1px solid $gray-lighter;
   color: $gray-lighter;
   font-size: $display4-size;
-}
-
-
-//== Map Card
-
-.app-card-map {
-  .app-card-header {
-    background: url(../assets/img/map.jpg) no-repeat top center;
-  }
-}
-
-//== Card opening hours
-
-.app-card-opening {
-  .app-card-header {
-    background: url(../assets/img/opening.jpg) no-repeat top center;
-  }
 }
