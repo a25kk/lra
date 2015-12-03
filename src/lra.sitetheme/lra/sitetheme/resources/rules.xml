@@ -153,17 +153,25 @@
 
         <!--  transform all portlets  -->
         <replace css:content=".portlet">
-            <div class="card">
+            <div class="app-card">
+                <xsl:choose>
+                    <xsl:when css:test=".portletNavigationTree">
+                        <xsl:attribute name="class">app-card app-card-nav app-nav-list</xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="class">app-card app-card-default</xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
                 <xsl:for-each css:select=".portlet > *">
                     <div>
                         <xsl:if test="@class[contains(.,'portletHeader')]">
-                            <xsl:attribute name="class">card-header</xsl:attribute>
+                            <xsl:attribute name="class">app-card-header</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletContent')]">
-                            <xsl:attribute name="class">card-block</xsl:attribute>
+                            <xsl:attribute name="class">app-card-main</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletFooter')]">
-                            <xsl:attribute name="class">card-footer</xsl:attribute>
+                            <xsl:attribute name="class">app-card-footer</xsl:attribute>
                         </xsl:if>
                         <xsl:copy-of select="node()"/>
                     </div>
