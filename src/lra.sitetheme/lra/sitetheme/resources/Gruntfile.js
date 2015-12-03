@@ -181,9 +181,9 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.app %>/assets/img',
-                    src: ['**/*.png'],
+                    src: ['**/*.{png}'],
                     dest: '<%= config.dist %>/assets/img/',
-                    ext: '.png'
+                    ext: '.{png}'
                 }]
             },
             jpg: {
@@ -191,9 +191,9 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.app %>/assets/img/',
-                    src: ['**/*.jpg'],
+                    src: ['**/*.{jpg}'],
                     dest: '<%= config.dist %>/assets/img/',
-                    ext: '.jpg'
+                    ext: '.{jpg}'
                 }]
             }
         },

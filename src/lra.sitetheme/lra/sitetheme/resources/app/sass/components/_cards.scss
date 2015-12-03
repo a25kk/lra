@@ -23,8 +23,8 @@
 .app-card-header {
   display: flex;
   align-items: center;
-  height: 8rem;
-  min-height: 8rem;
+  height: 10rem;
+  min-height: 10rem;
   padding: $spacer ($spacer / 2);
   background: $app-secondary;
 }
@@ -44,7 +44,7 @@
 //
 //## Add spacing to cards
 .app-card-gutter {
-  margin: -($spacer) 0 0 -($spacer);
+  margin: (-$spacer) 0 0 (-$spacer);
   .app-card {
     padding: $spacer 0 0 $spacer;
   }
@@ -107,4 +107,14 @@
   border: 1px solid $gray-lighter;
   color: $gray-lighter;
   font-size: $display4-size;
+}
+
+
+//== Map Card
+
+.app-card-map {
+  border: 1px solid red;
+  .app-card-header {
+    background: url(../assets/img/map.jpg) no-repeat top center;
+  }
 }

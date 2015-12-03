@@ -4561,6 +4561,7 @@ pre code
 .app-header-content,
 .app-footer-content,
 .app-banner,
+.app-contact-panel,
 .app-main
 {
     margin-right: auto;
@@ -4574,6 +4575,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-contact-panel,
     .app-main
     {
         max-width: 576px;
@@ -4585,6 +4587,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-contact-panel,
     .app-main
     {
         max-width: 720px;
@@ -4596,6 +4599,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-contact-panel,
     .app-main
     {
         max-width: 940px;
@@ -4607,6 +4611,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-contact-panel,
     .app-main
     {
         max-width: 1140px;
@@ -10948,8 +10953,8 @@ dl.portlet ul.navTree .navTreeCurrentItem
     display: -ms-flexbox;
     display:         flex;
 
-    height: 8rem;
-    min-height: 8rem;
+    height: 10rem;
+    min-height: 10rem;
     padding: 1rem .5rem;
 
     background: #588c73; 
@@ -10973,7 +10978,7 @@ dl.portlet ul.navTree .navTreeCurrentItem
 
 .app-card-gutter
 {
-    margin: -1rem 0 -1rem;
+    margin: -1rem 0 0 -1rem;
 }
 .app-card-gutter .app-card
 {
@@ -11041,6 +11046,15 @@ dl.portlet ul.navTree .navTreeCurrentItem
     color: #eceeef;
     border: 1px solid #eceeef;
     border-radius: 50%;
+}
+
+.app-card-map
+{
+    border: 1px solid red;
+}
+.app-card-map .app-card-header
+{
+    background: url(../assets/img/map.jpg) no-repeat top center;
 }
 
 .app-newsletterbar
@@ -11703,6 +11717,7 @@ dl.portlet ul.navTree .navTreeCurrentItem
 .sg-example .app-header-content,
 .sg-example .app-footer-content,
 .sg-example .app-banner,
+.sg-example .app-contact-panel,
 .sg-example .app-main
 {
     width: auto;
