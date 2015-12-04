@@ -181,22 +181,22 @@ span.portletItemDetails {
 .navTreeItem a, dd.portletItem .navTreeItem a {
     display: block;
     text-decoration: none;
-    padding: 1rem 0 !important;
+    padding: 1rem !important;
     margin: 0;
     font-weight: normal;
-    font-size: ($font-size-base / 1.2);
+    //font-size: 1rem;
     text-align: left;
     border-bottom: 1px solid $app-gray!important;
 }
 
 .navTreeItem a {
-    // background: url(../assets/img/arrow.gif) no-repeat 0px 12px;
-    //color: $app-gray;
+    color: #fff;
     line-height: 1rem;
 }
 
 .navTreeItem a:hover {
-    color: $link-color !important;
+    color: #fff !important;
+    background: $app-primary-dark;
 }
 
 dl.portlet ul.navTree .navTreeCurrentItem {
@@ -205,22 +205,28 @@ dl.portlet ul.navTree .navTreeCurrentItem {
 }
 
 .navTreeCurrentItem {
-    color: $link-color !important;
+    color: #fff !important;
+    background: $app-primary-dark;
 }
 
 .navTreeItem .active {
     color: black !important;
 }
 
-.navTreeItemInPath {
-    color: black !important;
-}
+//.navTreeCurrentNode {
+//    color: #fff !important;
+//    background: $app-primary-dark;
+//}
 
 
 .navTreeLevel0 {
     margin: 0px 0px 0px 0px !important;
     border: 0px solid red !important;
     text-transform: uppercase;
+}
+
+.navTreeItem .navTreeLevel0 li a:link {
+    font-size: 1.5rem !important;
 }
 
 .navTreeLevel1 {
@@ -230,7 +236,8 @@ dl.portlet ul.navTree .navTreeCurrentItem {
 }
 
 .navTreeItem .navTreeLevel1 li a:link {
-    padding-left: 1rem !important;
+    padding-left: 2rem !important;
+    font-size: 0.8rem;
 }
 
 .navTreeLevel2 {
@@ -239,4 +246,18 @@ dl.portlet ul.navTree .navTreeCurrentItem {
 
 .navTreeLevel3 {
     margin-left: 0px !important;
+}
+
+.app-nav-list {
+
+    .app-card-main {
+        padding: 0;
+    }
+
+    ul {
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
 }

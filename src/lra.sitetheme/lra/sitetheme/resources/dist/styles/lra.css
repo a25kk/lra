@@ -10685,6 +10685,8 @@ app-nav-list .app-card-main
 .app-nav-list,
 .navTree
 {
+    padding-left: 0;
+
     list-style: none;
 }
 
