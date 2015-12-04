@@ -4222,6 +4222,7 @@ pre code
 .app-header-content,
 .app-footer-content,
 .app-banner,
+.app-newsletterbar,
 .app-contact-panel,
 .app-main
 {
@@ -4236,6 +4237,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-newsletterbar,
     .app-contact-panel,
     .app-main
     {
@@ -4248,6 +4250,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-newsletterbar,
     .app-contact-panel,
     .app-main
     {
@@ -4260,6 +4263,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-newsletterbar,
     .app-contact-panel,
     .app-main
     {
@@ -4272,6 +4276,7 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-newsletterbar,
     .app-contact-panel,
     .app-main
     {
@@ -10701,10 +10706,8 @@ app-nav-list .app-card-main
 
 .app-newsletterbar
 {
-    margin-bottom: .5rem; 
-    padding: 1rem;
-
-    background: #588c73;
+    margin-top: 2rem; 
+    margin-bottom: 2rem;
 }
 .app-newsletterbar .form-control,
 .app-newsletterbar .app-searchbox-field
@@ -10717,6 +10720,13 @@ app-nav-list .app-card-main
     color: #fff;
     border: 0; 
     background: #274d38;
+}
+
+.app-newsletter
+{
+    padding: 1rem; 
+
+    background: #588c73;
 }
 
 .app-summary-wrapper
@@ -11364,6 +11374,7 @@ app-nav-list .app-card-main
 .sg-example .app-header-content,
 .sg-example .app-footer-content,
 .sg-example .app-banner,
+.sg-example .app-newsletterbar,
 .sg-example .app-contact-panel,
 .sg-example .app-main
 {

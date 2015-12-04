@@ -3,9 +3,9 @@
 // -----------------------------------------
 
 .app-newsletterbar {
-	background: $app-green-secondary;
-	padding: $spacer;
-	margin-bottom: $spacer / 2;
+	@extend .container;
+	margin-bottom: $spacer * 2;
+	margin-top: $spacer * 2;
 
 	.form-control {
 		border: 0;
@@ -17,4 +17,9 @@
 		color: #fff;
 		border: 0;
 	}
+}
+
+.app-newsletter {
+	background: $app-green-secondary;
+	padding: $spacer;
 }
