@@ -4,9 +4,52 @@
     list-style: none;
 }
 
+.app-nav-list {
+	.app-card-main {
+		padding: 0;
+	}
+}
+
 .navTreeItem {
     margin-left: 0;
     > a {
+    	display: block;
+    	text-decoration: none;
         color: #fff;
+        border-bottom: 1px solid #fff;
+        padding: 1rem;
+        margin: 0;
+        &:hover,
+  		&:focus {
+  			color: #fff;
+   			background: $app-primary-dark;
+  		}
     }
+}
+
+.navTreeCurrentItem {
+    color: #fff;
+    background: $app-primary-dark;
+}
+
+.navTreeItem .navTreeLevel0 li a:link {
+    font-size: 1.5rem;
+}
+
+.navTreeLevel1 {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.navTreeItem .navTreeLevel1 li a:link {
+    padding-left: 2rem;
+    font-size: 0.8rem;
+}
+
+.navTreeLevel2 {
+    margin-left: 0px;
+}
+
+.navTreeLevel3 {
+    margin-left: 0px;
 }
