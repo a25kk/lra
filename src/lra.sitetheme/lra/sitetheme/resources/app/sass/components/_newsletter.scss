@@ -5,6 +5,7 @@
 .app-newsletterbar {
 	@extend .container;
 	margin-bottom: $spacer * 2;
+	margin-top: $spacer * 2;
 
 	.form-control {
 		border: 0;

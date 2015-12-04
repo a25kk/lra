@@ -11096,6 +11096,7 @@ app-nav-list .app-card-main
 
 .app-newsletterbar
 {
+    margin-top: 2rem; 
     margin-bottom: 2rem;
 }
 .app-newsletterbar .form-control,
