@@ -1,0 +1,11 @@
+.app-nav-list,
+.navTree {
+    list-style: none;
+}
+
+.navTreeItem {
+    margin-left: 0;
+    > a {
+        color: #fff;
+    }
+}
