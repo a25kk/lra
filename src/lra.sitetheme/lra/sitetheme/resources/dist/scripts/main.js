@@ -479,6 +479,9 @@ var Collapse = (function ($) {
           }
 
           if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            }
             data[config]();
           }
         });
@@ -552,8 +555,6 @@ var Collapse = (function ($) {
 
 	var rAF = window.requestAnimationFrame || setTimeout;
 
-	var setImmediate = window.setImmediate || setTimeout;
-
 	var regPicture = /^picture$/i;
 
 	var loadEvents = ['load', 'error', 'lazyincluded', '_lazyloaded'];
@@ -603,7 +604,7 @@ var Collapse = (function ($) {
 
 	var updatePolyfill = function (el, full){
 		var polyfill;
-		if( !supportPicture && ( polyfill = (window.picturefill || window.respimage || lazySizesConfig.pf) ) ){
+		if( !supportPicture && ( polyfill = (window.picturefill || lazySizesConfig.pf) ) ){
 			polyfill({reevaluate: true, elements: [el]});
 		} else if(full && full.src){
 			el.src = full.src;
@@ -635,7 +636,7 @@ var Collapse = (function ($) {
 			fn();
 		};
 		var afterAF = function(){
-			setImmediate(run);
+			setTimeout(run);
 		};
 		var getAF = function(){
 			rAF(afterAF);
@@ -665,22 +666,24 @@ var Collapse = (function ($) {
 		var gDelay = 125;
 		var dTimeout = 999;
 		var timeout = dTimeout;
+		var fastCallThreshold = 0;
 		var run = function(){
 			running = false;
 			lastTime = Date.now();
 			fn();
 		};
 		var afterAF = function(){
-			setImmediate(run);
+			setTimeout(run);
 		};
 		var getAF = function(){
 			rAF(afterAF);
 		};
 
 		if(requestIdleCallback){
-			gDelay = 99;
+			gDelay = 66;
+			fastCallThreshold = 22;
 			getAF = function(){
-				requestIdleCallback(run, timeout);
+				requestIdleCallback(run, {timeout: timeout});
 				if(timeout !== dTimeout){
 					timeout = dTimeout;
 				}
@@ -688,7 +691,7 @@ var Collapse = (function ($) {
 		}
 
 		return function(isPriority){
-
+			var delay;
 			if((isPriority = isPriority === true)){
 				timeout = 40;
 			}
@@ -696,11 +699,10 @@ var Collapse = (function ($) {
 			if(running){
 				return;
 			}
-			var delay = gDelay - (Date.now() - lastTime);
 
 			running =  true;
 
-			if(isPriority || delay < 0){
+			if(isPriority || (delay = gDelay - (Date.now() - lastTime)) < fastCallThreshold){
 				getAF();
 			} else {
 				setTimeout(getAF, delay);
@@ -714,7 +716,7 @@ var Collapse = (function ($) {
 
 		var eLvW, elvH, eLtop, eLleft, eLright, eLbottom;
 
-		var _defaultExpand, scrollingExpand, defaultExpand, preloadExpand;
+		var defaultExpand, preloadExpand, hFac;
 
 		var regImg = /^img$/i;
 		var regIframe = /^iframe$/i;
@@ -793,7 +795,7 @@ var Collapse = (function ($) {
 					}
 
 					if(beforeExpandVal !== elemExpand){
-						eLvW = innerWidth + elemExpand;
+						eLvW = innerWidth + (elemExpand * hFac);
 						elvH = innerHeight + elemExpand;
 						elemNegativeExpand = elemExpand * -1;
 						beforeExpandVal = elemExpand;
@@ -803,14 +805,13 @@ var Collapse = (function ($) {
 
 					if ((eLbottom = rect.bottom) >= elemNegativeExpand &&
 						(eLtop = rect.top) <= elvH &&
-						(eLright = rect.right) >= elemNegativeExpand &&
+						(eLright = rect.right) >= elemNegativeExpand * hFac &&
 						(eLleft = rect.left) <= eLvW &&
 						(eLbottom || eLright || eLleft || eLtop) &&
-						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){ // && lazyloadElems[i].className.indexOf(lazySizesConfig.strictClass) == -1
+						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){
 						unveilElement(lazyloadElems[i]);
 						loadedSomething = true;
 						if(isLoading > 9){break;}
-						if(isLoading > 6){currentExpand = shrinkExpand;}
 					} else if(!loadedSomething && isCompleted && !autoLoadElem &&
 						isLoading < 4 && lowRuns < 4 && loadMode > 2 &&
 						(preloadElems[0] || lazySizesConfig.preloadAfterLoad) &&
@@ -837,7 +838,7 @@ var Collapse = (function ($) {
 			try {
 				elem.contentWindow.location.replace(src);
 			} catch(e){
-				elem.setAttribute('src', src);
+				elem.src = src;
 			}
 		};
 
@@ -946,7 +947,7 @@ var Collapse = (function ($) {
 						if(regIframe.test(elem.nodeName)){
 							changeIframeSrc(elem, src);
 						} else {
-							elem.setAttribute('src', src);
+							elem.src = src;
 						}
 					}
 
@@ -975,7 +976,6 @@ var Collapse = (function ($) {
 			var scrollTimer;
 			var afterScroll = function(){
 				lazySizesConfig.loadMode = 3;
-				defaultExpand = _defaultExpand;
 				throttledCheckElements();
 			};
 
@@ -989,7 +989,6 @@ var Collapse = (function ($) {
 
 			addEventListener('scroll', function(){
 				if(lazySizesConfig.loadMode == 3){
-					defaultExpand = scrollingExpand;
 					lazySizesConfig.loadMode = 2;
 				}
 				clearTimeout(scrollTimer);
@@ -1038,10 +1037,9 @@ var Collapse = (function ($) {
 
 				lazyloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass);
 				preloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass + ' ' + lazySizesConfig.preloadClass);
+				hFac = lazySizesConfig.hFac;
 
 				defaultExpand = lazySizesConfig.expand;
-				_defaultExpand = defaultExpand;
-				scrollingExpand = defaultExpand * ((lazySizesConfig.expFactor + 1) / 2);
 				preloadExpand = defaultExpand * lazySizesConfig.expFactor;
 
 				addEventListener('scroll', throttledCheckElements, true);
@@ -1147,6 +1145,7 @@ var Collapse = (function ($) {
 
 	(function(){
 		var prop;
+
 		var lazySizesDefaults = {
 			lazyClass: 'lazyload',
 			loadedClass: 'lazyloaded',
@@ -1162,8 +1161,9 @@ var Collapse = (function ($) {
 			minSize: 40,
 			customMedia: {},
 			init: true,
-			expFactor: 2,
-			expand: 359,
+			expFactor: 1.7,
+			hFac: 0.8,
+			expand: docElem.clientHeight > 600 ? docElem.clientWidth > 860 ? 500 : 410 : 359,
 			loadMode: 2
 		};
 
