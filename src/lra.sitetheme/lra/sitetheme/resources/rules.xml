@@ -151,8 +151,33 @@
             </ul>
         </replace>
 
+        <replace css:content=".portlet" css:if-content=".portletNavigationTree">
+            <div class="app-card app-card-nav app-nav-list">
+                <div class="app-card-main">
+                    <nav class="app-nav-tree">
+                        <xsl:for-each css:select=".portletContent > *">
+                            <ul class="app-nav-tree-list">
+                                <xsl:if test="@class[contains(.,'navTreeLevel0')]">
+                                    <xsl:attribute name="class">app-nav-list app-nav-level-0</xsl:attribute>
+                                </xsl:if>
+                                <xsl:if test="@class[contains(.,'navTreeLevel1')]">
+                                    <xsl:attribute name="class">app-nav-list app-nav-level-1</xsl:attribute>
+                                </xsl:if>
+                                <xsl:if test="@class[contains(.,'navTreeLevel2')]">
+                                    <xsl:attribute name="class">app-nav-list app-nav-level-2</xsl:attribute>
+                                </xsl:if>
+                                <xsl:if test="@class[contains(.,'navTreeItem')]">
+                                    <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-nav-list-item</xsl:attribute>
+                                </xsl:if>
+                                <xsl:copy-of select="node()" />
+                            </ul>
+                        </xsl:for-each>
+                    </nav>
+                </div>
+            </div>
+        </replace>
         <!--  transform all portlets  -->
-        <replace css:content=".portlet">
+        <replace css:content=".portlet" css:if-not-content=".portletNavigationTree">
             <div class="app-card">
                 <xsl:choose>
                     <xsl:when css:test=".portletNavigationTree">
@@ -179,11 +204,7 @@
             </div>
         </replace>
 
-        <replace css:content=".navTree">
-            <div class="app-nav-tree">
 
-            </div>
-        </replace>
 
         <!-- Columns example -->
         <replace css:content-children="#portal-column-one > *"
