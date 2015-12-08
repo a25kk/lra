@@ -10991,10 +10991,19 @@ app-nav-list .app-card-main
 
 .app-fp-newsitem-content
 {
+    /* IE6-9 */
     padding: 1.5rem;
 
     color: #fff; 
-    background: #274d38;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d3a24+0,588c73+100 */
+    background: #1d3a24;
+    /* Old browsers */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3a24', endColorstr='#588c73',GradientType=0 );
 }
 
 .app-fp-newsitem-title
