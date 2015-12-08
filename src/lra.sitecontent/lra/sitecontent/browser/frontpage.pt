@@ -4,19 +4,62 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="biobee.sitecontent">
+      i18n:domain="vfu.sitecontent">
 <body>
 
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
     <div class="app-frontpage" id="app-frontpage">
       <div class="app-page-header">
-          <h1 class="app-page-title">
-              <span tal:replace="context/Title" />
-          </h1>
-          <p class="app-page-abstract"
+            <h1 class="app-page-title">
+                <span tal:replace="context/Title" />
+            </h1>
+      </div>
+        <p class="app-page-abstract"
             tal:condition="context/Description"
             tal:content="context/Description" />
+      <div class="app-fp app-fp-1" id="app-frontpage-1">
+        <tal:block tal:condition="view/has_newsitems">
+          <div class="app-fp-news" id="app-fp-news"
+            tal:define="news view/recent_news">
+            <div class="app-fp-newsitem" tal:repeat="item news">
+              <div class="app-fp-newsitem-imagewrapper">
+              <div class="app-fp-newitem-image" tal:condition="item/image">
+                <figure class="app-page-image-container"
+                    tal:define="image_data python:view.image_tag(item)">
+                    <div class="ratio-container">
+                      <img  class="lazyload"
+                          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                          data-sizes="auto"
+                          data-srcset="${image_data/small},
+                          ${image_data/medium},
+                          ${image_data/large}" />
+                    </div>
+                    <noscript>
+                      <!-- Provide fallback for missing lazyload javascript -->
+                      <img tal:define="has_img context/image|nothing;
+                                       scales context/@@images|nothing"
+                          tal:condition="python:has_img and scales"
+                          tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
+                    </noscript>
+                </figure>
+              </div>
+              </div>
+              <div class="app-fp-newsitem-content">
+              <div class="app-fp-newsitem-title">
+                ${item/Title}
+              </div>
+              <div class="app-fp-newsitem-abstract">
+                ${item/Description}
+              </div>
+              <div class="app-fp-newsitem-actions">
+                <a href="${item/getURL}"><i class="fa fa-chevron-circle-right fa-4x"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+        </tal:block>
+
       </div>
     </div>
   </metal:content-core>

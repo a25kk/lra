@@ -4251,6 +4251,7 @@ pre code
 .app-banner,
 .app-newsletterbar,
 .app-contact-panel,
+.app-newspanel-wrapper,
 .app-main
 {
     margin-right: auto;
@@ -4266,6 +4267,7 @@ pre code
     .app-banner,
     .app-newsletterbar,
     .app-contact-panel,
+    .app-newspanel-wrapper,
     .app-main
     {
         max-width: 576px;
@@ -4279,6 +4281,7 @@ pre code
     .app-banner,
     .app-newsletterbar,
     .app-contact-panel,
+    .app-newspanel-wrapper,
     .app-main
     {
         max-width: 720px;
@@ -4292,6 +4295,7 @@ pre code
     .app-banner,
     .app-newsletterbar,
     .app-contact-panel,
+    .app-newspanel-wrapper,
     .app-main
     {
         max-width: 940px;
@@ -4305,6 +4309,7 @@ pre code
     .app-banner,
     .app-newsletterbar,
     .app-contact-panel,
+    .app-newspanel-wrapper,
     .app-main
     {
         max-width: 1140px;
@@ -10899,6 +10904,87 @@ app-nav-list .app-card-main
     margin-top: 1rem;
 }
 
+.app-newspanel-wrapper
+{
+    display: block;
+}
+
+.app-fp-newsitem
+{
+    position: relative;
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    min-height: 1px;
+    margin-right: -.9375rem;
+    margin-left: -.9375rem;
+    padding-right: .9375rem; 
+    padding-left: .9375rem;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.app-fp-newsitem-imagewrapper
+{
+    -webkit-flex: 0 0 33.3333333333%;
+        -ms-flex: 0 0 33.3333333333%;
+            flex: 0 0 33.3333333333%;
+}
+@media (max-width: 767px)
+{
+    .app-fp-newsitem-imagewrapper
+    {
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+    }
+}
+.app-fp-newsitem-imagewrapper .ratio-container
+{
+    width: 350px;
+}
+
+.app-fp-newsitem-content
+{
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    color: #fff; 
+    background: #274d38;
+
+    -webkit-flex: 0 0 66.6666666667%;
+        -ms-flex: 0 0 66.6666666667%;
+            flex: 0 0 66.6666666667%;
+}
+@media (max-width: 767px)
+{
+    .app-fp-newsitem-content
+    {
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+    }
+}
+
+.app-fp-newsitem-title
+{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.app-fp-newsitem-actions
+{
+    text-align: right;
+}
+.app-fp-newsitem-actions a
+{
+    color: #fff;
+}
+
 .app-layout-simple
 {
     background: #373a3c;
@@ -11497,6 +11583,7 @@ app-nav-list .app-card-main
 .sg-example .app-banner,
 .sg-example .app-newsletterbar,
 .sg-example .app-contact-panel,
+.sg-example .app-newspanel-wrapper,
 .sg-example .app-main
 {
     width: auto;
