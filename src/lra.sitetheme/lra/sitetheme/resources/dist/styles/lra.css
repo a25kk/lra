@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 /*!
- *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
@@ -11,13 +11,13 @@
     font-weight: normal;
     font-style: normal; 
 
-    src: url('../assets/fonts/fontawesome-webfont.eot?v=4.4.0');
-    src: url('../assets/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../assets/fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../assets/fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../assets/fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../assets/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
+    src: url('../assets/fonts/fontawesome-webfont.eot?v=4.5.0');
+    src: url('../assets/fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('../assets/fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('../assets/fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('../assets/fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('../assets/fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
 }
 
 .fa
 {
-    font: normal normal normal 14px/1 FontAwesome;
+    font: normal normal normal 14px / 1 FontAwesome;
     font-size: inherit;
 
     display: inline-block;
@@ -3285,6 +3285,106 @@
     content: '';
 }
 
+.fa-reddit-alien:before
+{
+    content: '';
+}
+
+.fa-edge:before
+{
+    content: '';
+}
+
+.fa-credit-card-alt:before
+{
+    content: '';
+}
+
+.fa-codiepie:before
+{
+    content: '';
+}
+
+.fa-modx:before
+{
+    content: '';
+}
+
+.fa-fort-awesome:before
+{
+    content: '';
+}
+
+.fa-usb:before
+{
+    content: '';
+}
+
+.fa-product-hunt:before
+{
+    content: '';
+}
+
+.fa-mixcloud:before
+{
+    content: '';
+}
+
+.fa-scribd:before
+{
+    content: '';
+}
+
+.fa-pause-circle:before
+{
+    content: '';
+}
+
+.fa-pause-circle-o:before
+{
+    content: '';
+}
+
+.fa-stop-circle:before
+{
+    content: '';
+}
+
+.fa-stop-circle-o:before
+{
+    content: '';
+}
+
+.fa-shopping-bag:before
+{
+    content: '';
+}
+
+.fa-shopping-basket:before
+{
+    content: '';
+}
+
+.fa-hashtag:before
+{
+    content: '';
+}
+
+.fa-bluetooth:before
+{
+    content: '';
+}
+
+.fa-bluetooth-b:before
+{
+    content: '';
+}
+
+.fa-percent:before
+{
+    content: '';
+}
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html
 {
@@ -3691,7 +3791,7 @@ html
 
 body
 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Fira Sans', Helvetica, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
 
@@ -3916,8 +4016,8 @@ h6,
 .h5,
 .h6
 {
-    font-family: inherit;
-    font-weight: 500;
+    font-family: 'Fira Sans', 'Fira Sans', Helvetica, sans-serif;
+    font-weight: normal;
     line-height: 1.1;
 
     margin-bottom: .5rem;
@@ -4249,9 +4349,10 @@ pre code
 .app-header-content,
 .app-footer-content,
 .app-banner,
+.app-breadcrumbs,
 .app-newsletterbar,
 .app-contact-panel,
-.app-newspanel-wrapper,
+.app-news-panel-wrapper,
 .app-main
 {
     margin-right: auto;
@@ -4265,9 +4366,10 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-breadcrumbs,
     .app-newsletterbar,
     .app-contact-panel,
-    .app-newspanel-wrapper,
+    .app-news-panel-wrapper,
     .app-main
     {
         max-width: 576px;
@@ -4279,9 +4381,10 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-breadcrumbs,
     .app-newsletterbar,
     .app-contact-panel,
-    .app-newspanel-wrapper,
+    .app-news-panel-wrapper,
     .app-main
     {
         max-width: 720px;
@@ -4293,9 +4396,10 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-breadcrumbs,
     .app-newsletterbar,
     .app-contact-panel,
-    .app-newspanel-wrapper,
+    .app-news-panel-wrapper,
     .app-main
     {
         max-width: 940px;
@@ -4307,9 +4411,10 @@ pre code
     .app-header-content,
     .app-footer-content,
     .app-banner,
+    .app-breadcrumbs,
     .app-newsletterbar,
     .app-contact-panel,
-    .app-newspanel-wrapper,
+    .app-news-panel-wrapper,
     .app-main
     {
         max-width: 1140px;
@@ -4588,8 +4693,10 @@ pre code
     width: 100%;
     padding: .375rem .75rem;
 
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; 
+
     color: #55595c;
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
     background-color: #fff;
     background-image: none;
 }
@@ -5060,7 +5167,7 @@ input[type='button']
 {
     font-size: 1rem;
     font-weight: normal;
-    line-height: 1.5; 
+    line-height: 1.5;
 
     display: inline-block;
 
@@ -5071,6 +5178,7 @@ input[type='button']
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+    transition: all .2s ease-in-out; 
     text-align: center;
     vertical-align: middle;
     white-space: nowrap;
@@ -7426,6 +7534,45 @@ input[type='button'] .caret
     }
 }
 
+.breadcrumb,
+.app-breadcrumbs
+{
+    margin-bottom: 1rem;
+    padding: .75rem 1rem;
+
+    list-style: none;
+
+    background-color: transparent;
+}
+.breadcrumb::after,
+.app-breadcrumbs::after
+{
+    display: table;
+    clear: both; 
+
+    content: '';
+}
+.breadcrumb > li,
+.app-breadcrumbs > li
+{
+    float: left;
+}
+.breadcrumb > li + li::before,
+.app-breadcrumbs > li + li::before
+{
+    padding-right: .5rem;
+    padding-left: .5rem;
+
+    content: '/'; 
+
+    color: #818a91;
+}
+.breadcrumb > .active,
+.app-breadcrumbs > .active
+{
+    color: #818a91;
+}
+
 .close
 {
     font-size: 1.5rem;
@@ -9738,7 +9885,7 @@ label
 
 .plone-toolbar-nav
 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Fira Sans', Helvetica, sans-serif;
     font-size: 12px;
 
     margin: 0;
@@ -9802,7 +9949,7 @@ label
 
 .plone-toolbar-subnav
 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Fira Sans', Helvetica, sans-serif;
     font-size: 14px;
     line-height: 30px;
 
@@ -9847,7 +9994,7 @@ label
 }
 .plone-toolbar-subnav .plone-toolbar-submenu-header > a:hover
 {
-    color: #004666;
+    color: #004667;
 }
 .plone-toolbar-subnav .plone-toolbar-submenu-header > span
 {
@@ -9875,7 +10022,7 @@ label
 }
 .plone-toolbar-subnav li:not(.plone-toolbar-submenu-header) > a:hover:before
 {
-    color: #33bfff;
+    color: #34bfff;
 }
 .plone-toolbar-subnav .actionMenuSelected
 {
@@ -10351,16 +10498,7 @@ label
 
 .app-bannerbar
 {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d3a24+0,588c73+100 */
-    background: #1d3a24;
-    /* Old browsers */
-    /* FF3.6-15 */
-    /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3a24', endColorstr='#588c73',GradientType=0 );
-    /* IE6-9 */
 }
 
 .app-banner
@@ -10371,7 +10509,8 @@ label
 {
     .app-banner
     {
-        display: block; 
+        display: block;
+        overflow: hidden; 
 
         height: 430px;
         min-height: 430px;
@@ -10403,17 +10542,8 @@ label
     min-height: 100px;
 
     color: #fff;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+30,000000+58&amp;0+0,0.65+100 */
-    /* FF3.6+ */
-    /* Chrome,Safari4+ */
-    /* Chrome10+,Safari5.1+ */
-    /* Opera 11.10+ */
-    /* IE10+ */
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .38) 58%, rgba(0, 0, 0, .65) 100%);
     /* W3C */
-
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
-    /* IE6-9 */
 }
 
 .app-banner-item-body
@@ -10540,19 +10670,10 @@ label
 .app-pathbar
 {
     font-size: .875rem;
-    /* IE6-9 */
 
     margin-bottom: 1rem; 
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d3a24+0,588c73+100 */
 
-    background: #1d3a24;
-    /* Old browsers */
-    /* FF3.6-15 */
-    /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3a24', endColorstr='#588c73',GradientType=0 );
 }
 @media (max-width: 543px)
 {
@@ -10561,63 +10682,10 @@ label
         display: none;
     }
 }
-.app-pathbar > * > span
+
+.app-breadcrumbs > li > a
 {
-    font-weight: 100; 
-
-    display: inline-block;
-
-    padding: 3rem 0 3rem 0;
-
-    color: #fff;
-}
-.app-pathbar #breadcrumbs-you-are-here
-{
-    visibility: visible; 
-
-    padding-left: .5rem;
-
-    color: #fff;
-}
-.app-pathbar ol
-{
-    display: inline-block;
-
-    margin: 0; 
-    padding: .75rem 1rem;
-
-    list-style: none;
-}
-.app-pathbar ol > li
-{
-    font-weight: 100;
-    line-height: 0;
-
-    position: relative;
-
-    display: inline-block;
-
-    padding: 0;
-}
-.app-pathbar ol > li + li:before
-{
-    padding: 0 .5rem;
-
-    content: ' > ';
-
-    color: #fff;
-}
-.app-pathbar ol > li > a
-{
-    color: #fff !important;
-}
-.app-pathbar ol #breadcrumbs-current
-{
-    color: #fff;
-}
-body.section-front-page .app-pathbar
-{
-    display: none;
+    color: #eceeef;
 }
 
 .app-cards
@@ -10711,6 +10779,9 @@ app-nav-list .app-card-main
 .app-card-title
 {
     font-size: 1.25rem;
+}
+.wf-active .app-card-title
+{
     font-weight: 500;
 }
 
@@ -10753,7 +10824,7 @@ app-nav-list .app-card-main
 
 .app-card-placeholder-sign
 {
-    font-size: 3.5rem; 
+    font-size: 1.5rem; 
 
     width: 4rem;
     height: 4rem;
@@ -10908,12 +10979,12 @@ app-nav-list .app-card-main
     margin-top: 1rem;
 }
 
-.app-newspanel-wrapper
+.app-news-panel-wrapper
 {
     display: block;
 }
 
-.app-fp-newsitem
+.app-fp-news-item
 {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -10928,13 +10999,13 @@ app-nav-list .app-card-main
 }
 @media (max-width: 767px)
 {
-    .app-fp-newsitem
+    .app-fp-news-item
     {
         margin-top: 1rem;
     }
 }
 
-.app-fp-newsitem-imagewrapper
+.app-fp-news-item-media
 {
     position: relative;
 
@@ -10948,32 +11019,37 @@ app-nav-list .app-card-main
 }
 @media (max-width: 991px)
 {
-    .app-fp-newsitem-imagewrapper
+    .app-fp-news-item-media
     {
         -webkit-flex: 0 0 100%;
             -ms-flex: 0 0 100%;
                 flex: 0 0 100%;
     }
 }
-.app-fp-newsitem-imagewrapper .ratio-container
+.app-fp-news-item-media .ratio-container
 {
     width: 350px;
 }
 @media (max-width: 767px)
 {
-    .app-fp-newsitem-imagewrapper .ratio-container
+    .app-fp-news-item-media .ratio-container
     {
         width: 330px;
     }
 }
 
-.app-fp-newsitem-contentwrapper
+.app-fp-news-item-content
 {
     position: relative;
 
     min-height: 1px;
-    padding-right: .9375rem; 
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding: 1.5rem;
+    padding-right: .9375rem;
     padding-left: .9375rem;
+
+    color: #fff; 
+    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
 
     -webkit-flex: 0 0 66.6666666667%;
         -ms-flex: 0 0 66.6666666667%;
@@ -10981,7 +11057,7 @@ app-nav-list .app-card-main
 }
 @media (max-width: 991px)
 {
-    .app-fp-newsitem-contentwrapper
+    .app-fp-news-item-content
     {
         -webkit-flex: 0 0 100%;
             -ms-flex: 0 0 100%;
@@ -10989,34 +11065,17 @@ app-nav-list .app-card-main
     }
 }
 
-.app-fp-newsitem-content
-{
-    /* IE6-9 */
-    padding: 1.5rem;
-
-    color: #fff; 
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d3a24+0,588c73+100 */
-    background: #1d3a24;
-    /* Old browsers */
-    /* FF3.6-15 */
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3a24', endColorstr='#588c73',GradientType=0 );
-}
-
-.app-fp-newsitem-title
+.app-fp-news-item-title
 {
     font-size: 2rem;
     font-weight: 500;
 }
 
-.app-fp-newsitem-actions
+.app-fp-news-item-actions
 {
     text-align: right;
 }
-.app-fp-newsitem-actions a
+.app-fp-news-item-actions a
 {
     color: #fff;
 }
@@ -11617,9 +11676,10 @@ app-nav-list .app-card-main
 .sg-example .app-header-content,
 .sg-example .app-footer-content,
 .sg-example .app-banner,
+.sg-example .app-breadcrumbs,
 .sg-example .app-newsletterbar,
 .sg-example .app-contact-panel,
-.sg-example .app-newspanel-wrapper,
+.sg-example .app-news-panel-wrapper,
 .sg-example .app-main
 {
     width: auto;

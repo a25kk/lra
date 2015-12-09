@@ -1,20 +1,20 @@
 //
-// Frontpage NewsItems listing 
+// Frontpage NewsItems listing
 // -----------------------------------------
 
-.app-newspanel-wrapper {
+.app-news-panel-wrapper {
 	display: block;
 	@extend .container;
 }
 
-.app-fp-newsitem {
+.app-fp-news-item {
 	@include make-row();
 	@include media-breakpoint-down(sm) {
 		margin-top: 1rem;
 	}
 }
 
-.app-fp-newsitem-imagewrapper {
+.app-fp-news-item-media {
 	@include make-col-span(4);
 	@include make-col();
 	@include media-breakpoint-down(md) {
@@ -29,38 +29,30 @@
 }
 
 .app-fp-newitem-image {
-	
+
 }
 
-.app-fp-newsitem-contentwrapper {
+.app-fp-news-item-content {
 	@include make-col-span(8);
 	@include make-col();
 	@include media-breakpoint-down(md) {
 		@include make-col-span(12);
     	}
-}
-
-.app-fp-newsitem-content {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d3a24+0,588c73+100 */
-	background: #1d3a24; /* Old browsers */
-	background: -moz-linear-gradient(top, #1d3a24 0%, #588c73 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, #1d3a24 0%,#588c73 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3a24', endColorstr='#588c73',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     padding: 1.5rem;
     color: #fff;
-}	
+}
 
-.app-fp-newsitem-title {
+.app-fp-news-item-title {
 	font-size: 2rem;
 	font-weight: 500;
 }
 
-.app-fp-newsitem-abstract {
+.app-fp-news-item-abstract {
 
 }
 
-.app-fp-newsitem-actions {
+.app-fp-news-item-actions {
 	text-align: right;
 	a {
 		color: #fff;

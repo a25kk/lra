@@ -5,529 +5,6 @@
 *
 * Designed and built by ade25
 */
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): util.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
-
-'use strict';
-
-var Util = (function ($) {
-
-  /**
-   * ------------------------------------------------------------------------
-   * Private TransitionEnd Helpers
-   * ------------------------------------------------------------------------
-   */
-
-  var transition = false;
-
-  var TransitionEndEvent = {
-    WebkitTransition: 'webkitTransitionEnd',
-    MozTransition: 'transitionend',
-    OTransition: 'oTransitionEnd otransitionend',
-    transition: 'transitionend'
-  };
-
-  // shoutout AngusCroll (https://goo.gl/pxwQGp)
-  function toType(obj) {
-    return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
-  }
-
-  function isElement(obj) {
-    return (obj[0] || obj).nodeType;
-  }
-
-  function getSpecialTransitionEndEvent() {
-    return {
-      bindType: transition.end,
-      delegateType: transition.end,
-      handle: function handle(event) {
-        if ($(event.target).is(this)) {
-          return event.handleObj.handler.apply(this, arguments);
-        }
-      }
-    };
-  }
-
-  function transitionEndTest() {
-    if (window.QUnit) {
-      return false;
-    }
-
-    var el = document.createElement('bootstrap');
-
-    for (var _name in TransitionEndEvent) {
-      if (el.style[_name] !== undefined) {
-        return { end: TransitionEndEvent[_name] };
-      }
-    }
-
-    return false;
-  }
-
-  function transitionEndEmulator(duration) {
-    var _this = this;
-
-    var called = false;
-
-    $(this).one(Util.TRANSITION_END, function () {
-      called = true;
-    });
-
-    setTimeout(function () {
-      if (!called) {
-        Util.triggerTransitionEnd(_this);
-      }
-    }, duration);
-
-    return this;
-  }
-
-  function setTransitionEndSupport() {
-    transition = transitionEndTest();
-
-    $.fn.emulateTransitionEnd = transitionEndEmulator;
-
-    if (Util.supportsTransitionEnd()) {
-      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-    }
-  }
-
-  /**
-   * --------------------------------------------------------------------------
-   * Public Util Api
-   * --------------------------------------------------------------------------
-   */
-
-  var Util = {
-
-    TRANSITION_END: 'bsTransitionEnd',
-
-    getUID: function getUID(prefix) {
-      do {
-        prefix += ~ ~(Math.random() * 1000000);
-      } while (document.getElementById(prefix));
-      return prefix;
-    },
-
-    getSelectorFromElement: function getSelectorFromElement(element) {
-      var selector = element.getAttribute('data-target');
-
-      if (!selector) {
-        selector = element.getAttribute('href') || '';
-        selector = /^#[a-z]/i.test(selector) ? selector : null;
-      }
-
-      return selector;
-    },
-
-    reflow: function reflow(element) {
-      new Function('bs', 'return bs')(element.offsetHeight);
-    },
-
-    triggerTransitionEnd: function triggerTransitionEnd(element) {
-      $(element).trigger(transition.end);
-    },
-
-    supportsTransitionEnd: function supportsTransitionEnd() {
-      return Boolean(transition);
-    },
-
-    typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
-      for (var property in configTypes) {
-        if (configTypes.hasOwnProperty(property)) {
-          var expectedTypes = configTypes[property];
-          var value = config[property];
-          var valueType = undefined;
-
-          if (value && isElement(value)) {
-            valueType = 'element';
-          } else {
-            valueType = toType(value);
-          }
-
-          if (!new RegExp(expectedTypes).test(valueType)) {
-            throw new Error(componentName.toUpperCase() + ': ' + ('Option "' + property + '" provided type "' + valueType + '" ') + ('but expected type "' + expectedTypes + '".'));
-          }
-        }
-      }
-    }
-  };
-
-  setTransitionEndSupport();
-
-  return Util;
-})(jQuery);
-//# sourceMappingURL=util.js.map
-
-'use strict';
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): collapse.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
-
-var Collapse = (function ($) {
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var NAME = 'collapse';
-  var VERSION = '4.0.0';
-  var DATA_KEY = 'bs.collapse';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var DATA_API_KEY = '.data-api';
-  var JQUERY_NO_CONFLICT = $.fn[NAME];
-  var TRANSITION_DURATION = 600;
-
-  var Default = {
-    toggle: true,
-    parent: ''
-  };
-
-  var DefaultType = {
-    toggle: 'boolean',
-    parent: 'string'
-  };
-
-  var Event = {
-    SHOW: 'show' + EVENT_KEY,
-    SHOWN: 'shown' + EVENT_KEY,
-    HIDE: 'hide' + EVENT_KEY,
-    HIDDEN: 'hidden' + EVENT_KEY,
-    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
-  };
-
-  var ClassName = {
-    IN: 'in',
-    COLLAPSE: 'collapse',
-    COLLAPSING: 'collapsing',
-    COLLAPSED: 'collapsed'
-  };
-
-  var Dimension = {
-    WIDTH: 'width',
-    HEIGHT: 'height'
-  };
-
-  var Selector = {
-    ACTIVES: '.panel > .in, .panel > .collapsing',
-    DATA_TOGGLE: '[data-toggle="collapse"]'
-  };
-
-  /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
-
-  var Collapse = (function () {
-    function Collapse(element, config) {
-      _classCallCheck(this, Collapse);
-
-      this._isTransitioning = false;
-      this._element = element;
-      this._config = this._getConfig(config);
-      this._triggerArray = $.makeArray($('[data-toggle="collapse"][href="#' + element.id + '"],' + ('[data-toggle="collapse"][data-target="#' + element.id + '"]')));
-
-      this._parent = this._config.parent ? this._getParent() : null;
-
-      if (!this._config.parent) {
-        this._addAriaAndCollapsedClass(this._element, this._triggerArray);
-      }
-
-      if (this._config.toggle) {
-        this.toggle();
-      }
-    }
-
-    /**
-     * ------------------------------------------------------------------------
-     * Data Api implementation
-     * ------------------------------------------------------------------------
-     */
-
-    // getters
-
-    _createClass(Collapse, [{
-      key: 'toggle',
-
-      // public
-
-      value: function toggle() {
-        if ($(this._element).hasClass(ClassName.IN)) {
-          this.hide();
-        } else {
-          this.show();
-        }
-      }
-    }, {
-      key: 'show',
-      value: function show() {
-        var _this = this;
-
-        if (this._isTransitioning || $(this._element).hasClass(ClassName.IN)) {
-          return;
-        }
-
-        var actives = undefined;
-        var activesData = undefined;
-
-        if (this._parent) {
-          actives = $.makeArray($(Selector.ACTIVES));
-          if (!actives.length) {
-            actives = null;
-          }
-        }
-
-        if (actives) {
-          activesData = $(actives).data(DATA_KEY);
-          if (activesData && activesData._isTransitioning) {
-            return;
-          }
-        }
-
-        var startEvent = $.Event(Event.SHOW);
-        $(this._element).trigger(startEvent);
-        if (startEvent.isDefaultPrevented()) {
-          return;
-        }
-
-        if (actives) {
-          Collapse._jQueryInterface.call($(actives), 'hide');
-          if (!activesData) {
-            $(actives).data(DATA_KEY, null);
-          }
-        }
-
-        var dimension = this._getDimension();
-
-        $(this._element).removeClass(ClassName.COLLAPSE).addClass(ClassName.COLLAPSING);
-
-        this._element.style[dimension] = 0;
-        this._element.setAttribute('aria-expanded', true);
-
-        if (this._triggerArray.length) {
-          $(this._triggerArray).removeClass(ClassName.COLLAPSED).attr('aria-expanded', true);
-        }
-
-        this.setTransitioning(true);
-
-        var complete = function complete() {
-          $(_this._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).addClass(ClassName.IN);
-
-          _this._element.style[dimension] = '';
-
-          _this.setTransitioning(false);
-
-          $(_this._element).trigger(Event.SHOWN);
-        };
-
-        if (!Util.supportsTransitionEnd()) {
-          complete();
-          return;
-        }
-
-        var capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
-        var scrollSize = 'scroll' + capitalizedDimension;
-
-        $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
-
-        this._element.style[dimension] = this._element[scrollSize] + 'px';
-      }
-    }, {
-      key: 'hide',
-      value: function hide() {
-        var _this2 = this;
-
-        if (this._isTransitioning || !$(this._element).hasClass(ClassName.IN)) {
-          return;
-        }
-
-        var startEvent = $.Event(Event.HIDE);
-        $(this._element).trigger(startEvent);
-        if (startEvent.isDefaultPrevented()) {
-          return;
-        }
-
-        var dimension = this._getDimension();
-        var offsetDimension = dimension === Dimension.WIDTH ? 'offsetWidth' : 'offsetHeight';
-
-        this._element.style[dimension] = this._element[offsetDimension] + 'px';
-
-        Util.reflow(this._element);
-
-        $(this._element).addClass(ClassName.COLLAPSING).removeClass(ClassName.COLLAPSE).removeClass(ClassName.IN);
-
-        this._element.setAttribute('aria-expanded', false);
-
-        if (this._triggerArray.length) {
-          $(this._triggerArray).addClass(ClassName.COLLAPSED).attr('aria-expanded', false);
-        }
-
-        this.setTransitioning(true);
-
-        var complete = function complete() {
-          _this2.setTransitioning(false);
-          $(_this2._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).trigger(Event.HIDDEN);
-        };
-
-        this._element.style[dimension] = 0;
-
-        if (!Util.supportsTransitionEnd()) {
-          complete();
-          return;
-        }
-
-        $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
-      }
-    }, {
-      key: 'setTransitioning',
-      value: function setTransitioning(isTransitioning) {
-        this._isTransitioning = isTransitioning;
-      }
-    }, {
-      key: 'dispose',
-      value: function dispose() {
-        $.removeData(this._element, DATA_KEY);
-
-        this._config = null;
-        this._parent = null;
-        this._element = null;
-        this._triggerArray = null;
-        this._isTransitioning = null;
-      }
-
-      // private
-
-    }, {
-      key: '_getConfig',
-      value: function _getConfig(config) {
-        config = $.extend({}, Default, config);
-        config.toggle = Boolean(config.toggle); // coerce string values
-        Util.typeCheckConfig(NAME, config, DefaultType);
-        return config;
-      }
-    }, {
-      key: '_getDimension',
-      value: function _getDimension() {
-        var hasWidth = $(this._element).hasClass(Dimension.WIDTH);
-        return hasWidth ? Dimension.WIDTH : Dimension.HEIGHT;
-      }
-    }, {
-      key: '_getParent',
-      value: function _getParent() {
-        var _this3 = this;
-
-        var parent = $(this._config.parent)[0];
-        var selector = '[data-toggle="collapse"][data-parent="' + this._config.parent + '"]';
-
-        $(parent).find(selector).each(function (i, element) {
-          _this3._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
-        });
-
-        return parent;
-      }
-    }, {
-      key: '_addAriaAndCollapsedClass',
-      value: function _addAriaAndCollapsedClass(element, triggerArray) {
-        if (element) {
-          var isOpen = $(element).hasClass(ClassName.IN);
-          element.setAttribute('aria-expanded', isOpen);
-
-          if (triggerArray.length) {
-            $(triggerArray).toggleClass(ClassName.COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
-          }
-        }
-      }
-
-      // static
-
-    }], [{
-      key: '_getTargetFromElement',
-      value: function _getTargetFromElement(element) {
-        var selector = Util.getSelectorFromElement(element);
-        return selector ? $(selector)[0] : null;
-      }
-    }, {
-      key: '_jQueryInterface',
-      value: function _jQueryInterface(config) {
-        return this.each(function () {
-          var $this = $(this);
-          var data = $this.data(DATA_KEY);
-          var _config = $.extend({}, Default, $this.data(), typeof config === 'object' && config);
-
-          if (!data && _config.toggle && /show|hide/.test(config)) {
-            _config.toggle = false;
-          }
-
-          if (!data) {
-            data = new Collapse(this, _config);
-            $this.data(DATA_KEY, data);
-          }
-
-          if (typeof config === 'string') {
-            if (data[config] === undefined) {
-              throw new Error('No method named "' + config + '"');
-            }
-            data[config]();
-          }
-        });
-      }
-    }, {
-      key: 'VERSION',
-      get: function get() {
-        return VERSION;
-      }
-    }, {
-      key: 'Default',
-      get: function get() {
-        return Default;
-      }
-    }]);
-
-    return Collapse;
-  })();
-
-  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-    event.preventDefault();
-
-    var target = Collapse._getTargetFromElement(this);
-    var data = $(target).data(DATA_KEY);
-    var config = data ? 'toggle' : $(this).data();
-
-    Collapse._jQueryInterface.call($(target), config);
-  });
-
-  /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
-
-  $.fn[NAME] = Collapse._jQueryInterface;
-  $.fn[NAME].Constructor = Collapse;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Collapse._jQueryInterface;
-  };
-
-  return Collapse;
-})(jQuery);
-//# sourceMappingURL=collapse.js.map
-
 (function(window, factory) {
 	var lazySizes = factory(window, window.document);
 	window.lazySizes = lazySizes;
@@ -666,24 +143,22 @@ var Collapse = (function ($) {
 		var gDelay = 125;
 		var dTimeout = 999;
 		var timeout = dTimeout;
-		var fastCallThreshold = 0;
 		var run = function(){
 			running = false;
 			lastTime = Date.now();
 			fn();
 		};
 		var afterAF = function(){
-			setTimeout(run);
+			setImmediate(run);
 		};
 		var getAF = function(){
 			rAF(afterAF);
 		};
 
 		if(requestIdleCallback){
-			gDelay = 66;
-			fastCallThreshold = 22;
+			gDelay = 99;
 			getAF = function(){
-				requestIdleCallback(run, {timeout: timeout});
+				requestIdleCallback(run, timeout);
 				if(timeout !== dTimeout){
 					timeout = dTimeout;
 				}
@@ -691,7 +166,7 @@ var Collapse = (function ($) {
 		}
 
 		return function(isPriority){
-			var delay;
+
 			if((isPriority = isPriority === true)){
 				timeout = 40;
 			}
@@ -699,10 +174,11 @@ var Collapse = (function ($) {
 			if(running){
 				return;
 			}
+			var delay = gDelay - (Date.now() - lastTime);
 
 			running =  true;
 
-			if(isPriority || (delay = gDelay - (Date.now() - lastTime)) < fastCallThreshold){
+			if(isPriority || delay < 0){
 				getAF();
 			} else {
 				setTimeout(getAF, delay);
@@ -716,7 +192,7 @@ var Collapse = (function ($) {
 
 		var eLvW, elvH, eLtop, eLleft, eLright, eLbottom;
 
-		var defaultExpand, preloadExpand, hFac;
+		var defaultExpand, preloadExpand;
 
 		var regImg = /^img$/i;
 		var regIframe = /^iframe$/i;
@@ -795,7 +271,7 @@ var Collapse = (function ($) {
 					}
 
 					if(beforeExpandVal !== elemExpand){
-						eLvW = innerWidth + (elemExpand * hFac);
+						eLvW = innerWidth + elemExpand;
 						elvH = innerHeight + elemExpand;
 						elemNegativeExpand = elemExpand * -1;
 						beforeExpandVal = elemExpand;
@@ -805,13 +281,14 @@ var Collapse = (function ($) {
 
 					if ((eLbottom = rect.bottom) >= elemNegativeExpand &&
 						(eLtop = rect.top) <= elvH &&
-						(eLright = rect.right) >= elemNegativeExpand * hFac &&
+						(eLright = rect.right) >= elemNegativeExpand &&
 						(eLleft = rect.left) <= eLvW &&
 						(eLbottom || eLright || eLleft || eLtop) &&
 						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){
 						unveilElement(lazyloadElems[i]);
 						loadedSomething = true;
 						if(isLoading > 9){break;}
+						if(isLoading > 6){currentExpand = shrinkExpand;}
 					} else if(!loadedSomething && isCompleted && !autoLoadElem &&
 						isLoading < 4 && lowRuns < 4 && loadMode > 2 &&
 						(preloadElems[0] || lazySizesConfig.preloadAfterLoad) &&
@@ -1037,7 +514,6 @@ var Collapse = (function ($) {
 
 				lazyloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass);
 				preloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass + ' ' + lazySizesConfig.preloadClass);
-				hFac = lazySizesConfig.hFac;
 
 				defaultExpand = lazySizesConfig.expand;
 				preloadExpand = defaultExpand * lazySizesConfig.expFactor;
@@ -1162,8 +638,7 @@ var Collapse = (function ($) {
 			customMedia: {},
 			init: true,
 			expFactor: 1.7,
-			hFac: 0.8,
-			expand: docElem.clientHeight > 600 ? docElem.clientWidth > 860 ? 500 : 410 : 359,
+			expand: docElem.clientHeight > 630 ? docElem.clientWidth > 890 ? 500 : 410 : 359,
 			loadMode: 2
 		};
 
@@ -6802,61 +6277,4 @@ Flickity.prototype.imagesLoaded = function() {
 return Flickity;
 
 }));
-
-
-'use strict';
-(function ($) {
-  $(document).ready(function () {
-    // Setup media query for enabling dynamic layouts only on
-    // larger screen sizes
-    var mq = window.matchMedia("(min-width: 480px)");
-    // Enable gallery and masonry scripts based on screen size
-    if (mq.matches) {
-      var $bannerBar = document.querySelectorAll('.app-js-carousel');
-      if ($bannerBar.length) {
-        var bannerflkty = new Flickity('.app-js-carousel', {
-          autoPlay: 7000,
-          contain: true,
-          wrapAround: true,
-          imagesLoaded: true,
-          cellSelector: '.app-banner-item',
-          cellAlign: 'left',
-          selectedAttraction: 0.025,
-          friction: 0.28
-        });
-      }
-    }
-    if ($(".userrole-anonymous")[0]){
-      $('input[type="password"]').showPassword('focus', {
-      });
-      $('.app-signin-input').jvFloat();
-      var $mcNote = $('#app-signin-suggestion');
-      Mailcheck.defaultDomains.push('lra-aic-fdb.de')
-      $('#ac-name').on('blur', function (event) {
-        console.log("event ", event);
-        console.log("this ", $(this));
-        $(this).mailcheck({
-          // domains: domains,                       // optional
-          // topLevelDomains: topLevelDomains,       // optional
-          suggested: function (element, suggestion) {
-                // callback code
-                console.log("suggestion ", suggestion.full);
-                $mcNote.removeClass('hidden').addClass('fadeInDown');
-                $mcNote.html("Meinten Sie <i>" + suggestion.full + "</i>?");
-                $mcNote.on('click', function (evt) {
-                  evt.preventDefault();
-                  $('#ac-name').val(suggestion.full);
-                  $mcNote.removeClass('fadeInDown').addClass('fadeOutUp').delay(2000).addClass('hidden');
-                });
-              },
-          empty: function (element) {
-                // callback code
-                $mcNote.html('').addClass('hidden');
-              }
-        });
-      });
-    }
-  }
-  );
-}(jQuery));
 

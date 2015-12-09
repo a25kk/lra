@@ -81,8 +81,20 @@
             css:theme-children="#app-navbar-nav" />
 
         <!-- Breadcrumbs -->
-        <replace css:content-children='#portal-breadcrumbs'
-            css:theme-children='#app-pathbar' />
+        <drop css:content="#portal-breadcrumbs"/>
+        <replace css:content="#portal-breadcrumbs" method="raw" if-content="//*[@id='breadcrumbs-1']">
+            <ol class="app-pathbar">
+                <xsl:for-each select="./span[not(position() = last())]//a">
+                    <li>
+                        <xsl:apply-templates select="."/>
+                        <span class="divider">/</span>
+                    </li>
+                </xsl:for-each>
+                <li class="active">
+                    <xsl:apply-templates select="./span[position() = last()]/*"/>
+                </li>
+            </ol>
+        </replace>
 
         <!-- Banner -->
         <drop css:theme="#app-banner"
@@ -146,7 +158,7 @@
             css:theme-children="#app-below-main-content" />
 
         <replace css:content=".configlets">
-            <ul class="nav nav-list checkbox">
+            <ul class="nav nav-list">
                 <xsl:apply-templates />
             </ul>
         </replace>
@@ -208,7 +220,7 @@
         <!-- News -->
         <replace css:content-children="#app-fp-news"
             css:theme-children="#news" />
-            
+
         <!-- Columns example -->
         <replace css:content-children="#portal-column-one > *"
             css:theme-children="#app-sidebar" />
