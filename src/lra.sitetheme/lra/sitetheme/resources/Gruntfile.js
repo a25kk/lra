@@ -6,7 +6,8 @@ module.exports = function (grunt) {
         app: 'app',
         dev: '_site',
         dist: 'dist',
-        diazoPrefix: '/++theme++<%= pkg.name %>.sitetheme'
+        diazoPrefix: '/++theme++<%= pkg.name %>.sitetheme',
+        modules: 'node_modules'
     };
     grunt.initConfig({
         config: config,
@@ -30,35 +31,33 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                  'bower_components/jquery/dist/jquery.js',
-                  'bower_components/modernizr/modernizr.js',
-                  'node_modules/tether/dist/js/tether.min.js',
-                  'bower_components/bootstrap/js/dist/util.js',
-                  'bower_components/bootstrap/js/dist/collapse.js',
-                  'bower_components/mailcheck/src/mailcheck.js',
-                  'bower_components/JVFloat/jvfloat.js',
-                  'bower_components/hideShowPassword/hideShowPassword.js',
-                  'bower_components/lazysizes/plugins/ls.parent-fit.js',
-                  'bower_components/lazysizes/plugins/ls.bgset.js',
-                  'bower_components/lazysizes/plugins/ls.unveilhooks.js',
-                  'bower_components/lazysizes/lazysizes.js',
-                  'bower_components/respimage/respimage.js',
-                  'bower_components/flickity/dist/flickity.pkgd.js',
-                  '<%= config.app %>/scripts/main.js'
+                    '<%= config.modules %>/jquery/dist/jquery.js',
+                    '<%= config.modules %>/modernizr/modernizr.js',
+                    '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
+                    '<%= config.modules %>/mailcheck/src/mailcheck.js',
+                    '<%= config.modules %>/JVFloat/jvfloat.js',
+                    '<%= config.modules %>/hideShowPassword/hideShowPassword.js',
+                    '<%= config.modules %>/lazysizes/plugins/ls.parent-fit.js',
+                    '<%= config.modules %>/lazysizes/plugins/ls.bgset.js',
+                    '<%= config.modules %>/lazysizes/plugins/ls.unveilhooks.js',
+                    '<%= config.modules %>/lazysizes/lazysizes.js',
+                    '<%= config.modules %>/respimage/respimage.js',
+                    '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
+                    '<%= config.app %>/js/main.js'
                 ],
                 dest: '<%= config.dist %>/scripts/<%= pkg.name %>.js'
             },
             theme: {
                 src: [
-                    'bower_components/bootstrap/js/dist/util.js',
-                    'bower_components/bootstrap/js/dist/collapse.js',
-                    'bower_components/lazysizes/plugins/ls.parent-fit.js',
-                    'bower_components/lazysizes/plugins/ls.bgset.js',
-                    'bower_components/lazysizes/plugins/ls.unveilhooks.js',
-                    'bower_components/lazysizes/lazysizes.js',
-                    'bower_components/respimage/respimage.js',
-                    'bower_components/flickity/dist/flickity.pkgd.js',
-                    '<%= config.app %>/scripts/main.js'
+                    '<%= config.modules %>/bootstrap/js/dist/util.js',
+                    '<%= config.modules %>/bootstrap/js/dist/collapse.js',
+                    '<%= config.modules %>/lazysizes/plugins/ls.parent-fit.js',
+                    '<%= config.modules %>/lazysizes/plugins/ls.bgset.js',
+                    '<%= config.modules %>/lazysizes/plugins/ls.unveilhooks.js',
+                    '<%= config.modules %>/lazysizes/lazysizes.js',
+                    '<%= config.modules %>/respimage/respimage.js',
+                    '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
+                    '<%= config.app %>/js/main.js'
                 ],
                 dest: '<%= config.dist %>/scripts/main.js'
             }
