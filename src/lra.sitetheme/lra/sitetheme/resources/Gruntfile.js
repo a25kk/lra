@@ -89,8 +89,8 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 sourceMap: true,
-                includePaths: ['bower_components'],
-                loadPath: 'bower_components'
+                includePaths: ['<%= config.modules %>'],
+                loadPath: '<%= config.modules %>'
             },
             dist: {
                 files: { '<%= config.dist %>/styles/<%= pkg.name %>.css': '<%= config.app %>/sass/main.scss' }
