@@ -33,7 +33,8 @@ module.exports = function (grunt) {
                 src: [
                     '<%= config.modules %>/jquery/dist/jquery.js',
                     '<%= config.modules %>/modernizr/modernizr.js',
-                    '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
+                    '<%= config.modules %>/bootstrap/js/dist/util.js',
+                    '<%= config.modules %>/bootstrap/js/dist/collapse.js',
                     '<%= config.modules %>/mailcheck/src/mailcheck.js',
                     '<%= config.modules %>/JVFloat/jvfloat.js',
                     '<%= config.modules %>/hideShowPassword/hideShowPassword.js',
