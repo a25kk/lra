@@ -16,24 +16,11 @@ base_url: "../../"
       </p>
   </div>
   <div class="app-page-body">
-  <p>Die Pathbar - der sog. Krümelpfad - erleichtert den Besuchern der Webseite den Überblick zu behalten und erleichtert das Navigieren. Er ist fixiert und erweitert sich automatisch beim Navigieren. Eine manuelle Veränderung der Pathbar ist nicht möglich.</p>
+        <p>Die Pathbar - der sog. Krümelpfad - erleichtert den Besuchern der Webseite den Überblick zu behalten und erleichtert das Navigieren. Er ist fixiert und erweitert sich automatisch beim Navigieren. Eine manuelle Veränderung der Pathbar ist nicht möglich.</p>
 
-  <div class="app-pathbar hidden-xs" id="app-pathbar">
-    <span id="breadcrumbs-you-are-here">Sie sind hier:</span>
-    <ol aria-labelledby="breadcrumbs-you-are-here">
-      <li id="breadcrumbs-home">
-        <a href="#">Startseite</a>
-      </li>
-      <li id="breadcrumbs-1">
-        <a href="#">
-          <span id="">Landratsamt</span>
-          </a>
-      </li>
-      <li id="breadcrumbs-2">
-          <span id="breadcrumbs-current">Abteilungen</span>
-      </li>
-    </ol>
-  </div>
+      <div class="sg-example">
+          {% include components/pathbar.html %}
+      </div>
 
   </div>
 </main>
