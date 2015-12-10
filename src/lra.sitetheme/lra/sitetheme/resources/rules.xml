@@ -218,8 +218,8 @@
 
 
         <!-- News -->
-        <replace css:content-children="#app-fp-news"
-            css:theme-children="#news" />
+        <replace css:content-children="#app-news-list"
+            css:theme-children="#app-news-list-frontpage" />
 
         <!-- Columns example -->
         <replace css:content-children="#portal-column-one > *"

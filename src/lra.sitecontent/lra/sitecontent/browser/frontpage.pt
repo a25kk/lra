@@ -21,6 +21,44 @@
 
             <div class="app-page-body app-fp app-fp-1" id="app-frontpage-1">
                 <tal:block tal:condition="view/has_newsitems">
+                    <div class="app-news-list" id="app-news-list"
+                        tal:define="news view/recent_news">
+                        <div class="app-news-list-item" tal:repeat="item news">
+                            <div class="app-news-list-item-aside">
+                                <tal:image tal:condition="item/image">
+                                    <figure class="app-page-image-container"
+                                            tal:define="image_data python:view.image_tag(item)">
+                                        <div class="ratio-container">
+                                            <img class="lazyload"
+                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                 data-sizes="auto"
+                                                 data-srcset="${image_data/small},
+                                                              ${image_data/medium},
+                                                              ${image_data/large}"/>
+                                        </div>
+                                        <noscript>
+                                            <!-- Provide fallback for missing lazyload javascript -->
+                                            <img tal:define="has_img context/image|nothing;
+                                                    scales context/@@images|nothing"
+                                                    tal:condition="python:has_img and scales"
+                                                    tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
+                                        </noscript>
+                                    </figure>
+                                </tal:image>
+                            </div>
+                            <div class="app-news-list-item-main">
+                                <div class="app-news-list-item-title">
+                                        ${item/Title}
+                                </div>
+                                <div class="app-news-list-item-abstract">
+                                        ${item/Description}
+                                </div>
+                                <div class="app-news-list-item-actions">
+                                    <a class="app-news-list-link" href="${item/getURL}"><i class="fa fa-chevron-circle-right fa-4x"></i></a    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="app-fp-news" id="app-fp-news"
                             tal:define="news view/recent_news">
                         <div class="app-fp-news-item" tal:repeat="item news">

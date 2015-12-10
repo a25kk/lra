@@ -2,18 +2,61 @@
 // Frontpage NewsItems listing
 // -----------------------------------------
 
-.app-news-panel-wrapper {
-	display: block;
-	@extend .container;
+.app-news-panel-header {
+    @extend .container;
 }
 
+// News listing
+.app-news-list {
+    display: block;
+    @extend .container;
+    padding-top: $spacer;
+    padding-bottom: ($spacer * 2);
+}
+
+.app-news-list-item {
+    @include make-row();
+    margin-bottom: ($spacer * 2);
+}
+
+.app-news-list-item-aside,
+.app-news-list-item-main {
+    @include make-col();
+}
+
+.app-news-list-item-aside {
+    @include make-col-span(4);
+    padding-right: ($spacer * 6);
+}
+
+.app-news-list-item-main {
+    @include make-col-span(8);
+    padding: 2rem 1rem 1rem;
+    background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
+    color: #fff;
+}
+
+.app-news-list-item-title {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.app-news-list-item-actions {
+    text-align: right;
+}
+.app-news-list-link {
+    color: #fff;
+}
+
+// ------------------------------------
+// DEPRECATED: old non-semantic classes
 .app-fp-news-item {
-	@include make-row();
-	margin-top: 1rem;
-	margin-bottom: 2rem;
-	@include media-breakpoint-up(sm) {
-		
-	}
+    @include make-row();
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    @include media-breakpoint-up(sm) {
+
+    }
 }
 
 .app-fp-news-item-media {

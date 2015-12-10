@@ -4352,7 +4352,8 @@ pre code
 .app-breadcrumbs,
 .app-newsletterbar,
 .app-contact-panel,
-.app-news-panel-wrapper,
+.app-news-panel-header,
+.app-news-list,
 .app-main
 {
     margin-right: auto;
@@ -4369,7 +4370,8 @@ pre code
     .app-breadcrumbs,
     .app-newsletterbar,
     .app-contact-panel,
-    .app-news-panel-wrapper,
+    .app-news-panel-header,
+    .app-news-list,
     .app-main
     {
         max-width: 576px;
@@ -4384,7 +4386,8 @@ pre code
     .app-breadcrumbs,
     .app-newsletterbar,
     .app-contact-panel,
-    .app-news-panel-wrapper,
+    .app-news-panel-header,
+    .app-news-list,
     .app-main
     {
         max-width: 720px;
@@ -4399,7 +4402,8 @@ pre code
     .app-breadcrumbs,
     .app-newsletterbar,
     .app-contact-panel,
-    .app-news-panel-wrapper,
+    .app-news-panel-header,
+    .app-news-list,
     .app-main
     {
         max-width: 940px;
@@ -4414,7 +4418,8 @@ pre code
     .app-breadcrumbs,
     .app-newsletterbar,
     .app-contact-panel,
-    .app-news-panel-wrapper,
+    .app-news-panel-header,
+    .app-news-list,
     .app-main
     {
         max-width: 1140px;
@@ -10979,9 +10984,74 @@ app-nav-list .app-card-main
     margin-top: 1rem;
 }
 
-.app-news-panel-wrapper
+.app-news-list
 {
     display: block;
+
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.app-news-list-item
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    margin-right: -.9375rem;
+    margin-bottom: 2rem; 
+    margin-left: -.9375rem;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.app-news-list-item-aside,
+.app-news-list-item-main
+{
+    position: relative;
+
+    min-height: 1px;
+    padding-right: .9375rem; 
+    padding-left: .9375rem;
+}
+
+.app-news-list-item-aside
+{
+    padding-right: 6rem; 
+
+    -webkit-flex: 0 0 33.3333333333%;
+        -ms-flex: 0 0 33.3333333333%;
+            flex: 0 0 33.3333333333%;
+}
+
+.app-news-list-item-main
+{
+    padding: 2rem 1rem 1rem;
+
+    color: #fff; 
+    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
+
+    -webkit-flex: 0 0 66.6666666667%;
+        -ms-flex: 0 0 66.6666666667%;
+            flex: 0 0 66.6666666667%;
+}
+
+.app-news-list-item-title
+{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.app-news-list-item-actions
+{
+    text-align: right;
+}
+
+.app-news-list-link
+{
+    color: #fff;
 }
 
 .app-fp-news-item
@@ -11690,7 +11760,8 @@ app-nav-list .app-card-main
 .sg-example .app-breadcrumbs,
 .sg-example .app-newsletterbar,
 .sg-example .app-contact-panel,
-.sg-example .app-news-panel-wrapper,
+.sg-example .app-news-panel-header,
+.sg-example .app-news-list,
 .sg-example .app-main
 {
     width: auto;
