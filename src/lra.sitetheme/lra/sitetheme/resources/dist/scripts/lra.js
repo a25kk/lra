@@ -10152,22 +10152,24 @@ if (typeof window !== 'undefined' && window.jQuery) {
 		var gDelay = 125;
 		var dTimeout = 999;
 		var timeout = dTimeout;
+		var fastCallThreshold = 0;
 		var run = function(){
 			running = false;
 			lastTime = Date.now();
 			fn();
 		};
 		var afterAF = function(){
-			setImmediate(run);
+			setTimeout(run);
 		};
 		var getAF = function(){
 			rAF(afterAF);
 		};
 
 		if(requestIdleCallback){
-			gDelay = 99;
+			gDelay = 66;
+			fastCallThreshold = 22;
 			getAF = function(){
-				requestIdleCallback(run, timeout);
+				requestIdleCallback(run, {timeout: timeout});
 				if(timeout !== dTimeout){
 					timeout = dTimeout;
 				}
@@ -10175,7 +10177,7 @@ if (typeof window !== 'undefined' && window.jQuery) {
 		}
 
 		return function(isPriority){
-
+			var delay;
 			if((isPriority = isPriority === true)){
 				timeout = 40;
 			}
@@ -10183,11 +10185,10 @@ if (typeof window !== 'undefined' && window.jQuery) {
 			if(running){
 				return;
 			}
-			var delay = gDelay - (Date.now() - lastTime);
 
 			running =  true;
 
-			if(isPriority || delay < 0){
+			if(isPriority || (delay = gDelay - (Date.now() - lastTime)) < fastCallThreshold){
 				getAF();
 			} else {
 				setTimeout(getAF, delay);
@@ -10201,7 +10202,7 @@ if (typeof window !== 'undefined' && window.jQuery) {
 
 		var eLvW, elvH, eLtop, eLleft, eLright, eLbottom;
 
-		var defaultExpand, preloadExpand;
+		var defaultExpand, preloadExpand, hFac;
 
 		var regImg = /^img$/i;
 		var regIframe = /^iframe$/i;
@@ -10280,7 +10281,7 @@ if (typeof window !== 'undefined' && window.jQuery) {
 					}
 
 					if(beforeExpandVal !== elemExpand){
-						eLvW = innerWidth + elemExpand;
+						eLvW = innerWidth + (elemExpand * hFac);
 						elvH = innerHeight + elemExpand;
 						elemNegativeExpand = elemExpand * -1;
 						beforeExpandVal = elemExpand;
@@ -10290,14 +10291,13 @@ if (typeof window !== 'undefined' && window.jQuery) {
 
 					if ((eLbottom = rect.bottom) >= elemNegativeExpand &&
 						(eLtop = rect.top) <= elvH &&
-						(eLright = rect.right) >= elemNegativeExpand &&
+						(eLright = rect.right) >= elemNegativeExpand * hFac &&
 						(eLleft = rect.left) <= eLvW &&
 						(eLbottom || eLright || eLleft || eLtop) &&
 						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){
 						unveilElement(lazyloadElems[i]);
 						loadedSomething = true;
 						if(isLoading > 9){break;}
-						if(isLoading > 6){currentExpand = shrinkExpand;}
 					} else if(!loadedSomething && isCompleted && !autoLoadElem &&
 						isLoading < 4 && lowRuns < 4 && loadMode > 2 &&
 						(preloadElems[0] || lazySizesConfig.preloadAfterLoad) &&
@@ -10523,6 +10523,7 @@ if (typeof window !== 'undefined' && window.jQuery) {
 
 				lazyloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass);
 				preloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass + ' ' + lazySizesConfig.preloadClass);
+				hFac = lazySizesConfig.hFac;
 
 				defaultExpand = lazySizesConfig.expand;
 				preloadExpand = defaultExpand * lazySizesConfig.expFactor;
@@ -10647,7 +10648,8 @@ if (typeof window !== 'undefined' && window.jQuery) {
 			customMedia: {},
 			init: true,
 			expFactor: 1.7,
-			expand: docElem.clientHeight > 630 ? docElem.clientWidth > 890 ? 500 : 410 : 359,
+			hFac: 0.8,
+			expand: docElem.clientHeight > 600 ? docElem.clientWidth > 860 ? 500 : 410 : 359,
 			loadMode: 2
 		};
 
