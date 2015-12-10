@@ -48,8 +48,11 @@
     color: #fff;
 }
 
+
 // ------------------------------------
 // DEPRECATED: old non-semantic classes
+// Kept for reference and can be deleted if no styles need
+// to merged with the new uímplementation anymore
 .app-fp-news-item {
     @include make-row();
     margin-top: 1rem;
