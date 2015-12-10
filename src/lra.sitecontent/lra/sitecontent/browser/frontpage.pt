@@ -46,16 +46,18 @@
                                     </figure>
                                 </div>
                             </div>
-                            <div class="app-fp-news-item-content">
-                                    <div class="app-fp-news-item-title">
-                                            ${item/Title}
-                                    </div>
-                                    <div class="app-fp-news-item-abstract">
-                                            ${item/Description}
-                                    </div>
-                                    <div class="app-fp-news-item-actions">
-                                        <a href="${item/getURL}"><i class="fa fa-chevron-circle-right fa-4x"></i></a>
-                                    </div>
+                            <div class="app-fp-news-item-content-container">
+                                <div class="app-fp-news-item-content">
+                                        <div class="app-fp-news-item-title">
+                                                ${item/Title}
+                                        </div>
+                                        <div class="app-fp-news-item-abstract">
+                                                ${item/Description}
+                                        </div>
+                                        <div class="app-fp-news-item-actions">
+                                            <a href="${item/getURL}"><i class="fa fa-chevron-circle-right fa-4x"></i></a    >
+                                        </div>
+                                </div>
                             </div>
                         </div>
                     </div>
