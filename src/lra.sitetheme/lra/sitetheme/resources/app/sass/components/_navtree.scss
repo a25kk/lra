@@ -1,3 +1,30 @@
+.app-nav-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.app-nav-list-item {
+    margin-left: 0;
+    padding: .5rem .25rem;
+    &:not(last) {
+        margin-bottom: .25rem;
+        border-bottom: 1px solid #fff;
+    }
+}
+
+.app-nav-list-link {
+    color: #fff;
+    &:hover {
+        color: darken(#fff, 10%);
+    }
+    &.navTreeCurrentNode {
+        color: $gray-lighter;
+    }
+}
+
+// DEPRECATED 13.01.2015:
+// Use diazo transforms to cleanup the standard navtree portlet
+// This should allow for better control
 .app-nav-list,
 .navTree {
     padding-left: 0;

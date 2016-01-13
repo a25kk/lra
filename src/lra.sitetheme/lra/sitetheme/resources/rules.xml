@@ -82,7 +82,7 @@
 
        <!-- Breadcrumbs -->
         <replace css:content="#portal-breadcrumbs" method="raw" if-content="//*[@id='breadcrumbs-1']">
-            <ol class="breadcrumb">
+            <ol class="app-breadcrumbs">
                 <xsl:for-each select="./div/ol/li[not(position() = last())]//a">
                     <li>
                         <xsl:apply-templates select="."/>
@@ -247,7 +247,7 @@
             <div class="app-card app-card-nav app-nav-list">
                 <div class="app-card-main">
                     <nav class="app-nav-tree">
-                        <xsl:for-each css:select=".portletContent > *">
+                        <!--<xsl:for-each css:select=".portletContent > *">
                             <ul class="app-nav-tree-list">
                                 <xsl:if test="@class[contains(.,'navTreeLevel0')]">
                                     <xsl:attribute name="class">app-nav-list app-nav-level-0</xsl:attribute>
@@ -271,7 +271,12 @@
                                   </li>
                                 </xsl:for-each>
                             </ul>
-                        </xsl:for-each>
+                        </xsl:for-each>-->
+                        <ul class="app-nav-list-tree">
+                            <xsl:copy-of select="./nav/ul/@*" />
+                            <xsl:attribute name="class"><xsl:value-of select="./nav/ul/@class"/> app-nav-list-tree</xsl:attribute>
+                            <xsl:apply-templates select="./nav/ul/*"/>
+                        </ul>
                     </nav>
                 </div>
             </div>
