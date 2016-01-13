@@ -38,7 +38,7 @@
             <drop theme="/html/head/link" />
 
             <!-- Drop scripts from theme footer if present -->
-            <drop theme="/html/body/script" />
+            <!--<drop theme="/html/body/script" />-->
         </rules>
 
         <!-- Custom favicon implementation -->
@@ -80,21 +80,20 @@
         <replace css:content="#portal-globalnav li"
             css:theme-children="#app-navbar-nav" />
 
-        <!-- Breadcrumbs -->
-        <drop css:content="#portal-breadcrumbs"/>
+       <!-- Breadcrumbs -->
         <replace css:content="#portal-breadcrumbs" method="raw" if-content="//*[@id='breadcrumbs-1']">
-            <ol class="app-pathbar">
-                <xsl:for-each select="./span[not(position() = last())]//a">
+            <ol class="breadcrumb">
+                <xsl:for-each select="./div/ol/li[not(position() = last())]//a">
                     <li>
                         <xsl:apply-templates select="."/>
-                        <span class="divider">/</span>
                     </li>
                 </xsl:for-each>
                 <li class="active">
-                    <xsl:apply-templates select="./span[position() = last()]/*"/>
+                    <xsl:apply-templates select="./div/ol/li[position() = last()]/*"/>
                 </li>
             </ol>
         </replace>
+        <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
 
         <!-- Banner -->
         <drop css:theme="#app-banner"
@@ -153,7 +152,43 @@
         <replace css:content-children="#content"
             css:theme-children="#content" />
 
+        <!-- Table styles -->
+        <replace css:content="table.listing">
+            <table>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class">table table-hover</xsl:attribute>
+                <xsl:apply-templates />
+            </table>
+        </replace>
+
+
+        <!-- Alert and portal messages -->
         <before css:content=".portalMessage" css:theme="#content" />
+        <strip css:content=".portalMessage dd"/>
+        <replace css:content=".portalMessage" >
+          <xsl:choose>
+              <xsl:when css:test=".portalMessage[style]"/>
+              <xsl:when css:test=".portalMessage">
+                  <div class="app-callout app-callout-default alert-dismissable" role="alert">
+                      <xsl:choose>
+                          <xsl:when css:test=".info">
+                              <xsl:attribute name="class">app-callout app-callout-success alert-dismissable</xsl:attribute>
+                          </xsl:when>
+                          <xsl:when css:test=".error">
+                              <xsl:attribute name="class">app-callout app-callout-danger alert-dismissable</xsl:attribute>
+                          </xsl:when>
+                          <xsl:when css:test=".warning">
+                              <xsl:attribute name="class">app-callout app-callout-warning alert-dismissable</xsl:attribute>
+                          </xsl:when>
+                      </xsl:choose>
+                      <h4><xsl:apply-templates select="./dt/*"/></h4>
+                      <xsl:apply-templates />
+                  </div>
+              </xsl:when>
+          </xsl:choose>
+        </replace>
+
+
         <replace css:content-children="#viewlet-below-content"
             css:theme-children="#app-below-main-content" />
 
@@ -163,7 +198,52 @@
             </ul>
         </replace>
 
-        <replace css:content=".portlet" css:if-content=".portletNavigationTree">
+
+        <replace css:content="input">
+            <xsl:choose>
+                <xsl:when css:test="[type='submit'],[type='button']">
+                    <button>
+                        <xsl:copy-of select="@*" />
+                        <xsl:choose>
+                            <xsl:when css:test=".delete, .destructive, [value='Delete']">
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-danger</xsl:attribute>
+                            </xsl:when>
+                            <xsl:when css:test=".searchButton, .context, .submit-widget">
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-primary</xsl:attribute>
+                            </xsl:when>
+                            <xsl:when css:test=".standalone">
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-info</xsl:attribute>
+                            </xsl:when>
+                            <xsl:otherwise>
+                              <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-default</xsl:attribute>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                        <xsl:value-of select="./@value"/>
+                    </button>
+                </xsl:when>
+                <xsl:when css:test="[type='text'][name$='.title'],#title">
+                    <xsl:copy>
+                        <xsl:copy-of select="@*" />
+                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> input-block-level</xsl:attribute>
+                        <xsl:apply-templates />
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:when css:test="[class='label checkboxType']">
+                    <xsl:copy>
+                        <xsl:copy-of select="@*" />
+                        <xsl:attribute name="class">checkboxType</xsl:attribute>
+                        <xsl:apply-templates />
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:copy-of select="."/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </replace>
+
+
+        <!-- navigation box -->
+        <replace css:content=".portletNavigationTree">
             <div class="app-card app-card-nav app-nav-list">
                 <div class="app-card-main">
                     <nav class="app-nav-tree">
@@ -181,24 +261,25 @@
                                 <xsl:if test="@class[contains(.,'navTreeItem')]">
                                     <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-nav-list-item</xsl:attribute>
                                 </xsl:if>
-                                <xsl:copy-of select="node()" />
+                                <xsl:for-each css:select=".navTreeItem">
+                                  <li class="app-nav-list-item">
+                                    <a class="app-nav-list-link">
+                                        <xsl:copy-of select="./a/@*[local-name() != 'class']"/>
+                                       <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-nav-list-link</xsl:attribute>
+                                       <xsl:copy-of select="./a/text()" />
+                                    </a>
+                                  </li>
+                                </xsl:for-each>
                             </ul>
                         </xsl:for-each>
                     </nav>
                 </div>
             </div>
         </replace>
+
         <!--  transform all portlets  -->
-        <replace css:content=".portlet" css:if-not-content=".portletNavigationTree">
-            <div class="app-card">
-                <xsl:choose>
-                    <xsl:when css:test=".portletNavigationTree">
-                        <xsl:attribute name="class">app-card app-card-nav app-nav-list</xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="class">app-card app-card-default</xsl:attribute>
-                    </xsl:otherwise>
-                </xsl:choose>
+        <replace css:content=".portlet:not(.portletNavigationTree)">
+            <div class="app-card app-card-default">
                 <xsl:for-each css:select=".portlet > *">
                     <div>
                         <xsl:if test="@class[contains(.,'portletHeader')]">

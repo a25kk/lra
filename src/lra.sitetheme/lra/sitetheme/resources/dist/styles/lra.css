@@ -11055,36 +11055,50 @@ app-nav-list .app-card-main
 
 .app-news-list-item
 {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
+    margin-bottom: 2rem;
+}
+@media (min-width: 544px)
+{
+    .app-news-list-item
+    {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
 
-    margin-right: -.9375rem;
-    margin-bottom: 2rem; 
-    margin-left: -.9375rem;
+        margin-right: -.9375rem; 
+        margin-left: -.9375rem;
 
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+    }
 }
 
-.app-news-list-item-aside,
-.app-news-list-item-main
+@media (min-width: 544px)
 {
-    position: relative;
+    .app-news-list-item-aside,
+    .app-news-list-item-main
+    {
+        position: relative;
 
-    min-height: 1px;
-    padding-right: .9375rem; 
-    padding-left: .9375rem;
+        min-height: 1px;
+        padding-right: .9375rem; 
+        padding-left: .9375rem;
+    }
 }
 
 .app-news-list-item-aside
 {
-    padding-right: 6rem; 
-
-    -webkit-flex: 0 0 33.3333333333%;
-        -ms-flex: 0 0 33.3333333333%;
-            flex: 0 0 33.3333333333%;
+    padding-right: 6rem;
+}
+@media (min-width: 544px)
+{
+    .app-news-list-item-aside
+    {
+        -webkit-flex: 0 0 33.3333333333%;
+            -ms-flex: 0 0 33.3333333333%;
+                flex: 0 0 33.3333333333%;
+    }
 }
 
 .app-news-list-item-main
@@ -11093,10 +11107,15 @@ app-nav-list .app-card-main
 
     color: #fff; 
     background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
-
-    -webkit-flex: 0 0 66.6666666667%;
-        -ms-flex: 0 0 66.6666666667%;
-            flex: 0 0 66.6666666667%;
+}
+@media (min-width: 544px)
+{
+    .app-news-list-item-main
+    {
+        -webkit-flex: 0 0 66.6666666667%;
+            -ms-flex: 0 0 66.6666666667%;
+                flex: 0 0 66.6666666667%;
+    }
 }
 
 .app-news-list-item-title

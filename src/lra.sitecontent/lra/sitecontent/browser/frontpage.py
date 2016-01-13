@@ -7,6 +7,9 @@ from plone.app.contentlisting.interfaces import IContentListing
 from plone.app.contentlisting.interfaces import IContentListingObject
 from plone.app.contenttypes.interfaces import INewsItem
 from zope.component import getMultiAdapter
+from zope.component import getUtility
+
+from lra.sitecontent.interfaces import IResponsiveImagesTool
 
 IMG = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs='
 
@@ -56,6 +59,10 @@ class FrontPageView(BrowserView):
             if target in ('/news'):
                 info['subitems'] = self.recent_news()
         return info
+
+    def get_image_data(self, uuid):
+        tool = getUtility(IResponsiveImagesTool)
+        return tool.create(uuid)
 
     def image_tag(self, item):
         data = {}
