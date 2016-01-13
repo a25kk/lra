@@ -10255,6 +10255,56 @@ label
     margin-left: 0;
 }
 
+.ratio-container
+{
+    position: relative;
+}
+
+.ratio-container:after
+{
+    display: block;
+
+    width: 100%;
+    height: 0;
+    /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
+    padding-bottom: 56.25%;
+
+    content: '';
+    content: '';
+}
+
+.ratio-container > *
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* unknown ration variation */
+.unknown-ratio-container > *
+{
+    width: auto;
+    max-width: 100%;
+    height: auto; 
+    max-height: 100%;
+}
+
+.lazyload,
+.lazyloading
+{
+    min-height: 200px;
+}
+
+img[data-sizes='auto']
+{
+    display: block;
+
+    width: 100%;
+}
+
 .app-brand
 {
     display: -webkit-flex;

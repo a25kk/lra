@@ -29,10 +29,11 @@
                                     <figure class="app-page-image-container"
                                         tal:define="item_uuid item/UID;
                                                     image_data python:view.get_image_data(item_uuid)">
-                                        <div class="ratio-container">
+                                        <div class="ratio-container unknown-ratio-container">
                                           <img class="lazyload"
                                               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                               data-sizes="auto"
+                                              data-src="${image_data/large}"
                                               data-srcset="${image_data/small},
                                                            ${image_data/medium},
                                                            ${image_data/large},
