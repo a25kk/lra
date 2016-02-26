@@ -9,6 +9,13 @@
 	margin-top: 1rem;
 }
 
+.app-frontpagepanel {
+	@include make-container();
+	@include make-container-max-widths();
+	padding-left: 0;
+	padding-bottom: 1rem;
+}
+
 //.app-contact-panel-content {
 //	display: flex;
 //	

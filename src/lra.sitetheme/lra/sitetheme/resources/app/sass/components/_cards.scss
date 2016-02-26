@@ -13,8 +13,14 @@
 
 //** Base card styles
 .app-card {
-  flex: 1;
+  flex: 0 0 33.3333%;
   color: $gray-lighter;
+    @include media-breakpoint-down(md) {
+        flex: 0 0 50%;
+    }
+    @include media-breakpoint-down(sm) {
+        flex: 0 0 100%;
+    }
 }
 
 //== Card layout
@@ -60,12 +66,10 @@
 //
 //## Add spacing to cards
 .app-card-gutter {
-  //margin: (-$spacer) 0 0 (-$spacer);
-  margin: -2rem 0 0 -2rem;
-  .app-card {
-    //padding: $spacer 0 0 $spacer;
-    padding: 2rem 0 0 2rem;
-  }
+    margin: -1rem 0 0 -1rem;
+    .app-card {
+        padding: 1rem 0 0 1rem;
+    }
 }
 
 //== Embedded card
