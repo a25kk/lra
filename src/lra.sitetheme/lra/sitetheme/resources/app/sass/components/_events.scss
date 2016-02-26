@@ -413,15 +413,22 @@ article.vevent {
 
 .event.details {
     float: none;
-    margin: 1rem 1rem 1rem 0;
-    background: #efefef;
+    margin: 0 0 1rem 0;
+    background: $app-secondary;
     padding: 1rem;
+    color: #fff;
     dt {
         background: #efefef;
         padding: .5rem;
     }
     dd {
         padding: .5rem;
+    }
+} 
+
+.event-dates {
+    span {
+        display: block;
     }
 }
 

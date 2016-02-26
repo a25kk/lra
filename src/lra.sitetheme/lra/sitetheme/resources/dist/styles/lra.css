@@ -12311,10 +12311,11 @@ article.vevent
 {
     float: none;
 
-    margin: 1rem 1rem 1rem 0;
-    padding: 1rem; 
+    margin: 0 0 1rem 0;
+    padding: 1rem;
 
-    background: #efefef;
+    color: #fff; 
+    background: #588c73;
 }
 .event.details dt
 {
@@ -12325,6 +12326,11 @@ article.vevent
 .event.details dd
 {
     padding: .5rem;
+}
+
+.event-dates span
+{
+    display: block;
 }
 
 .event ul
