@@ -28,20 +28,20 @@
 
 .app-main-aside,
 .app-main-content {
-    @include make-col();
+
 }
 
 .app-main-aside {
-    @include make-col-span(12);
+    @include make-col(12);
     @include media-breakpoint-up(md) {
-        @include make-col-span(4);
+        @include make-col(4);
     }
 }
 
 .app-main-content {
-    @include make-col-span(12);
+    @include make-col(12);
     @include media-breakpoint-up(md) {
-        @include make-col-span(8);
+        @include make-col(8);
     }
 }
 
