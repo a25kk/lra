@@ -24,20 +24,19 @@
 .app-news-list-item-aside,
 .app-news-list-item-main {
 	@include media-breakpoint-up(sm) {
-    	@include make-col();
     }
 }
 
 .app-news-list-item-aside {
 	@include media-breakpoint-up(sm) {
-    	@include make-col-span(4);
+    	@include make-col(4);
     }
     padding-right: ($spacer * 6);
 }
 
 .app-news-list-item-main {
 	@include media-breakpoint-up(sm) {
-    	@include make-col-span(8);
+    	@include make-col(8);
     }
     padding: 2rem 1rem 1rem;
     background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);

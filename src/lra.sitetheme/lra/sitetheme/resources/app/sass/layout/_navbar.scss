@@ -33,7 +33,7 @@
 }
 
 .app-navbar-brand {
-  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  padding: $navbar-padding-y $navbar-padding-x;
   font-weight: 500;
   line-height: $spacer;
   color: #fff;
@@ -43,7 +43,7 @@
 .app-navbar-header-toggle {
   flex: 0 0 33.3333%;
   background: $app-secondary;
-  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  padding: $navbar-padding-y $navbar-padding-x;
   text-align: center;
 }
 
