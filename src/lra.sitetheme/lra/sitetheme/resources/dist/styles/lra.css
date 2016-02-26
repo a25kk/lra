@@ -3861,7 +3861,7 @@ a:hover
 {
     text-decoration: underline; 
 
-    color: #014c8c;
+    color: #274d38;
 }
 a:focus
 {
@@ -5936,7 +5936,7 @@ input[type='button'].destructive:disabled:hover
 {
     text-decoration: underline;
 
-    color: #014c8c;
+    color: #274d38;
     background-color: transparent;
 }
 .btn-link:disabled:focus,
