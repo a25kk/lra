@@ -11116,7 +11116,7 @@ img[data-sizes='auto']
     position: relative;
 
     width: 100%;
-    height: 100%;
+    height: 430px;
     min-height: 430px;
 
     background-position: top center; 
@@ -11188,23 +11188,6 @@ img[data-sizes='auto']
 
         text-align: right;
     }
-}
-
-/* ---- static banner ---- */
-.app-staticbanner
-{
-    height: 135px;
-    margin-top: 1rem;
-
-    background: transparent url('../assets/img/sb01.jpg') repeat-x scroll top center;
-    background-size: cover;
-}
-.app-staticbanner .app-banner-item-title
-{
-    padding-top: 4rem;
-    padding-left: 1rem;
-
-    color: #fff;
 }
 
 .app-page-hero
@@ -11441,6 +11424,10 @@ body.template-frontpage-view .app-pathbar
 .app-card-header a:hover
 {
     opacity: .7; 
+    color: #fff;
+}
+.app-card-header a:visited
+{
     color: #fff;
 }
 

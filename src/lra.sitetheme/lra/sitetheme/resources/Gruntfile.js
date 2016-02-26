@@ -31,34 +31,37 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    '<%= config.modules %>/jquery/dist/jquery.js',
-                    '<%= config.modules %>/modernizr/modernizr.js',
-                    '<%= config.modules %>/bootstrap/js/dist/util.js',
-                    '<%= config.modules %>/bootstrap/js/dist/collapse.js',
-                    '<%= config.modules %>/mailcheck/src/mailcheck.js',
-                    '<%= config.modules %>/JVFloat/jvfloat.js',
-                    '<%= config.modules %>/hideShowPassword/hideShowPassword.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.parent-fit.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.bgset.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.unveilhooks.js',
-                    '<%= config.modules %>/lazysizes/lazysizes.js',
-                    '<%= config.modules %>/respimage/respimage.js',
-                    '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
-                    '<%= config.app %>/js/main.js'
+                  '<%= config.modules %>/jquery/dist/jquery.js',
+                  '<%= config.modules %>/modernizr/modernizr.js',
+                  '<%= config.modules %>/tether/dist/js/tether.min.js',
+                  '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
+                  '<%= config.modules %>/mailcheck/src/mailcheck.js',
+                  '<%= config.modules %>/JVFloat/jvfloat.js',
+                  '<%= config.modules %>/hideShowPassword/hideShowPassword.js',
+                  '<%= config.modules %>/lazysizes/plugins/ls.parent-fit.js',
+                  '<%= config.modules %>/lazysizes/plugins/ls.bgset.js',
+                  '<%= config.modules %>/lazysizes/plugins/ls.unveilhooks.js',
+                  '<%= config.modules %>/lazysizes/lazysizes.js',
+                  '<%= config.modules %>/respimage/respimage.js',
+                  '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
+                  '<%= config.app %>/scripts/main.js'
                 ],
                 dest: '<%= config.dist %>/scripts/<%= pkg.name %>.js'
             },
             theme: {
+                options: {
+                    banner: "require(['jquery'], function($) {'use strict';",
+                    footer: "});",
+                    stripBanners: true
+                },
                 src: [
-                    '<%= config.modules %>/bootstrap/js/dist/util.js',
-                    '<%= config.modules %>/bootstrap/js/dist/collapse.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.parent-fit.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.bgset.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.unveilhooks.js',
+                    '<%= config.modules %>/tether/dist/js/tether.min.js',
+                    '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
                     '<%= config.modules %>/lazysizes/lazysizes.js',
+                    '<%= config.modules %>/lazysizes/plugins/ls.parent-fit.js',
                     '<%= config.modules %>/respimage/respimage.js',
                     '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
-                    '<%= config.app %>/js/main.js'
+                    '<%= config.app %>/scripts/main.js'
                 ],
                 dest: '<%= config.dist %>/scripts/main.js'
             }
