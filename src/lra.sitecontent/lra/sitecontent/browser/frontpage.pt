@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
         metal:use-macro="context/main_template/macros/master"
-        i18n:domain="vfu.sitecontent">
+        i18n:domain="lra.sitecontent">
 <body>
 
 <metal:main fill-slot="main">
@@ -24,43 +24,46 @@
                     <div class="app-news-list" id="app-news-list"
                         tal:define="news view/recent_news">
                         <div class="app-news-list-item" tal:repeat="item news">
-                            <div class="app-news-list-item-aside">
-                                <tal:image tal:condition="item/image">
-                                    <figure class="app-page-image-container"
-                                        tal:define="item_uuid item/UID;
-                                                    image_data python:view.get_image_data(item_uuid)">
-                                        <div class="ratio-container unknown-ratio-container">
-                                          <img class="lazyload"
-                                              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                              data-sizes="auto"
-                                              data-src="${image_data/large}"
-                                              data-srcset="${image_data/small},
-                                                           ${image_data/medium},
-                                                           ${image_data/large},
-                                                           ${image_data/original}" />
-                                        </div>
-                                        <noscript>
-                                          <!-- Provide fallback for missing lazyload javascript -->
-                                          <img tal:define="has_img item/image|nothing;
-                                                           scales item/@@images|nothing"
-                                              tal:condition="python:has_img and scales"
-                                              tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
-                                        </noscript>
-                                      <figcaption tal:condition="exists:item/image_caption">
-                                        ${item/image_caption}
-                                      </figcaption>
-                                    </figure>
-                                </tal:image>
+                            <div class="app-card app-news-list-item-aside">
+                                <a class="app-news-list-item-anchor" href="${item/getURL}">
+                                  <tal:image tal:condition="item/image">
+                                      <figure class="app-page-image-container"
+                                          tal:define="item_uuid item/UID;
+                                                      image_data python:view.get_image_data(item_uuid)">
+                                          <div class="ratio-container ratio-container-4-3">
+                                            <img class="lazyload"
+                                                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                data-src="${image_data/large}"
+                                                data-srcset="${image_data/small},
+                                                             ${image_data/medium},
+                                                             ${image_data/large},
+                                                             ${image_data/original}" />
+                                          </div>
+                                          <noscript>
+                                            <!-- Provide fallback for missing lazyload javascript -->
+                                            <img tal:define="has_img item/image|nothing;
+                                                             scales item/@@images|nothing"
+                                                tal:condition="python:has_img and scales"
+                                                tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
+                                          </noscript>
+                                        <figcaption tal:condition="exists:item/image_caption">
+                                          ${item/image_caption}
+                                        </figcaption>
+                                      </figure>
+                                  </tal:image>
+                                </a>
                             </div>
                             <div class="app-news-list-item-main">
                                 <div class="app-news-list-item-title">
+                                    <a href="${item/getURL}">
                                         ${item/Title}
+                                    </a>
                                 </div>
                                 <div class="app-news-list-item-abstract">
                                         ${item/Description}
                                 </div>
                                 <div class="app-news-list-item-actions">
-                                    <a class="app-news-list-link" href="${item/getURL}"><i class="fa fa-chevron-circle-right fa-4x"></i></a    >
+                                    <a class="app-news-list-link" href="${item/getURL}">weiterlesen <i class="fa fa-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
