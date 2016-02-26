@@ -10,7 +10,8 @@
 .app-banner {
   display: none;
   @include media-breakpoint-up(sm) {
-    @extend .container;
+    @include make-container();
+    @include make-container-max-widths();
     height: 430px;
     min-height: 430px;
     background: transparent;

@@ -3,13 +3,13 @@
 // -----------------------------------------
 
 .app-news-panel-header {
-    @extend .container;
+    @include make-container();
 }
 
 // News listing
 .app-news-list {
     display: block;
-    @extend .container;
+    @include make-container();
     padding-top: $spacer;
     padding-bottom: ($spacer * 2);
 }

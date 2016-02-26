@@ -2,60 +2,57 @@
 // Pathbar stylesheet based on Plone 5 Styles
 // -----------------------------------------------
 
-.app-pathbar {
-    font-size: $font-size-sm;
-    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
-    margin-bottom: $spacer;
-    @include media-breakpoint-down(xs) {
-        display: none;
-    }
+
+.app-pathbar-wrapper {
+    background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
+    margin-bottom: 1rem;
 }
 
- .app-breadcrumbs {
-     @extend .container;
-     @extend .breadcrumb;
-     margin: 0 auto;
-     > li > a {
-         color: $gray-lighter;
+.app-pathbar {
+  @include make-container();
+    @include make-container-max-widths();
+  margin-top: 0;
+  font-size: $font-size-sm;
+  border-radius: 0;
+  .active {
+        color: #000;
      }
- }
-
-//#breadcrumbs-you-are-here {
-//  padding-left: $spacer / 2;
-//  color: #fff;
-//  visibility: visible;
-//}
-//ol {
-//  display: inline-block;
-//  padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal ;
-//  list-style: none;
-//  margin: 0;
-//  > li {
-//    font-weight: 100;
-//    display: inline-block;
-//    line-height: 0; // match ol & span height
-//    position: relative;
-//    padding: 0;
-//    + li:before {
-//      content: " > ";
-//      padding: 0 0.5rem;
-//      //position: absolute;
-//      //padding: 0 5px;
-//      color: #fff;
-//      //border-left: 5px solid;
-//      //border-top: 15px solid transparent;
-//      //border-bottom: 15px solid transparent;
-//      //left: -20px;
-//      //top: -15px;
-//      //padding: 0 !important;
-//    }
-//    > a {
-//     color: #fff !important;
-//    }
-//  }
-//  #breadcrumbs-current {
-//    color: #fff;
-//  }
-//}
-//body.section-front-page & {display: none;} //not breadcrumbs on homepage
-//
+  .breadcrumb {
+    background-color: transparent;
+    margin-bottom: 0;
+  }
+  > * > span { //you are here
+    display: inline-block;
+    color: #fff;
+    padding: 1rem 0 1rem 1rem;
+    font-weight: 100;
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+  ol {
+    display: inline-block;
+    padding: 1rem 0;
+    list-style: none;
+    margin: 0;
+    > li {
+     font-weight: 300;
+     display: inline-block;
+     line-height: 0; // match ol & span height
+     position: relative;
+     padding: 0;
+     + li:before {
+       content: " > ";
+       padding: 0 0.5rem;
+       color: #fff;
+     }
+     > a {
+        color: #fff;
+     }
+   }
+    > #breadcrumbs-current {
+      color: #fff !important;
+    }
+  }
+  body.template-frontpage-view & {display: none;} //not breadcrumbs on homepage
+}

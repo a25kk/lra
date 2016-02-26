@@ -4,7 +4,8 @@
 
 
 .app-contact-panel {
-	@extend .container;
+	@include make-container();
+	@include make-container-max-widths();
 	margin-top: 1rem;
 }
 
