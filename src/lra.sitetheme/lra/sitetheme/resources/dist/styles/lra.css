@@ -11438,6 +11438,11 @@ body.template-frontpage-view .app-pathbar
 {
     background: url(../assets/img/map.jpg) no-repeat top center;
 }
+.app-card-header a:hover
+{
+    opacity: .7; 
+    color: #fff;
+}
 
 .app-card-header-icon
 {
