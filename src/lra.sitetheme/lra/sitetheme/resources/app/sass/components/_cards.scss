@@ -47,9 +47,11 @@
   }
   &-opening-hours {
       background: url(../assets/img/opening.jpg) no-repeat top center;
+      background-size: cover;
   }
   &-map {
       background: url(../assets/img/map.jpg) no-repeat top center;
+      background-size: cover;
   }
 
   a:hover {

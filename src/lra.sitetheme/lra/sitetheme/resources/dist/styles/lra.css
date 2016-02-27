@@ -11425,10 +11425,12 @@ body.template-frontpage-view .app-pathbar
 .app-card-header-opening-hours
 {
     background: url(../assets/img/opening.jpg) no-repeat top center;
+    background-size: cover;
 }
 .app-card-header-map
 {
     background: url(../assets/img/map.jpg) no-repeat top center;
+    background-size: cover;
 }
 .app-card-header a:hover
 {
@@ -11678,6 +11680,12 @@ app-nav-list .app-card-main
     {
         border-width: 0 0 2px 0;
     }
+}
+
+.app-card-nav .app-card-main
+{
+    height: 100%;
+    min-height: 12rem;
 }
 
 .app-nav-list
