@@ -77,13 +77,13 @@ module.exports = function (grunt) {
         // reference in your app
         modernizr: {
             dist: {
-                devFile: 'bower_components/modernizr/modernizr.js',
-                outputFile: '<%%= config.dist %>/scripts/vendor/modernizr.js',
+                devFile: '<%= config.modules %>/modernizr/modernizr.js',
+                outputFile: '<%= config.dist %>/scripts/vendor/modernizr.js',
                 files: {
                     src: [
-                        '<%%= config.dist %>/scripts/{,*/}*.js',
-                        '<%%= config.dist %>/stypes/{,*/}*.css',
-                        '!<%%= config.dist %>/scripts/vendor/*'
+                        '<%= config.dist %>/scripts/{,*/}*.js',
+                        '<%= config.dist %>/stypes/{,*/}*.css',
+                        '!<%= config.dist %>/scripts/vendor/*'
                     ]
                 },
                 uglify: true
@@ -154,21 +154,21 @@ module.exports = function (grunt) {
             fontawesome: {
                 expand: true,
                 flatten: true,
-                cwd: 'bower_components/',
+                cwd: '<%= config.modules %>/',
                 src: ['font-awesome/fonts/*'],
                 dest: '<%= config.dist %>/assets/fonts/'
             },
             showPassword: {
                 expand: true,
                 flatten: true,
-                cwd: 'bower_components/',
+                cwd: '<%= config.modules %>/',
                 src: ['hideShowPassword/images/*'],
                 dest: '<%= config.dist %>/assets/img/'
             },
             ico: {
                 expand: true,
                 flatten: true,
-                cwd: 'bower_components/',
+                cwd: '<%= config.modules %>/',
                 src: ['bootstrap/assets/ico/*'],
                 dest: '<%= config.dist %>/assets/ico/'
             },
@@ -181,10 +181,10 @@ module.exports = function (grunt) {
         },
         imagemin: {
             dynamic: {
-              options: {
-                  optimizationLevel: 5,
-                  svgoPlugins: [{ removeViewBox: false }]
-              },
+                options: {
+                    optimizationLevel: 5,
+                    svgoPlugins: [{ removeViewBox: false }]
+                },
                 files: [{
                     expand: true,
                     cwd: '<%= config.app %>/assets/img',
@@ -518,7 +518,7 @@ module.exports = function (grunt) {
         },
         connect: {
             options: {
-                port: 9000,
+                port: 9499,
                 hostname: 'localhost',
                 livereload: 35729,
                 base: '<%= config.dev %>'
@@ -588,6 +588,7 @@ module.exports = function (grunt) {
             'html',
             'js',
             'css',
+            'replace:diazo',
             'connect:livereload',
             'watch'
         ]);

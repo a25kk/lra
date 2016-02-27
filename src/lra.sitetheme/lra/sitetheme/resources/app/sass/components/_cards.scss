@@ -32,10 +32,15 @@
   height: 10rem;
   min-height: 10rem;
   padding: $spacer;
-  background: $app-secondary;
+  background: url(../assets/img/card-default-bg.jpg) no-repeat top center $app-secondary;
+  background-size: cover;
     @include when-inside('.app-nav-list') {
         display: none;
     }
+
+  &-address {
+    background: $app-secondary !important;
+  }
   &-opening-hours {
       background: url(../assets/img/opening.jpg) no-repeat top center;
   }
@@ -92,11 +97,39 @@
 }
 
 
+//== Embedded card
+//
+//## Remove spacing for card inside card usecase
+
+.app-subcards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.app-subcard {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    flex: 0 1 50%;
+    padding: 1.5rem;
+    color: #fff;
+        @include media-breakpoint-down(md) {
+        flex: 0 0 50%;
+    }
+        @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+        }
+    path {
+        fill: #fff;
+    }
+}
+
 //== Card title
 //
 //## Title is used inside the card-main container
 .app-card-title {
     font-size: 1.25rem;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
     @include when-inside('.wf-active') {
         font-weight: 500;
     }
@@ -143,3 +176,94 @@
   color: $gray-lighter;
   font-size: 1.5rem;
 }
+
+
+//** quick / multitarget card
+
+.card-quick {
+    @include media-breakpoint-down(md) {
+        flex: 0 0 100%;
+    }
+    .app-card-main {
+        background: $app-primary;
+        padding: 0;
+    }
+    .app-card-content {
+        font-size: 1rem;
+    }
+    .app-subcard-title {
+      color: #fff;
+    }
+
+//** quick / Subcard pray
+
+.subcard-tl {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 0;
+        @include media-breakpoint-down(sm) {
+            border-width: 0 0 2px 0;
+        }
+}
+.logo-pray {
+    width: 102px;
+    height: 103px;
+    margin: 0 auto !important;
+}
+
+// Quickcard styles
+//
+// TODO: Cleanup - do  not repeat yourself :)
+
+//** quick / Subcard donation
+
+.subcard-tr {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 0 0 2px 2px;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 2px 0;
+    }
+  }
+
+.logo-donation {
+    width: 102px;
+    height: 103px;
+}
+
+//** quick / Subcard employee
+
+.subcard-bl {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 2px 0 0 2px;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 0 0;
+    }
+}
+
+.logo-employee {
+    width: 102px;
+    height: 103px;
+    padding-top: 1.5rem;
+}
+
+//** quick / Subcard parking
+
+.subcard-br {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 2px 2px 0 0;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 2px 0;
+    }
+}
+
+.logo-parking {
+    width: 102px;
+    height: 103px;
+    padding-top: 1rem;
+    }
+}
+
+

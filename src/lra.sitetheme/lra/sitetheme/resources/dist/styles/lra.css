@@ -11403,7 +11403,8 @@ body.template-frontpage-view .app-pathbar
     min-height: 10rem;
     padding: 1rem;
 
-    background: #588c73; 
+    background: url(../assets/img/card-default-bg.jpg) no-repeat top center #588c73;
+    background-size: cover; 
 
     -webkit-align-items: top;
     -ms-flex-align: top;
@@ -11412,6 +11413,10 @@ body.template-frontpage-view .app-pathbar
 .app-nav-list .app-card-header
 {
     display: none;
+}
+.app-card-header-address
+{
+    background: #588c73 !important;
 }
 .app-card-header-opening-hours
 {
@@ -11470,9 +11475,58 @@ app-nav-list .app-card-main
     border: 0;
 }
 
+.app-subcards
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.app-subcard
+{
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding: 1.5rem;
+
+    color: #fff; 
+
+    -webkit-flex: 0 1 50%;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+}
+@media (max-width: 991px)
+{
+    .app-subcard
+    {
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+@media (max-width: 767px)
+{
+    .app-subcard
+    {
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+    }
+}
+.app-subcard path
+{
+    fill: #fff;
+}
+
 .app-card-title
 {
     font-size: 1.25rem;
+
+    padding: 1rem .5rem .5rem .5rem;
 }
 .wf-active .app-card-title
 {
@@ -11527,6 +11581,120 @@ app-nav-list .app-card-main
     color: #eceeef;
     border: 1px solid #eceeef;
     border-radius: 50%;
+}
+
+@media (max-width: 991px)
+{
+    .card-quick
+    {
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+    }
+}
+
+.card-quick .app-card-main
+{
+    padding: 0; 
+
+    background: #274d38;
+}
+
+.card-quick .app-card-content
+{
+    font-size: 1rem;
+}
+
+.card-quick .app-subcard-title
+{
+    color: #fff;
+}
+
+.card-quick .subcard-tl
+{
+    text-align: center;
+
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 0;
+}
+@media (max-width: 767px)
+{
+    .card-quick .subcard-tl
+    {
+        border-width: 0 0 2px 0;
+    }
+}
+
+.card-quick .logo-pray
+{
+    width: 102px;
+    height: 103px;
+    margin: 0 auto !important;
+}
+
+.card-quick .subcard-tr
+{
+    text-align: center;
+
+    border: 2px solid #fff;
+    border-width: 0 0 2px 2px;
+}
+@media (max-width: 767px)
+{
+    .card-quick .subcard-tr
+    {
+        border-width: 0 0 2px 0;
+    }
+}
+
+.card-quick .logo-donation
+{
+    width: 102px;
+    height: 103px;
+}
+
+.card-quick .subcard-bl
+{
+    text-align: center;
+
+    border: 2px solid #fff;
+    border-width: 2px 0 0 2px;
+}
+@media (max-width: 767px)
+{
+    .card-quick .subcard-bl
+    {
+        border-width: 0 0 0 0;
+    }
+}
+
+.card-quick .logo-employee
+{
+    width: 102px;
+    height: 103px;
+    padding-top: 1.5rem;
+}
+
+.card-quick .subcard-br
+{
+    text-align: center;
+
+    border: 2px solid #fff;
+    border-width: 2px 2px 0 0;
+}
+@media (max-width: 767px)
+{
+    .card-quick .subcard-br
+    {
+        border-width: 0 0 2px 0;
+    }
+}
+
+.card-quick .logo-parking
+{
+    width: 102px;
+    height: 103px;
+    padding-top: 1rem;
 }
 
 .app-nav-list
