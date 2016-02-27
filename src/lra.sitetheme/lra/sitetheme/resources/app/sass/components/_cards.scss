@@ -15,6 +15,10 @@
 .app-card {
   flex: 0 0 33.3333%;
   color: $gray-lighter;
+
+  .fa {
+    color: #fff;
+  }
     @include media-breakpoint-down(md) {
         flex: 0 0 50%;
     }

@@ -11374,6 +11374,10 @@ body.template-frontpage-view .app-pathbar
         -ms-flex: 0 0 33.3333%;
             flex: 0 0 33.3333%;
 }
+.app-card .fa
+{
+    color: #fff;
+}
 @media (max-width: 991px)
 {
     .app-card
