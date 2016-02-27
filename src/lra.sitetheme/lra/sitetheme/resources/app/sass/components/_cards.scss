@@ -33,8 +33,8 @@
 .app-card-header {
   display: flex;
   align-items: top;
-  height: 10rem;
-  min-height: 10rem;
+  height: 12rem;
+  min-height: 12rem;
   padding: $spacer;
   background: url(../assets/img/card-default-bg.jpg) no-repeat top center $app-secondary;
   background-size: cover;
@@ -68,6 +68,8 @@
 
 //** Card content
 .app-card-main {
+  height: 12rem;
+  min-height: 12rem;
   padding: ($spacer / 2);
   background: $app-primary;
     @include when-inside('app-nav-list') {
@@ -113,10 +115,12 @@
 .app-subcard {
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 0;
+    margin-bottom: 0;   
     flex: 0 1 50%;
     padding: 1.5rem;
     color: #fff;
+    height: 12rem;
+    min-height: 12rem;
         @include media-breakpoint-down(md) {
         flex: 0 0 50%;
     }
@@ -185,19 +189,25 @@
 //** quick / multitarget card
 
 .card-quick {
-    @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(md) {
         flex: 0 0 100%;
     }
-    .app-card-main {
-        background: $app-primary;
-        padding: 0;
-    }
+  .app-card-main {
+    height: 24rem;
+    min-height: 24rem;
+    background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
+    padding: 0;
+    } 
     .app-card-content {
         font-size: 1rem;
     }
     .app-subcard-title {
       color: #fff;
     }
+
+// Quickcard styles
+//
+// TODO: Cleanup - do  not repeat yourself :)
 
 //** quick / Subcard pray
 
@@ -209,15 +219,6 @@
             border-width: 0 0 2px 0;
         }
 }
-.logo-pray {
-    width: 102px;
-    height: 103px;
-    margin: 0 auto !important;
-}
-
-// Quickcard styles
-//
-// TODO: Cleanup - do  not repeat yourself :)
 
 //** quick / Subcard donation
 
@@ -230,12 +231,7 @@
     }
   }
 
-.logo-donation {
-    width: 102px;
-    height: 103px;
-}
-
-//** quick / Subcard employee
+//** quick / Subcard Dienstleistungen
 
 .subcard-bl {
     text-align: center;
@@ -246,13 +242,7 @@
     }
 }
 
-.logo-employee {
-    width: 102px;
-    height: 103px;
-    padding-top: 1.5rem;
-}
-
-//** quick / Subcard parking
+//** quick / Subcard Gesundheit
 
 .subcard-br {
     text-align: center;
@@ -262,12 +252,5 @@
       border-width: 0 0 2px 0;
     }
 }
-
-.logo-parking {
-    width: 102px;
-    height: 103px;
-    padding-top: 1rem;
-    }
 }
-
 

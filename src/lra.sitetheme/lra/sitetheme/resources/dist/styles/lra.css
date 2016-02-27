@@ -11403,8 +11403,8 @@ body.template-frontpage-view .app-pathbar
     display: -ms-flexbox;
     display:         flex;
 
-    height: 10rem;
-    min-height: 10rem;
+    height: 12rem;
+    min-height: 12rem;
     padding: 1rem;
 
     background: url(../assets/img/card-default-bg.jpg) no-repeat top center #588c73;
@@ -11447,6 +11447,8 @@ body.template-frontpage-view .app-pathbar
 
 .app-card-main
 {
+    height: 12rem;
+    min-height: 12rem;
     padding: .5rem;
 
     background: #274d38;
@@ -11492,12 +11494,14 @@ app-nav-list .app-card-main
 
 .app-subcard
 {
+    height: 12rem;
+    min-height: 12rem; 
     margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
     padding: 1.5rem;
 
-    color: #fff; 
+    color: #fff;
 
     -webkit-flex: 0 1 50%;
         -ms-flex: 0 1 50%;
@@ -11599,9 +11603,11 @@ app-nav-list .app-card-main
 
 .card-quick .app-card-main
 {
+    height: 24rem;
+    min-height: 24rem;
     padding: 0; 
 
-    background: #274d38;
+    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
 }
 
 .card-quick .app-card-content
@@ -11629,13 +11635,6 @@ app-nav-list .app-card-main
     }
 }
 
-.card-quick .logo-pray
-{
-    width: 102px;
-    height: 103px;
-    margin: 0 auto !important;
-}
-
 .card-quick .subcard-tr
 {
     text-align: center;
@@ -11649,12 +11648,6 @@ app-nav-list .app-card-main
     {
         border-width: 0 0 2px 0;
     }
-}
-
-.card-quick .logo-donation
-{
-    width: 102px;
-    height: 103px;
 }
 
 .card-quick .subcard-bl
@@ -11672,13 +11665,6 @@ app-nav-list .app-card-main
     }
 }
 
-.card-quick .logo-employee
-{
-    width: 102px;
-    height: 103px;
-    padding-top: 1.5rem;
-}
-
 .card-quick .subcard-br
 {
     text-align: center;
@@ -11692,13 +11678,6 @@ app-nav-list .app-card-main
     {
         border-width: 0 0 2px 0;
     }
-}
-
-.card-quick .logo-parking
-{
-    width: 102px;
-    height: 103px;
-    padding-top: 1rem;
 }
 
 .app-nav-list
