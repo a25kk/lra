@@ -11560,7 +11560,7 @@ app-nav-list .app-card-main
 
 .app-card-title
 {
-    font-size: 1.25rem;
+    font-size: 1.7rem;
 
     padding: 1rem .5rem .5rem .5rem;
 }
@@ -11575,11 +11575,12 @@ app-nav-list .app-card-main
 
     height: 10rem;
     min-height: 10rem; 
-    padding: 1rem .5rem .5rem .5rem;
+    padding: 0 .5rem .5rem .5rem;
 }
 .app-card-content address
 {
     margin-bottom: 0;
+    padding-top: 1.5rem;
 }
 .app-card-content a
 {
@@ -11645,6 +11646,9 @@ app-nav-list .app-card-main
 
 .card-quick .app-subcard-title
 {
+    font-size: 1rem;
+    font-weight: 700; 
+
     color: #fff;
 }
 
