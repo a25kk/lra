@@ -11453,6 +11453,11 @@ body.template-frontpage-view .app-pathbar
     background: url(../assets/img/card-service-bg.jpg) no-repeat top center;
     background-size: cover;
 }
+.app-card-header-actions
+{
+    background: url(../assets/img/card-actions-bg.jpg) no-repeat top center;
+    background-size: cover;
+}
 .app-card-header a:hover
 {
     opacity: .7; 
