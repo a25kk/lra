@@ -1,46 +1,94 @@
-// Listing
-
-.app-summary-wrapper {
-  //@extend .make-row;
-  //border-bottom: 1px solid $app-gray;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  .app-sumary-left {
-    //@include make-col-span(3);
-    display: block;
-    margin-bottom: 1rem;
-    //border: 1px solid green;
-  }
-  .app-sumary-right {
-    //@include make-col-span(9);
-  }
-}
-
 // News
 
 .newsImage {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem
+  @extend.img-fluid;
+    width: 100%;
+  margin-bottom: 1rem;
 }
 
 .tileImage {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  //float: left;
+  @extend.img-fluid;
+  //margin-bottom: @line-height-computed;
+  float: left;
 }
+
+.portaltype-news-item {
+  .leadImage  {
+    display: none;
+  }
+}
+
+.app-page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.2rem;
+    }
+  }
 
 .tileHeadline {
   font-size: 1.2rem;
-  line-height: 2rem;
-  margin-top: 1rem;
-  //border: 1px solid red;
+  line-height: 1.5rem;
+  font-weight: 500;
 }
 
 .option {
   display: block;
+}
+.userrole-member {  
+  margin-left: -60px !important;
+}
+
+// Listing
+
+.app-news-wrapper {
+  @include make-row();
+  border-bottom: 1px solid $app-gray;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  .app-news-left {
+    @include make-col(12);
+
+        // {
+        //  @include make-col();
+        //  @include make-col-span(4);
+        //}
+  }
+  .app-news-right {
+    @include make-col(12);
+
+        //@include media-breakpoint-down(sm) {
+        //  @include make-col();
+        //  @include make-col-span(8);
+        //}
+  }
+}
+
+.app-summary-wrapper {
+  @include make-row();
+  border-bottom: 1px solid $app-gray;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  .app-summary-left {
+    @include make-col(12);
+        margin-bottom: 1rem;
+
+        @include media-breakpoint-up(sm) {
+          @include make-col(4);
+          margin-bottom: 0;
+        }
+  }
+  .app-summary-right {
+    @include make-col(12);
+
+        @include media-breakpoint-up(sm) {
+          @include make-col(8);
+        }
+  }
+}
+
+.back {
+  a {
+    color: #fff;
+  }
 }
