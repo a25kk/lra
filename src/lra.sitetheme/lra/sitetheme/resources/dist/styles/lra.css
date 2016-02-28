@@ -11425,17 +11425,22 @@ body.template-frontpage-view .app-pathbar
 }
 .app-card-header-opening-hours
 {
-    background: url(../assets/img/opening.jpg) no-repeat top center;
+    background: url(../assets/img/card-opening-bg.jpg) no-repeat top center;
     background-size: cover;
 }
 .app-card-header-map
 {
-    background: url(../assets/img/map.jpg) no-repeat top center;
+    background: url(../assets/img/card-map-bg.jpg) no-repeat top center;
     background-size: cover;
 }
 .app-card-header-forms
 {
     background: url(../assets/img/card-forms-bg.jpg) no-repeat top center;
+    background-size: cover;
+}
+.app-card-header-info
+{
+    background: url(../assets/img/card-info-bg.jpg) no-repeat top center;
     background-size: cover;
 }
 .app-card-header a:hover
