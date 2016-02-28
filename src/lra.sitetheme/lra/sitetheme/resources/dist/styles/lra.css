@@ -5971,21 +5971,28 @@ input[type='button'].destructive:disabled:hover
     padding: .25rem .5rem;
 }
 
-.btn-block
+.btn-block,
+.app-btn-contact-card
 {
     display: block;
 
     width: 100%;
 }
 
-.btn-block + .btn-block
+.btn-block + .btn-block,
+.app-btn-contact-card + .btn-block,
+.btn-block + .app-btn-contact-card,
+.app-btn-contact-card + .app-btn-contact-card
 {
     margin-top: 5px;
 }
 
 input[type='submit'].btn-block,
+input[type='submit'].app-btn-contact-card,
 input[type='reset'].btn-block,
-input[type='button'].btn-block
+input[type='reset'].app-btn-contact-card,
+input[type='button'].btn-block,
+input[type='button'].app-btn-contact-card
 {
     width: 100%;
 }
@@ -10081,7 +10088,8 @@ div.riform .label
 
 .app-navitem-tab
 {
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 700;
     line-height: 1;
 
     display: -webkit-flex;
@@ -11523,7 +11531,7 @@ app-nav-list .app-card-main
 .app-subcard
 {
     height: 12rem;
-    min-height: 12rem; 
+    min-height: 12rem;
     margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
@@ -11534,23 +11542,17 @@ app-nav-list .app-card-main
     -webkit-flex: 0 1 50%;
         -ms-flex: 0 1 50%;
             flex: 0 1 50%;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
 }
-@media (max-width: 991px)
+@media (min-width: 768px)
 {
     .app-subcard
     {
         -webkit-flex: 0 0 50%;
             -ms-flex: 0 0 50%;
                 flex: 0 0 50%;
-    }
-}
-@media (max-width: 767px)
-{
-    .app-subcard
-    {
-        -webkit-flex: 0 0 100%;
-            -ms-flex: 0 0 100%;
-                flex: 0 0 100%;
     }
 }
 .app-subcard path
@@ -11712,6 +11714,48 @@ app-nav-list .app-card-main
     {
         border-width: 0 0 2px 0;
     }
+}
+
+.configlets
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    padding-left: 0; 
+
+    list-style: none;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.inner-configlet
+{
+    font-size: .9rem;
+
+    margin-bottom: .5rem;
+    padding: .25rem;
+
+    text-align: center;
+
+    color: #fff; 
+    border: 1px solid #fff;
+
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+}
+.inner-configlet > a
+{
+    color: #fff;
+}
+.inner-configlet > a > span
+{
+    display: block;
+
+    color: #fff;
 }
 
 .app-card-nav .app-card-main
@@ -13198,6 +13242,12 @@ article.vevent
     color: #274d38;
 }
 
+.app-page-headline
+{
+    font-size: 2rem; 
+    font-weight: 700;
+}
+
 .app-page-lead,
 .app-page-abstract
 {
@@ -13207,6 +13257,278 @@ article.vevent
 .app-page-section
 {
     margin: 1rem 0 2rem;
+}
+
+.app-contact-block
+{
+    padding: 0rem;
+}
+
+.app-contact-position
+{
+    font-weight: 700;
+
+    padding-bottom: 1rem;
+}
+
+.app-contact-phone
+{
+    position: relative;
+}
+.app-contact-phone::before
+{
+    font-family: FontAwesome;
+
+    padding-right: .7rem; 
+
+    content: '\f095';
+}
+
+.app-contact-fax
+{
+    position: relative;
+}
+.app-contact-fax::before
+{
+    font-family: FontAwesome;
+
+    padding-right: .5rem; 
+
+    content: '\f1ac';
+}
+
+.app-contact-email
+{
+    position: relative;
+
+    color: #fff;
+}
+.app-contact-email::before
+{
+    font-family: FontAwesome;
+
+    padding-right: .5rem;
+
+    content: '\f003';
+
+    color: #fff;
+}
+
+.app-contact-standalone .app-contact-position
+{
+    padding-bottom: 1rem; 
+    padding-left: 1rem;
+}
+
+.app-contact-standalone address
+{
+    padding-left: 1rem;
+}
+
+.app-card-contact .app-card-content
+{
+    padding-top: 0;
+}
+
+.app-card-contact .app-card-content-lead
+{
+    display: none;
+}
+
+.app-card-contact .app-card-main
+{
+    height: 100%; 
+    padding: 0;
+
+    background: #eee;
+}
+
+.app-card-header-contact
+{
+    font-size: 1rem;
+    font-weight: 700;
+
+    height: auto;
+    min-height: auto;
+    padding: 1rem; 
+
+    color: #fff;
+}
+.app-card-header-contact .app-card-title
+{
+    font-size: 1rem;
+
+    padding: 0;
+}
+
+.app-card-main-contact .app-card-content
+{
+    padding: 1rem;
+
+    color: #000;
+}
+
+.app-card-content address
+{
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.app-card-footer-contacts
+{
+    padding: 0 1rem 1rem 1rem;
+
+    background-color: #eee;
+}
+
+.app-btn-contact-card
+{
+    border: 1px solid #274d38; 
+    background: #274d38;
+}
+
+.app-contact-element
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    margin-right: -15px; 
+    margin-left: -15px;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.app-contact-element-aside
+{
+    position: relative;
+
+    max-width: 100%; 
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+@media (min-width: 544px)
+{
+    .app-contact-element-aside
+    {
+        position: relative;
+
+        max-width: 50%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-contact-element-aside
+    {
+        position: relative;
+
+        max-width: 33.3333333333%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 33.3333333333%;
+            -ms-flex: 0 0 33.3333333333%;
+                flex: 0 0 33.3333333333%;
+    }
+}
+
+.app-contact-element-main
+{
+    position: relative;
+
+    max-width: 100%;
+    min-height: 1px;
+    padding: 1rem;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    background-color: #eee; 
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+@media (min-width: 544px)
+{
+    .app-contact-element-main
+    {
+        position: relative;
+
+        max-width: 50%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-contact-element-main
+    {
+        position: relative;
+
+        max-width: 66.6666666667%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 66.6666666667%;
+            -ms-flex: 0 0 66.6666666667%;
+                flex: 0 0 66.6666666667%;
+    }
+}
+
+.app-contact-element-title
+{
+    font-size: 2rem;
+    font-weight: 700; 
+
+    padding-bottom: 1rem;
+}
+
+.app-contact-element-block
+{
+    margin-bottom: 0;
+}
+.app-contact-element-block.app-contact-position
+{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.app-contact-element-block .app-contact-phone,
+.app-contact-element-block
+.app-contact-fax
+{
+    padding: 0;
+}
+
+.app-contact-element-media
+{
+    margin: 0;
+}
+
+.app-contact-actions
+{
+    padding-top: 1rem;
 }
 
 .app-toolbar

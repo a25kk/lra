@@ -142,12 +142,10 @@
     color: #fff;
     height: 12rem;
     min-height: 12rem;
-        @include media-breakpoint-down(md) {
+    flex: 0 0 100%;
+        @include media-breakpoint-up(md) {
         flex: 0 0 50%;
     }
-        @include media-breakpoint-down(sm) {
-            flex: 0 0 100%;
-        }
     path {
         fill: #fff;
     }
