@@ -11409,8 +11409,7 @@ body.template-frontpage-view .app-pathbar
     min-height: 12rem;
     padding: 1rem;
 
-    background: url(../assets/img/card-default-bg.jpg) no-repeat top center #588c73;
-    background-size: cover; 
+    background: #588c73; 
 
     -webkit-align-items: top;
     -ms-flex-align: top;
@@ -11422,7 +11421,7 @@ body.template-frontpage-view .app-pathbar
 }
 .app-card-header-address
 {
-    background: #588c73 !important;
+    background: #588c73;
 }
 .app-card-header-opening-hours
 {
@@ -11432,6 +11431,11 @@ body.template-frontpage-view .app-pathbar
 .app-card-header-map
 {
     background: url(../assets/img/map.jpg) no-repeat top center;
+    background-size: cover;
+}
+.app-card-header-forms
+{
+    background: url(../assets/img/card-forms-bg.jpg) no-repeat top center;
     background-size: cover;
 }
 .app-card-header a:hover

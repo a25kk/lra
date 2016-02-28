@@ -36,14 +36,13 @@
   height: 12rem;
   min-height: 12rem;
   padding: $spacer;
-  background: url(../assets/img/card-default-bg.jpg) no-repeat top center $app-secondary;
-  background-size: cover;
+  background: $app-secondary;
     @include when-inside('.app-nav-list') {
         display: none;
     }
 
   &-address {
-    background: $app-secondary !important;
+    background: $app-secondary;
   }
   &-opening-hours {
       background: url(../assets/img/opening.jpg) no-repeat top center;
@@ -51,6 +50,10 @@
   }
   &-map {
       background: url(../assets/img/map.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-forms {
+      background: url(../assets/img/card-forms-bg.jpg) no-repeat top center;
       background-size: cover;
   }
 
