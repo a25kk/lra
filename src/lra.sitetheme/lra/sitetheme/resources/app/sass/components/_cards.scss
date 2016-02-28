@@ -36,7 +36,7 @@
   height: 12rem;
   min-height: 12rem;
   padding: $spacer;
-  background: $app-secondary;
+  background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
     @include when-inside('.app-nav-list') {
         display: none;
     }
