@@ -13670,9 +13670,10 @@ article.vevent
     {
         position: relative;
 
-        max-width: 33.3333333333%; 
+        max-width: 33.3333333333%;
         min-height: 1px;
         padding-right: 15px;
+        padding-right: .5rem; 
         padding-left: 15px;
 
         -webkit-flex: 0 0 33.3333333333%;
@@ -13700,10 +13701,11 @@ article.vevent
     {
         position: relative;
 
-        max-width: 66.6666666667%; 
+        max-width: 66.6666666667%;
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
+        padding-left: .5rem; 
 
         -webkit-flex: 0 0 66.6666666667%;
             -ms-flex: 0 0 66.6666666667%;
