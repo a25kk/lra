@@ -3,54 +3,24 @@
 // ------------------------------------------------------
 
 
-
-.app-card-nav {
-    .app-card-main {
-        height: 100%;
-        min-height: 12rem;
-        }
-}
-
-.section-aktuelles {
-    .app-card-nav {
-        .app-card-main {
-            background: darken($app-section-news, 6.5%);
-        }
+.app-nav-tree {
+    background-color: $app-primary;
+    @include when-inside('.section-aktuelles') {
+        background-color: $app-section-news-bg;
+    }
+    @include when-inside('.section-landratsamt') {
+        background-color: $app-section-department-bg;
+    }
+    @include when-inside('.section-service') {
+        background-color: $app-section-service-bg;
+    }
+    @include when-inside('.section-info') {
+        background-color: $app-section-info-bg;
+    }
+    @include when-inside('.section-hier-leben') {
+        background-color: $app-section-life-bg;
     }
 }
-
-.section-landratsamt {
-    .app-card-nav {
-        .app-card-main {
-            background: darken($app-section-department, 6.5%);
-        }
-    }
-}
-
-.section-service {
-    .app-card-nav {
-        .app-card-main {
-            background: darken($app-section-service, 6.5%);
-        }
-    }
-}
-
-.section-info {
-    .app-card-nav {
-        .app-card-main {
-            background: darken($app-section-info, 6.5%);
-        }
-    }
-}
-
-.section-hier-leben {
-    .app-card-nav {
-        .app-card-main {
-            background: darken($app-section-life, 6.5%);
-        }
-    }
-}
-
 
 
 .app-nav-list {

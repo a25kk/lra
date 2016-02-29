@@ -7589,7 +7589,8 @@ input[type='button'] .caret
     }
 }
 
-.breadcrumb
+.breadcrumb,
+.app-breadcrumbs
 {
     margin-bottom: 1rem;
     padding: .75rem 1rem;
@@ -7598,7 +7599,8 @@ input[type='button'] .caret
 
     background-color: transparent;
 }
-.breadcrumb::after
+.breadcrumb::after,
+.app-breadcrumbs::after
 {
     display: table;
     clear: both; 
@@ -7606,11 +7608,15 @@ input[type='button'] .caret
     content: '';
 }
 
-.breadcrumb-item
+.breadcrumb-item,
+.app-breadcrumbs > li
 {
     float: left;
 }
-.breadcrumb-item + .breadcrumb-item::before
+.breadcrumb-item + .breadcrumb-item::before,
+.app-breadcrumbs > li + .breadcrumb-item::before,
+.app-breadcrumbs > .breadcrumb-item + li::before,
+.app-breadcrumbs > li + li::before
 {
     display: inline-block;
 
@@ -7621,15 +7627,22 @@ input[type='button'] .caret
 
     color: #818a91;
 }
-.breadcrumb-item + .breadcrumb-item:hover::before
+.breadcrumb-item + .breadcrumb-item:hover::before,
+.app-breadcrumbs > li + .breadcrumb-item:hover::before,
+.app-breadcrumbs > .breadcrumb-item + li:hover::before,
+.app-breadcrumbs > li + li:hover::before
 {
     text-decoration: underline;
 }
-.breadcrumb-item + .breadcrumb-item:hover::before
+.breadcrumb-item + .breadcrumb-item:hover::before,
+.app-breadcrumbs > li + .breadcrumb-item:hover::before,
+.app-breadcrumbs > .breadcrumb-item + li:hover::before,
+.app-breadcrumbs > li + li:hover::before
 {
     text-decoration: none;
 }
-.breadcrumb-item.active
+.breadcrumb-item.active,
+.app-breadcrumbs > li.active
 {
     color: #818a91;
 }
@@ -9827,46 +9840,48 @@ div.riform .label
     border-bottom: 10px solid #8c4747;
 }
 
-@media (min-width: 768px)
+.app-header-content
 {
-    .app-header-content
-    {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display:         flex; 
-
-        margin-right: auto;
-        margin-left: auto;
-        padding-right: 15px;
-        padding-left: 15px;
-    }
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px; 
+    padding-left: 15px;
 }
-@media (min-width: 768px) and (min-width: 544px)
+@media (min-width: 544px)
 {
     .app-header-content
     {
         max-width: 576px;
     }
 }
-@media (min-width: 768px) and (min-width: 768px)
+@media (min-width: 768px)
 {
     .app-header-content
     {
         max-width: 720px;
     }
 }
-@media (min-width: 768px) and (min-width: 992px)
+@media (min-width: 992px)
 {
     .app-header-content
     {
         max-width: 940px;
     }
 }
-@media (min-width: 768px) and (min-width: 1200px)
+@media (min-width: 1200px)
 {
     .app-header-content
     {
         max-width: 1140px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-header-content
+    {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
     }
 }
 
@@ -11225,144 +11240,82 @@ label
     color: #fff;
 }
 
-.app-pathbar-wrapper
-{
-    margin-bottom: 1rem; 
-
-    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
-}
-
-.section-aktuelles .app-pathbar-wrapper
-{
-    background: #4b7862;
-}
-
-.section-landratsamt .app-pathbar-wrapper
-{
-    background: #baa63c;
-}
-
-.section-service .app-pathbar-wrapper
-{
-    background: #ef9c55;
-}
-
-.section-info .app-pathbar-wrapper
-{
-    background: #d34b3e;
-}
-
-.section-hier-leben .app-pathbar-wrapper
-{
-    background: #763c3c;
-}
-
 .app-pathbar
 {
     font-size: .875rem;
 
-    margin-top: 0;
+    margin-bottom: 1rem;
+
+    background-color: #274d38;
+}
+@media (max-width: 543px)
+{
+    .app-pathbar
+    {
+        display: none;
+    }
+}
+.section-aktuelles .app-pathbar
+{
+    background-color: #497560;
+}
+.section-landratsamt .app-pathbar
+{
+    background-color: #b6a33a;
+}
+.section-service .app-pathbar
+{
+    background-color: #ef9a50;
+}
+.section-info .app-pathbar
+{
+    background-color: #d2473a;
+}
+.section-hier-leben .app-pathbar
+{
+    background-color: #733a3a;
+}
+
+.app-breadcrumbs
+{
+    margin: 0 auto;
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
     padding-left: 15px;
-
-    border-radius: 0;
+    padding-left: 30px;
 }
 @media (min-width: 544px)
 {
-    .app-pathbar
+    .app-breadcrumbs
     {
         max-width: 576px;
     }
 }
 @media (min-width: 768px)
 {
-    .app-pathbar
+    .app-breadcrumbs
     {
         max-width: 720px;
     }
 }
 @media (min-width: 992px)
 {
-    .app-pathbar
+    .app-breadcrumbs
     {
         max-width: 940px;
     }
 }
 @media (min-width: 1200px)
 {
-    .app-pathbar
+    .app-breadcrumbs
     {
         max-width: 1140px;
     }
 }
-.app-pathbar .active
+.app-breadcrumbs > li > a
 {
-    color: #000;
-}
-.app-pathbar .breadcrumb
-{
-    margin-bottom: 0; 
-
-    background-color: transparent;
-}
-.app-pathbar > * > span
-{
-    font-weight: 100; 
-
-    display: inline-block;
-
-    padding: 1rem 0 1rem 1rem;
-
-    color: #fff;
-}
-@media (max-width: 767px)
-{
-    .app-pathbar > * > span
-    {
-        display: none;
-    }
-}
-.app-pathbar ol
-{
-    display: inline-block;
-
-    margin: 0; 
-    padding: 1rem 0;
-
-    list-style: none;
-}
-.app-pathbar ol > li
-{
-    font-weight: 300;
-    line-height: 0;
-
-    position: relative;
-
-    display: inline-block;
-
-    padding: 0;
-}
-.app-pathbar ol > li + li:before
-{
-    padding: 0 .5rem;
-
-    content: ' > ';
-
-    color: #fff;
-}
-.app-pathbar ol > li > a
-{
-    color: #fff;
-}
-.app-pathbar ol > #breadcrumbs-current
-{
-    color: #fff !important;
-}
-body.template-frontpage-view .app-pathbar
-{
-    display: none;
+    color: #eceeef;
 }
 
 .app-cards
@@ -11371,24 +11324,24 @@ body.template-frontpage-view .app-pathbar
     display: -ms-flexbox;
     display:         flex;
 
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
 }
 
 .app-card
 {
     color: #eceeef; 
 
-    -webkit-flex: 0 0 33.3333%;
-        -ms-flex: 0 0 33.3333%;
-            flex: 0 0 33.3333%;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
 .app-card .fa
 {
     color: #fff;
 }
-@media (max-width: 991px)
+@media (min-width: 544px)
 {
     .app-card
     {
@@ -11397,13 +11350,13 @@ body.template-frontpage-view .app-pathbar
                 flex: 0 0 50%;
     }
 }
-@media (max-width: 767px)
+@media (min-width: 768px)
 {
     .app-card
     {
-        -webkit-flex: 0 0 100%;
-            -ms-flex: 0 0 100%;
-                flex: 0 0 100%;
+        -webkit-flex: 0 0 33%;
+            -ms-flex: 0 0 33%;
+                flex: 0 0 33%;
     }
 }
 
@@ -11483,11 +11436,9 @@ body.template-frontpage-view .app-pathbar
 
 .app-card-main
 {
-    height: 12rem;
-    min-height: 12rem;
     padding: .5rem;
 
-    background: #274d38;
+    background-color: #274d38;
 }
 app-nav-list .app-card-main
 {
@@ -11758,35 +11709,29 @@ app-nav-list .app-card-main
     color: #fff;
 }
 
-.app-card-nav .app-card-main
+.app-nav-tree
 {
-    height: 100%;
-    min-height: 12rem;
+    background-color: #274d38;
 }
-
-.section-aktuelles .app-card-nav .app-card-main
+.section-aktuelles .app-nav-tree
 {
-    background: #4b7862;
+    background-color: #497560;
 }
-
-.section-landratsamt .app-card-nav .app-card-main
+.section-landratsamt .app-nav-tree
 {
-    background: #baa63c;
+    background-color: #b6a33a;
 }
-
-.section-service .app-card-nav .app-card-main
+.section-service .app-nav-tree
 {
-    background: #ef9c55;
+    background-color: #ef9a50;
 }
-
-.section-info .app-card-nav .app-card-main
+.section-info .app-nav-tree
 {
-    background: #d34b3e;
+    background-color: #d2473a;
 }
-
-.section-hier-leben .app-card-nav .app-card-main
+.section-hier-leben .app-nav-tree
 {
-    background: #763c3c;
+    background-color: #733a3a;
 }
 
 .app-nav-list
@@ -11924,9 +11869,9 @@ app-nav-list .app-card-main
 
 .app-newsletterbar
 {
-    margin-top: 1rem; 
+    margin-top: 2rem; 
     margin-right: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-left: auto;
     padding-right: 15px;
     padding-left: 15px;

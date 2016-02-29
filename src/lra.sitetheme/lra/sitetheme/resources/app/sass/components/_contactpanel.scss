@@ -5,7 +5,7 @@
 
 .app-contact-panel {
 	@include make-container();
-	@include make-container-max-widths();
+    @include make-container-max-widths();
 	margin-top: 1rem;
 }
 
@@ -18,7 +18,7 @@
 
 //.app-contact-panel-content {
 //	display: flex;
-//	
+//
 //
 //	.app-card {
 //		flex: 0 0 30%;

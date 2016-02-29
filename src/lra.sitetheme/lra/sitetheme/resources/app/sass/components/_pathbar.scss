@@ -1,88 +1,40 @@
 //
-// Pathbar stylesheet based on Plone 5 Styles
-// -----------------------------------------------
-
-
-.app-pathbar-wrapper {
-    background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
-    margin-bottom: 1rem;
-}
-
-.section-aktuelles {
-  .app-pathbar-wrapper {
-    background: darken($app-section-news, 6.5%);
-  }
-}
-
-.section-landratsamt {
-  .app-pathbar-wrapper {
-    background: darken($app-section-department, 6.5%);
-  }
-}
-
-.section-service {
-  .app-pathbar-wrapper {
-    background: darken($app-section-service, 6.5%);
-  }
-}
-
-.section-info {
-  .app-pathbar-wrapper {
-    background: darken($app-section-info, 6.5%);
-  }
-}
-
-.section-hier-leben {
-  .app-pathbar-wrapper {
-    background: darken($app-section-life, 6.5%);
-  }
-}
-
+// Pathbar styles
+//
 .app-pathbar {
-  @include make-container();
-    @include make-container-max-widths();
-  margin-top: 0;
-  font-size: $font-size-sm;
-  border-radius: 0;
-  .active {
-        color: #000;
-     }
-  .breadcrumb {
-    background-color: transparent;
-    margin-bottom: 0;
-  }
-  > * > span { //you are here
-    display: inline-block;
-    color: #fff;
-    padding: 1rem 0 1rem 1rem;
-    font-weight: 100;
-    @include media-breakpoint-down(sm) {
-      display: none;
+    @include media-breakpoint-down(xs) {
+        display: none;
     }
-  }
-  ol {
-    display: inline-block;
-    padding: 1rem 0;
-    list-style: none;
-    margin: 0;
-    > li {
-     font-weight: 300;
-     display: inline-block;
-     line-height: 0; // match ol & span height
-     position: relative;
-     padding: 0;
-     + li:before {
-       content: " > ";
-       padding: 0 0.5rem;
-       color: #fff;
-     }
-     > a {
-        color: #fff;
-     }
-   }
-    > #breadcrumbs-current {
-      color: #fff !important;
+    margin-bottom: $spacer;
+    font-size: $font-size-sm;
+    @include when-inside('.section-aktuelles') {
+        background-color: $app-section-news-bg;
     }
-  }
-  body.template-frontpage-view & {display: none;} //not breadcrumbs on homepage
+    @include when-inside('.section-landratsamt') {
+        background-color: $app-section-department-bg;
+    }
+    @include when-inside('.section-service') {
+        background-color: $app-section-service-bg;
+    }
+    @include when-inside('.section-info') {
+        background-color: $app-section-info-bg;
+    }
+    @include when-inside('.section-hier-leben') {
+        background-color: $app-section-life-bg;
+    }
+    background-color: $app-pathbar-bg;
 }
+
+ .app-breadcrumbs {
+    @include make-container();
+    @include make-container-max-widths();
+    @extend .breadcrumb;
+    margin: 0 auto;
+    padding-left: 30px;
+    > li {
+        @extend .breadcrumb-item;
+    }
+    > li > a {
+        color: $gray-lighter;
+    }
+ }

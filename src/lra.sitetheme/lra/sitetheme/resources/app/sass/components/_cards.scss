@@ -8,22 +8,21 @@
 //## Use a grid layout for card listings
 .app-cards {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
 }
 
 //** Base card styles
 .app-card {
-  flex: 0 0 33.3333%;
-  color: $gray-lighter;
-
-  .fa {
-    color: #fff;
-  }
-    @include media-breakpoint-down(md) {
+    flex: 1;
+    color: $gray-lighter;
+    .fa {
+      color: #fff;
+    }
+    @include media-breakpoint-up(sm) {
         flex: 0 0 50%;
     }
-    @include media-breakpoint-down(sm) {
-        flex: 0 0 100%;
+    @include media-breakpoint-up(md) {
+        flex: 0 0 33%;
     }
 }
 
@@ -89,10 +88,8 @@
 
 //** Card content
 .app-card-main {
-  height: 12rem;
-  min-height: 12rem;
-  padding: ($spacer / 2);
-  background: $app-primary;
+    padding: ($spacer / 2);
+    background-color: $app-primary;
     @include when-inside('app-nav-list') {
         color: $app-secondary;
     }
@@ -136,7 +133,7 @@
 .app-subcard {
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 0;   
+    margin-bottom: 0;
     flex: 0 1 50%;
     padding: 1.5rem;
     color: #fff;
@@ -217,7 +214,7 @@
     min-height: 24rem;
     background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
     padding: 0;
-    } 
+    }
     .app-card-content {
         font-size: 1rem;
     }
