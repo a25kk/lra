@@ -33,6 +33,7 @@
     @include make-col(12);
     @include media-breakpoint-up(md) {
         @include make-col(4);
+        padding-right: .5rem;
     }
 }
 
@@ -40,6 +41,7 @@
     @include make-col(12);
     @include media-breakpoint-up(md) {
         @include make-col(8);
+        padding-left: .5rem;
     }
 }
 
