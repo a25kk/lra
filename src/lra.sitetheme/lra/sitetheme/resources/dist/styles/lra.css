@@ -11232,6 +11232,31 @@ label
     background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
 }
 
+.section-aktuelles .app-pathbar-wrapper
+{
+    background: #4b7862;
+}
+
+.section-landratsamt .app-pathbar-wrapper
+{
+    background: #baa63c;
+}
+
+.section-service .app-pathbar-wrapper
+{
+    background: #ef9c55;
+}
+
+.section-info .app-pathbar-wrapper
+{
+    background: #d34b3e;
+}
+
+.section-hier-leben .app-pathbar-wrapper
+{
+    background: #763c3c;
+}
+
 .app-pathbar
 {
     font-size: .875rem;
@@ -11737,6 +11762,31 @@ app-nav-list .app-card-main
 {
     height: 100%;
     min-height: 12rem;
+}
+
+.section-aktuelles .app-card-nav .app-card-main
+{
+    background: #4b7862;
+}
+
+.section-landratsamt .app-card-nav .app-card-main
+{
+    background: #baa63c;
+}
+
+.section-service .app-card-nav .app-card-main
+{
+    background: #ef9c55;
+}
+
+.section-info .app-card-nav .app-card-main
+{
+    background: #d34b3e;
+}
+
+.section-hier-leben .app-card-nav .app-card-main
+{
+    background: #763c3c;
 }
 
 .app-nav-list

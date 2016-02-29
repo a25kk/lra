@@ -8,6 +8,36 @@
     margin-bottom: 1rem;
 }
 
+.section-aktuelles {
+  .app-pathbar-wrapper {
+    background: darken($app-section-news, 6.5%);
+  }
+}
+
+.section-landratsamt {
+  .app-pathbar-wrapper {
+    background: darken($app-section-department, 6.5%);
+  }
+}
+
+.section-service {
+  .app-pathbar-wrapper {
+    background: darken($app-section-service, 6.5%);
+  }
+}
+
+.section-info {
+  .app-pathbar-wrapper {
+    background: darken($app-section-info, 6.5%);
+  }
+}
+
+.section-hier-leben {
+  .app-pathbar-wrapper {
+    background: darken($app-section-life, 6.5%);
+  }
+}
+
 .app-pathbar {
   @include make-container();
     @include make-container-max-widths();

@@ -5,10 +5,50 @@
 
 
 .app-card-nav {
-.app-card-main {
-  height: 100%;
-  min-height: 12rem;
+    .app-card-main {
+        height: 100%;
+        min-height: 12rem;
+        }
 }
+
+.section-aktuelles {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-news, 6.5%);
+        }
+    }
+}
+
+.section-landratsamt {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-department, 6.5%);
+        }
+    }
+}
+
+.section-service {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-service, 6.5%);
+        }
+    }
+}
+
+.section-info {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-info, 6.5%);
+        }
+    }
+}
+
+.section-hier-leben {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-life, 6.5%);
+        }
+    }
 }
 
 
