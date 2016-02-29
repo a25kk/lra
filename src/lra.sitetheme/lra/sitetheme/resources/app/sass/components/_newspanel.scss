@@ -3,22 +3,26 @@
 // -----------------------------------------
 
 .app-news-panel-header {
-    @extend .container;
+    @include make-container();
+    @include make-container-max-widths();
 }
 
 // News listing
 .app-news-list {
     display: block;
-    @extend .container;
-    padding-top: $spacer;
-    padding-bottom: ($spacer * 2);
+    @include make-container();
+    @include make-container-max-widths();
+    padding: $spacer $spacer 0 $spacer;
 }
 
 .app-news-list-item {
 	@include media-breakpoint-up(sm) {
 		@include make-row();
+        margin-bottom: $spacer;
+        margin-right: 0;
 	}
-    margin-bottom: ($spacer * 2);
+
+
 }
 
 .app-news-list-item-aside,
@@ -31,7 +35,9 @@
 	@include media-breakpoint-up(sm) {
     	@include make-col(4);
     }
-    padding-right: ($spacer * 6);
+    .app-page-image-container{
+        margin-bottom: 0;
+    }
 }
 
 .app-news-list-item-main {
@@ -46,10 +52,20 @@
 .app-news-list-item-title {
     font-size: 2rem;
     font-weight: 500;
+    a {
+        color: #fff;
+    }
 }
 
 .app-news-list-item-actions {
     text-align: right;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    a {
+        color: #fff;
+    }
+
 }
 .app-news-list-link {
     color: #fff;

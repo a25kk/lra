@@ -18,7 +18,7 @@
 
         
         <div class="app-summary-wrapper">
-        <div class="app-sumary-left">
+        <div class="app-summary-left">
           <div class="tileImage" tal:condition="item_has_image">
             <a tal:attributes="href item_link">
               <img tal:define="scales obj/@@images;
@@ -27,7 +27,7 @@
             </a>
           </div>
           </div>
-          <div class="app-sumary-right">
+          <div class="app-summary-right">
           <h2 class="tileHeadline" metal:define-macro="listitem">
             <a class="summary url"
                 tal:attributes="href item_link;

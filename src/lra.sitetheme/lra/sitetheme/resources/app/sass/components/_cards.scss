@@ -8,13 +8,22 @@
 //## Use a grid layout for card listings
 .app-cards {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
 }
 
 //** Base card styles
 .app-card {
-  flex: 1;
-  color: $gray-lighter;
+    flex: 1;
+    color: $gray-lighter;
+    .fa {
+      color: #fff;
+    }
+    @include media-breakpoint-up(sm) {
+        flex: 0 0 50%;
+    }
+    @include media-breakpoint-up(md) {
+        flex: 0 0 33%;
+    }
 }
 
 //== Card layout
@@ -23,18 +32,53 @@
 .app-card-header {
   display: flex;
   align-items: top;
-  height: 10rem;
-  min-height: 10rem;
+  height: 12rem;
+  min-height: 12rem;
   padding: $spacer;
-  background: $app-secondary;
+  background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
     @include when-inside('.app-nav-list') {
         display: none;
     }
+
+  &-address {
+    background: $app-secondary;
+  }
   &-opening-hours {
-      background: url(../assets/img/opening.jpg) no-repeat top center;
+      background: url(../assets/img/card-opening-bg.jpg) no-repeat top center;
+      background-size: cover;
   }
   &-map {
-      background: url(../assets/img/map.jpg) no-repeat top center;
+      background: url(../assets/img/card-map-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-forms {
+      background: url(../assets/img/card-forms-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-info {
+      background: url(../assets/img/card-info-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-cars {
+      background: url(../assets/img/card-cars-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-service {
+      background: url(../assets/img/card-service-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-actions {
+      background: url(../assets/img/card-actions-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+
+  a:hover {
+    color: #fff;
+    opacity: 0.7;
+  }
+
+  a:visited {
+    color: #fff;
   }
 }
 
@@ -44,8 +88,8 @@
 
 //** Card content
 .app-card-main {
-  padding: ($spacer / 2);
-  background: $app-primary;
+    padding: ($spacer / 2);
+    background-color: $app-primary;
     @include when-inside('app-nav-list') {
         color: $app-secondary;
     }
@@ -60,12 +104,10 @@
 //
 //## Add spacing to cards
 .app-card-gutter {
-  //margin: (-$spacer) 0 0 (-$spacer);
-  margin: -2rem 0 0 -2rem;
-  .app-card {
-    //padding: $spacer 0 0 $spacer;
-    padding: 2rem 0 0 2rem;
-  }
+    margin: -1rem 0 0 -1rem;
+    .app-card {
+        padding: 1rem 0 0 1rem;
+    }
 }
 
 //== Embedded card
@@ -79,11 +121,39 @@
 }
 
 
+//== Embedded card
+//
+//## Remove spacing for card inside card usecase
+
+.app-subcards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.app-subcard {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    flex: 0 1 50%;
+    padding: 1.5rem;
+    color: #fff;
+    height: 12rem;
+    min-height: 12rem;
+    flex: 0 0 100%;
+        @include media-breakpoint-up(md) {
+        flex: 0 0 50%;
+    }
+    path {
+        fill: #fff;
+    }
+}
+
 //== Card title
 //
 //## Title is used inside the card-main container
 .app-card-title {
-    font-size: 1.25rem;
+    font-size: 1.7rem;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
     @include when-inside('.wf-active') {
         font-weight: 500;
     }
@@ -91,12 +161,13 @@
 
 //** Set card content specific styles
 .app-card-content {
-  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
   font-size: 1rem;
   height: 10rem;
   min-height: 10rem;
   address {
     margin-bottom: 0;
+    padding-top: 1.5rem;
   }
   a {
     font-weight: 400;
@@ -130,3 +201,76 @@
   color: $gray-lighter;
   font-size: 1.5rem;
 }
+
+
+//** quick / multitarget card
+
+.card-quick {
+  @include media-breakpoint-down(md) {
+        flex: 0 0 100%;
+    }
+  .app-card-main {
+    height: 24rem;
+    min-height: 24rem;
+    background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
+    padding: 0;
+    }
+    .app-card-content {
+        font-size: 1rem;
+    }
+    .app-subcard-title {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding-top: 1.5rem;
+    }
+
+// Quickcard styles
+//
+// TODO: Cleanup - do  not repeat yourself :)
+
+//** quick / Subcard pray
+
+.subcard-tl {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 0;
+        @include media-breakpoint-down(sm) {
+            border-width: 0 0 2px 0;
+        }
+}
+
+//** quick / Subcard donation
+
+.subcard-tr {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 0 0 2px 2px;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 2px 0;
+    }
+  }
+
+//** quick / Subcard Dienstleistungen
+
+.subcard-bl {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 2px 0 0 2px;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 0 0;
+    }
+}
+
+//** quick / Subcard Gesundheit
+
+.subcard-br {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 2px 2px 0 0;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 2px 0;
+    }
+}
+}
+

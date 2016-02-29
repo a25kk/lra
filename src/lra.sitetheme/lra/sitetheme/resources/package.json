@@ -97,7 +97,8 @@
     "jquery": "^2.2.1",
     "lazysizes": "^1.4.0",
     "mailcheck": "^1.1.1",
-    "modernizr": "^3.3.1",
-    "respimage": "^1.4.2"
+    "modernizr": "^3.2.0",
+    "respimage": "^1.4.2",
+    "tether": "^1.2.0"
   }
 }

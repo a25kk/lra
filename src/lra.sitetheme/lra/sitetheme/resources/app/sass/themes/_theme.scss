@@ -15,9 +15,6 @@
 .app-main {
     @include make-container();
     @include make-container-max-widths();
-    &-fullscreen {
-        @extend .container-fluid;
-    }
 }
 
 .app-main-section {

@@ -1,14 +1,28 @@
 //
-// Pathbar stylesheet based on Plone 5 Styles
-// -----------------------------------------------
-
+// Pathbar styles
+//
 .app-pathbar {
-    font-size: $font-size-sm;
-    background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
-    margin-bottom: $spacer;
     @include media-breakpoint-down(xs) {
         display: none;
     }
+    margin-bottom: $spacer;
+    font-size: $font-size-sm;
+    @include when-inside('.section-aktuelles') {
+        background-color: $app-section-news-bg;
+    }
+    @include when-inside('.section-landratsamt') {
+        background-color: $app-section-department-bg;
+    }
+    @include when-inside('.section-service') {
+        background-color: $app-section-service-bg;
+    }
+    @include when-inside('.section-info') {
+        background-color: $app-section-info-bg;
+    }
+    @include when-inside('.section-hier-leben') {
+        background-color: $app-section-life-bg;
+    }
+    background-color: $app-pathbar-bg;
 }
 
  .app-breadcrumbs {
@@ -16,6 +30,7 @@
     @include make-container-max-widths();
     @extend .breadcrumb;
     margin: 0 auto;
+    padding-left: 30px;
     > li {
         @extend .breadcrumb-item;
     }
@@ -23,43 +38,3 @@
         color: $gray-lighter;
     }
  }
-
-//#breadcrumbs-you-are-here {
-//  padding-left: $spacer / 2;
-//  color: #fff;
-//  visibility: visible;
-//}
-//ol {
-//  display: inline-block;
-//  padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal ;
-//  list-style: none;
-//  margin: 0;
-//  > li {
-//    font-weight: 100;
-//    display: inline-block;
-//    line-height: 0; // match ol & span height
-//    position: relative;
-//    padding: 0;
-//    + li:before {
-//      content: " > ";
-//      padding: 0 0.5rem;
-//      //position: absolute;
-//      //padding: 0 5px;
-//      color: #fff;
-//      //border-left: 5px solid;
-//      //border-top: 15px solid transparent;
-//      //border-bottom: 15px solid transparent;
-//      //left: -20px;
-//      //top: -15px;
-//      //padding: 0 !important;
-//    }
-//    > a {
-//     color: #fff !important;
-//    }
-//  }
-//  #breadcrumbs-current {
-//    color: #fff;
-//  }
-//}
-//body.section-front-page & {display: none;} //not breadcrumbs on homepage
-//

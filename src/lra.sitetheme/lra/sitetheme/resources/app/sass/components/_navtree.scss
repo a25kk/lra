@@ -1,3 +1,28 @@
+//
+// Navigation Card Styles
+// ------------------------------------------------------
+
+
+.app-nav-tree {
+    background-color: $app-primary;
+    @include when-inside('.section-aktuelles') {
+        background-color: $app-section-news-bg;
+    }
+    @include when-inside('.section-landratsamt') {
+        background-color: $app-section-department-bg;
+    }
+    @include when-inside('.section-service') {
+        background-color: $app-section-service-bg;
+    }
+    @include when-inside('.section-info') {
+        background-color: $app-section-info-bg;
+    }
+    @include when-inside('.section-hier-leben') {
+        background-color: $app-section-life-bg;
+    }
+}
+
+
 .app-nav-list {
     padding-left: 0;
     list-style: none;
@@ -59,6 +84,11 @@
     background: $app-primary-dark;
 }
 
+.navTreeItemInPath {
+    color: #fff;
+    //background: $app-primary-dark;
+}
+
 .navTreeItem .navTreeLevel0 li a:link {
     font-size: 1.5rem;
 }
@@ -77,6 +107,25 @@
     margin-left: 0px;
 }
 
+.navTreeItem .navTreeLevel2 li a:link {
+    padding-left: 4rem;
+    font-size: 0.8rem;
+}
+
 .navTreeLevel3 {
     margin-left: 0px;
+}
+
+.navTreeItem .navTreeLevel3 li a:link {
+    padding-left: 6rem;
+    font-size: 0.8rem;
+}
+
+.navTreeItem .navTreeLevel4 li a:link {
+    padding-left: 8rem;
+    font-size: 0.8rem;
+}
+
+.image-icon {
+    display: none;
 }

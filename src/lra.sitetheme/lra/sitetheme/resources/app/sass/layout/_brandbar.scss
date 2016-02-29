@@ -12,7 +12,8 @@
 
 .app-brandbar-content {
   @media (min-width: $grid-float-breakpoint) {
-    @extend .container;
+    @include make-container();
+    @include make-container-max-widths();
   }
 }
 
