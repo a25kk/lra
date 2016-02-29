@@ -7,6 +7,8 @@ from plone.app.contentlisting.interfaces import IContentListingObject
 from zope.component import getMultiAdapter
 from zope.globalrequest import getRequest
 
+IMG = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs='
+
 
 class ResponsiveImagesTool(object):
     """ Factory providing rescaling of project images """
