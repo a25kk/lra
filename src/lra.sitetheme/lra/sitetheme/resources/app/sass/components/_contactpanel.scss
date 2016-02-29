@@ -4,13 +4,14 @@
 
 
 .app-contact-panel {
-	@extend .container;
+	@include make-container();
+    @include make-container-max-widths();
 	margin-top: 1rem;
 }
 
 //.app-contact-panel-content {
 //	display: flex;
-//	
+//
 //
 //	.app-card {
 //		flex: 0 0 30%;

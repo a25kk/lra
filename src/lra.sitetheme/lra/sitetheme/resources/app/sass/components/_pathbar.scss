@@ -12,12 +12,16 @@
 }
 
  .app-breadcrumbs {
-     @extend .container;
-     @extend .breadcrumb;
-     margin: 0 auto;
-     > li > a {
-         color: $gray-lighter;
-     }
+    @include make-container();
+    @include make-container-max-widths();
+    @extend .breadcrumb;
+    margin: 0 auto;
+    > li {
+        @extend .breadcrumb-item;
+    }
+    > li > a {
+        color: $gray-lighter;
+    }
  }
 
 //#breadcrumbs-you-are-here {

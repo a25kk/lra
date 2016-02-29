@@ -7599,11 +7599,15 @@ input[type='button'] .caret
     content: '';
 }
 
-.breadcrumb-item
+.breadcrumb-item,
+.app-breadcrumbs > li
 {
     float: left;
 }
-.breadcrumb-item + .breadcrumb-item::before
+.breadcrumb-item + .breadcrumb-item::before,
+.app-breadcrumbs > li + .breadcrumb-item::before,
+.app-breadcrumbs > .breadcrumb-item + li::before,
+.app-breadcrumbs > li + li::before
 {
     display: inline-block;
 
@@ -7614,15 +7618,22 @@ input[type='button'] .caret
 
     color: #818a91;
 }
-.breadcrumb-item + .breadcrumb-item:hover::before
+.breadcrumb-item + .breadcrumb-item:hover::before,
+.app-breadcrumbs > li + .breadcrumb-item:hover::before,
+.app-breadcrumbs > .breadcrumb-item + li:hover::before,
+.app-breadcrumbs > li + li:hover::before
 {
     text-decoration: underline;
 }
-.breadcrumb-item + .breadcrumb-item:hover::before
+.breadcrumb-item + .breadcrumb-item:hover::before,
+.app-breadcrumbs > li + .breadcrumb-item:hover::before,
+.app-breadcrumbs > .breadcrumb-item + li:hover::before,
+.app-breadcrumbs > li + li:hover::before
 {
     text-decoration: none;
 }
-.breadcrumb-item.active
+.breadcrumb-item.active,
+.app-breadcrumbs > li.active
 {
     color: #818a91;
 }
@@ -9795,6 +9806,41 @@ div.riform .label
     }
 }
 
+.app-header-content
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px; 
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-header-content
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-header-content
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-header-content
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-header-content
+    {
+        max-width: 1140px;
+    }
+}
 @media (min-width: 768px)
 {
     .app-header-content
@@ -10142,7 +10188,40 @@ div.riform .label
 
 .app-footer-content
 {
-    font-weight: 400;
+    font-weight: 400; 
+
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-footer-content
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-footer-content
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-footer-content
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-footer-content
+    {
+        max-width: 1140px;
+    }
 }
 .app-footer-content a
 {
@@ -11161,7 +11240,39 @@ img[data-sizes='auto']
 
 .app-breadcrumbs
 {
-    margin: 0 auto;
+    margin: 0 auto; 
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-breadcrumbs
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-breadcrumbs
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-breadcrumbs
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-breadcrumbs
+    {
+        max-width: 1140px;
+    }
 }
 .app-breadcrumbs > li > a
 {
@@ -11420,7 +11531,39 @@ app-nav-list .app-card-main
 .app-newsletterbar
 {
     margin-top: 2rem; 
+    margin-right: auto;
     margin-bottom: 2rem;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-newsletterbar
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-newsletterbar
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-newsletterbar
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-newsletterbar
+    {
+        max-width: 1140px;
+    }
 }
 .app-newsletterbar .form-control,
 .app-newsletterbar .app-searchbox-field
@@ -11488,7 +11631,39 @@ app-nav-list .app-card-main
 
 .app-contact-panel
 {
-    margin-top: 1rem;
+    margin-top: 1rem; 
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-contact-panel
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-contact-panel
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-contact-panel
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-contact-panel
+    {
+        max-width: 1140px;
+    }
 }
 
 .app-news-list
@@ -11805,6 +11980,42 @@ app-nav-list .app-card-main
 .app-toolbar
 {
     visibility: hidden;
+}
+
+.app-main
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px; 
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-main
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-main
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-main
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-main
+    {
+        max-width: 1140px;
+    }
 }
 
 .app-main-section
@@ -12192,16 +12403,9 @@ app-nav-list .app-card-main
 
 /* Undo width of container */
 .sg-example .container,
-.sg-example .app-header,
-.sg-example .app-header-content,
-.sg-example .app-footer-content,
 .sg-example .app-banner,
-.sg-example .app-breadcrumbs,
-.sg-example .app-newsletterbar,
-.sg-example .app-contact-panel,
 .sg-example .app-news-panel-header,
-.sg-example .app-news-list,
-.sg-example .app-main
+.sg-example .app-news-list
 {
     width: auto;
 }

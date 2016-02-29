@@ -5,8 +5,6 @@
 
 .app-header {
   padding-top: 1rem;
-  @include make-container();
-  @include make-container-max-widths();
   @include media-breakpoint-up(md) {
     padding-top: 3rem;
     border-bottom: 10px solid $app-primary;
@@ -14,8 +12,9 @@
 }
 
 .app-header-content {
+    @include make-container();
+    @include make-container-max-widths();
     @include media-breakpoint-up(md) {
-        @extend .container;
         display: flex;
     }
 }
