@@ -35,7 +35,9 @@
 	@include media-breakpoint-up(sm) {
     	@include make-col(4);
     }
-    //padding-right: ($spacer * 6);
+    .app-page-image-container{
+        margin-bottom: 0;
+    }
 }
 
 .app-news-list-item-main {
@@ -45,10 +47,6 @@
     padding: 2rem 1rem 1rem;
     background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
     color: #fff;
-}
-
-.app-page-image-container{
-    margin-bottom: 0;
 }
 
 .app-news-list-item-title {

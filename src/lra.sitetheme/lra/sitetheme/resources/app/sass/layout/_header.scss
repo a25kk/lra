@@ -11,6 +11,36 @@
   }
 }
 
+.section-landratsamt {
+  .app-header {
+    border-bottom: 10px solid $app-section-department;
+  }
+}
+
+.section-aktuelles {
+  .app-header {
+    border-bottom: 10px solid $app-section-news;
+  }
+}
+
+.section-service {
+  .app-header {
+    border-bottom: 10px solid $app-section-service;
+  }
+}
+
+.section-info {
+  .app-header {
+    border-bottom: 10px solid $app-section-info;
+  }
+}
+
+.section-hier-leben {
+  .app-header {
+    border-bottom: 10px solid $app-section-life;
+  }
+}
+
 .app-header-content {
     @include media-breakpoint-up(md) {
         @include make-container();

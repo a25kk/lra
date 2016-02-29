@@ -9802,6 +9802,31 @@ div.riform .label
     }
 }
 
+.section-landratsamt .app-header
+{
+    border-bottom: 10px solid #c7b450;
+}
+
+.section-aktuelles .app-header
+{
+    border-bottom: 10px solid #588c73;
+}
+
+.section-service .app-header
+{
+    border-bottom: 10px solid #f2ae73;
+}
+
+.section-info .app-header
+{
+    border-bottom: 10px solid #d96459;
+}
+
+.section-hier-leben .app-header
+{
+    border-bottom: 10px solid #8c4747;
+}
+
 @media (min-width: 768px)
 {
     .app-header-content
@@ -10684,56 +10709,6 @@ label
 {
     margin-top: 0;
     margin-left: 0;
-}
-
-.ratio-container
-{
-    position: relative;
-}
-
-.ratio-container:after
-{
-    display: block;
-
-    width: 100%;
-    height: 0;
-    /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
-    padding-bottom: 56.25%;
-
-    content: '';
-    content: '';
-}
-
-.ratio-container > *
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-}
-
-/* unknown ration variation */
-.unknown-ratio-container > *
-{
-    width: auto;
-    max-width: 100%;
-    height: auto; 
-    max-height: 100%;
-}
-
-.lazyload,
-.lazyloading
-{
-    min-height: 200px;
-}
-
-img[data-sizes='auto']
-{
-    display: block;
-
-    width: 100%;
 }
 
 .app-brand
@@ -12992,6 +12967,11 @@ article.vevent
     }
 }
 
+.app-news-list-item-aside .app-page-image-container
+{
+    margin-bottom: 0;
+}
+
 .app-news-list-item-main
 {
     padding: 2rem 1rem 1rem;
@@ -13014,11 +12994,6 @@ article.vevent
             -ms-flex: 0 0 66.6666666667%;
                 flex: 0 0 66.6666666667%;
     }
-}
-
-.app-page-image-container
-{
-    margin-bottom: 0;
 }
 
 .app-news-list-item-title

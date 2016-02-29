@@ -23,21 +23,20 @@
     <div class="app-page-body">
 
       <tal:gallery tal:condition="view/display_gallery">
-        <tal:comment>
-            Diable gallery renderer since this would raise a not implemented error
-            <div tal:replace="structure view/rendered_gallery" />
-        </tal:comment>
+        <div tal:replace="structure view/rendered_gallery" />
       </tal:gallery>
 
       <tal:nogallery tal:condition="not:view/display_gallery">
         <div class="app-page-leadimage" tal:condition="view/has_leadimage">
           <figure class="app-page-image-container"
-              tal:define="context_uuid context/UID;
-                          image_data python:view.get_image_data(context_uuid)">
-              <div class="ratio-container">
+              tal:define="item_uuid context/UID;
+                          image_data python:view.get_image_data(item_uuid)">
+              <div class="app-lazyload-container">
                 <img class="lazyload"
                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="${image_data/large}"
                     data-sizes="auto"
+                    data-parent-fit="contain"
                     data-srcset="${image_data/small},
                                  ${image_data/medium},
                                  ${image_data/large},
@@ -45,13 +44,13 @@
               </div>
               <noscript>
                 <!-- Provide fallback for missing lazyload javascript -->
-                <img tal:define="has_img context/image|nothing;
-                                 scales context/@@images|nothing"
+                <img tal:define="has_img item/image|nothing;
+                                 scales item/@@images|nothing"
                     tal:condition="python:has_img and scales"
                     tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
               </noscript>
-            <figcaption tal:condition="context/image_caption">
-              ${context/image_caption}
+            <figcaption tal:condition="exists:item/image_caption">
+              ${item/image_caption}
             </figcaption>
           </figure>
         </div>
