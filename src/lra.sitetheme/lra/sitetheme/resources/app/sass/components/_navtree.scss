@@ -74,6 +74,11 @@
     background: $app-primary-dark;
 }
 
+.navTreeItemInPath {
+    color: #fff;
+    //background: $app-primary-dark;
+}
+
 .navTreeItem .navTreeLevel0 li a:link {
     font-size: 1.5rem;
 }
@@ -92,6 +97,15 @@
     margin-left: 0px;
 }
 
+.navTreeItem .navTreeLevel2 li a:link {
+    padding-left: 4rem;
+    font-size: 0.8rem;
+}
+
 .navTreeLevel3 {
     margin-left: 0px;
+}
+
+.image-icon {
+    display: none;
 }

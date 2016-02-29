@@ -11838,6 +11838,11 @@ app-nav-list .app-card-main
     background: #1a3426;
 }
 
+.navTreeItemInPath
+{
+    color: #fff;
+}
+
 .navTreeItem .navTreeLevel0 li a:link
 {
     font-size: 1.5rem;
@@ -11861,9 +11866,21 @@ app-nav-list .app-card-main
     margin-left: 0;
 }
 
+.navTreeItem .navTreeLevel2 li a:link
+{
+    font-size: .8rem; 
+
+    padding-left: 4rem;
+}
+
 .navTreeLevel3
 {
     margin-left: 0;
+}
+
+.image-icon
+{
+    display: none;
 }
 
 .app-newsletterbar
