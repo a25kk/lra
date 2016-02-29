@@ -8,7 +8,8 @@
 }
 
 .app-footer-content {
-  @extend .container;
+  @include make-container();
+  @include make-container-max-widths();
   font-weight: 400;
   a {
     text-transform: uppercase;

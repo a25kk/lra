@@ -1,3 +1,58 @@
+//
+// Navigation Card Styles
+// ------------------------------------------------------
+
+
+
+.app-card-nav {
+    .app-card-main {
+        height: 100%;
+        min-height: 12rem;
+        }
+}
+
+.section-aktuelles {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-news, 6.5%);
+        }
+    }
+}
+
+.section-landratsamt {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-department, 6.5%);
+        }
+    }
+}
+
+.section-service {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-service, 6.5%);
+        }
+    }
+}
+
+.section-info {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-info, 6.5%);
+        }
+    }
+}
+
+.section-hier-leben {
+    .app-card-nav {
+        .app-card-main {
+            background: darken($app-section-life, 6.5%);
+        }
+    }
+}
+
+
+
 .app-nav-list {
     padding-left: 0;
     list-style: none;
@@ -59,6 +114,11 @@
     background: $app-primary-dark;
 }
 
+.navTreeItemInPath {
+    color: #fff;
+    //background: $app-primary-dark;
+}
+
 .navTreeItem .navTreeLevel0 li a:link {
     font-size: 1.5rem;
 }
@@ -77,6 +137,25 @@
     margin-left: 0px;
 }
 
+.navTreeItem .navTreeLevel2 li a:link {
+    padding-left: 4rem;
+    font-size: 0.8rem;
+}
+
 .navTreeLevel3 {
     margin-left: 0px;
+}
+
+.navTreeItem .navTreeLevel3 li a:link {
+    padding-left: 6rem;
+    font-size: 0.8rem;
+}
+
+.navTreeItem .navTreeLevel4 li a:link {
+    padding-left: 8rem;
+    font-size: 0.8rem;
+}
+
+.image-icon {
+    display: none;
 }

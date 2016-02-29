@@ -22,21 +22,25 @@
 @import 'layout/forms';
 
 @import 'components/toolbar';
-@import 'components/images';
+//@import 'components/images';
 @import 'components/brand';
 @import 'components/actionbar';
 @import 'components/banner';
 @import 'components/hero';
 @import 'components/pathbar';
 @import 'components/cards';
+@import 'components/configlets';
 @import 'components/navtree';
 @import 'components/newsletter';
 @import 'components/news';
+@import 'components/media';
+@import 'components/events';
 @import 'components/contactpanel';
 @import 'components/newspanel';
 
 @import 'pages/signin';
 @import 'pages/contentpage';
+@import 'pages/contacts';
 
 @import 'themes/theme';
 @import 'themes/styleguide';

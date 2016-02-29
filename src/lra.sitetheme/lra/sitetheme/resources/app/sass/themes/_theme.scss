@@ -13,10 +13,8 @@
 //
 //## Provides optional fullscreen layouts
 .app-main {
-    @extend .container;
-    &-fullscreen {
-        @extend .container-fluid;
-    }
+    @include make-container();
+    @include make-container-max-widths();
 }
 
 .app-main-section {
