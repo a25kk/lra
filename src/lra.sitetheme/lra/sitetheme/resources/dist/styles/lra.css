@@ -11853,6 +11853,13 @@ app-nav-list .app-card-main
     margin-left: 0;
 }
 
+.navTreeItem .navTreeLevel3 li a:link
+{
+    font-size: .8rem; 
+
+    padding-left: 6rem;
+}
+
 .image-icon
 {
     display: none;
