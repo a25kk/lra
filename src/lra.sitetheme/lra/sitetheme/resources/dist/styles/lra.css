@@ -7609,14 +7609,14 @@ input[type='button'] .caret
 }
 
 .breadcrumb-item,
-.app-breadcrumbs > li
+.app-breadcrumbs-item
 {
     float: left;
 }
 .breadcrumb-item + .breadcrumb-item::before,
-.app-breadcrumbs > li + .breadcrumb-item::before,
-.app-breadcrumbs > .breadcrumb-item + li::before,
-.app-breadcrumbs > li + li::before
+.app-breadcrumbs-item + .breadcrumb-item::before,
+.breadcrumb-item + .app-breadcrumbs-item::before,
+.app-breadcrumbs-item + .app-breadcrumbs-item::before
 {
     display: inline-block;
 
@@ -7628,21 +7628,21 @@ input[type='button'] .caret
     color: #818a91;
 }
 .breadcrumb-item + .breadcrumb-item:hover::before,
-.app-breadcrumbs > li + .breadcrumb-item:hover::before,
-.app-breadcrumbs > .breadcrumb-item + li:hover::before,
-.app-breadcrumbs > li + li:hover::before
+.app-breadcrumbs-item + .breadcrumb-item:hover::before,
+.breadcrumb-item + .app-breadcrumbs-item:hover::before,
+.app-breadcrumbs-item + .app-breadcrumbs-item:hover::before
 {
     text-decoration: underline;
 }
 .breadcrumb-item + .breadcrumb-item:hover::before,
-.app-breadcrumbs > li + .breadcrumb-item:hover::before,
-.app-breadcrumbs > .breadcrumb-item + li:hover::before,
-.app-breadcrumbs > li + li:hover::before
+.app-breadcrumbs-item + .breadcrumb-item:hover::before,
+.breadcrumb-item + .app-breadcrumbs-item:hover::before,
+.app-breadcrumbs-item + .app-breadcrumbs-item:hover::before
 {
     text-decoration: none;
 }
 .breadcrumb-item.active,
-.app-breadcrumbs > li.active
+.active.app-breadcrumbs-item
 {
     color: #818a91;
 }
@@ -11313,7 +11313,8 @@ label
         max-width: 1140px;
     }
 }
-.app-breadcrumbs > li > a
+
+.app-breadcrumbs-item > a
 {
     color: #eceeef;
 }
