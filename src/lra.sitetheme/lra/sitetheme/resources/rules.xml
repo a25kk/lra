@@ -90,11 +90,11 @@
         <replace css:content="#portal-breadcrumbs" method="raw" if-content="//*[@id='breadcrumbs-1']">
             <ol class="app-breadcrumbs">
                 <xsl:for-each select="./div/ol/li[not(position() = last())]//a">
-                    <li>
+                    <li class="app-breadcrumb">
                         <xsl:apply-templates select="."/>
                     </li>
                 </xsl:for-each>
-                <li class="active">
+                <li class="app-breadcrumb active">
                     <xsl:apply-templates select="./div/ol/li[position() = last()]/*"/>
                 </li>
             </ol>

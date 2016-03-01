@@ -2,11 +2,13 @@
 // Pathbar styles
 //
 .app-pathbar {
+    // Hide on extra small displays
     @include media-breakpoint-down(xs) {
         display: none;
     }
     margin-bottom: $spacer;
     font-size: $font-size-sm;
+    // Set background colors based on section location
     @include when-inside('.section-aktuelles') {
         background-color: $app-section-news-bg;
     }
@@ -25,16 +27,20 @@
     background-color: $app-pathbar-bg;
 }
 
+
+// Reuse bs v4 breadcrumb component
+// to keep styles concise
  .app-breadcrumbs {
     @include make-container();
     @include make-container-max-widths();
     @extend .breadcrumb;
     margin: 0 auto;
     padding-left: 30px;
-    > li {
-        @extend .breadcrumb-item;
-    }
-    > li > a {
+ }
+
+ .app-breadcrumbs-item {
+    @extend .breadcrumb-item;
+    > a {
         color: $gray-lighter;
     }
  }
