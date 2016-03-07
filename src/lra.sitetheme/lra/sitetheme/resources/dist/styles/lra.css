@@ -11330,6 +11330,8 @@ label
     display: inline-block;
 
     padding: 0;
+
+    color: #fff;
 }
 .app-pathbar ol > li + li:before
 {
@@ -11337,7 +11339,11 @@ label
 
     content: ' > ';
 
-    color: #000;
+    color: #fff;
+}
+.app-pathbar ol > li > a
+{
+    color: #fff;
 }
 .app-pathbar .app-breadcrumbs
 {
@@ -11395,17 +11401,19 @@ label
 
 .app-card
 {
+    max-width: 100%;
+
     color: #eceeef; 
 
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
 }
 .app-card .fa
 {
     color: #fff;
 }
-@media (min-width: 544px)
+@media (min-width: 768px)
 {
     .app-card
     {
@@ -11416,7 +11424,7 @@ label
                 flex: 0 0 50%;
     }
 }
-@media (min-width: 768px)
+@media (min-width: 992px)
 {
     .app-card
     {
@@ -11426,6 +11434,15 @@ label
             -ms-flex: 0 0 33.3333%;
                 flex: 0 0 33.3333%;
     }
+}
+
+.app-sidebar .app-card
+{
+    max-width: 100%; 
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
 }
 
 .app-card-header
