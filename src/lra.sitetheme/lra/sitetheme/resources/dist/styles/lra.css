@@ -7590,7 +7590,7 @@ input[type='button'] .caret
 }
 
 .breadcrumb,
-.app-breadcrumbs
+.app-pathbar .app-breadcrumbs
 {
     margin-bottom: 1rem;
     padding: .75rem 1rem;
@@ -7600,7 +7600,7 @@ input[type='button'] .caret
     background-color: transparent;
 }
 .breadcrumb::after,
-.app-breadcrumbs::after
+.app-pathbar .app-breadcrumbs::after
 {
     display: table;
     clear: both; 
@@ -7609,14 +7609,14 @@ input[type='button'] .caret
 }
 
 .breadcrumb-item,
-.app-breadcrumbs-item
+.app-pathbar .app-breadcrumbs-item
 {
     float: left;
 }
 .breadcrumb-item + .breadcrumb-item::before,
-.app-breadcrumbs-item + .breadcrumb-item::before,
-.breadcrumb-item + .app-breadcrumbs-item::before,
-.app-breadcrumbs-item + .app-breadcrumbs-item::before
+.app-pathbar .app-breadcrumbs-item + .breadcrumb-item::before,
+.app-pathbar .breadcrumb-item + .app-breadcrumbs-item::before,
+.app-pathbar .app-breadcrumbs-item + .app-breadcrumbs-item::before
 {
     display: inline-block;
 
@@ -7628,21 +7628,21 @@ input[type='button'] .caret
     color: #818a91;
 }
 .breadcrumb-item + .breadcrumb-item:hover::before,
-.app-breadcrumbs-item + .breadcrumb-item:hover::before,
-.breadcrumb-item + .app-breadcrumbs-item:hover::before,
-.app-breadcrumbs-item + .app-breadcrumbs-item:hover::before
+.app-pathbar .app-breadcrumbs-item + .breadcrumb-item:hover::before,
+.app-pathbar .breadcrumb-item + .app-breadcrumbs-item:hover::before,
+.app-pathbar .app-breadcrumbs-item + .app-breadcrumbs-item:hover::before
 {
     text-decoration: underline;
 }
 .breadcrumb-item + .breadcrumb-item:hover::before,
-.app-breadcrumbs-item + .breadcrumb-item:hover::before,
-.breadcrumb-item + .app-breadcrumbs-item:hover::before,
-.app-breadcrumbs-item + .app-breadcrumbs-item:hover::before
+.app-pathbar .app-breadcrumbs-item + .breadcrumb-item:hover::before,
+.app-pathbar .breadcrumb-item + .app-breadcrumbs-item:hover::before,
+.app-pathbar .app-breadcrumbs-item + .app-breadcrumbs-item:hover::before
 {
     text-decoration: none;
 }
 .breadcrumb-item.active,
-.active.app-breadcrumbs-item
+.app-pathbar .active.app-breadcrumbs-item
 {
     color: #818a91;
 }
@@ -10114,6 +10114,7 @@ div.riform .label
     .app-navitem
     {
         width: auto;
+        max-width: 16.66666667%;
         padding-right: 2px; 
 
         -webkit-flex: 0 0 16.66666667%;
@@ -10886,6 +10887,8 @@ label
 {
     .app-brand-panel .app-brandname
     {
+        max-width: 66.6666%; 
+
         -webkit-flex: 0 0 66.6666%;
             -ms-flex: 0 0 66.6666%;
                 flex: 0 0 66.6666%;
@@ -10902,6 +10905,8 @@ label
 {
     .app-brand-panel-inverse .app-brandname
     {
+        max-width: 75%; 
+
         -webkit-flex: 0 0 75%;
             -ms-flex: 0 0 75%;
                 flex: 0 0 75%;
@@ -10988,6 +10993,7 @@ label
 .app-searchbox-field
 {
     width: 66.6666%;
+    max-width: 66.6666%;
 
     border-color: #edeaea; 
     background-color: #edeaea;
@@ -10995,6 +11001,8 @@ label
 
 .app-searchbox-btn
 {
+    max-width: 33.3333%;
+
     color: #fff;
     border-color: #588c73; 
     background-color: #588c73;
@@ -11243,10 +11251,14 @@ label
 .app-pathbar
 {
     font-size: .875rem;
+    font-size: .875rem;
 
+    margin-top: 0;
     margin-bottom: 1rem;
 
+    border-radius: 0;
     background-color: #274d38;
+    background-color: transparent;
 }
 @media (max-width: 543px)
 {
@@ -11275,46 +11287,97 @@ label
 {
     background-color: #733a3a;
 }
-
-.app-breadcrumbs
+.app-pathbar .breadcrumb,
+.app-pathbar .app-breadcrumbs
 {
-    margin: 0 auto;
+    margin-bottom: 0; 
+
+    background-color: transparent;
+}
+.app-pathbar > * > span
+{
+    font-weight: 100; 
+
+    display: inline-block;
+
+    padding: 1rem 0 1rem 1rem;
+
+    color: #818a91;
+}
+@media (max-width: 767px)
+{
+    .app-pathbar > * > span
+    {
+        display: none;
+    }
+}
+.app-pathbar ol
+{
+    display: inline-block;
+
+    margin: 0; 
+    padding: 1rem 0;
+
+    list-style: none;
+}
+.app-pathbar ol > li
+{
+    font-weight: 300;
+    line-height: 0;
+
+    position: relative;
+
+    display: inline-block;
+
+    padding: 0;
+}
+.app-pathbar ol > li + li:before
+{
+    padding: 0 .5rem;
+
+    content: ' > ';
+
+    color: #000;
+}
+.app-pathbar .app-breadcrumbs
+{
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
     padding-left: 15px;
     padding-left: 30px;
+
+    border: 1px solid red;
 }
 @media (min-width: 544px)
 {
-    .app-breadcrumbs
+    .app-pathbar .app-breadcrumbs
     {
         max-width: 576px;
     }
 }
 @media (min-width: 768px)
 {
-    .app-breadcrumbs
+    .app-pathbar .app-breadcrumbs
     {
         max-width: 720px;
     }
 }
 @media (min-width: 992px)
 {
-    .app-breadcrumbs
+    .app-pathbar .app-breadcrumbs
     {
         max-width: 940px;
     }
 }
 @media (min-width: 1200px)
 {
-    .app-breadcrumbs
+    .app-pathbar .app-breadcrumbs
     {
         max-width: 1140px;
     }
 }
-
-.app-breadcrumbs-item > a
+.app-pathbar .app-breadcrumbs-item > a
 {
     color: #eceeef;
 }
@@ -11346,6 +11409,8 @@ label
 {
     .app-card
     {
+        max-width: 50%; 
+
         -webkit-flex: 0 0 50%;
             -ms-flex: 0 0 50%;
                 flex: 0 0 50%;
@@ -11355,9 +11420,11 @@ label
 {
     .app-card
     {
-        -webkit-flex: 0 0 33%;
-            -ms-flex: 0 0 33%;
-                flex: 0 0 33%;
+        max-width: 33.3333%; 
+
+        -webkit-flex: 0 0 33.3333%;
+            -ms-flex: 0 0 33.3333%;
+                flex: 0 0 33.3333%;
     }
 }
 
@@ -11482,6 +11549,7 @@ app-nav-list .app-card-main
 
 .app-subcard
 {
+    max-width: 100%; 
     height: 12rem;
     min-height: 12rem;
     margin-right: 0;
@@ -11502,6 +11570,8 @@ app-nav-list .app-card-main
 {
     .app-subcard
     {
+        max-width: 50%; 
+
         -webkit-flex: 0 0 50%;
             -ms-flex: 0 0 50%;
                 flex: 0 0 50%;
@@ -11527,8 +11597,8 @@ app-nav-list .app-card-main
 {
     font-size: 1rem;
 
-    height: 10rem;
-    min-height: 10rem; 
+    height: 7rem;
+    min-height: 7rem; 
     padding: 0 .5rem .5rem .5rem;
 }
 .app-card-content address

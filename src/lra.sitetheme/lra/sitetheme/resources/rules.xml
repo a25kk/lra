@@ -86,7 +86,7 @@
           css:theme="#app-navbar-nav"
           href="/@@navbar-view" />-->
 
-        <!-- Breadcrumbs -->
+        <!-- Breadcrumbs 
         <replace css:content="#portal-breadcrumbs" method="raw" if-content="//*[@id='breadcrumbs-1']">
             <ol class="app-breadcrumbs">
                 <xsl:for-each select="./div/ol/li[not(position() = last())]//a">
@@ -98,7 +98,7 @@
                     <xsl:apply-templates select="./div/ol/li[position() = last()]/*"/>
                 </li>
             </ol>
-        </replace>
+        </replace>-->
         <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
 
          <!-- Login form rules -->

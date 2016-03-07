@@ -25,6 +25,44 @@
         background-color: $app-section-life-bg;
     }
     background-color: $app-pathbar-bg;
+
+    margin-top: 0;
+    font-size: $font-size-sm;
+    border-radius: 0;
+    background-color: transparent;
+        .breadcrumb {
+    background-color: transparent;
+    margin-bottom: 0;
+  }
+  > * > span { //you are here
+    display: inline-block;
+    color: $gray-light;
+    padding: 1rem 0 1rem 1rem;
+    font-weight: 100;
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+  ol {
+    display: inline-block;
+    padding: 1rem 0;
+    list-style: none;
+    margin: 0;
+    > li {
+     font-weight: 300;
+     display: inline-block;
+     line-height: 0; // match ol & span height
+     position: relative;
+     padding: 0;
+     + li:before {
+       content: " > ";
+       padding: 0 0.5rem;
+       color: #000;
+     }
+   }
+    //> #breadcrumbs-current {
+    //  color: $breadcrumb-active-color;
+    //}
 }
 
 
@@ -34,8 +72,8 @@
     @include make-container();
     @include make-container-max-widths();
     @extend .breadcrumb;
-    margin: 0 auto;
     padding-left: 30px;
+    border: 1px solid red;
  }
 
  .app-breadcrumbs-item {
@@ -44,3 +82,4 @@
         color: $gray-lighter;
     }
  }
+}

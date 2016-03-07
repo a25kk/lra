@@ -132,6 +132,7 @@
   @include media-breakpoint-up(md) {
     width: auto;
     flex: 0 0 16.66666667%;
+    max-width: 16.66666667%;
     padding-right: 2px;
     &:last-child {
       padding-right: 0;
