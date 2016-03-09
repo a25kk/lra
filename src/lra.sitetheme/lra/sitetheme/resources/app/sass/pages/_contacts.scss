@@ -126,6 +126,10 @@
 // area and need a horizontal layout grid
 .app-contact-element {
     @include make-row();
+
+    address {
+        margin: 0;
+    }
 }
 
 .app-contact-element-aside {
@@ -139,19 +143,23 @@
 }
 
 .app-contact-element-main {
-    @include make-col(12);
-    @include media-breakpoint-up(sm) {
-        @include make-col(6);
-    }
-    @include media-breakpoint-up(md) {
-        @include make-col(8);
-    }
+    //@include make-col(12);
+    //@include media-breakpoint-up(sm) {
+    //    @include make-col(6);
+    //}
+    //@include media-breakpoint-up(md) {
+    //    @include make-col(8);
+    //}
+    width: 100%;
     padding: 1rem;
-    background-color: #eee;
+    background-color: $app-gray;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
 }
 
 .app-contact-element-title {
-    padding-bottom: 1rem;
+    padding-bottom: 0;
     font-size: 2rem;
     font-weight: 700;
 }

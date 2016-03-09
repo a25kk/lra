@@ -13489,6 +13489,10 @@ article.vevent
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
 }
+.app-contact-element address
+{
+    margin: 0;
+}
 
 .app-contact-element-aside
 {
@@ -13538,51 +13542,13 @@ article.vevent
 
 .app-contact-element-main
 {
-    position: relative;
-
-    max-width: 100%;
-    min-height: 1px;
+    width: 100%;
+    margin-top: 1rem; 
+    margin-right: 1rem;
+    margin-left: 1rem;
     padding: 1rem;
-    padding-right: 15px;
-    padding-left: 15px;
 
-    background-color: #eee; 
-
-    -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-}
-@media (min-width: 544px)
-{
-    .app-contact-element-main
-    {
-        position: relative;
-
-        max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-
-        -webkit-flex: 0 0 50%;
-            -ms-flex: 0 0 50%;
-                flex: 0 0 50%;
-    }
-}
-@media (min-width: 768px)
-{
-    .app-contact-element-main
-    {
-        position: relative;
-
-        max-width: 66.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-
-        -webkit-flex: 0 0 66.6666666667%;
-            -ms-flex: 0 0 66.6666666667%;
-                flex: 0 0 66.6666666667%;
-    }
+    background-color: #edeaea;
 }
 
 .app-contact-element-title
@@ -13590,7 +13556,7 @@ article.vevent
     font-size: 2rem;
     font-weight: 700; 
 
-    padding-bottom: 1rem;
+    padding-bottom: 0;
 }
 
 .app-contact-element-block
