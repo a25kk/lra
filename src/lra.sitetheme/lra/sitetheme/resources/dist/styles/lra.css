@@ -14114,7 +14114,7 @@ article.vevent
     background: #274d38;
 }
 
-.app-contact-element
+.app-contact-viewlet-elements
 {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -14127,6 +14127,45 @@ article.vevent
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
 }
+@media (min-width: 544px)
+{
+    .app-contact-viewlet-elements
+    {
+        padding-left: 1rem;
+    }
+}
+
+.app-card-viewlet-item
+{
+    position: relative;
+
+    max-width: 100%; 
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+@media (min-width: 544px)
+{
+    .app-card-viewlet-item
+    {
+        position: relative;
+
+        max-width: 50%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        padding-left: 0; 
+
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+
 .app-contact-element address
 {
     margin: 0;
@@ -14145,45 +14184,12 @@ article.vevent
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
 }
-@media (min-width: 544px)
-{
-    .app-contact-element-aside
-    {
-        position: relative;
-
-        max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-
-        -webkit-flex: 0 0 50%;
-            -ms-flex: 0 0 50%;
-                flex: 0 0 50%;
-    }
-}
-@media (min-width: 768px)
-{
-    .app-contact-element-aside
-    {
-        position: relative;
-
-        max-width: 33.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-
-        -webkit-flex: 0 0 33.3333333333%;
-            -ms-flex: 0 0 33.3333333333%;
-                flex: 0 0 33.3333333333%;
-    }
-}
 
 .app-contact-element-main
 {
-    width: 100%;
     margin-top: 1rem; 
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin-right: 0rem;
+    margin-left: 0rem;
     padding: 1rem;
 
     background-color: #edeaea;

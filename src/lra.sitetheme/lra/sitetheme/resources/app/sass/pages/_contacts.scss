@@ -124,9 +124,22 @@
 //
 // Content elements are displayed below the main content
 // area and need a horizontal layout grid
-.app-contact-element {
-    @include make-row();
 
+.app-contact-viewlet-elements {
+    @include make-row();
+    @include media-breakpoint-up(sm) {
+        padding-left: 1rem;
+    } 
+}
+
+.app-card-viewlet-item {
+    @include make-col(12);
+    @include media-breakpoint-up(sm) {
+    @include make-col(6);
+    padding-left: 0;
+    }
+}
+.app-contact-element {
     address {
         margin: 0;
     }
@@ -134,27 +147,19 @@
 
 .app-contact-element-aside {
     @include make-col(12);
-    @include media-breakpoint-up(sm) {
-        @include make-col(6);
-    }
-    @include media-breakpoint-up(md) {
-        @include make-col(4);
-    }
-}
-
-.app-contact-element-main {
-    //@include make-col(12);
     //@include media-breakpoint-up(sm) {
     //    @include make-col(6);
     //}
     //@include media-breakpoint-up(md) {
-    //    @include make-col(8);
+    //    @include make-col(4);
     //}
-    width: 100%;
+}
+
+.app-contact-element-main {
     padding: 1rem;
     background-color: $app-gray;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
     margin-top: 1rem;
 }
 
@@ -186,6 +191,3 @@
 .app-contact-actions {
     padding-top: 1rem;
 }
-
-
-
