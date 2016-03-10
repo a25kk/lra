@@ -138,6 +138,14 @@
     @include make-col(6);
     padding-left: 0;
     }
+    @include when-inside('.app-main-aside') {
+        @include media-breakpoint-up(sm) {
+    @include make-col(12);
+    padding-left: 0;
+    padding-right: 0;
+    }
+    }
+    
 }
 .app-contact-element {
     address {

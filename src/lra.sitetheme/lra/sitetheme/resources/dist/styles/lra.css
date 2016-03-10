@@ -14165,6 +14165,24 @@ article.vevent
                 flex: 0 0 50%;
     }
 }
+@media (min-width: 544px)
+{
+    .app-main-aside .app-card-viewlet-item
+    {
+        position: relative;
+
+        max-width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-right: 0; 
+        padding-left: 15px;
+        padding-left: 0;
+
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+    }
+}
 
 .app-contact-element address
 {
