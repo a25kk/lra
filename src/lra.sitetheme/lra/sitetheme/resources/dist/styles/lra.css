@@ -11638,6 +11638,38 @@ textarea
     background-color: #588c73;
 }
 
+.actionMenu
+{
+    display: none;
+}
+
+.searchPage .input-group
+{
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 767px)
+{
+    .searchPage .input-group
+    {
+        display: none;
+    }
+}
+
+.searchResults
+{
+    padding-left: 1rem;
+}
+.searchResults > li
+{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    list-style-position: outside; 
+
+    border-bottom: 1px solid #ccc;
+}
+
 .app-bannerbar
 {
     background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
