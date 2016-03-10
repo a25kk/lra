@@ -4241,7 +4241,7 @@ code
     padding: .2rem .4rem;
 
     color: #bd4147;
-    background-color: #f7f7f9;
+    background-color: #edeaea;
 }
 
 kbd
@@ -10862,7 +10862,7 @@ textarea
     font-size: 2.25rem;
     font-weight: 300; 
 
-    margin: -3px 0 0 12px;
+    margin: 10%;
 
     color: #d96459;
 }
