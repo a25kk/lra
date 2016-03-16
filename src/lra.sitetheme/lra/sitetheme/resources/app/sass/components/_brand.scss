@@ -84,6 +84,7 @@
           flex: 1;
           @include media-breakpoint-up(md) {
               flex: 0 0 66.6666%;
+              max-width: 66.6666%;
            }
           margin-top: -($spacer);
     }
@@ -93,6 +94,7 @@
       color: #fff;
       @include media-breakpoint-up(md) {
           flex: 0 0 75%;
+          max-width: 75%;
       }
     }
     @include media-breakpoint-up(sm) {

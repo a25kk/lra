@@ -33,3 +33,7 @@ $headings-font-weight:        normal;
 // Remove gray background on breadcrumbs
 $breadcrumb-bg:             transparent;
 $breadcrumb-divider:		"/";
+
+// Buttons override
+$btn-primary-bg:			$app-primary;
+$btn-primary-border:		$app-primary;

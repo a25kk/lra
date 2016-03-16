@@ -78,10 +78,15 @@ $app-section-life-bg:		  darken($app-brown, 7.5%) !default;
 //** Font awesome font path
 $fa-font-path:                  "../assets/fonts";
 
-$link-hover-color:			$app-primary;
+
 
 
 // Pathbar
 //
 // Subclasses the bootstrap breadcrumb styles
 $app-pathbar-bg:			$app-green-primary !default;
+
+
+// Bootstrap overrides
+$link-hover-color:			$app-primary;
+$code-bg:                     $app-gray !default;
