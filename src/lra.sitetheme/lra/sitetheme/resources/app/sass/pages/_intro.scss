@@ -19,7 +19,7 @@
     .app-action-search-wrapper {
     	@include make-container();
     	@include make-container-max-widths();
-    	padding-bottom: 10rem;
+    	padding-bottom: 5rem;
 
     	.app-searchbox-group {
     		height: 100px;
@@ -27,9 +27,20 @@
     	}
     }
 
-    
+    .app-intro-button {
+    	@include make-container();
+    	@include make-container-max-widths();
+    	padding-bottom: 5rem;
+    	text-align: center;
 
-    
+    	.app-intro-btn {
+    		font-size: 1.5rem;
+    		@include button-variant(#fff, $app-secondary, $app-secondary);
+    		a {
+    			color: #fff;
+    		}
+    	}
+    }
 }
 
 .intro {
@@ -38,7 +49,6 @@
     margin-top: 1rem;
 
     .app-main {
-
     	padding-left: 0;
     	padding-right: 0;
     	}

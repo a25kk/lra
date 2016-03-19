@@ -14356,7 +14356,7 @@ article.vevent
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
-    padding-bottom: 10rem; 
+    padding-bottom: 5rem; 
     padding-left: 15px;
 }
 @media (min-width: 544px)
@@ -14392,6 +14392,106 @@ article.vevent
     height: 100px;
 
     border: 20px solid #fff;
+}
+.app-intro-wrapper .app-intro-button
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-bottom: 5rem;
+    padding-left: 15px;
+
+    text-align: center;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-intro-button
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-intro-wrapper .app-intro-button
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-intro-wrapper .app-intro-button
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-intro-wrapper .app-intro-button
+    {
+        max-width: 1140px;
+    }
+}
+.app-intro-wrapper .app-intro-button .app-intro-btn
+{
+    font-size: 1.5rem;
+
+    color: #fff;
+    border-color: #588c73; 
+    background-color: #588c73;
+}
+.app-intro-wrapper .app-intro-button .app-intro-btn:hover
+{
+    color: #fff;
+    border-color: #406654; 
+    background-color: #446d59;
+}
+.app-intro-wrapper .app-intro-button .app-intro-btn:focus,
+.app-intro-wrapper .app-intro-button .app-intro-btn.focus
+{
+    color: #fff;
+    border-color: #406654; 
+    background-color: #446d59;
+}
+.app-intro-wrapper .app-intro-button .app-intro-btn:active,
+.app-intro-wrapper .app-intro-button .app-intro-btn.active,
+.open > .app-intro-wrapper .app-intro-button .app-intro-btn.dropdown-toggle
+{
+    color: #fff;
+    border-color: #406654;
+    background-color: #446d59;
+    background-image: none;
+}
+.app-intro-wrapper .app-intro-button .app-intro-btn:active:hover,
+.app-intro-wrapper .app-intro-button .app-intro-btn:active:focus,
+.app-intro-wrapper .app-intro-button .app-intro-btn:active.focus,
+.app-intro-wrapper .app-intro-button .app-intro-btn.active:hover,
+.app-intro-wrapper .app-intro-button .app-intro-btn.active:focus,
+.app-intro-wrapper .app-intro-button .app-intro-btn.active.focus,
+.open > .app-intro-wrapper .app-intro-button .app-intro-btn.dropdown-toggle:hover,
+.open > .app-intro-wrapper .app-intro-button .app-intro-btn.dropdown-toggle:focus,
+.open > .app-intro-wrapper .app-intro-button .app-intro-btn.dropdown-toggle.focus
+{
+    color: #fff;
+    border-color: #273e33; 
+    background-color: #375747;
+}
+.app-intro-wrapper .app-intro-button .app-intro-btn.disabled:focus,
+.app-intro-wrapper .app-intro-button .app-intro-btn.disabled.focus,
+.app-intro-wrapper .app-intro-button .app-intro-btn:disabled:focus,
+.app-intro-wrapper .app-intro-button .app-intro-btn:disabled.focus
+{
+    border-color: #588c73; 
+    background-color: #588c73;
+}
+.app-intro-wrapper .app-intro-button .app-intro-btn.disabled:hover,
+.app-intro-wrapper .app-intro-button .app-intro-btn:disabled:hover
+{
+    border-color: #588c73; 
+    background-color: #588c73;
+}
+.app-intro-wrapper .app-intro-button .app-intro-btn a
+{
+    color: #fff;
 }
 
 .intro
