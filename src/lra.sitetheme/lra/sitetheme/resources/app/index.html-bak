@@ -1,0 +1,26 @@
+---
+layout: default
+title: Getting started
+slug: getting-started
+lead: "Landratsamt Aichach-Friedberg"
+base_url: "../"
+---
+<div class="app-content" id="content">
+  <div class="app-page app-page-signin">
+    <div class="app-page-header">
+        <div class="app-page-title">
+            <h1 class="app-page-headline">Willkommen</h1>
+        </div>
+    </div>
+    <div class="app-page-body">
+      <div class="app-brand app-brand-panel">
+        <a class="app-brand-img app-brand-img-md" href="/">
+          {% include components/logo.html %}
+        </a>
+        {% include components/brandname.html %}
+      </div>
+      <hr>
+      <p><a href="{{ page.base_url }}styleguide/">Klicken Sie bitte hier</a> um den Styleguide anzuzeigen.</p>
+    </div>
+  </div>
+</div>

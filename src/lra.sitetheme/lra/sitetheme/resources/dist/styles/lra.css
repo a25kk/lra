@@ -12045,8 +12045,6 @@ textarea
     padding-right: 15px;
     padding-left: 15px;
     padding-left: 30px;
-
-    border: 1px solid red;
 }
 @media (min-width: 544px)
 {
@@ -14332,6 +14330,110 @@ article.vevent
 .app-contact-actions
 {
     padding-top: 1rem;
+}
+
+.app-intro-wrapper
+{
+    padding-top: 10rem;
+
+    background: url(../assets/img/intro.jpg) no-repeat top center;
+    background-size: cover;
+}
+.app-intro-wrapper .app-brand
+{
+    padding-bottom: 5rem;
+}
+.app-intro-wrapper .app-brandname
+{
+    font-size: 4rem;
+    font-weight: 700; 
+
+    color: #fff;
+    text-shadow: 0 0 2px black;
+}
+.app-intro-wrapper .app-action-search-wrapper
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-bottom: 10rem; 
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-action-search-wrapper
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-intro-wrapper .app-action-search-wrapper
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-intro-wrapper .app-action-search-wrapper
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-intro-wrapper .app-action-search-wrapper
+    {
+        max-width: 1140px;
+    }
+}
+.app-intro-wrapper .app-action-search-wrapper .app-searchbox-group
+{
+    height: 100px;
+
+    border: 20px solid #fff;
+}
+
+.intro
+{
+    margin-top: 1rem; 
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .intro
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .intro
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .intro
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .intro
+    {
+        max-width: 1140px;
+    }
+}
+.intro .app-main
+{
+    padding-right: 0; 
+    padding-left: 0;
 }
 
 .app-toolbar
