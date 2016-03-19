@@ -14339,6 +14339,10 @@ article.vevent
     background: url(../assets/img/intro.jpg) no-repeat top center;
     background-size: cover;
 }
+.app-intro-wrapper a:hover
+{
+    text-decoration: none;
+}
 .app-intro-wrapper .app-brand
 {
     padding-bottom: 5rem;
@@ -14392,6 +14396,10 @@ article.vevent
     height: 100px;
 
     border: 20px solid #fff;
+}
+.app-intro-wrapper .app-action-search-wrapper .app-searchbox-control
+{
+    font-size: 1.5rem;
 }
 .app-intro-wrapper .app-intro-button
 {
