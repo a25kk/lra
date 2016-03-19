@@ -14055,8 +14055,15 @@ article.vevent
 
 .app-page-headline
 {
-    font-size: 2rem; 
+    font-size: 1.2rem; 
     font-weight: 700;
+}
+@media (min-width: 544px)
+{
+    .app-page-headline
+    {
+        font-size: 2rem;
+    }
 }
 
 .app-page-lead,
@@ -14334,10 +14341,17 @@ article.vevent
 
 .app-intro-wrapper
 {
-    padding-top: 10rem;
+    padding-top: 3rem;
 
     background: url(../assets/img/intro.jpg) no-repeat top center;
     background-size: cover;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper
+    {
+        padding-top: 10rem;
+    }
 }
 .app-intro-wrapper a:hover
 {
@@ -14346,21 +14360,38 @@ article.vevent
 .app-intro-wrapper .app-brand
 {
     padding-bottom: 5rem;
+    padding-left: 1rem;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-brand
+    {
+        padding-left: 0;
+    }
 }
 .app-intro-wrapper .app-brandname
 {
-    font-size: 4rem;
-    font-weight: 700; 
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    padding-left: 3rem; 
 
     color: #fff;
     text-shadow: 0 0 2px black;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-brandname
+    {
+        font-size: 4rem;
+    }
 }
 .app-intro-wrapper .app-action-search-wrapper
 {
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
-    padding-bottom: 5rem; 
+    padding-bottom: 2rem; 
     padding-left: 15px;
 }
 @media (min-width: 544px)
@@ -14391,22 +14422,45 @@ article.vevent
         max-width: 1140px;
     }
 }
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-action-search-wrapper
+    {
+        padding-bottom: 5rem;
+    }
+}
 .app-intro-wrapper .app-action-search-wrapper .app-searchbox-group
 {
-    height: 100px;
+    height: 50px;
 
-    border: 20px solid #fff;
+    border: 0 solid #fff;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-action-search-wrapper .app-searchbox-group
+    {
+        height: 100px; 
+
+        border: 20px solid #fff;
+    }
 }
 .app-intro-wrapper .app-action-search-wrapper .app-searchbox-control
 {
-    font-size: 1.5rem;
+    font-size: 1rem;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-action-search-wrapper .app-searchbox-control
+    {
+        font-size: 1.5rem;
+    }
 }
 .app-intro-wrapper .app-intro-button
 {
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
     padding-left: 15px;
 
     text-align: center;
@@ -14439,9 +14493,18 @@ article.vevent
         max-width: 1140px;
     }
 }
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-intro-button
+    {
+        padding-bottom: 5rem;
+    }
+}
 .app-intro-wrapper .app-intro-button .app-intro-btn
 {
     font-size: 1.5rem;
+
+    width: 100%;
 
     color: #fff;
     border-color: #588c73; 
@@ -14496,6 +14559,20 @@ article.vevent
 {
     border-color: #588c73; 
     background-color: #588c73;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-intro-button .app-intro-btn
+    {
+        width: 35%;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-intro-wrapper .app-intro-button .app-intro-btn
+    {
+        width: 45%;
+    }
 }
 .app-intro-wrapper .app-intro-button .app-intro-btn a
 {
