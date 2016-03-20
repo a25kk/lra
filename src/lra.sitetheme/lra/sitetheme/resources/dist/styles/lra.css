@@ -13998,6 +13998,14 @@ article.vevent
     min-height: 100px; 
     padding: .5rem;
 }
+.staff .chart-body
+{
+    min-height: 67px !important;
+}
+.chef .chart-body
+{
+    font-weight: 700;
+}
 
 .level01 .chart-body
 {

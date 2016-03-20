@@ -94,6 +94,14 @@
 .chart-body {
 	padding: .5rem;
 	min-height: 100px;
+
+	@include when-inside('.staff') {
+		min-height: 67px !important;
+	}
+
+	@include when-inside('.chef') {
+		font-weight: 700;
+	}
 }
 
 .level01 {
@@ -107,23 +115,6 @@
 .level01 {
 	border: 0px solid red;
 }
-
-.dep01,
-.dep02,
-.dep03,
-.dep04,
-.dep05,
-.dep06 {
-	//background: url(../assets/img/trenner.gif) repeat-y top center;
-}
-
-//.trenner {
-//	border-top: 5px solid #fff;
-//	height: 5px;
-//	width: 80%;
-//	margin-top: -100px;
-//	margin-bottom: 100px;
-//}
 
 .trenner-down {
 	text-align: center;
