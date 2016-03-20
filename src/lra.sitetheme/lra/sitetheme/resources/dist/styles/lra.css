@@ -13930,8 +13930,10 @@ article.vevent
 
         max-width: 16.6666666667%;
         min-height: 1px;
+        padding-top: 0; 
         padding-right: 15px;
-        padding-right: .5rem; 
+        padding-right: .5rem;
+        padding-bottom: 0;
         padding-left: 15px;
         padding-left: .5rem;
 
@@ -14014,7 +14016,7 @@ article.vevent
 }
 .trenner-down .fa
 {
-    color: #fff;
+    color: #274d38;
 }
 
 .trenner-right
