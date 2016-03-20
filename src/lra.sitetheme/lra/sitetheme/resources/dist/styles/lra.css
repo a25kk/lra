@@ -13843,6 +13843,159 @@ article.vevent
     color: #fff;
 }
 
+.app-chart-panel
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-right: 0; 
+    padding-left: 15px;
+    padding-left: 0;
+}
+@media (min-width: 544px)
+{
+    .app-chart-panel
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-chart-panel
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-chart-panel
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-chart-panel
+    {
+        max-width: 1140px;
+    }
+}
+
+.app-chart-content
+{
+    padding: 1rem 2rem; 
+
+    background: #ccc;
+}
+
+.level01,
+.level02
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    margin-right: -15px; 
+    margin-left: -15px;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.chart
+{
+    font-size: .7rem;
+
+    position: relative;
+
+    max-width: 100%;
+    min-height: 1px;
+    padding: .5rem;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    border: 0 solid black; 
+    background: transparent;
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+@media (min-width: 544px)
+{
+    .chart
+    {
+        position: relative;
+
+        max-width: 16.6666666667%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-right: .5rem; 
+        padding-left: 15px;
+        padding-left: .5rem;
+
+        -webkit-flex: 0 0 16.6666666667%;
+            -ms-flex: 0 0 16.6666666667%;
+                flex: 0 0 16.6666666667%;
+    }
+}
+
+.chart-item
+{
+    margin-bottom: 1rem; 
+
+    border: 5px solid #fff;
+    background: #fff;
+}
+
+.chart-heading
+{
+    min-height: 50px;
+    padding: .5rem;
+
+    color: #fff; 
+    background: #274d38;
+}
+.dep01 .chart-heading
+{
+    background: #274d38;
+}
+.dep02 .chart-heading
+{
+    background: #588c73;
+}
+.dep03 .chart-heading
+{
+    background: #c7b450;
+}
+.dep04 .chart-heading
+{
+    background: #f2ae73;
+}
+.dep05 .chart-heading
+{
+    background: #d96459;
+}
+.dep06 .chart-heading
+{
+    background: #8c4747;
+}
+
+.chart-description
+{
+    min-height: 100px; 
+    padding: .5rem;
+
+    background: #efefef;
+}
+
+.chart-body
+{
+    min-height: 120px; 
+    padding: .5rem;
+}
+
 .app-layout-simple
 {
     background: #373a3c;
