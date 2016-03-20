@@ -13949,12 +13949,24 @@ article.vevent
     background: #fff;
 }
 
+.chart-item:after
+{
+    margin-top: 1rem;
+
+    content: 'Achtung!'; 
+
+    background: #ccc;
+}
+
 .chart-heading
 {
+    font-size: .7rem; 
+    font-weight: 700;
+
     min-height: 50px;
     padding: .5rem;
 
-    color: #fff; 
+    color: #fff;
     background: #274d38;
 }
 .dep01 .chart-heading
@@ -13992,8 +14004,28 @@ article.vevent
 
 .chart-body
 {
-    min-height: 120px; 
+    min-height: 100px; 
     padding: .5rem;
+}
+
+.level01
+{
+    border: 0 solid red;
+}
+
+.trenner
+{
+    width: 80%;
+    height: 5px;
+    margin-top: -100px;
+    margin-bottom: 100px; 
+
+    border-top: 5px solid #fff;
+}
+
+.trenner-down
+{
+    text-align: center;
 }
 
 .app-layout-simple
