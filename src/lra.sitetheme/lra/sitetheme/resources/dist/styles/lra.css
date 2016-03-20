@@ -13997,6 +13997,12 @@ article.vevent
     padding: .5rem;
 }
 
+.level01 .chart-body
+{
+    min-height: 50px; 
+    padding: .5rem;
+}
+
 .level01
 {
     border: 0 solid red;
@@ -14013,6 +14019,8 @@ article.vevent
 
 .trenner-right
 {
+    padding-right: .5rem; 
+
     text-align: right;
 }
 .trenner-right .fa

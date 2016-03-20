@@ -95,6 +95,14 @@
 }
 
 .level01 {
+	.chart-body {
+		padding: .5rem;
+		min-height: 50px;
+	}
+}
+
+
+.level01 {
 	border: 0px solid red;
 }
 
@@ -124,6 +132,7 @@
 
 .trenner-right {
 	text-align: right;
+	padding-right: 0.5rem;
 	.fa {
 		color: $app-primary;
 
