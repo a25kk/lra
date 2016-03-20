@@ -41,14 +41,14 @@
 	border: 5px solid #fff;
 	//height: 100%;
 	background: #fff;
-	margin-bottom: 1rem;
+	//margin-bottom: 1rem;
 }
 
-.chart-item:after {
-	margin-top: 1rem;
-	background: #ccc;
-		content:"Achtung!"
-	}
+//.chart-item:after {
+//	margin-top: 1rem;
+//	background: #ccc;
+//		content:"Achtung!"
+//	}
 
 .chart-heading {
 	background: $app-primary;
@@ -117,4 +117,7 @@
 
 .trenner-down {
 	text-align: center;
+	.fa {
+		color: #fff;
+	}
 }

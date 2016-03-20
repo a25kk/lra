@@ -13943,19 +13943,8 @@ article.vevent
 
 .chart-item
 {
-    margin-bottom: 1rem; 
-
     border: 5px solid #fff;
     background: #fff;
-}
-
-.chart-item:after
-{
-    margin-top: 1rem;
-
-    content: 'Achtung!'; 
-
-    background: #ccc;
 }
 
 .chart-heading
@@ -14026,6 +14015,10 @@ article.vevent
 .trenner-down
 {
     text-align: center;
+}
+.trenner-down .fa
+{
+    color: #fff;
 }
 
 .app-layout-simple
