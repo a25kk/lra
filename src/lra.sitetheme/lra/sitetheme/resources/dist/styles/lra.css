@@ -13885,7 +13885,13 @@ article.vevent
 {
     padding: 1rem 2rem; 
 
-    background: #ccc;
+    background: #edeaea;
+}
+.app-chart-content .app-page-headline
+{
+    margin-bottom: 1rem; 
+
+    color: #274d38;
 }
 
 .level01,
@@ -13922,7 +13928,7 @@ article.vevent
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
 }
-@media (min-width: 544px)
+@media (min-width: 992px)
 {
     .chart
     {
@@ -13998,11 +14004,15 @@ article.vevent
     min-height: 100px; 
     padding: .5rem;
 }
-.staff .chart-body
+.chart06 .chart-body
 {
     min-height: 67px !important;
 }
-.chef .chart-body
+.chart05 .chart-body
+{
+    min-height: 67px !important;
+}
+.chart01 .chart-body
 {
     font-weight: 700;
 }
