@@ -107,17 +107,25 @@
 	//background: url(../assets/img/trenner.gif) repeat-y top center;
 }
 
-.trenner {
-	border-top: 5px solid #fff;
-	height: 5px;
-	width: 80%;
-	margin-top: -100px;
-	margin-bottom: 100px;
-}
+//.trenner {
+//	border-top: 5px solid #fff;
+//	height: 5px;
+//	width: 80%;
+//	margin-top: -100px;
+//	margin-bottom: 100px;
+//}
 
 .trenner-down {
 	text-align: center;
 	.fa {
 		color: #fff;
+	}
+}
+
+.trenner-right {
+	text-align: right;
+	.fa {
+		color: $app-primary;
+
 	}
 }
