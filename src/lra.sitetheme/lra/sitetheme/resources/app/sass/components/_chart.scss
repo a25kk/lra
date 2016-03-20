@@ -12,11 +12,12 @@
 .app-chart-content {
 	background: $app-gray;
 	padding: 1rem 2rem;
+	margin-bottom: 1rem;
 
 	.app-page-headline {
 		color: $app-primary;
 		margin-bottom: 1rem;
-	}	
+	}
 }
 
 .level01,
@@ -127,3 +128,16 @@
 
 	}
 }
+
+.app-chart-info-wrapper {
+	@include make-row();
+}
+
+.app-chart-info {
+	@include make-col(12);
+	background: #fff;
+	padding: 1rem;
+	@include media-breakpoint-up(sm) {
+		@include make-col(4);
+	}	
+}	

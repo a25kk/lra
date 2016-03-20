@@ -13883,7 +13883,8 @@ article.vevent
 
 .app-chart-content
 {
-    padding: 1rem 2rem; 
+    margin-bottom: 1rem; 
+    padding: 1rem 2rem;
 
     background: #edeaea;
 }
@@ -14046,6 +14047,53 @@ article.vevent
 .trenner-right .fa
 {
     color: #274d38;
+}
+
+.app-chart-info-wrapper
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    margin-right: -15px; 
+    margin-left: -15px;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.app-chart-info
+{
+    position: relative;
+
+    max-width: 100%;
+    min-height: 1px;
+    padding: 1rem; 
+    padding-right: 15px;
+    padding-left: 15px;
+
+    background: #fff;
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+@media (min-width: 544px)
+{
+    .app-chart-info
+    {
+        position: relative;
+
+        max-width: 33.3333333333%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 33.3333333333%;
+            -ms-flex: 0 0 33.3333333333%;
+                flex: 0 0 33.3333333333%;
+    }
 }
 
 .app-layout-simple
