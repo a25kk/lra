@@ -14338,7 +14338,7 @@ article.vevent
 
     margin-right: -15px;
     margin-left: -15px;
-    padding: 1rem; 
+    padding: 0 1rem; 
 
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;

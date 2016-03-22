@@ -53,7 +53,7 @@
 
 .app-page-block {
     @include make-row();
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 .app-page-block-content {
