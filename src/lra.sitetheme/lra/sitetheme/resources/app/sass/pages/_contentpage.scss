@@ -57,15 +57,20 @@
 }
 
 .app-page-block-content {
-    border: 1px solid red;
     @include make-col(12);
+    margin-bottom: 1rem;
+    padding: 0;
+    background: #fff;
+    img {
+        @extend.img-fluid;
+    }
       @include media-breakpoint-up(sm) {
           @include make-col(6);
+          padding: 0;
       }
 }
 
 .app-page-block-card {
-    border: 1px solid red;
     @include make-col(12);
     background: #fff;
     min-height: 120px;

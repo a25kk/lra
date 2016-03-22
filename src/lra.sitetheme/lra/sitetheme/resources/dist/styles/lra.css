@@ -4197,7 +4197,8 @@ mark,
 
 .img-fluid,
 .newsImage,
-.tileImage
+.tileImage,
+.app-page-block-content img
 {
     display: block;
 
@@ -14349,12 +14350,14 @@ article.vevent
 {
     position: relative;
 
-    max-width: 100%; 
+    max-width: 100%;
     min-height: 1px;
+    margin-bottom: 1rem;
+    padding: 0;
     padding-right: 15px;
     padding-left: 15px;
 
-    border: 1px solid red;
+    background: #fff; 
 
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
@@ -14366,8 +14369,9 @@ article.vevent
     {
         position: relative;
 
-        max-width: 50%; 
+        max-width: 50%;
         min-height: 1px;
+        padding: 0; 
         padding-right: 15px;
         padding-left: 15px;
 
@@ -14388,7 +14392,6 @@ article.vevent
     padding-right: 15px;
     padding-left: 15px;
 
-    border: 1px solid red;
     border: 3px solid #edeaea; 
     background: #fff;
 
