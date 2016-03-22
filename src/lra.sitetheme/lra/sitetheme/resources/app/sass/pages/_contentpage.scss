@@ -50,3 +50,31 @@
         @extend .table-bordered;
     }
 }
+
+.app-page-block {
+    @include make-row();
+    padding: 1rem;
+}
+
+.app-page-block-content {
+    border: 1px solid red;
+    @include make-col(12);
+      @include media-breakpoint-up(sm) {
+          @include make-col(6);
+      }
+}
+
+.app-page-block-card {
+    border: 1px solid red;
+    @include make-col(12);
+    background: #fff;
+    min-height: 120px;
+    padding: 1rem;
+    border: 3px solid $app-gray;
+    img {
+        display: block;
+    }
+      @include media-breakpoint-up(sm) {
+          @include make-col(3);
+      }
+}
