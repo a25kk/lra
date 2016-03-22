@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-10-22 11:44+0000\n"
+"POT-Creation-Date: 2016-03-22 10:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,10 @@ msgstr ""
 msgid "Contentpage"
 msgstr ""
 
+#: ./../configure.zcml:25
+msgid "Extension profile for lra.sitecontent."
+msgstr ""
+
 #: ./../profiles/default/types/lra.sitecontent.contentpage.xml
 msgid "Folderish content page"
 msgstr ""
@@ -33,3 +37,6 @@ msgstr ""
 msgid "Site Section Folder"
 msgstr ""
 
+#: ./../configure.zcml:25
+msgid "lra.sitecontent"
+msgstr ""

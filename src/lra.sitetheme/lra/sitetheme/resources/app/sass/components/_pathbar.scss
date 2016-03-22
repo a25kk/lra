@@ -77,7 +77,6 @@
     @include make-container-max-widths();
     @extend .breadcrumb;
     padding-left: 30px;
-    border: 1px solid red;
  }
 
  .app-breadcrumbs-item {
