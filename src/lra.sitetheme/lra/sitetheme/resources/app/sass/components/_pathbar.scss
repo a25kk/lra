@@ -35,7 +35,8 @@
     margin-bottom: 0;
   }
   > * > span { //you are here
-    display: inline-block;
+    display: none;
+    //display: inline-block;
     color: $gray-light;
     padding: 1rem 0 1rem 1rem;
     font-weight: 100;
@@ -69,14 +70,19 @@
     //}
 }
 
+#breadcrumbs-you-are-here {
+  display: none;
+}
+
 
 // Reuse bs v4 breadcrumb component
 // to keep styles concise
- .app-breadcrumbs {
+ .plone-breadcrumb {
     @include make-container();
     @include make-container-max-widths();
     @extend .breadcrumb;
-    padding-left: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
  }
 
  .app-breadcrumbs-item {
