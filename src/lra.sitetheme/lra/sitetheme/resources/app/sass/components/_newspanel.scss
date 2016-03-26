@@ -16,9 +16,9 @@
 }
 
 .app-news-list-item {
+    margin-bottom: $spacer;
 	@include media-breakpoint-up(sm) {
 		@include make-row();
-        margin-bottom: $spacer;
         margin-right: 0;
 	}
 
@@ -34,6 +34,7 @@
 .app-news-list-item-aside {
 	@include media-breakpoint-up(sm) {
     	@include make-col(4);
+        padding-right: 0;
     }
     .app-page-image-container{
         margin-bottom: 0;
@@ -43,6 +44,7 @@
 .app-news-list-item-main {
 	@include media-breakpoint-up(sm) {
     	@include make-col(8);
+        border-left: 15px solid #fff;
     }
     padding: 2rem 1rem 1rem;
     background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
