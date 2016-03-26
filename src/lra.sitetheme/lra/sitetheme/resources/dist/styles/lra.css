@@ -14117,6 +14117,7 @@ article.vevent
 .app-signin-wrapper
 {
     max-width: 480px;
+    margin: 0 auto;
 }
 
 .app-signin
@@ -14383,7 +14384,7 @@ article.vevent
 
         max-width: 50%;
         min-height: 1px;
-        padding: 0; 
+        padding: 1rem; 
         padding-right: 15px;
         padding-left: 15px;
 
