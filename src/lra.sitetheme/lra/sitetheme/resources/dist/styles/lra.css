@@ -12990,6 +12990,13 @@ img[data-sizes='auto']
     width: 100%;
 }
 
+.app-page-image
+{
+    display: block;
+
+    width: 100%;
+}
+
 .event.summary
 {
     float: right;
