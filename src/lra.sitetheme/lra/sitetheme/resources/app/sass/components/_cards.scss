@@ -222,10 +222,14 @@
         flex: 0 0 100%;
     }
   .app-card-main {
-    height: 24rem;
-    min-height: 24rem;
+    //height: 24rem;
+    //min-height: 24rem;
     background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
     padding: 0;
+    @include media-breakpoint-up(sm) {
+      height: 24rem;
+      min-height: 24rem;
+      }
     }
     .app-card-content {
         font-size: 1rem;

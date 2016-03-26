@@ -12370,11 +12370,17 @@ app-nav-list .app-card-main
 
 .card-quick .app-card-main
 {
-    height: 24rem;
-    min-height: 24rem;
     padding: 0; 
 
     background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
+}
+@media (min-width: 544px)
+{
+    .card-quick .app-card-main
+    {
+        height: 24rem;
+        min-height: 24rem;
+    }
 }
 
 .card-quick .app-card-content
