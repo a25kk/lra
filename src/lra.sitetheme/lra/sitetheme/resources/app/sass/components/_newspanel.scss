@@ -61,9 +61,12 @@
 
 .app-news-list-item-actions {
     text-align: right;
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    @include media-breakpoint-up(md) {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        }
+
     a {
         color: #fff;
     }

@@ -10422,11 +10422,19 @@ div.riform .label
 
 .app-header-actionbar
 {
-    margin-right: 1rem; 
-    margin-left: 1rem;
+    margin-right: 0; 
+    margin-left: 0;
+}
+@media (min-width: 544px)
+{
+    .app-header-actionbar
+    {
+        margin-right: 1rem; 
+        margin-left: 1rem;
+    }
 }
 
-@media (min-width: 768px)
+@media (min-width: 992px)
 {
     .app-header-brandbar
     {
@@ -10690,6 +10698,20 @@ div.riform .label
 {
     .app-navitem-tab
     {
+        font-size: .8rem; 
+
+        height: 50px;
+        min-height: 50px;
+
+        text-align: center;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-navitem-tab
+    {
+        font-size: 1.2rem; 
+
         height: 50px;
         min-height: 50px;
 
@@ -11385,6 +11407,22 @@ textarea
     {
         position: relative;
 
+        max-width: 50%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-brand-panel .app-brand-img
+    {
+        position: relative;
+
         max-width: 25%; 
         min-height: 1px;
         padding-right: 15px;
@@ -11427,7 +11465,6 @@ textarea
 
 .app-brandname-logo
 {
-    width: 140px;
     margin: 0 auto;
 }
 .app-brand-img-xs .app-brandname-logo
@@ -11482,11 +11519,32 @@ textarea
 {
     .app-brand-panel .app-brandname
     {
-        max-width: 66.6666%; 
+        position: relative;
 
-        -webkit-flex: 0 0 66.6666%;
-            -ms-flex: 0 0 66.6666%;
-                flex: 0 0 66.6666%;
+        max-width: 50%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-brand-panel .app-brandname
+    {
+        position: relative;
+
+        max-width: 75%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 75%;
+            -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
     }
 }
 .app-brand-panel-inverse .app-brandname
@@ -13852,11 +13910,16 @@ article.vevent
 
 .app-news-list-item-actions
 {
-    position: absolute;
-    right: 2rem; 
-    bottom: 2rem;
-
     text-align: right;
+}
+@media (min-width: 768px)
+{
+    .app-news-list-item-actions
+    {
+        position: absolute;
+        right: 2rem; 
+        bottom: 2rem;
+    }
 }
 .app-news-list-item-actions a
 {
