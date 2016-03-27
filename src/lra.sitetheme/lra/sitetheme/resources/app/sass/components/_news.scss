@@ -8,7 +8,6 @@
 
 .tileImage {
   @extend.img-fluid;
-  //margin-bottom: @line-height-computed;
   float: left;
 }
 
@@ -48,19 +47,9 @@
   padding-bottom: 1rem;
   .app-news-left {
     @include make-col(12);
-
-        // {
-        //  @include make-col();
-        //  @include make-col-span(4);
-        //}
   }
   .app-news-right {
     @include make-col(12);
-
-        //@include media-breakpoint-down(sm) {
-        //  @include make-col();
-        //  @include make-col-span(8);
-        //}
   }
 }
 
@@ -72,22 +61,23 @@
   .app-summary-left {
     @include make-col(12);
         margin-bottom: 1rem;
-
         @include media-breakpoint-up(sm) {
           @include make-col(4);
           margin-bottom: 0;
         }
-  }
+    }
   .app-summary-right {
     @include make-col(12);
-
         @include media-breakpoint-up(sm) {
           @include make-col(8);
         }
-  }
+    }
 }
 
+// Back to Listing
+
 .back {
+  width: 100%;
   a {
     color: #fff;
   }

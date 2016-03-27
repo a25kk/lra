@@ -12982,6 +12982,10 @@ app-nav-list .app-card-main
     }
 }
 
+.back
+{
+    width: 100%;
+}
 .back a
 {
     color: #fff;

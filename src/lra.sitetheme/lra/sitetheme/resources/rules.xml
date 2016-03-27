@@ -16,7 +16,8 @@
     <theme href="dist/full/index.html" css:if-content="body.template-default_error_message" />
     <theme href="dist/full/index.html" css:if-content="body.template-contact-info" />
     <theme href="dist/chart/index.html" css:if-content="body.subsection-verwaltungsgliederungsplan" />
-    s
+    <theme href="dist/cam/index.html" css:if-content="body.subsection-aktionen-baucam-des-krankenhausneubaus" />
+    
     <theme href="dist/frontpage/index.html" css:if-content="body.template-frontpage-view" />
     <theme href="dist/index.html" css:if-content="body.app-intro" />
 
