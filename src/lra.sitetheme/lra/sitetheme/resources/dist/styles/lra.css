@@ -11589,6 +11589,20 @@ textarea
     display: -ms-flexbox;
     display:         flex;
 }
+@media (min-width: 544px)
+{
+    .app-actions
+    {
+        font-size: .6rem;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-actions
+    {
+        font-size: .85rem;
+    }
+}
 
 .app-action
 {

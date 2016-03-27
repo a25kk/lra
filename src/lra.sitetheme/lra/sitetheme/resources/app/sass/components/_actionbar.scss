@@ -9,6 +9,12 @@
 .app-actions {
   display: flex;
   font-size: 0.85rem;
+  @include media-breakpoint-up(sm) {
+    font-size: 0.6rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 0.85rem;
+  }
 }
 
 .app-action {
