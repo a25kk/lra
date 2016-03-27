@@ -10419,21 +10419,6 @@ div.riform .label
     margin-right: 1rem; 
     margin-left: 1rem;
 }
-
-.app-header-actionbar
-{
-    margin-right: 0; 
-    margin-left: 0;
-}
-@media (min-width: 544px)
-{
-    .app-header-actionbar
-    {
-        margin-right: 1rem; 
-        margin-left: 1rem;
-    }
-}
-
 @media (min-width: 992px)
 {
     .app-header-brandbar
@@ -10445,14 +10430,23 @@ div.riform .label
             -ms-flex: 0 0 66.6666%;
                 flex: 0 0 66.6666%;
     }
+}
+
+.app-header-actionbar
+{
+    margin-right: 0; 
+    margin-left: 0;
+
+    -webkit-flex: 0 0 33.3333%;
+        -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
+}
+@media (min-width: 544px)
+{
     .app-header-actionbar
     {
-        margin-right: 0; 
-        margin-left: 0;
-
-        -webkit-flex: 0 0 33.3333%;
-            -ms-flex: 0 0 33.3333%;
-                flex: 0 0 33.3333%;
+        margin-right: 0rem; 
+        margin-left: 0rem;
     }
 }
 

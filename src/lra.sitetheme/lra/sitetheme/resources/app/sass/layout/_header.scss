@@ -57,51 +57,28 @@
   flex: 1;
 }
 
-.app-header-brandbar {
-  margin-left: 1rem;
-  margin-right:1rem;
-}
-
-.app-header-actionbar {
-    margin-left: 0;
-    margin-right:0;
-  @include media-breakpoint-up(sm) {
-    margin-left: 1rem;
-    margin-right:1rem;
-  }
-}
-
 
 //== Adjust grid cell sizes
 //
 //## Starting from the grid breakpoint the header
 ////## should display in the standard 2:1 ratio
-@include media-breakpoint-up(lg) {
-    .app-header-brandbar {
-        flex: 0 0 66.6666%;
-        margin-left: 0;
-        margin-right: 0;
 
-    }
-    .app-header-actionbar {
-        flex: 0 0 33.3333%;
-        margin-left: 0;
-        margin-right: 0;
-    }
+.app-header-brandbar {
+  margin-left: 1rem;
+  margin-right:1rem;
+  @include media-breakpoint-up(lg) {
+    flex: 0 0 66.6666%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
-//.app-header-brandbar {
-//  @include make-col(12);
-//    @include media-breakpoint-up(md) {
-//        @include make-col(8);
-//}
-//}
-//
-//.app-header-actionbar {
-//  @include make-col(12);
-//    @include media-breakpoint-up(md) {
-//        @include make-col(4);
-//}
-//}
-//
-
+.app-header-actionbar {
+  flex: 0 0 33.3333%;
+  margin-left: 0;
+  margin-right:0;
+    @include media-breakpoint-up(sm) {
+      margin-left: 0rem;
+      margin-right:0rem;
+    }
+}
