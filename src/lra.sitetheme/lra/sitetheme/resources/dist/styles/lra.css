@@ -13093,6 +13093,8 @@ img[data-sizes='auto']
     display: block;
 
     padding-bottom: .3em;
+
+    border: 0;
 }
 
 .vevent span.cal_day
@@ -13117,6 +13119,7 @@ img[data-sizes='auto']
     .vevent div.cal_info
     {
         margin-right: 0;
+        margin-left: 0;
     }
 }
 
