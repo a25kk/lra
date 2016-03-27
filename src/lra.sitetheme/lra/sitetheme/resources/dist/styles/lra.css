@@ -10321,12 +10321,14 @@ div.riform .label
 .app-header
 {
     padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 @media (min-width: 768px)
 {
     .app-header
     {
         padding-top: 3rem;
+        padding-bottom: 0;
 
         border-bottom: 10px solid #274d38;
     }

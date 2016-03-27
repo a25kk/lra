@@ -5,8 +5,10 @@
 
 .app-header {
   padding-top: 1rem;
+  padding-bottom: 1rem;
   @include media-breakpoint-up(md) {
     padding-top: 3rem;
+    padding-bottom: 0;
     border-bottom: 10px solid $app-primary;
   }
 }
