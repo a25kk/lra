@@ -12664,12 +12664,17 @@ app-nav-list .app-card-main
 .navTreeCurrentItem
 {
     color: #fff;
-    background: #1a3426;
+    background: #1a3426 !important;
 }
 
 .navTreeItemInPath
 {
     color: #fff;
+}
+
+.navTreeCurrentNode
+{
+    background: #41805d;
 }
 
 .navTreeItem .navTreeLevel0 li a:link
