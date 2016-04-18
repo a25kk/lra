@@ -14407,6 +14407,22 @@ article.vevent
     padding: 1rem 0;
 }
 
+.app-content
+{
+    padding: 1rem; 
+
+    background: #edeaea;
+}
+.app-content a
+{
+    font-weight: 500;
+}
+
+.app-aside
+{
+    padding: 1rem 1rem 1rem .5rem;
+}
+
 .app-page-title
 {
     color: #274d38;
@@ -15210,22 +15226,6 @@ article.vevent
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
-}
-
-.app-content
-{
-    padding: 1rem; 
-
-    background: #edeaea;
-}
-.app-content a
-{
-    font-weight: 500;
-}
-
-.app-aside
-{
-    padding: 1rem 1rem 1rem .5rem;
 }
 
 .app-styleguide

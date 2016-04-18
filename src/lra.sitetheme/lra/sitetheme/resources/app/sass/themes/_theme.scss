@@ -51,20 +51,3 @@
     padding-left: 0;
     margin-top: 1rem;
 }
-
-// Site content area layout/theme
-//
-// Note: content specific styles
-// should be added to: pages/_contentpage.scss
-.app-content {
-  background: $app-gray;
-  padding: 1rem;
-    a {
-        font-weight: 500;
-    }
-}
-
-.app-aside {
-  //min-width: 15rem;
-  padding: 1rem 1rem 1rem 0.5rem;
-}
