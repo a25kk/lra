@@ -59,6 +59,9 @@
 .app-content {
   background: $app-gray;
   padding: 1rem;
+    a {
+        font-weight: 500;
+    }
 }
 
 .app-aside {

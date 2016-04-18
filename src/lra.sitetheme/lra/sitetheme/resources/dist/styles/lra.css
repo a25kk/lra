@@ -15218,6 +15218,10 @@ article.vevent
 
     background: #edeaea;
 }
+.app-content a
+{
+    font-weight: 500;
+}
 
 .app-aside
 {
