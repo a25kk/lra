@@ -12553,9 +12553,9 @@ app-nav-list .app-card-main
     color: #fff; 
     border: 1px solid #fff;
 
-    -webkit-flex: 0 0 25%;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
 }
 .inner-configlet > a
 {
@@ -12598,6 +12598,17 @@ app-nav-list .app-card-main
     padding-left: 0;
 
     list-style: none;
+}
+
+.app-nav-tree-list
+{
+    padding-left: 0;
+
+    list-style: none;
+}
+.app-nav-tree-list li
+{
+    width: 100%;
 }
 
 .app-nav-list-item

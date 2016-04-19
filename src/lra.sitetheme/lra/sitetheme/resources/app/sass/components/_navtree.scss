@@ -28,6 +28,14 @@
     list-style: none;
 }
 
+.app-nav-tree-list {
+    padding-left: 0;
+    list-style: none;
+    li {
+        width: 100%;
+    }
+}
+
 .app-nav-list-item {
     margin-left: 0;
     padding: .5rem .25rem;
