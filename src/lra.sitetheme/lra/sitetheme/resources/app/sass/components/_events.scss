@@ -27,6 +27,7 @@
     font-size:1.5em;
     font-weight: 700;
     padding-bottom:0.3em;
+    border: 0;
 }
 .vevent span.cal_day {
     font-size:1.7em;
@@ -42,6 +43,7 @@
 .vevent div.cal_info {
     @include media-breakpoint-up(sm) {
         margin-right:0;
+        margin-left: 0;
     }
 }
 

@@ -28,6 +28,14 @@
     list-style: none;
 }
 
+.app-nav-tree-list {
+    padding-left: 0;
+    list-style: none;
+    li {
+        width: 100%;
+    }
+}
+
 .app-nav-list-item {
     margin-left: 0;
     padding: .5rem .25rem;
@@ -81,12 +89,15 @@
 
 .navTreeCurrentItem {
     color: #fff;
-    background: $app-primary-dark;
+    background: $app-primary-dark !important;
 }
 
 .navTreeItemInPath {
     color: #fff;
-    //background: $app-primary-dark;
+}
+
+.navTreeCurrentNode {
+    background: $app-primary-lighter;
 }
 
 .navTreeItem .navTreeLevel0 li a:link {

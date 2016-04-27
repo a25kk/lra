@@ -4197,7 +4197,8 @@ mark,
 
 .img-fluid,
 .newsImage,
-.tileImage
+.tileImage,
+.app-page-block-content img
 {
     display: block;
 
@@ -8106,7 +8107,7 @@ input[type='color'] + .input-group-addon:not(:first-child),
 }
 
 .breadcrumb,
-.app-pathbar .app-breadcrumbs
+.app-pathbar .plone-breadcrumb
 {
     margin-bottom: 1rem;
     padding: .75rem 1rem;
@@ -8116,7 +8117,7 @@ input[type='color'] + .input-group-addon:not(:first-child),
     background-color: transparent;
 }
 .breadcrumb::after,
-.app-pathbar .app-breadcrumbs::after
+.app-pathbar .plone-breadcrumb::after
 {
     display: table;
     clear: both; 
@@ -10320,12 +10321,14 @@ div.riform .label
 .app-header
 {
     padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 @media (min-width: 768px)
 {
     .app-header
     {
         padding-top: 3rem;
+        padding-bottom: 0;
 
         border-bottom: 10px solid #274d38;
     }
@@ -10418,14 +10421,7 @@ div.riform .label
     margin-right: 1rem; 
     margin-left: 1rem;
 }
-
-.app-header-actionbar
-{
-    margin-right: 1rem; 
-    margin-left: 1rem;
-}
-
-@media (min-width: 768px)
+@media (min-width: 992px)
 {
     .app-header-brandbar
     {
@@ -10436,14 +10432,23 @@ div.riform .label
             -ms-flex: 0 0 66.6666%;
                 flex: 0 0 66.6666%;
     }
+}
+
+.app-header-actionbar
+{
+    margin-right: 0; 
+    margin-left: 0;
+
+    -webkit-flex: 0 0 33.3333%;
+        -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
+}
+@media (min-width: 544px)
+{
     .app-header-actionbar
     {
-        margin-right: 0; 
-        margin-left: 0;
-
-        -webkit-flex: 0 0 33.3333%;
-            -ms-flex: 0 0 33.3333%;
-                flex: 0 0 33.3333%;
+        margin-right: 0rem; 
+        margin-left: 0rem;
     }
 }
 
@@ -10689,6 +10694,20 @@ div.riform .label
 {
     .app-navitem-tab
     {
+        font-size: .8rem; 
+
+        height: 50px;
+        min-height: 50px;
+
+        text-align: center;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-navitem-tab
+    {
+        font-size: 1.2rem; 
+
         height: 50px;
         min-height: 50px;
 
@@ -11384,6 +11403,22 @@ textarea
     {
         position: relative;
 
+        max-width: 50%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-brand-panel .app-brand-img
+    {
+        position: relative;
+
         max-width: 25%; 
         min-height: 1px;
         padding-right: 15px;
@@ -11426,7 +11461,6 @@ textarea
 
 .app-brandname-logo
 {
-    width: 140px;
     margin: 0 auto;
 }
 .app-brand-img-xs .app-brandname-logo
@@ -11481,11 +11515,32 @@ textarea
 {
     .app-brand-panel .app-brandname
     {
-        max-width: 66.6666%; 
+        position: relative;
 
-        -webkit-flex: 0 0 66.6666%;
-            -ms-flex: 0 0 66.6666%;
-                flex: 0 0 66.6666%;
+        max-width: 50%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-brand-panel .app-brandname
+    {
+        position: relative;
+
+        max-width: 75%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 75%;
+            -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
     }
 }
 .app-brand-panel-inverse .app-brandname
@@ -11535,6 +11590,20 @@ textarea
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
+}
+@media (min-width: 544px)
+{
+    .app-actions
+    {
+        font-size: .6rem;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-actions
+    {
+        font-size: .85rem;
+    }
 }
 
 .app-action
@@ -11981,7 +12050,7 @@ textarea
     background-color: #733a3a;
 }
 .app-pathbar .breadcrumb,
-.app-pathbar .app-breadcrumbs
+.app-pathbar .plone-breadcrumb
 {
     margin-bottom: 0; 
 
@@ -11991,7 +12060,7 @@ textarea
 {
     font-weight: 100; 
 
-    display: inline-block;
+    display: none;
 
     padding: 1rem 0 1rem 1rem;
 
@@ -12038,38 +12107,43 @@ textarea
 {
     color: #fff;
 }
-.app-pathbar .app-breadcrumbs
+.app-pathbar #breadcrumbs-you-are-here
+{
+    display: none;
+}
+.app-pathbar .plone-breadcrumb
 {
     margin-right: auto;
     margin-left: auto;
+    padding-top: 0;
     padding-right: 15px;
+    padding-bottom: 0; 
     padding-left: 15px;
-    padding-left: 30px;
 }
 @media (min-width: 544px)
 {
-    .app-pathbar .app-breadcrumbs
+    .app-pathbar .plone-breadcrumb
     {
         max-width: 576px;
     }
 }
 @media (min-width: 768px)
 {
-    .app-pathbar .app-breadcrumbs
+    .app-pathbar .plone-breadcrumb
     {
         max-width: 720px;
     }
 }
 @media (min-width: 992px)
 {
-    .app-pathbar .app-breadcrumbs
+    .app-pathbar .plone-breadcrumb
     {
         max-width: 940px;
     }
 }
 @media (min-width: 1200px)
 {
-    .app-pathbar .app-breadcrumbs
+    .app-pathbar .plone-breadcrumb
     {
         max-width: 1140px;
     }
@@ -12364,11 +12438,17 @@ app-nav-list .app-card-main
 
 .card-quick .app-card-main
 {
-    height: 24rem;
-    min-height: 24rem;
     padding: 0; 
 
     background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
+}
+@media (min-width: 544px)
+{
+    .card-quick .app-card-main
+    {
+        height: 24rem;
+        min-height: 24rem;
+    }
 }
 
 .card-quick .app-card-content
@@ -12473,9 +12553,9 @@ app-nav-list .app-card-main
     color: #fff; 
     border: 1px solid #fff;
 
-    -webkit-flex: 0 0 25%;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
 }
 .inner-configlet > a
 {
@@ -12518,6 +12598,17 @@ app-nav-list .app-card-main
     padding-left: 0;
 
     list-style: none;
+}
+
+.app-nav-tree-list
+{
+    padding-left: 0;
+
+    list-style: none;
+}
+.app-nav-tree-list li
+{
+    width: 100%;
 }
 
 .app-nav-list-item
@@ -12584,12 +12675,17 @@ app-nav-list .app-card-main
 .navTreeCurrentItem
 {
     color: #fff;
-    background: #1a3426;
+    background: #1a3426 !important;
 }
 
 .navTreeItemInPath
 {
     color: #fff;
+}
+
+.navTreeCurrentNode
+{
+    background: #41805d;
 }
 
 .navTreeItem .navTreeLevel0 li a:link
@@ -12902,6 +12998,10 @@ app-nav-list .app-card-main
     }
 }
 
+.back
+{
+    width: 100%;
+}
 .back a
 {
     color: #fff;
@@ -12984,6 +13084,13 @@ img[data-sizes='auto']
     width: 100%;
 }
 
+.app-page-image
+{
+    display: block;
+
+    width: 100%;
+}
+
 .event.summary
 {
     float: right;
@@ -13002,6 +13109,8 @@ img[data-sizes='auto']
     display: block;
 
     padding-bottom: .3em;
+
+    border: 0;
 }
 
 .vevent span.cal_day
@@ -13026,6 +13135,7 @@ img[data-sizes='auto']
     .vevent div.cal_info
     {
         margin-right: 0;
+        margin-left: 0;
     }
 }
 
@@ -13750,6 +13860,10 @@ article.vevent
     }
 }
 
+.app-news-list-item
+{
+    margin-bottom: 1rem;
+}
 @media (min-width: 544px)
 {
     .app-news-list-item
@@ -13760,7 +13874,6 @@ article.vevent
 
         margin-right: -15px;
         margin-right: 0; 
-        margin-bottom: 1rem;
         margin-left: -15px;
 
         -webkit-flex-wrap: wrap;
@@ -13775,9 +13888,10 @@ article.vevent
     {
         position: relative;
 
-        max-width: 33.3333333333%; 
+        max-width: 33.3333333333%;
         min-height: 1px;
         padding-right: 15px;
+        padding-right: 0; 
         padding-left: 15px;
 
         -webkit-flex: 0 0 33.3333333333%;
@@ -13804,10 +13918,12 @@ article.vevent
     {
         position: relative;
 
-        max-width: 66.6666666667%; 
+        max-width: 66.6666666667%;
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
+
+        border-left: 15px solid #fff; 
 
         -webkit-flex: 0 0 66.6666666667%;
             -ms-flex: 0 0 66.6666666667%;
@@ -13827,11 +13943,16 @@ article.vevent
 
 .app-news-list-item-actions
 {
-    position: absolute;
-    right: 2rem; 
-    bottom: 2rem;
-
     text-align: right;
+}
+@media (min-width: 768px)
+{
+    .app-news-list-item-actions
+    {
+        position: absolute;
+        right: 2rem; 
+        bottom: 2rem;
+    }
 }
 .app-news-list-item-actions a
 {
@@ -14104,6 +14225,7 @@ article.vevent
 .app-signin-wrapper
 {
     max-width: 480px;
+    margin: 0 auto;
 }
 
 .app-signin
@@ -14301,6 +14423,22 @@ article.vevent
     padding: 1rem 0;
 }
 
+.app-content
+{
+    padding: 1rem; 
+
+    background: #edeaea;
+}
+.app-content a
+{
+    font-weight: 500;
+}
+
+.app-aside
+{
+    padding: 1rem 1rem 1rem .5rem;
+}
+
 .app-page-title
 {
     color: #274d38;
@@ -14328,6 +14466,95 @@ article.vevent
 .app-page-section
 {
     margin: 1rem 0 2rem;
+}
+
+.app-page-block
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 0 1rem; 
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+
+.app-page-block-content
+{
+    position: relative;
+
+    max-width: 100%;
+    min-height: 1px;
+    margin-bottom: 1rem;
+    padding: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    background: #fff; 
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+@media (min-width: 544px)
+{
+    .app-page-block-content
+    {
+        position: relative;
+
+        max-width: 50%;
+        min-height: 1px;
+        padding: 1rem; 
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+    }
+}
+
+.app-page-block-card
+{
+    position: relative;
+
+    max-width: 100%;
+    min-height: 1px;
+    min-height: 120px;
+    padding: 1rem;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    border: 3px solid #edeaea; 
+    background: #fff;
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+.app-page-block-card img
+{
+    display: block;
+}
+@media (min-width: 544px)
+{
+    .app-page-block-card
+    {
+        position: relative;
+
+        max-width: 25%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 25%;
+            -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+    }
 }
 
 .app-contact-block
@@ -15015,18 +15242,6 @@ article.vevent
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
-}
-
-.app-content
-{
-    padding: 1rem; 
-
-    background: #edeaea;
-}
-
-.app-aside
-{
-    padding: 1rem 1rem 1rem .5rem;
 }
 
 .app-styleguide
