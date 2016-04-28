@@ -12249,7 +12249,7 @@ textarea
     background: url(../assets/img/card-forms-bg.jpg) no-repeat top center;
     background-size: cover;
 }
-.app-card-header-info
+.app-card-header-district
 {
     background: url(../assets/img/card-info-bg.jpg) no-repeat top center;
     background-size: cover;
@@ -12259,9 +12259,9 @@ textarea
     background: url(../assets/img/card-cars-bg.jpg) no-repeat top center;
     background-size: cover;
 }
-.app-card-header-service
+.app-card-header-circle
 {
-    background: url(../assets/img/card-service-bg.jpg) no-repeat top center;
+    background: url(../assets/img/card-circle-bg.jpg) no-repeat top center;
     background-size: cover;
 }
 .app-card-header-actions
