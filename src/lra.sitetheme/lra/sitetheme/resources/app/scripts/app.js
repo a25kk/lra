@@ -1,9 +1,3 @@
-requirejs(['require', 'jquery',
-'/++theme++lra.sitetheme/dist/scripts/lazysizes-umd.js',
-'/++theme++lra.sitetheme/dist/scripts/respimage.js',
-'/++theme++lra.sitetheme/dist/scripts/flickity.pkgd.js',],
- function(require, $, Flickity) {
-'use strict';
 var $bannerBar = document.querySelectorAll('.app-js-carousel'),
     $galleryContainer = document.querySelectorAll('.js-gallery');
 // Show banner bar
@@ -58,4 +52,3 @@ require( [ 'jquery-bridget/jquery.bridget' ],
         // });
 
     });
-});

@@ -50,18 +50,16 @@ module.exports = function (grunt) {
             },
             theme: {
                 options: {
-                    banner: "require(['jquery'], function($) {'use strict';",
+                    banner: "requirejs(['require', 'jquery',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/lazysizes-umd.js',\n" +
+                                       // "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/ls.parent-fit.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/respimage.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/flickity.pkgd.js',],\n function(require, $, Flickity) {\n'use strict';\n",
                     footer: "});",
                     stripBanners: true
                 },
                 src: [
-                    '<%= config.modules %>/tether/dist/js/tether.min.js',
-                    '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
-                    '<%= config.modules %>/lazysizes/lazysizes.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.parent-fit.js',
-                    '<%= config.modules %>/respimage/respimage.js',
-                    '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
-                    '<%= config.app %>/scripts/main.js'
+                    '<%= config.app %>/scripts/app.js'
                 ],
                 dest: '<%= config.dist %>/scripts/main.js'
             }
@@ -177,6 +175,22 @@ module.exports = function (grunt) {
                 flatten: true,
                 src: ['<%= config.app %>/assets/ico/*'],
                 dest: '<%= config.dist %>/assets/ico/'
+            },
+            javascript: {
+                expand: true,
+                flatten: true,
+                src: [
+                    '<%= config.modules %>/tether/dist/js/tether.js',
+                    '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
+                    '<%= config.modules %>/bootstrap/dist/js/umd/util.js',
+                    '<%= config.modules %>/bootstrap/dist/js/umd/collapse.js',
+                    '<%= config.modules %>/bootstrap/dist/js/umd/dropdown.js',
+                    '<%= config.modules %>/lazysizes/lazysizes-umd.js',
+                    '<%= config.modules %>/lazysizes/plugins/parent-fit/ls.parent-fit.js',
+                    '<%= config.modules %>/respimage/respimage.js',
+                    '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
+                ],
+                dest: '<%= config.dist %>/scripts/'
             }
         },
         imagemin: {
