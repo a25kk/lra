@@ -20,7 +20,8 @@ var basePaths = {
     dev: '_site',
     dist: 'dist',
     diazoPrefix: '/++theme++pkg.name.sitetheme',
-    bower: 'bower_components/'
+    bower: 'bower_components/',
+    modules: 'modules/'
 };
 
 var sourcesJS = {
@@ -72,7 +73,7 @@ gulp.task('styles', () => {
         .pipe($.sass.sync({
             outputStyle: 'expanded',
             precision: 10,
-            includePaths: [basePaths.bower]
+            includePaths: [basePaths.modules]
         }).on('error', $.sass.logError))
         .pipe($.autoprefixer({browsers: ['last 1 version']}))
         .pipe(gulp.dest(basePaths.dist + '/styles/'))
