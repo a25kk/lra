@@ -11215,7 +11215,7 @@ textarea
 }
 .app-brand-img-sm
 {
-    width: 64px;
+    width: 80px;
 }
 .app-brand-img-md
 {
@@ -11395,11 +11395,12 @@ textarea
 {
     .app-brand-panel-inverse .app-brandname
     {
-        max-width: 75%; 
+        max-width: 65%;
+        padding-top: 1.5rem; 
 
-        -webkit-flex: 0 0 75%;
-            -ms-flex: 0 0 75%;
-                flex: 0 0 75%;
+        -webkit-flex: 0 0 65%;
+            -ms-flex: 0 0 65%;
+                flex: 0 0 65%;
     }
 }
 @media (min-width: 544px)
