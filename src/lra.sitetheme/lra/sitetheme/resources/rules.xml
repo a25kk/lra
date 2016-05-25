@@ -18,7 +18,7 @@
     <theme href="dist/chart/index.html" css:if-content="body.subsection-verwaltungsgliederungsplan" />
     <theme href="dist/chart/index.html" css:if-content="body.subsection-fachbereiche-fachbereiche" />
     <theme href="dist/cam/index.html" css:if-content="body.subsection-aktionen-baucam-des-krankenhausneubaus" />
-    
+
     <theme href="dist/frontpage/index.html" css:if-content="body.template-frontpage-view" />
     <theme href="dist/index.html" css:if-content="body.app-intro" />
 
@@ -82,8 +82,8 @@
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-navbar-section" />
 
         <!-- Portal searchbox -->
-        <!--<copy attributes="action" css:content="#portal-searchbox form"
-            css:theme="#portal-searchbox" />-->
+        <copy attributes="action" css:content="#portal-searchbox form"
+            css:theme="#app-searchbox" />
 
         <!-- Global navigation -->
         <replace css:content="#portal-globalnav li"
@@ -94,7 +94,7 @@
           css:theme="#app-navbar-nav"
           href="/@@navbar-view" />-->
 
-        <!-- Breadcrumbs 
+        <!-- Breadcrumbs
         <replace css:content="#portal-breadcrumbs" method="raw" if-content="//*[@id='breadcrumbs-1']">
             <ol class="app-breadcrumbs">
                 <xsl:for-each select="./div/ol/li[not(position() = last())]//a">

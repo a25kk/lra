@@ -2,10 +2,10 @@
   {% include components/brandpanel.html %}
     <div class="app-action-search-wrapper">
       <div class="app-action-search">
-        <form class="app-searchbox" role="search" action="/lra/@@search">
+        <form class="app-searchbox" id="app-searchbox" role="search" action="/lra/@@search">
           <div class="app-searchbox-group">
             <input class="app-searchbox-control app-searchbox-field" type="text" name ="SearchableText" id="SearchableText" placeholder="Wonach suchen Sie?">
-            <button class="btn btn-default app-searchbox-control app-searchbox-btn" type="button">
+            <button class="btn btn-default app-searchbox-control app-searchbox-btn" type="submit">
               <i class="fa fa-search" aria-hidden="true"></i>
               <span class="sr-only">Suchen</span>
             </button>
