@@ -16,6 +16,16 @@
     flex: 0 0 100%;
     max-width: 100%;
     color: $gray-lighter;
+    a:hover {
+      color: #fff;
+      opacity: 0.7;
+      text-decoration: none;
+      }
+
+    a:visited {
+      color: #fff;
+      text-decoration: none;
+    }
     .fa {
       color: #fff;
     }
@@ -80,15 +90,6 @@
   &-actions {
       background: url(../assets/img/card-actions-bg.jpg) no-repeat top center;
       background-size: cover;
-  }
-
-  a:hover {
-    color: #fff;
-    opacity: 0.7;
-  }
-
-  a:visited {
-    color: #fff;
   }
 }
 
