@@ -18,6 +18,10 @@
     <theme href="dist/chart/index.html" css:if-content="body.subsection-verwaltungsgliederungsplan" />
     <theme href="dist/chart/index.html" css:if-content="body.subsection-fachbereiche-fachbereiche" />
     <theme href="dist/cam/index.html" css:if-content="body.subsection-aktionen-baucam-des-krankenhausneubaus" />
+    <theme href="dist/full/index.html" css:if-content="body.section-impressum" />
+    <theme href="dist/full/index.html" css:if-content="body.section-rechtliche-hinweise" />
+    <theme href="dist/full/index.html" css:if-content="body.section-kontakt" />
+
 
     <theme href="dist/frontpage/index.html" css:if-content="body.template-frontpage-view" />
     <theme href="dist/index.html" css:if-content="body.app-intro" />
