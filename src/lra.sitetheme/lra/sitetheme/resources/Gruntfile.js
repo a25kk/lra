@@ -51,10 +51,13 @@ module.exports = function (grunt) {
             theme: {
                 options: {
                     banner: "requirejs(['require', 'jquery',\n" +
-                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/lazysizes-umd.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/flickity.pkgd.js',\n" +
                                        // "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/ls.parent-fit.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/hideShowPassword.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/jvFloat.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/respimage.js',\n" +
-                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/flickity.pkgd.js',],\n function(require, $, Flickity) {\n'use strict';\n",
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/lazysizes-umd.js',],\n" +
+                                       " function(require, $, Flickity) {\n'use strict';\n",
                     footer: "});",
                     stripBanners: true
                 },
@@ -180,11 +183,9 @@ module.exports = function (grunt) {
                 expand: true,
                 flatten: true,
                 src: [
-                    '<%= config.modules %>/tether/dist/js/tether.js',
-                    '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
-                    '<%= config.modules %>/bootstrap/dist/js/umd/util.js',
-                    '<%= config.modules %>/bootstrap/dist/js/umd/collapse.js',
-                    '<%= config.modules %>/bootstrap/dist/js/umd/dropdown.js',
+                    '<%= config.modules %>/mailcheck/src/mailcheck.js',
+                    '<%= config.modules %>/JVFloat/jvfloat.js',
+                    '<%= config.modules %>/hideShowPassword/hideShowPassword.js',
                     '<%= config.modules %>/lazysizes/lazysizes-umd.js',
                     '<%= config.modules %>/lazysizes/plugins/parent-fit/ls.parent-fit.js',
                     '<%= config.modules %>/respimage/respimage.js',
@@ -664,6 +665,7 @@ module.exports = function (grunt) {
         'html',
         'css',
         'js',
+        'copy:javascript',
         'cb',
         'replace:dist'
     ]);
