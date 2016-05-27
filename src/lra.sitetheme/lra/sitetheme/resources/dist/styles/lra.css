@@ -4603,7 +4603,8 @@ input[type='url'],
 input[type='search'],
 input[type='tel'],
 input[type='color'],
-.app-searchbox-field
+.app-searchbox-field,
+.searchField
 {
     font-size: 1rem;
     line-height: 1.25;
@@ -4638,7 +4639,8 @@ input[type='url']::-ms-expand,
 input[type='search']::-ms-expand,
 input[type='tel']::-ms-expand,
 input[type='color']::-ms-expand,
-.app-searchbox-field::-ms-expand
+.app-searchbox-field::-ms-expand,
+.searchField::-ms-expand
 {
     border: 0; 
     background-color: transparent;
@@ -4660,7 +4662,8 @@ input[type='url']:focus,
 input[type='search']:focus,
 input[type='tel']:focus,
 input[type='color']:focus,
-.app-searchbox-field:focus
+.app-searchbox-field:focus,
+.searchField:focus
 {
     color: #55595c;
     border-color: #66afe9;
@@ -4684,7 +4687,8 @@ input[type='url']::-webkit-input-placeholder,
 input[type='search']::-webkit-input-placeholder,
 input[type='tel']::-webkit-input-placeholder,
 input[type='color']::-webkit-input-placeholder,
-.app-searchbox-field::-webkit-input-placeholder
+.app-searchbox-field::-webkit-input-placeholder,
+.searchField::-webkit-input-placeholder
 {
     opacity: 1; 
     color: #999;
@@ -4706,7 +4710,8 @@ input[type='url']::-moz-placeholder,
 input[type='search']::-moz-placeholder,
 input[type='tel']::-moz-placeholder,
 input[type='color']::-moz-placeholder,
-.app-searchbox-field::-moz-placeholder
+.app-searchbox-field::-moz-placeholder,
+.searchField::-moz-placeholder
 {
     opacity: 1; 
     color: #999;
@@ -4728,7 +4733,8 @@ input[type='url']:-ms-input-placeholder,
 input[type='search']:-ms-input-placeholder,
 input[type='tel']:-ms-input-placeholder,
 input[type='color']:-ms-input-placeholder,
-.app-searchbox-field:-ms-input-placeholder
+.app-searchbox-field:-ms-input-placeholder,
+.searchField:-ms-input-placeholder
 {
     opacity: 1; 
     color: #999;
@@ -4750,7 +4756,8 @@ input[type='url']::placeholder,
 input[type='search']::placeholder,
 input[type='tel']::placeholder,
 input[type='color']::placeholder,
-.app-searchbox-field::placeholder
+.app-searchbox-field::placeholder,
+.searchField::placeholder
 {
     opacity: 1; 
     color: #999;
@@ -4773,6 +4780,7 @@ input[type='search']:disabled,
 input[type='tel']:disabled,
 input[type='color']:disabled,
 .app-searchbox-field:disabled,
+.searchField:disabled,
 .form-control[readonly],
 select[readonly],
 textarea[readonly],
@@ -4790,7 +4798,8 @@ input[readonly][type='url'],
 input[readonly][type='search'],
 input[readonly][type='tel'],
 input[readonly][type='color'],
-[readonly].app-searchbox-field
+[readonly].app-searchbox-field,
+[readonly].searchField
 {
     opacity: 1; 
     background-color: #eceeef;
@@ -4812,7 +4821,8 @@ input[type='url']:disabled,
 input[type='search']:disabled,
 input[type='tel']:disabled,
 input[type='color']:disabled,
-.app-searchbox-field:disabled
+.app-searchbox-field:disabled,
+.searchField:disabled
 {
     cursor: not-allowed;
 }
@@ -4894,6 +4904,7 @@ select:focus::-ms-value
 .input-group-sm > input.form-control-static[type='tel'],
 .input-group-sm > input.form-control-static[type='color'],
 .input-group-sm > .form-control-static.app-searchbox-field,
+.input-group-sm > .form-control-static.searchField,
 .input-group-sm > .form-control-static.input-group-addon,
 .input-group-sm > .input-group-btn > .form-control-static.btn,
 .input-group-sm > .input-group-btn > .form-control-static.searchButton,
@@ -4916,6 +4927,7 @@ select:focus::-ms-value
 .input-group-lg > input.form-control-static[type='tel'],
 .input-group-lg > input.form-control-static[type='color'],
 .input-group-lg > .form-control-static.app-searchbox-field,
+.input-group-lg > .form-control-static.searchField,
 .input-group-lg > .form-control-static.input-group-addon,
 .input-group-lg > .input-group-btn > .form-control-static.btn,
 .input-group-lg > .input-group-btn > .form-control-static.searchButton
@@ -4943,6 +4955,7 @@ select:focus::-ms-value
 .input-group-sm > input[type='tel'],
 .input-group-sm > input[type='color'],
 .input-group-sm > .app-searchbox-field,
+.input-group-sm > .searchField,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn,
 .input-group-sm > .input-group-btn > .searchButton
@@ -4979,6 +4992,7 @@ select.form-control-sm:not([size]):not([multiple]),
 .input-group-lg > input[type='tel'],
 .input-group-lg > input[type='color'],
 .input-group-lg > .app-searchbox-field,
+.input-group-lg > .searchField,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn,
 .input-group-lg > .input-group-btn > .searchButton
@@ -5131,7 +5145,9 @@ input[type='search'],
 input[type='tel'],
 .has-success
 input[type='color'],
-.has-success .app-searchbox-field
+.has-success .app-searchbox-field,
+.has-success
+.searchField
 {
     border-color: #5cb85c;
 }
@@ -5200,7 +5216,9 @@ input[type='search'],
 input[type='tel'],
 .has-warning
 input[type='color'],
-.has-warning .app-searchbox-field
+.has-warning .app-searchbox-field,
+.has-warning
+.searchField
 {
     border-color: #f0ad4e;
 }
@@ -5269,7 +5287,9 @@ input[type='search'],
 input[type='tel'],
 .has-danger
 input[type='color'],
-.has-danger .app-searchbox-field
+.has-danger .app-searchbox-field,
+.has-danger
+.searchField
 {
     border-color: #d9534f;
 }
@@ -5333,7 +5353,9 @@ input[type='color'],
     input[type='tel'],
     .form-inline
     input[type='color'],
-    .form-inline .app-searchbox-field
+    .form-inline .app-searchbox-field,
+    .form-inline
+    .searchField
     {
         display: inline-block;
 
@@ -5385,7 +5407,9 @@ input[type='color'],
     input[type='tel'],
     .form-inline .input-group
     input[type='color'],
-    .form-inline .input-group .app-searchbox-field
+    .form-inline .input-group .app-searchbox-field,
+    .form-inline .input-group
+    .searchField
     {
         width: auto;
     }
@@ -5406,7 +5430,8 @@ input[type='color'],
     .form-inline .input-group > input[type='search'],
     .form-inline .input-group > input[type='tel'],
     .form-inline .input-group > input[type='color'],
-    .form-inline .input-group > .app-searchbox-field
+    .form-inline .input-group > .app-searchbox-field,
+    .form-inline .input-group > .searchField
     {
         width: 100%;
     }
@@ -6760,7 +6785,9 @@ input[type='button'].app-btn-contact-card
   input[type='tel'],
 .input-group
   input[type='color'],
-.input-group .app-searchbox-field
+.input-group .app-searchbox-field,
+.input-group
+  .searchField
 {
     position: relative;
     z-index: 2;
@@ -6804,6 +6831,8 @@ input[type='button'].app-btn-contact-card
 .input-group
     input[type='color']:focus,
 .input-group .app-searchbox-field:focus,
+.input-group
+    .searchField:focus,
 .input-group .form-control:active,
 .input-group select:active,
 .input-group
@@ -6837,6 +6866,8 @@ input[type='button'].app-btn-contact-card
 .input-group
     input[type='color']:active,
 .input-group .app-searchbox-field:active,
+.input-group
+    .searchField:active,
 .input-group .form-control:hover,
 .input-group select:hover,
 .input-group
@@ -6869,7 +6900,9 @@ input[type='button'].app-btn-contact-card
     input[type='tel']:hover,
 .input-group
     input[type='color']:hover,
-.input-group .app-searchbox-field:hover
+.input-group .app-searchbox-field:hover,
+.input-group
+    .searchField:hover
 {
     z-index: 3;
 }
@@ -6942,7 +6975,8 @@ input[type='url'] + .input-group-addon:not(:first-child),
 input[type='search'] + .input-group-addon:not(:first-child),
 input[type='tel'] + .input-group-addon:not(:first-child),
 input[type='color'] + .input-group-addon:not(:first-child),
-.app-searchbox-field + .input-group-addon:not(:first-child)
+.app-searchbox-field + .input-group-addon:not(:first-child),
+.searchField + .input-group-addon:not(:first-child)
 {
     border-left: 0;
 }
@@ -11425,6 +11459,42 @@ textarea
             flex: 0 0 33.3333333333%;
 }
 
+.pagination
+{
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+
+    background: #ccc;
+}
+.pagination ul
+{
+    margin-bottom: 0;
+}
+.pagination li
+{
+    display: inline;
+}
+.pagination .active
+{
+    font-weight: 700;
+}
+.pagination .active span:after
+{
+    display: inline;
+
+    content: ']';
+
+    color: #274d38;
+}
+.pagination .active span:before
+{
+    display: inline;
+
+    content: '[';
+
+    color: #274d38;
+}
+
 .app-actions
 {
     font-size: .85rem; 
@@ -11480,22 +11550,29 @@ textarea
         -ms-flex: 1;
             flex: 1;
 }
+.app-action-search .hiddenStructure
+{
+    display: none;
+}
 
-.app-searchbox-group
+.app-searchbox-group,
+.LSBox
 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
 }
 
-.app-searchbox-control
+.app-searchbox-control,
+.searchField
 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
 }
 
-.app-searchbox-field
+.app-searchbox-field,
+.searchField
 {
     width: 66.6666%;
     max-width: 66.6666%;
@@ -11504,7 +11581,8 @@ textarea
     background-color: #edeaea;
 }
 
-.app-searchbox-btn
+.app-searchbox-btn,
+.searchButton
 {
     max-width: 33.3333%;
 
@@ -11516,14 +11594,17 @@ textarea
         -ms-flex: 0 0 33.3333%;
             flex: 0 0 33.3333%;
 }
-.app-searchbox-btn:hover
+.app-searchbox-btn:hover,
+.searchButton:hover
 {
     color: #fff;
     border-color: #406654; 
     background-color: #446d59;
 }
 .app-searchbox-btn:focus,
-.app-searchbox-btn.focus
+.app-searchbox-btn.focus,
+.searchButton:focus,
+.searchButton.focus
 {
     color: #fff;
     border-color: #406654; 
@@ -11531,7 +11612,10 @@ textarea
 }
 .app-searchbox-btn:active,
 .app-searchbox-btn.active,
-.open > .app-searchbox-btn.dropdown-toggle
+.open > .app-searchbox-btn.dropdown-toggle,
+.searchButton:active,
+.searchButton.active,
+.open > .searchButton.dropdown-toggle
 {
     color: #fff;
     border-color: #406654;
@@ -11546,7 +11630,16 @@ textarea
 .app-searchbox-btn.active.focus,
 .open > .app-searchbox-btn.dropdown-toggle:hover,
 .open > .app-searchbox-btn.dropdown-toggle:focus,
-.open > .app-searchbox-btn.dropdown-toggle.focus
+.open > .app-searchbox-btn.dropdown-toggle.focus,
+.searchButton:active:hover,
+.searchButton:active:focus,
+.searchButton:active.focus,
+.searchButton.active:hover,
+.searchButton.active:focus,
+.searchButton.active.focus,
+.open > .searchButton.dropdown-toggle:hover,
+.open > .searchButton.dropdown-toggle:focus,
+.open > .searchButton.dropdown-toggle.focus
 {
     color: #fff;
     border-color: #273e33; 
@@ -11555,84 +11648,27 @@ textarea
 .app-searchbox-btn.disabled:focus,
 .app-searchbox-btn.disabled.focus,
 .app-searchbox-btn:disabled:focus,
-.app-searchbox-btn:disabled.focus
+.app-searchbox-btn:disabled.focus,
+.searchButton.disabled:focus,
+.searchButton.disabled.focus,
+.searchButton:disabled:focus,
+.searchButton:disabled.focus
 {
     border-color: #588c73; 
     background-color: #588c73;
 }
 .app-searchbox-btn.disabled:hover,
-.app-searchbox-btn:disabled:hover
+.app-searchbox-btn:disabled:hover,
+.searchButton.disabled:hover,
+.searchButton:disabled:hover
 {
     border-color: #588c73; 
     background-color: #588c73;
 }
 
-.actionMenu
+.searchSection
 {
     display: none;
-}
-
-.searchPage .input-group
-{
-    margin-bottom: 1rem;
-}
-
-@media (max-width: 767px)
-{
-    .searchPage .input-group
-    {
-        display: none;
-    }
-}
-
-.searchResults
-{
-    padding-left: 1rem;
-}
-.searchResults > li
-{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    list-style-position: outside; 
-
-    border-bottom: 1px solid #ccc;
-}
-
-.pagination
-{
-    padding-top: 1rem;
-    padding-bottom: 1rem; 
-
-    background: #ccc;
-}
-.pagination ul
-{
-    margin-bottom: 0;
-}
-.pagination li
-{
-    display: inline;
-}
-.pagination .active
-{
-    font-weight: 700;
-}
-.pagination .active span:after
-{
-    display: inline;
-
-    content: ']';
-
-    color: #274d38;
-}
-.pagination .active span:before
-{
-    display: inline;
-
-    content: '[';
-
-    color: #274d38;
 }
 
 .app-bannerbar
@@ -11830,7 +11866,9 @@ textarea
   input[type='tel'],
 .app-search
   input[type='color'],
-.app-search .app-searchbox-field
+.app-search .app-searchbox-field,
+.app-search
+  .searchField
 {
     border: 0;
     border-radius: 0;
@@ -12657,7 +12695,9 @@ app-nav-list .app-card-main
   input[type='tel'],
 .app-newsletterbar
   input[type='color'],
-.app-newsletterbar .app-searchbox-field
+.app-newsletterbar .app-searchbox-field,
+.app-newsletterbar
+  .searchField
 {
     border: 0;
     border-radius: 0;
@@ -14264,6 +14304,90 @@ article.vevent
     opacity: 1;
 }
 
+.actionMenu
+{
+    display: none;
+}
+
+.searchPage .input-group
+{
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 767px)
+{
+    .searchPage .input-group
+    {
+        display: none;
+    }
+}
+
+.searchResults
+{
+    padding-left: 1rem;
+}
+.searchResults > li
+{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    list-style-position: outside; 
+
+    border-bottom: 1px solid #ccc;
+}
+
+.pat-livesearch
+{
+    position: relative; 
+
+    min-width: 230px;
+}
+.pat-livesearch .livesearch-results
+{
+    position: absolute;
+    z-index: 100;
+
+    display: none;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none; 
+
+    border-right: 1px solid #64bee8;
+    border-bottom: 1px solid #64bee8;
+    border-left: 1px solid #64bee8;
+    outline: 0;
+    background-color: #fff;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(100, 190, 232, .6);
+         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(100, 190, 232, .6);
+}
+.pat-livesearch .livesearch-results li
+{
+    margin: 0;
+    padding: 5px;
+
+    cursor: pointer; 
+    white-space: normal;
+}
+.pat-livesearch .livesearch-results li.load-more .next
+{
+    float: right;
+}
+.pat-livesearch .livesearch-results li.load-more .prev
+{
+    float: left;
+}
+.pat-livesearch .livesearch-results li.load-more .page
+{
+    text-align: center;
+}
+.pat-livesearch .livesearch-results li:hover,
+.pat-livesearch .livesearch-results li.selected
+{
+    background-color: #e6e4e4;
+}
+
 .app-page
 {
     padding: 1rem 0;
@@ -15407,6 +15531,7 @@ article.vevent
 .sg-example > input[type='tel']:last-child,
 .sg-example > input[type='color']:last-child,
 .sg-example > .app-searchbox-field:last-child,
+.sg-example > .searchField:last-child,
 .sg-example > .table:last-child,
 .sg-example > .app-table:last-child,
 .sg-example > .navbar:last-child,
