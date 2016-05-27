@@ -1,0 +1,26 @@
+.pagination {
+    background: #ccc;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    ul {
+        margin-bottom: 0;
+    }
+    li {
+        display: inline;
+    }
+    .active {
+        //background: $app-primary;
+        font-weight: 700;
+        span:after  {
+            content: "]";
+            display: inline;
+            color: $app-primary;
+        }
+        span:before {
+            content: "[";
+            display: inline;
+            color: $app-primary;
+        }
+    }
+}
