@@ -11215,7 +11215,7 @@ textarea
 }
 .app-brand-img-sm
 {
-    width: 64px;
+    width: 80px;
 }
 .app-brand-img-md
 {
@@ -11395,11 +11395,12 @@ textarea
 {
     .app-brand-panel-inverse .app-brandname
     {
-        max-width: 75%; 
+        max-width: 65%;
+        padding-top: 1.5rem; 
 
-        -webkit-flex: 0 0 75%;
-            -ms-flex: 0 0 75%;
-                flex: 0 0 75%;
+        -webkit-flex: 0 0 65%;
+            -ms-flex: 0 0 65%;
+                flex: 0 0 65%;
     }
 }
 @media (min-width: 544px)
@@ -12015,6 +12016,19 @@ textarea
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
 }
+.app-card a:hover
+{
+    text-decoration: none; 
+
+    opacity: .7;
+    color: #fff;
+}
+.app-card a:visited
+{
+    text-decoration: none; 
+
+    color: #fff;
+}
 .app-card .fa
 {
     color: #fff;
@@ -12109,15 +12123,6 @@ textarea
 {
     background: url(../assets/img/card-actions-bg.jpg) no-repeat top center;
     background-size: cover;
-}
-.app-card-header a:hover
-{
-    opacity: .7; 
-    color: #fff;
-}
-.app-card-header a:visited
-{
-    color: #fff;
 }
 
 .app-card-header-icon
@@ -12299,7 +12304,7 @@ app-nav-list .app-card-main
 
 .card-quick .app-subcard-title
 {
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 700;
 
     padding-top: 1.5rem; 
