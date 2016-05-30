@@ -11294,14 +11294,14 @@ textarea
     {
         position: relative;
 
-        max-width: 25%; 
+        max-width: 16.6666666667%; 
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
 
-        -webkit-flex: 0 0 25%;
-            -ms-flex: 0 0 25%;
-                flex: 0 0 25%;
+        -webkit-flex: 0 0 16.6666666667%;
+            -ms-flex: 0 0 16.6666666667%;
+                flex: 0 0 16.6666666667%;
     }
 }
 .app-brand-panel-inverse .app-brand-img
@@ -11336,7 +11336,7 @@ textarea
 
 .app-brandname-logo
 {
-    margin: 0 auto;
+    margin: 0;
 }
 .app-brand-img-xs .app-brandname-logo
 {
@@ -11408,14 +11408,14 @@ textarea
     {
         position: relative;
 
-        max-width: 75%; 
+        max-width: 83.3333333333%; 
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
 
-        -webkit-flex: 0 0 75%;
-            -ms-flex: 0 0 75%;
-                flex: 0 0 75%;
+        -webkit-flex: 0 0 83.3333333333%;
+            -ms-flex: 0 0 83.3333333333%;
+                flex: 0 0 83.3333333333%;
     }
 }
 .app-brand-panel-inverse .app-brandname
@@ -14814,6 +14814,41 @@ article.vevent
     .app-intro-wrapper
     {
         padding-top: 10rem;
+    }
+}
+.app-intro-wrapper .app-intro-brand-wrapper
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px; 
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 1140px;
     }
 }
 .app-intro-wrapper a:hover

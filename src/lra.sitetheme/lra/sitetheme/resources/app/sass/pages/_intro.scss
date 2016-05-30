@@ -7,6 +7,12 @@
     	padding-top: 10rem;
     }
 
+    .app-intro-brand-wrapper {
+        @include make-container();
+        @include make-container-max-widths();
+    }
+        
+
     a:hover {
 		text-decoration: none;
     	}
