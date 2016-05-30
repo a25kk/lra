@@ -14894,13 +14894,18 @@ article.vevent
         border: 20px solid #fff;
     }
 }
-.app-intro-wrapper .app-action-search-wrapper .app-searchbox-control
+.app-intro-wrapper .app-action-search-wrapper .app-searchbox-control,
+.app-intro-wrapper .app-action-search-wrapper .searchField,
+.app-intro-wrapper .app-action-search-wrapper .searchButton
 {
     font-size: 1rem;
+    font-weight: 300;
 }
 @media (min-width: 544px)
 {
-    .app-intro-wrapper .app-action-search-wrapper .app-searchbox-control
+    .app-intro-wrapper .app-action-search-wrapper .app-searchbox-control,
+    .app-intro-wrapper .app-action-search-wrapper .searchField,
+    .app-intro-wrapper .app-action-search-wrapper .searchButton
     {
         font-size: 1.5rem;
     }
@@ -15027,6 +15032,17 @@ article.vevent
 .app-intro-wrapper .app-intro-button .app-intro-btn a
 {
     color: #fff;
+}
+
+.app-front-page-search
+{
+    padding: 1rem;
+
+    background-color: #fff;
+}
+.app-front-page-search .hiddenStructure
+{
+    display: none;
 }
 
 .intro
@@ -15854,5 +15870,11 @@ article.vevent
 .app-icon-list i
 {
     padding: 1rem 0;
+}
+
+.searchField
+{
+    border-color: #edeaea !important; 
+    background-color: #edeaea !important;
 }
 /*# sourceMappingURL=lra.css.map */

@@ -23,7 +23,7 @@
 
 
     <theme href="dist/frontpage/index.html" css:if-content="body.template-startseite" />
-    <theme href="dist/index.html" css:if-content="body.landingpage-view" />
+    <theme href="dist/index.html" css:if-content="body.template-landingpage-view" />
 
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
@@ -83,6 +83,7 @@
             css:if-content=".userrole-authenticated"/>
 
         <!-- Logo (link target) -->
+        <copy attributes="href" css:content="#portal-logo" css:theme="a.app-brand" />
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-brandname" />
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-navbar-brand" />
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-navbar-section" />

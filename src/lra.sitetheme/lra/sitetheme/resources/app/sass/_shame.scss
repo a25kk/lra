@@ -14,3 +14,12 @@
 // See: http://csswizardry.com/2013/04/shame-css/
 // -----------------------------------------------------
 
+// Search field
+//
+// Adjust frontend styles to cater for inconsistencies coming from the
+// Plone backend. This fix will be necessary until the Plone devs fixup
+// the rather unclear and naive pattern styling
+.searchField {
+    background-color: $app-gray !important;
+    border-color: $app-gray !important;
+}

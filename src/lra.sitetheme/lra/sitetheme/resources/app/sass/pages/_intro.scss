@@ -1,5 +1,4 @@
 // Intro elements
-
 .app-intro-wrapper {
 	padding-top: 3rem;
 	background: url(../assets/img/intro.jpg) no-repeat top center;
@@ -48,8 +47,11 @@
     		}
     	}
 
-    	.app-searchbox-control {
+    	.app-searchbox-control,
+        .searchField,
+        .searchButton{
     		font-size: 1rem;
+            font-weight: 300;
     		@include media-breakpoint-up(sm) {
     			font-size: 1.5rem;
     		}
@@ -79,6 +81,18 @@
     			color: #fff;
     		}
     	}
+    }
+}
+
+// Landing page search form
+//
+// Since we need the live search pattern we include the portal
+// search box and need to adjust the styling to cater the given semantics
+.app-front-page-search {
+    padding: 1rem;
+    background-color: #fff;
+    .hiddenStructure {
+        display: none;
     }
 }
 
