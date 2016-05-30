@@ -1,6 +1,5 @@
 var $bannerBar = document.querySelectorAll('.app-js-carousel'),
     $galleryContainer = document.querySelectorAll('.js-gallery');
-// Show banner bar
 if ($bannerBar.length) {
     var bannerflkty = new Flickity('.app-js-carousel', {
         autoPlay: 7000,
@@ -24,31 +23,12 @@ if ($galleryContainer.length) {
         cellAlign: 'left'
     });
 }
-require( [ 'jquery-bridget/jquery.bridget' ],
-    function(jQueryBridget) {
-        jQueryBridget( 'fcky', Flickity);
-        // make Flickity a jQuery plugin
-        $('.app-js-carousel').fcky({});
-        // now you can use $().flickity()
-        // $('.app-js-carousel').flickity({
-        //   autoPlay: 7000,
-        //   contain: true,
-        //   wrapAround: true,
-        //   imagesLoaded: true,
-        //   cellSelector: '.app-banner-item',
-        //   cellAlign: 'left',
-        //   selectedAttraction: 0.025,
-        //   friction: 0.28
-        // });
-        // $('.js-gallery').flickity({
-        //   autoPlay: 7000,
-        //   contain: true,
-        //   wrapAround: true,
-        //   imagesLoaded: true,
-        //   cellSelector: '.app-banner-item',
-        //   cellAlign: 'left',
-        //   selectedAttraction: 0.025,
-        //   friction: 0.28
-        // });
+// Anonymous only scripts (mainly used in login views)
+if ($(".userrole-anonymous")[0]) {
+    // Show password by default
+    $('input[type="password"]').hideShowPassword(true, 'focus');
+    //$('input[type="password"]').showPassword('focus', {});
+    // Float labels (requires corresponding css)
+    $('.app-signin-input').jvFloat();
 
-    });
+};

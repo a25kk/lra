@@ -33,6 +33,8 @@
 
         <replace css:theme="title" css:content="title" />
         <after theme="/html/head/title" css:content="base" />
+
+        <after theme="/html/head/title" content="/html/head/script" />
         <!-- Add meta tags -->
         <drop theme="/html/head/meta" />
 
@@ -51,6 +53,7 @@
             <!-- Drop scripts from theme footer if present -->
             <drop theme="/html/body/script" />
         </rules>
+        <drop theme="/html/body/script" />
 
         <!-- Custom favicon implementation -->
         <drop css:content="head link[rel='apple-touch-icon']" />
@@ -85,8 +88,10 @@
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-navbar-section" />
 
         <!-- Portal searchbox -->
-        <copy attributes="action" css:content="#portal-searchbox form"
+        <copy attributes="*" css:content="#portal-searchbox form"
             css:theme="#app-searchbox" />
+
+        <replace css:content="#portal-searchbox" css:theme="#app-searchbox" method="raw" />
 
         <!-- Global navigation -->
         <replace css:content="#portal-globalnav li"

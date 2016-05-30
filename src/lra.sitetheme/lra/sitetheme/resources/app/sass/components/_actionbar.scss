@@ -37,17 +37,23 @@
   flex: 1;
   color: $app-primary;
   background: $app-gray;
+    .hiddenStructure {
+        display: none;
+    }
 }
 
-.app-searchbox-group {
+.app-searchbox-group,
+.LSBox {
   display: flex;
 }
 
-.app-searchbox-control {
+.app-searchbox-control,
+.searchField {
   display: flex;
 }
 
-.app-searchbox-field {
+.app-searchbox-field,
+.searchField {
   @extend .form-control;
   width: 66.6666%;
   max-width: 66.6666%;
@@ -55,60 +61,13 @@
   border-color: $app-gray;
 }
 
-.app-searchbox-btn {
+.app-searchbox-btn,
+.searchButton {
   flex: 0 0 33.3333%;
   max-width: 33.3333%;
   @include button-variant(#fff, $app-secondary, $app-secondary);
 }
 
-.actionMenu {
-  display: none;
-}
-
-.searchPage .input-group {
-  margin-bottom: 1rem;
-}
-
-.searchPage .input-group {
-  @include media-breakpoint-down(sm) {
+.searchSection {
     display: none;
-  }
-}
-
-.searchResults {
-  padding-left: 1rem;
-
-> li {
-  border-bottom: 1px solid #ccc;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  list-style-position: outside;
-  }
-}
-
-.pagination {
-  background: #ccc;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-
-  ul {
-    margin-bottom: 0;
-  }
-  li {
-    display: inline;
-  }
-  .active {
-    //background: $app-primary;
-    font-weight: 700;
-    span:after  {
-      content: "]";
-      display: inline;
-      color: $app-primary;
-    }
-    span:before {
-      content: "[";
-      display: inline;
-      color: $app-primary;
-    }
-  } 
 }
