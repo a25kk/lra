@@ -37,7 +37,7 @@
         }
 
         @include media-breakpoint-up(lg) {
-            @include make-col(2);
+            @include make-col(3);
         }
     }
 
@@ -89,7 +89,7 @@
             @include make-col(6);
             }
             @include media-breakpoint-up(lg) {
-            @include make-col(10);
+            @include make-col(9);
             }
             margin-top: -($spacer);
         }
