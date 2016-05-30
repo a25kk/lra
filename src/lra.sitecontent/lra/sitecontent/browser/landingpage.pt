@@ -12,6 +12,6 @@
         <div class="app-landing-page" id="app-landing-page">
         </div>
     </metal:content-core>
- </meta:main>
+ </metal:main>
  </body>
 </html>
