@@ -14,6 +14,13 @@ from lra.sitecontent.interfaces import IResponsiveImagesTool
 IMG = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs='
 
 
+class LandingPageView(BrowserView):
+    """ Landing page
+
+    Dedicated view to hold a live search and potential introduction
+    """
+
+
 class FrontPageView(BrowserView):
     """ General purpose frontpage view """
 
