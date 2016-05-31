@@ -1,7 +1,7 @@
 requirejs(['require', 'jquery',
 '/++theme++lra.sitetheme/dist/scripts/flickity.pkgd.js',
 '/++theme++lra.sitetheme/dist/scripts/hideShowPassword.js',
-'/++theme++lra.sitetheme/dist/scripts/jvFloat.js',
+'/++theme++lra.sitetheme/dist/scripts/jvfloat.js',
 '/++theme++lra.sitetheme/dist/scripts/respimage.js',
 '/++theme++lra.sitetheme/dist/scripts/lazysizes-umd.js',],
  function(require, $, Flickity) {
