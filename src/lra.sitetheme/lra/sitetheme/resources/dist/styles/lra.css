@@ -11336,7 +11336,7 @@ textarea
 
 .app-brandname-logo
 {
-    margin: 0 auto;
+    margin: 0;
 }
 .app-brand-img-xs .app-brandname-logo
 {
@@ -14362,13 +14362,26 @@ article.vevent
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(100, 190, 232, .6);
          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(100, 190, 232, .6);
 }
+.pat-livesearch .livesearch-results .results-summary
+{
+    padding-right: 1rem; 
+    padding-left: 1rem;
+}
 .pat-livesearch .livesearch-results li
 {
     margin: 0;
-    padding: 5px;
+    padding: 1rem;
 
     cursor: pointer; 
     white-space: normal;
+}
+.pat-livesearch .livesearch-results li .title
+{
+    font-size: 1rem;
+}
+.pat-livesearch .livesearch-results li .description
+{
+    font-size: .8rem;
 }
 .pat-livesearch .livesearch-results li.load-more .next
 {
@@ -14801,6 +14814,41 @@ article.vevent
     .app-intro-wrapper
     {
         padding-top: 10rem;
+    }
+}
+.app-intro-wrapper .app-intro-brand-wrapper
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px; 
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 1140px;
     }
 }
 .app-intro-wrapper a:hover

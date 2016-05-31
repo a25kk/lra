@@ -45,12 +45,24 @@
         margin: 0;
         padding: 0;
         list-style: none;
+        .results-summary {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
 
         li{
             white-space: normal;
             margin: 0;
-            padding: 5px;
+            padding: 1rem;
             cursor: pointer;
+
+            .title {
+                font-size: 1rem;
+            }
+
+            .description {
+                font-size: .8rem;
+            }
 
             &.load-more{
                 .next{
