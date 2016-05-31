@@ -3,6 +3,7 @@ requirejs(['require', 'jquery',
 '/++theme++lra.sitetheme/dist/scripts/hideShowPassword.js',
 '/++theme++lra.sitetheme/dist/scripts/jvfloat.js',
 '/++theme++lra.sitetheme/dist/scripts/respimage.js',
+'/++theme++lra.sitetheme/dist/scripts/ls.parent-fit.js',
 '/++theme++lra.sitetheme/dist/scripts/lazysizes-umd.js',],
  function(require, $, Flickity) {
 'use strict';

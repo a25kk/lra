@@ -52,10 +52,10 @@ module.exports = function (grunt) {
                 options: {
                     banner: "requirejs(['require', 'jquery',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/flickity.pkgd.js',\n" +
-                                       // "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/ls.parent-fit.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/hideShowPassword.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/jvfloat.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/respimage.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/ls.parent-fit.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/lazysizes-umd.js',],\n" +
                                        " function(require, $, Flickity) {\n'use strict';\n",
                     footer: "});",
