@@ -52,6 +52,7 @@ module.exports = function (grunt) {
                 options: {
                     banner: "requirejs(['require', 'jquery',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/flickity.pkgd.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/fontfaceobserver.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/hideShowPassword.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/jvfloat.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/respimage.js',\n" +
@@ -190,6 +191,7 @@ module.exports = function (grunt) {
                     '<%= config.modules %>/lazysizes/plugins/parent-fit/ls.parent-fit.js',
                     '<%= config.modules %>/respimage/respimage.js',
                     '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
+                    '<%= config.modules %>/fontfaceobserver/fontfaceobserver.js',
                 ],
                 dest: '<%= config.dist %>/scripts/'
             }

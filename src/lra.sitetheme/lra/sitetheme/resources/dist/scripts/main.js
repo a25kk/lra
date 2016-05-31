@@ -1,5 +1,6 @@
 requirejs(['require', 'jquery',
 '/++theme++lra.sitetheme/dist/scripts/flickity.pkgd.js',
+'/++theme++lra.sitetheme/dist/scripts/fontfaceobserver.js',
 '/++theme++lra.sitetheme/dist/scripts/hideShowPassword.js',
 '/++theme++lra.sitetheme/dist/scripts/jvfloat.js',
 '/++theme++lra.sitetheme/dist/scripts/respimage.js',
@@ -7,6 +8,10 @@ requirejs(['require', 'jquery',
 '/++theme++lra.sitetheme/dist/scripts/lazysizes-umd.js',],
  function(require, $, Flickity) {
 'use strict';
+var font = new FontFaceObserver('Fira Sans');
+font.load().then(function () {
+    document.documentElement.className += " app-fonts-loaded";
+});
 var $bannerBar = document.querySelectorAll('.app-js-carousel'),
     $galleryContainer = document.querySelectorAll('.js-gallery');
 if ($bannerBar.length) {
