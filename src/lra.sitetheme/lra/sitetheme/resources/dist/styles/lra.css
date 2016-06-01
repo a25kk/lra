@@ -11971,7 +11971,7 @@ textarea
         height: 430px;
         min-height: 430px;
         margin-right: auto;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         margin-left: auto;
         padding-right: 15px;
         padding-left: 15px;
@@ -13916,10 +13916,11 @@ article.vevent
 
 .app-frontpagepanel
 {
+    margin-top: 1rem; 
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
-    padding-bottom: 1rem; 
+    padding-bottom: 1rem;
     padding-left: 15px;
     padding-left: 0;
 }
@@ -13994,7 +13995,7 @@ article.vevent
 
     margin-right: auto;
     margin-left: auto;
-    padding: 1rem 1rem 0 1rem; 
+    padding: 1rem; 
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -14100,8 +14101,10 @@ article.vevent
 
 .app-news-list-item-title
 {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 500;
+
+    margin-bottom: 1rem;
 }
 .app-news-list-item-title a
 {
