@@ -1,7 +1,9 @@
 <div class="app-intro-wrapper">
-  {% include components/brandpanel.html %}
+  <div class="app-intro-brand-wrapper">
+    {% include components/brandpanel.html %}
+  </div>
     <div class="app-action-search-wrapper">
-      <div class="app-action-search">
+      <div class="app-front-page-search">
         <form class="app-searchbox" id="app-searchbox" role="search" action="/lra/@@search">
           <div class="app-searchbox-group">
             <input class="app-searchbox-control app-searchbox-field" type="text" name ="SearchableText" id="SearchableText" placeholder="Wonach suchen Sie?">
@@ -14,6 +16,6 @@
       </div>
     </div>
     <div class="app-intro-button">
-        <a class="btn app-intro-btn" href="{{ page.base_url }}lra" role="button">oder direkt zur Webseite</a>
+        <a class="btn app-intro-btn" href="{{ page.base_url }}startseite" role="button">oder direkt zur Webseite</a>
     </div>
 </div>

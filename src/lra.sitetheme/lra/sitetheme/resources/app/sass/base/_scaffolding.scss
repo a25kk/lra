@@ -5,7 +5,8 @@
 
 //** Adjust font weight for initialized webfonts
 body {
-    .wf-active & {
+    .wf-active &,
+    .app-fonts-loaded & {
         font-weight: 300;
     }
     &.template-theming-controlpanel .row {
@@ -15,7 +16,8 @@ body {
 }
 
 // Set font weights if webfont is active
-.wf-active {
+.wf-active,
+.app-fonts-loaded {
     b,
     strong {
         font-weight: 500;
@@ -26,7 +28,8 @@ body {
 b,
 strong {
     font-weight: 700;
-    .wf-active & {
+    .wf-active &,
+    .app-fonts-loaded & {
         font-weight: 500;
     }
 }

@@ -30,14 +30,16 @@
                                       <figure class="app-page-image-container"
                                           tal:define="item_uuid item/UID;
                                                       image_data python:view.get_image_data(item_uuid)">
-                                          <div class="ratio-container ratio-container-4-3">
+                                          <div class="app-lazyload-container">
                                             <img class="lazyload"
-                                                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                                data-src="${image_data/large}"
-                                                data-srcset="${image_data/small},
-                                                             ${image_data/medium},
-                                                             ${image_data/large},
-                                                             ${image_data/original}" />
+                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                 data-src="${image_data/large}"
+                                                 data-sizes="auto"
+                                                 data-parent-fit="contain"
+                                                 data-srcset="${image_data/small},
+                                                              ${image_data/medium},
+                                                              ${image_data/large},
+                                                              ${image_data/original}" />
                                           </div>
                                           <noscript>
                                             <!-- Provide fallback for missing lazyload javascript -->

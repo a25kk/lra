@@ -29,11 +29,18 @@
   <!-- Frontpage Views -->
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
-      name="frontpage-view"
-      class=".frontpage.FrontPageView"
-      template="frontpage.pt"
+      name="landingpage-view"
+      class=".frontpage.LandingPageView"
+      template="landingpage.pt"
       permission="zope2.View"
       layer="..interfaces.ILraSitecontentLayer"
       />
-
+  <browser:page
+        for="plone.app.layout.navigation.interfaces.INavigationRoot"
+        name="startseite"
+        class=".frontpage.FrontPageView"
+        template="frontpage.pt"
+        permission="zope2.View"
+        layer="..interfaces.ILraSitecontentLayer"
+        />
 </configure>

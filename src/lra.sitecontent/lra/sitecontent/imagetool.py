@@ -25,7 +25,9 @@ class ResponsiveImagesTool(object):
         for size in sizes:
             idx += 0
             img = self._get_scaled_img(item, size)
-            data[size] = '{0} {1}w'.format(img['url'], img['width'])
+            data[size] = '{0} {1}w {2}h'.format(img['url'],
+                                                img['width'],
+                                                img['width'])
         return data
 
     def _get_scaled_img(self, item, size):

@@ -12,7 +12,7 @@
     display: block;
     @include make-container();
     @include make-container-max-widths();
-    padding: $spacer $spacer 0 $spacer;
+    padding: $spacer;
 }
 
 .app-news-list-item {
@@ -52,8 +52,9 @@
 }
 
 .app-news-list-item-title {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 500;
+    margin-bottom: 1rem;
     a {
         color: #fff;
     }

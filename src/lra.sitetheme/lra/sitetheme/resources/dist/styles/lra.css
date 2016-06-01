@@ -10045,7 +10045,283 @@ http://flickity.metafizzy.co
     color: #999;
 }
 
-.wf-active body
+/* cyrillic-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: normal;
+
+    src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v6/VTBnrK42EiOBncVyQXZ7jw7aC6SjiAOpAWOKfJDfVRY.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+
+/* cyrillic */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: normal;
+
+    src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v6/VTBnrK42EiOBncVyQXZ7jxdwxCXfZpKo5kWAx_74bHs.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: normal;
+
+    src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v6/VTBnrK42EiOBncVyQXZ7j_y1_HTwRwgtl1cPga3Fy3Y.woff2) format('woff2');
+    unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: normal;
+
+    src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v6/VTBnrK42EiOBncVyQXZ7j4joYw3YTyktCCer_ilOlhE.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: normal;
+
+    src: local('Fira Sans Light'), local('FiraSans-Light'), url(https://fonts.gstatic.com/s/firasans/v6/VTBnrK42EiOBncVyQXZ7jxampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* cyrillic-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 400;
+    font-style: normal;
+
+    src: local('Fira Sans'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v6/g5Sf_134cAtTKkNnIjIkX4X0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+
+/* cyrillic */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 400;
+    font-style: normal;
+
+    src: local('Fira Sans'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v6/T3abUOg4YgfjOby2l-QudoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 400;
+    font-style: normal;
+
+    src: local('Fira Sans'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v6/5jAMGMsBXS6xUYEytGcZdIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+    unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 400;
+    font-style: normal;
+
+    src: local('Fira Sans'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v6/MIPWVWI_mY_QERxcMVPEwIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 400;
+    font-style: normal;
+
+    src: local('Fira Sans'), local('FiraSans-Regular'), url(https://fonts.gstatic.com/s/firasans/v6/EjsrzDkQUQCDwsBtLpcVQZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* cyrillic-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 500;
+    font-style: normal;
+
+    src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(https://fonts.gstatic.com/s/firasans/v6/zM2u8V3CuPVwAAXFQcDi4A7aC6SjiAOpAWOKfJDfVRY.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+
+/* cyrillic */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 500;
+    font-style: normal;
+
+    src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(https://fonts.gstatic.com/s/firasans/v6/zM2u8V3CuPVwAAXFQcDi4BdwxCXfZpKo5kWAx_74bHs.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 500;
+    font-style: normal;
+
+    src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(https://fonts.gstatic.com/s/firasans/v6/zM2u8V3CuPVwAAXFQcDi4Py1_HTwRwgtl1cPga3Fy3Y.woff2) format('woff2');
+    unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 500;
+    font-style: normal;
+
+    src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(https://fonts.gstatic.com/s/firasans/v6/zM2u8V3CuPVwAAXFQcDi4IjoYw3YTyktCCer_ilOlhE.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 500;
+    font-style: normal;
+
+    src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(https://fonts.gstatic.com/s/firasans/v6/zM2u8V3CuPVwAAXFQcDi4Bampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* cyrillic-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 700;
+    font-style: normal;
+
+    src: local('Fira Sans Bold'), local('FiraSans-Bold'), url(https://fonts.gstatic.com/s/firasans/v6/DugPdSljmOTocZOR2CItOg7aC6SjiAOpAWOKfJDfVRY.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+
+/* cyrillic */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 700;
+    font-style: normal;
+
+    src: local('Fira Sans Bold'), local('FiraSans-Bold'), url(https://fonts.gstatic.com/s/firasans/v6/DugPdSljmOTocZOR2CItOhdwxCXfZpKo5kWAx_74bHs.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 700;
+    font-style: normal;
+
+    src: local('Fira Sans Bold'), local('FiraSans-Bold'), url(https://fonts.gstatic.com/s/firasans/v6/DugPdSljmOTocZOR2CItOvy1_HTwRwgtl1cPga3Fy3Y.woff2) format('woff2');
+    unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 700;
+    font-style: normal;
+
+    src: local('Fira Sans Bold'), local('FiraSans-Bold'), url(https://fonts.gstatic.com/s/firasans/v6/DugPdSljmOTocZOR2CItOojoYw3YTyktCCer_ilOlhE.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 700;
+    font-style: normal;
+
+    src: local('Fira Sans Bold'), local('FiraSans-Bold'), url(https://fonts.gstatic.com/s/firasans/v6/DugPdSljmOTocZOR2CItOhampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* cyrillic-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: italic;
+
+    src: local('Fira Sans Light Italic'), local('FiraSans-LightItalic'), url(https://fonts.gstatic.com/s/firasans/v6/6s0YCA9oCTF6hM60YM-qTUExlR2MysFCBK8OirNw2kM.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+
+/* cyrillic */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: italic;
+
+    src: local('Fira Sans Light Italic'), local('FiraSans-LightItalic'), url(https://fonts.gstatic.com/s/firasans/v6/6s0YCA9oCTF6hM60YM-qTWdsm03krrxlabhmVQFB99s.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: italic;
+
+    src: local('Fira Sans Light Italic'), local('FiraSans-LightItalic'), url(https://fonts.gstatic.com/s/firasans/v6/6s0YCA9oCTF6hM60YM-qTWMSHb9EAJwuSzGfuRChQzQ.woff2) format('woff2');
+    unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: italic;
+
+    src: local('Fira Sans Light Italic'), local('FiraSans-LightItalic'), url(https://fonts.gstatic.com/s/firasans/v6/6s0YCA9oCTF6hM60YM-qTdDnm4qiMZlH5rhYv_7LI2Y.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face
+{
+    font-family: 'Fira Sans';
+    font-weight: 300;
+    font-style: italic;
+
+    src: local('Fira Sans Light Italic'), local('FiraSans-LightItalic'), url(https://fonts.gstatic.com/s/firasans/v6/6s0YCA9oCTF6hM60YM-qTdTIkQYohD4BpHvJ3NvbHoA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+.wf-active body,
+.app-fonts-loaded body
 {
     font-weight: 300;
 }
@@ -10056,7 +10332,9 @@ body.template-theming-controlpanel .row
 }
 
 .wf-active b,
-.wf-active strong
+.wf-active strong,
+.app-fonts-loaded b,
+.app-fonts-loaded strong
 {
     font-weight: 500;
 }
@@ -10067,7 +10345,10 @@ strong
     font-weight: 700;
 }
 .wf-active b,
+.app-fonts-loaded b,
 .wf-active
+  strong,
+.app-fonts-loaded
   strong
 {
     font-weight: 500;
@@ -11336,7 +11617,7 @@ textarea
 
 .app-brandname-logo
 {
-    margin: 0 auto;
+    margin: 0;
 }
 .app-brand-img-xs .app-brandname-logo
 {
@@ -11690,7 +11971,7 @@ textarea
         height: 430px;
         min-height: 430px;
         margin-right: auto;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         margin-left: auto;
         padding-right: 15px;
         padding-left: 15px;
@@ -13635,10 +13916,11 @@ article.vevent
 
 .app-frontpagepanel
 {
+    margin-top: 1rem; 
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
-    padding-bottom: 1rem; 
+    padding-bottom: 1rem;
     padding-left: 15px;
     padding-left: 0;
 }
@@ -13713,7 +13995,7 @@ article.vevent
 
     margin-right: auto;
     margin-left: auto;
-    padding: 1rem 1rem 0 1rem; 
+    padding: 1rem; 
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -13819,8 +14101,10 @@ article.vevent
 
 .app-news-list-item-title
 {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 500;
+
+    margin-bottom: 1rem;
 }
 .app-news-list-item-title a
 {
@@ -14362,13 +14646,26 @@ article.vevent
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(100, 190, 232, .6);
          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(100, 190, 232, .6);
 }
+.pat-livesearch .livesearch-results .results-summary
+{
+    padding-right: 1rem; 
+    padding-left: 1rem;
+}
 .pat-livesearch .livesearch-results li
 {
     margin: 0;
-    padding: 5px;
+    padding: 1rem;
 
     cursor: pointer; 
     white-space: normal;
+}
+.pat-livesearch .livesearch-results li .title
+{
+    font-size: 1rem;
+}
+.pat-livesearch .livesearch-results li .description
+{
+    font-size: .8rem;
 }
 .pat-livesearch .livesearch-results li.load-more .next
 {
@@ -14803,6 +15100,41 @@ article.vevent
         padding-top: 10rem;
     }
 }
+.app-intro-wrapper .app-intro-brand-wrapper
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px; 
+    padding-left: 15px;
+}
+@media (min-width: 544px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 576px;
+    }
+}
+@media (min-width: 768px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 940px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-intro-wrapper .app-intro-brand-wrapper
+    {
+        max-width: 1140px;
+    }
+}
 .app-intro-wrapper a:hover
 {
     text-decoration: none;
@@ -14894,13 +15226,18 @@ article.vevent
         border: 20px solid #fff;
     }
 }
-.app-intro-wrapper .app-action-search-wrapper .app-searchbox-control
+.app-intro-wrapper .app-action-search-wrapper .app-searchbox-control,
+.app-intro-wrapper .app-action-search-wrapper .searchField,
+.app-intro-wrapper .app-action-search-wrapper .searchButton
 {
     font-size: 1rem;
+    font-weight: 300;
 }
 @media (min-width: 544px)
 {
-    .app-intro-wrapper .app-action-search-wrapper .app-searchbox-control
+    .app-intro-wrapper .app-action-search-wrapper .app-searchbox-control,
+    .app-intro-wrapper .app-action-search-wrapper .searchField,
+    .app-intro-wrapper .app-action-search-wrapper .searchButton
     {
         font-size: 1.5rem;
     }
@@ -15027,6 +15364,17 @@ article.vevent
 .app-intro-wrapper .app-intro-button .app-intro-btn a
 {
     color: #fff;
+}
+
+.app-front-page-search
+{
+    padding: 1rem;
+
+    background-color: #fff;
+}
+.app-front-page-search .hiddenStructure
+{
+    display: none;
 }
 
 .intro
@@ -15854,5 +16202,11 @@ article.vevent
 .app-icon-list i
 {
     padding: 1rem 0;
+}
+
+.searchField
+{
+    border-color: #edeaea !important; 
+    background-color: #edeaea !important;
 }
 /*# sourceMappingURL=lra.css.map */
