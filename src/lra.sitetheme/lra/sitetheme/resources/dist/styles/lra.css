@@ -10444,14 +10444,14 @@ div.riform .label
     background-color: #c7b450;
 }
 
-.app-service
+.app-landkreis
 {
-    color: #f2ae73;
+    color: #d96459;
 }
 
-.app-service-bg
+.app-landkreis-bg
 {
-    background-color: #f2ae73;
+    background-color: #d96459;
 }
 
 .app-info
@@ -10505,7 +10505,7 @@ div.riform .label
     border-bottom: 10px solid #f2ae73;
 }
 
-.section-info .app-header
+.section-landkreis .app-header
 {
     border-bottom: 10px solid #d96459;
 }
@@ -10907,11 +10907,11 @@ div.riform .label
     background-color: #ef9c55;
 }
 
-.app-navitem-tab-info
+.app-navitem-tab-landkreis
 {
     background-color: #d96459;
 }
-.app-navitem-tab-info:hover
+.app-navitem-tab-landkreis:hover
 {
     background-color: #d34b3e;
 }
@@ -12202,7 +12202,7 @@ textarea
 {
     background-color: #ef9a50;
 }
-.section-info .app-pathbar
+.section-landkreis .app-pathbar
 {
     background-color: #d2473a;
 }
@@ -12749,7 +12749,7 @@ app-nav-list .app-card-main
 {
     background-color: #ef9a50;
 }
-.section-info .app-nav-tree
+.section-landkreis .app-nav-tree
 {
     background-color: #d2473a;
 }

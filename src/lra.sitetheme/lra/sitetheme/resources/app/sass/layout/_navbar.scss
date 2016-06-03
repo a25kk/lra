@@ -212,10 +212,10 @@
   }
 }
 
-.app-navitem-tab-info {
-  background-color: $app-section-info;
+.app-navitem-tab-landkreis {
+  background-color: $app-section-landkreis;
   &:hover {
-    background-color: darken($app-section-info, 6.5%);
+    background-color: darken($app-section-landkreis, 6.5%);
   }
 }
 
