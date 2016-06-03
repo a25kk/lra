@@ -4,6 +4,7 @@
     xmlns:css="http://namespaces.plone.org/diazo/css"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+    <notheme if="$ajax_load" />
      <!-- Setup custom login form -->
     <theme href="dist/signin/index.html" css:if-content="body.template-login_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-logged_out" />
