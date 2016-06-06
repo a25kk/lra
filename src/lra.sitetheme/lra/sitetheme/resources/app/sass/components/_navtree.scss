@@ -14,8 +14,8 @@
     @include when-inside('.section-service') {
         background-color: $app-section-service-bg;
     }
-    @include when-inside('.section-info') {
-        background-color: $app-section-info-bg;
+    @include when-inside('.section-landkreis') {
+        background-color: $app-section-landkreis-bg;
     }
     @include when-inside('.section-hier-leben') {
         background-color: $app-section-life-bg;
