@@ -10669,6 +10669,8 @@ div.riform .label
     padding: .5rem 1rem;
 
     color: #fff;
+    border: 0; 
+    background: transparent;
 }
 .app-navbar-brand:hover,
 .app-navbar-brand:focus
