@@ -18,6 +18,13 @@
   padding: 1rem 1rem 1rem 0.5rem;
 }
 
+
+.app-üage-content {
+  display: block;
+  min-height: 400px;
+}
+
+
 .app-page-title {
     @extend .page-header;
     color: $app-primary;

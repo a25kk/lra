@@ -19,7 +19,7 @@
                   ${context/Description}
           </p>
       </div>
-      <div class="app-page-body">
+      <div class="app-page-body" id="content-core">
           <div class="app-page-text" id="parent-fieldname-text"
                   tal:condition="context/text"
                   tal:content="structure context/text/output" />

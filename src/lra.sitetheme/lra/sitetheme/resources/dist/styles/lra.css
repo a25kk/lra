@@ -14714,6 +14714,13 @@ article.vevent
     padding: 1rem 1rem 1rem .5rem;
 }
 
+.app-üage-content
+{
+    display: block;
+
+    min-height: 400px;
+}
+
 .app-page-title
 {
     color: #274d38;

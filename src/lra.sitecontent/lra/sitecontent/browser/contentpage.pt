@@ -20,7 +20,7 @@
           ${context/Description}
       </p>
     </div>
-    <div class="app-page-body">
+    <div class="app-page-body" id="content-core">
 
       <tal:gallery tal:condition="view/display_gallery">
         <div tal:replace="structure view/rendered_gallery" />
