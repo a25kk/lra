@@ -61,7 +61,7 @@
         <!-- Custom favicon implementation -->
         <drop css:content="head link[rel='apple-touch-icon']" />
         <drop css:content="head link[rel='shortcut icon']" />
-        <after theme="/html/head">
+        <after theme-children="/html/head">
             <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,300,300italic,500,700" rel="preload" type="text/css"></link>
             <link rel="shortcut icon" href="/++theme++lra.sitetheme/dist/assets/ico/favicon.ico" type="images/x-icon"></link>
             <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/++theme++lra.sitetheme/dist/assets/ico/apple-touch-icon-144-precomposed.png"></link>
