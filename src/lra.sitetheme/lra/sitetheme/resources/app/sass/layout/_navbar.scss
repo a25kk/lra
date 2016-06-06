@@ -37,6 +37,11 @@
   font-weight: 500;
   line-height: $spacer;
   color: #fff;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
 }
 
 //** Icon bar navigation toggle
@@ -103,6 +108,7 @@
     line-height: 1;
     background: none;
     border: $border-width solid transparent;
+    color: #fff;
     @include border-radius($btn-border-radius);
 
     @include hover-focus {

@@ -10670,6 +10670,11 @@ div.riform .label
 
     color: #fff;
 }
+.app-navbar-brand:hover,
+.app-navbar-brand:focus
+{
+    color: #fff;
+}
 
 .app-navbar-header-toggle
 {
@@ -10748,7 +10753,8 @@ div.riform .label
 
     padding: .5rem .75rem;
 
-    border: 1px solid transparent; 
+    color: #fff; 
+    border: 1px solid transparent;
     background: none;
 }
 .navbar-toggler:focus,
