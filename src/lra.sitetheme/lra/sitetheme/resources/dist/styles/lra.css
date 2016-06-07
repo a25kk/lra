@@ -11751,9 +11751,11 @@ textarea
 .pagination
 {
     padding-top: 1rem;
-    padding-bottom: 1rem; 
-
-    background: #ccc;
+    padding-bottom: 1rem;
+}
+#search-results .pagination
+{
+    background-color: #ccc;
 }
 .pagination ul
 {
@@ -13005,6 +13007,17 @@ app-nav-list .app-card-main
     background: #588c73;
 }
 
+.newsImageContainer
+{
+    margin-bottom: 2rem;
+}
+.newsImageContainer > figcaption
+{
+    font-size: .8rem;
+
+    color: #333;
+}
+
 .newsImage
 {
     width: 100%;
@@ -13053,46 +13066,10 @@ app-nav-list .app-card-main
 
 .app-news-wrapper
 {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
-
-    margin-right: -15px;
-    margin-left: -15px;
     padding-top: 1rem;
     padding-bottom: 1rem; 
 
     border-bottom: 1px solid #edeaea;
-
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-}
-.app-news-wrapper .app-news-left
-{
-    position: relative;
-
-    max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-
-    -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-}
-.app-news-wrapper .app-news-right
-{
-    position: relative;
-
-    max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-
-    -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
 }
 
 .app-summary-wrapper
@@ -13264,6 +13241,45 @@ img[data-sizes='auto']
     display: block;
 
     width: 100%;
+}
+
+.app-page-image-container
+{
+    position: relative;
+}
+
+.app-image-caption
+{
+    font-size: .8rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+
+    transition: all 300ms ease-out; 
+
+    opacity: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+}
+.app-image-caption:hover
+{
+    opacity: 1;
+}
+
+.app-image-caption-text
+{
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+            align-self: flex-end;
 }
 
 .event.summary
@@ -14117,6 +14133,11 @@ article.vevent
 .app-news-list-item-title a
 {
     color: #fff;
+}
+
+.app-news-list-item-abstract
+{
+    margin-bottom: 2.5rem;
 }
 
 .app-news-list-item-actions

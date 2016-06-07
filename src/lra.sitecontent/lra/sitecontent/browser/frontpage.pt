@@ -48,8 +48,8 @@
                                                 tal:condition="python:has_img and scales"
                                                 tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
                                           </noscript>
-                                        <figcaption tal:condition="exists:item/image_caption">
-                                          ${item/image_caption}
+                                        <figcaption class="app-image-caption" tal:condition="exists:item/image_caption">
+                                            <div class="app-image-caption-text">${item/image_caption}</div>
                                         </figcaption>
                                       </figure>
                                   </tal:image>

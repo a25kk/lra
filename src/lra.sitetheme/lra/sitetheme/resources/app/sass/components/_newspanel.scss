@@ -60,6 +60,10 @@
     }
 }
 
+.app-news-list-item-abstract {
+    margin-bottom: 2.5rem;
+}
+
 .app-news-list-item-actions {
     text-align: right;
     @include media-breakpoint-up(md) {

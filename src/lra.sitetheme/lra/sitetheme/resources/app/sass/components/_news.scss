@@ -1,5 +1,15 @@
 // News
 
+
+// News item
+.newsImageContainer {
+  margin-bottom: 2rem;
+  > figcaption {
+    font-size: .8rem;
+    color: #333;
+  }
+}
+
 .newsImage {
   @extend.img-fluid;
     width: 100%;
@@ -34,23 +44,16 @@
 .option {
   display: block;
 }
-.userrole-member {  
+.userrole-member {
   margin-left: -60px !important;
 }
 
 // Listing
 
 .app-news-wrapper {
-  @include make-row();
   border-bottom: 1px solid $app-gray;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  .app-news-left {
-    @include make-col(12);
-  }
-  .app-news-right {
-    @include make-col(12);
-  }
 }
 
 .app-summary-wrapper {

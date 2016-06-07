@@ -84,3 +84,29 @@ img[data-sizes="auto"] {
     width: 100%;
 }
 
+// Image container
+.app-page-image-container {
+    position: relative;
+}
+
+.app-image-caption {
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    font-size: .8rem;
+    transition: all 300ms ease-out;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.app-image-caption-text {
+    align-self: flex-end;
+}

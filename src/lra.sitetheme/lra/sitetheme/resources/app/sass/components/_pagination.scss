@@ -1,7 +1,9 @@
 .pagination {
-    background: #ccc;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    @include when-inside('#search-results') {
+        background-color: #ccc;
+    }
 
     ul {
         margin-bottom: 0;
@@ -10,7 +12,6 @@
         display: inline;
     }
     .active {
-        //background: $app-primary;
         font-weight: 700;
         span:after  {
             content: "]";
