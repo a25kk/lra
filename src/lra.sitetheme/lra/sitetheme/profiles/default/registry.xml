@@ -10,7 +10,7 @@
         <value key="resources">
             <element>lra.sitetheme</element>
         </value>
-        <value key="enabled">True</value>
+        <value key="enabled">False</value>
         <value key="jscompilation">++theme++lra.sitetheme/dist/scripts/main-compiled.min.js</value>
         <value key="last_compilation">2015-02-06 00:00:00</value>
     </records>
