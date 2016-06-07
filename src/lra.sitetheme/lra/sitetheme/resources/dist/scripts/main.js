@@ -1,4 +1,4 @@
-requirejs(['require', 'jquery',
+requirejs(['require',
 '/++theme++lra.sitetheme/dist/scripts/flickity.pkgd.js',
 '/++theme++lra.sitetheme/dist/scripts/fontfaceobserver.js',
 '/++theme++lra.sitetheme/dist/scripts/hideShowPassword.js',
@@ -6,7 +6,7 @@ requirejs(['require', 'jquery',
 '/++theme++lra.sitetheme/dist/scripts/respimage.js',
 '/++theme++lra.sitetheme/dist/scripts/ls.parent-fit.js',
 '/++theme++lra.sitetheme/dist/scripts/lazysizes-umd.js',],
- function(require, $, Flickity) {
+ function(require, Flickity) {
 'use strict';
 var font = new FontFaceObserver('Fira Sans');
 font.load().then(function () {
