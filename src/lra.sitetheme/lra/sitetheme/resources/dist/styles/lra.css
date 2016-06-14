@@ -13319,6 +13319,8 @@ img[data-sizes='auto']
     line-height: 1.3em;
 
     display: inline-block;
+
+    background: transparent;
 }
 
 @media (min-width: 544px)
