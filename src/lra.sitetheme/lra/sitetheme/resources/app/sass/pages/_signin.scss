@@ -7,7 +7,7 @@
 }
 
 .app-signin-wrapper {
-  @extend .center-block;
+  @extend .center-block !optional;
   max-width: 480px;
   margin: 0 auto;
 }

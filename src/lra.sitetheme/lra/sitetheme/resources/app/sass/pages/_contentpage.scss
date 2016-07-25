@@ -26,7 +26,7 @@
 
 
 .app-page-title {
-    @extend .page-header;
+    @extend .page-header !optional;
     color: $app-primary;
 }
 

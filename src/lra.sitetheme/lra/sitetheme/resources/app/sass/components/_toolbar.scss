@@ -36,7 +36,7 @@ $plone-screen-lg-min:              1200px;
 //
 //== Mix plone styles with basic formatting
 .app-toolbar {
-    @extend .hidden-xs;
+    @extend .hidden-xs !optional ;
     position: fixed;
     top:0;
     left:0;

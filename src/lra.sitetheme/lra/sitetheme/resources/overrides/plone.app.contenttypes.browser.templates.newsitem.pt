@@ -16,6 +16,8 @@
 </metal:head>
 
 <metal:content-core fill-slot="content-core">
+<span class="app-date">Veröffentlicht am 
+<span tal:replace="python:context.toLocalizedTime(context.Date())"></span></span>
 <metal:block define-macro="content-core"
     tal:define="templateId template/getId;
                 scale_func context/@@images;
