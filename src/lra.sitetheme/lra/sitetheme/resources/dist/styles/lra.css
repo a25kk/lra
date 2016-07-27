@@ -16203,7 +16203,7 @@ article.vevent
     {
         display: none;
     }
-    .app-contact-viewlet-elements
+    .app-contact-viewlet-elements .app-contact-actions
     {
         display: none;
     }

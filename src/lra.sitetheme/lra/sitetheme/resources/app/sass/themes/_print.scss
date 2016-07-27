@@ -16,7 +16,9 @@
 	}
 
 	.app-contact-viewlet-elements {
-		display: none;
+		.app-contact-actions {
+			display: none;
+		}
 	}
 
 	.app-contact-panel {
