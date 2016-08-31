@@ -19,14 +19,14 @@
 }
 
 
-.app-üage-content {
+.app-page-content {
   display: block;
   min-height: 400px;
 }
 
 
 .app-page-title {
-    @extend .page-header;
+    margin-bottom: 1rem;
     color: $app-primary;
 }
 

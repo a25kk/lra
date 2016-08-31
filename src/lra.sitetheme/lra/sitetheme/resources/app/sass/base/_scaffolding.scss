@@ -82,7 +82,7 @@ div.riform .label {
 // Force search button to display styled
 .searchButton {
     @extend .btn;
-    @extend .btn-default;
+    @include button-outline-variant($btn-primary-bg);
 }
 
 // Reset tiny mce content body styling for better readability
