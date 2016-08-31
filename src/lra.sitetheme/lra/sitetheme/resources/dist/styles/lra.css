@@ -13299,6 +13299,16 @@ app-nav-list .app-card-main
     color: #fff;
 }
 
+.app-date
+{
+    font-size: .8rem; 
+
+    padding: .5rem;
+
+    color: #fff;
+    background: #41805d;
+}
+
 .ratio-container
 {
     position: relative;
@@ -13457,6 +13467,8 @@ img[data-sizes='auto']
     line-height: 1.3em;
 
     display: inline-block;
+
+    background: transparent;
 }
 
 @media (min-width: 544px)
@@ -16328,6 +16340,38 @@ article.vevent
 .app-icon-list i
 {
     padding: 1rem 0;
+}
+
+@media print
+{
+    .app-header
+    {
+        display: none;
+    }
+    .app-pathbar
+    {
+        display: none;
+    }
+    .app-main-aside
+    {
+        display: none;
+    }
+    .back
+    {
+        display: none;
+    }
+    .app-contact-viewlet-elements .app-contact-actions
+    {
+        display: none;
+    }
+    .app-contact-panel
+    {
+        display: none;
+    }
+    .app-footer
+    {
+        display: none;
+    }
 }
 
 .searchField

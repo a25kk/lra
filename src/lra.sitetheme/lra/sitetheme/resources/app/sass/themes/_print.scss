@@ -1,0 +1,33 @@
+@media print {
+	.app-header {
+		display: none;
+	}
+
+	.app-pathbar {
+		display: none;
+	}
+
+	.app-main-aside {
+		display: none;
+	}
+
+	.back {
+		display: none;
+	}
+
+	.app-contact-viewlet-elements {
+		.app-contact-actions {
+			display: none;
+		}
+	}
+
+	.app-contact-panel {
+		display: none;
+	}
+
+	.app-footer {
+		display: none;
+	}
+}
+
+
