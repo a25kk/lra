@@ -1,0 +1,16 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:five="http://namespaces.zope.org/five"
+        xmlns:i18n="http://namespaces.zope.org/i18n"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        i18n_domain="lra.sitecontent">
+
+    <adapter
+            name="SearchableText"
+            factory="lra.sitecontent.indexers.searchable_text_content_page" />
+
+    <adapter
+            name="SearchableText"
+            factory="lra.sitecontent.indexers.searchable_text_section_folder" />
+
+</configure>

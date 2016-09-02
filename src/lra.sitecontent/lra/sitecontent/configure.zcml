@@ -12,6 +12,9 @@
 
     <include package=".browser" />
 
+    <!-- Custom db indexing for site contents -->
+    <include file="indexers.zcml" />
+
     <!-- Register locales directory -->
     <i18n:registerTranslations directory="locales" />
 
