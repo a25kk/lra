@@ -4028,7 +4028,6 @@ a:hover
 }
 a:focus
 {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
 }
@@ -5660,7 +5659,6 @@ input[type='color'],
 .btn.active.focus,
 .active.focus.searchButton
 {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
 }
@@ -8097,12 +8095,10 @@ input[type='color'] + .input-group-addon:not(:first-child),
 {
     .card-columns
     {
-        -webkit-column-count: 3;
-           -moz-column-count: 3;
-                column-count: 3;
-        -webkit-column-gap: 1.25rem;
-           -moz-column-gap: 1.25rem;
-                column-gap: 1.25rem;
+        -moz-column-count: 3;
+             column-count: 3;
+        -moz-column-gap: 1.25rem;
+             column-gap: 1.25rem;
     }
     .card-columns .card
     {
@@ -16371,6 +16367,11 @@ article.vevent
     .app-footer
     {
         display: none;
+    }
+    .dim-in
+    {
+        opacity: 1;
+        /* make things visible upon start */
     }
 }
 
