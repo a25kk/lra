@@ -1,32 +1,40 @@
 @media print {
 	.app-header {
-		display: none;
+		display: none !important;
 	}
 
 	.app-pathbar {
-		display: none;
+		display: none !important;
 	}
 
 	.app-main-aside {
-		display: none;
+		display: none !important;
 	}
 
 	.back {
-		display: none;
+		display: none !important;
 	}
 
 	.app-contact-viewlet-elements {
 		.app-contact-actions {
-			display: none;
+			display: none !important;
 		}
 	}
 
 	.app-contact-panel {
-		display: none;
+		display: none !important;
 	}
 
 	.app-footer {
-		display: none;
+		display: none !important;
+	}
+
+	.dim-in {
+    	opacity: 1 !important;  /* make things visible upon start */
+	}
+
+	svg {
+		position: absolute !important;
 	}
 }
 
