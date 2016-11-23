@@ -12283,8 +12283,9 @@ textarea
     display: flex;
 
     margin-right: -15px;
-    margin-right: 1rem; 
     margin-left: -15px;
+    padding-right: 15px;
+    padding-left: 15px; 
 
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -14842,7 +14843,7 @@ article.vevent
     padding-right: 15px;
     padding-bottom: 1rem;
     padding-left: 15px;
-    padding-left: 0;
+    padding-left: 0 !important;
 }
 @media (min-width: 576px)
 {
@@ -15068,8 +15069,9 @@ article.vevent
         display: flex;
 
         margin-right: -15px;
-        margin-right: 0; 
         margin-left: -15px;
+        padding-right: 15px;
+        padding-left: 15px; 
 
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
@@ -15127,9 +15129,11 @@ article.vevent
 
 .app-news-list-item-main
 {
+    position: relative; 
+
     padding: 2rem 1rem 1rem;
 
-    color: #fff; 
+    color: #fff;
     background: linear-gradient(to bottom, #1d3a24 0%, #588c73 100%);
 }
 @media (min-width: 576px)

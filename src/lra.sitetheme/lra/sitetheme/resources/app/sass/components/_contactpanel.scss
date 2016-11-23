@@ -12,7 +12,7 @@
 .app-frontpagepanel {
 	@include make-container();
 	@include make-container-max-widths();
-	padding-left: 0;
+	padding-left: 0 !important ;
 	padding-bottom: 1rem;
 	margin-top: 1rem;
 }
