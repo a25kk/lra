@@ -26,6 +26,15 @@
       layer="..interfaces.ILraSitecontentLayer"
       />
 
+  <browser:page
+      for="lra.sitecontent.bookableevent.IBookableEvent"
+      name="bookable-event-view"
+      class=".bookableevent.BookableEventView"
+      template="bookableevent.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+  />
+
   <!-- Frontpage Views -->
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"

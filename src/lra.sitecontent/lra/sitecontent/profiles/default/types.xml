@@ -3,4 +3,5 @@
   <!-- -*- extra stuff goes here -*- -->
     <object name="lra.sitecontent.sectionfolder" meta_type="Dexterity FTI" />
     <object name="lra.sitecontent.contentpage" meta_type="Dexterity FTI" />
+    <object name="lra.sitecontent.bookableevent" meta_type="Dexterity FTI" />
 </object>
