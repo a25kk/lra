@@ -21,6 +21,10 @@
     @include make-row();
     @include media-breakpoint-up(md) {
         flex-wrap: nowrap;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 

@@ -8,7 +8,8 @@
     // display: flex;
     @include make-row();
     align-items: center;
-    margin-right: $spacer;
+        padding-right: 15px;
+        padding-left: 15px;
         &-panel-inverse {
         width: 100%;
     }

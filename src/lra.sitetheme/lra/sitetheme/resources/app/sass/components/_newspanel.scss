@@ -19,7 +19,8 @@
     margin-bottom: $spacer;
 	@include media-breakpoint-up(sm) {
 		@include make-row();
-        margin-right: 0;
+        padding-right: 15px;
+        padding-left: 15px;
 	}
 
 
@@ -49,6 +50,7 @@
     padding: 2rem 1rem 1rem;
     background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
     color: #fff;
+    position: relative;
 }
 
 .app-news-list-item-title {
