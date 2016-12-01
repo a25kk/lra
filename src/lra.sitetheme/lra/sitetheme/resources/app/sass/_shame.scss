@@ -23,3 +23,14 @@
     background-color: $app-gray !important;
     border-color: $app-gray !important;
 }
+
+// Bookable event summary box
+//
+// The plone.app.event styles are naive in a way that makes them
+// mostly unusable without forced overrides. We should get rid of the
+// default styles and provide our own sooner or later
+.app-page-event-details {
+    > ul {
+        padding: 1rem 2rem !important;
+    }
+}

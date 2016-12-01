@@ -34,6 +34,14 @@
       permission="zope2.View"
       layer="..interfaces.ILraSitecontentLayer"
   />
+  <browser:page
+      for="lra.sitecontent.bookableevent.IBookableEvent"
+      name="bookable-event-dispatched"
+      class=".bookableevent.BookableEventFormDispatchedView"
+      template="bookableevent-dispatched.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+  />
 
   <!-- Frontpage Views -->
   <browser:page
