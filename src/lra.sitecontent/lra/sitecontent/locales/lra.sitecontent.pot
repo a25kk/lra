@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-12-07 11:52+0000\n"
+"POT-Creation-Date: 2016-12-07 15:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: lra.sitecontent\n"
 
-#: ./../browser/bookableevent.pt:138
+#: ./../browser/bookableevent.pt:141
 msgid "Address"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:71
+#: ./../browser/bookableevent.pt:74
 msgid "All fields marked with <code>*</code> are required."
 msgstr ""
 
@@ -29,7 +29,7 @@ msgstr ""
 msgid "BookableEvent"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:192
+#: ./../browser/bookableevent.pt:195
 msgid "Building Type"
 msgstr ""
 
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Contentpage"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:82
+#: ./../browser/bookableevent.pt:85
 msgid "E-Mail"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:64
+#: ./../browser/bookableevent.pt:67
 msgid "Event Registration"
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Folderish content page"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:111
+#: ./../browser/bookableevent.pt:114
 msgid "Fullname"
 msgstr ""
 
@@ -65,15 +65,19 @@ msgstr ""
 msgid "Inquiry form"
 msgstr ""
 
-#: ./../browser/bookableevent.py:97
+#: ./../browser/bookableevent.py:108
 msgid "Inquiry from website visitor"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:165
+#: ./../browser/bookableevent.pt:168
 msgid "Phone"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:237
+#: ./../bookableevent.py:18
+msgid "Recipient E-Mail"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:240
 msgid "Register"
 msgstr ""
 
@@ -93,12 +97,12 @@ msgstr ""
 msgid "Thank you for your interest. We will get in touch with you as soon as possible."
 msgstr ""
 
-#: ./../browser/bookableevent.pt:100
+#: ./../browser/bookableevent.pt:103
 #: ./../browser/bookableevent.py:48
 msgid "This field is required"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:215
+#: ./../browser/bookableevent.pt:218
 msgid "Year of Construction"
 msgstr ""
 
