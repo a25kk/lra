@@ -81,7 +81,11 @@ class BookableEventView(BrowserView):
         template_vars = {
             'email': data['email'],
             'subject': str(data['subject']),
-            'message': data['comment'],
+            'fullname': data['fullname'],
+            'address': data['address'],
+            'phone': data['phone'],
+            'building_type': getattr(data, 'building_type', ''),
+            'year': getattr(data, 'year', ''),
             'url': portal_url
         }
         template_name = 'bookableevent-mail.html'
@@ -95,6 +99,7 @@ class BookableEventView(BrowserView):
             "Inquiry from website visitor",
             'lra.sitecontent',
             api.portal.get_current_language())
+        data['subject'] = email_subject
         mail_tpl = self._compose_message(data)
         mail_plain = create_plaintext_message(mail_tpl)
         msg = prepare_email_message(mail_tpl, mail_plain)
