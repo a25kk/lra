@@ -69,6 +69,17 @@ class BookableEventView(BrowserView):
         self.update()
         return self.index()
 
+    def is_open_for_registration(self):
+        context = aq_inner(self.context)
+        start_date = getattr(context, 'start', None)
+        if start_date:
+            utc = pytz.UTC
+            timezone_aware_start = start_date.replace(tzinfo=utc)
+            now = utc.localize(datetime.datetime.now())
+            if timezone_aware_start > now:
+                return True
+        return False
+
     def default_value(self, error):
         value = ''
         if error['active'] is False:
@@ -106,7 +117,8 @@ class BookableEventView(BrowserView):
         default_email = api.portal.get_registry_record(
             'plone.email_from_address')
         recipient_email = getattr(context, 'email', default_email)
-        recipients = [recipient_email, ]
+        registration_email = getattr(context, 'contact_email', default_email)
+        recipients = [recipient_email, registration_email]
         send_mail(
             msg,
             recipients,

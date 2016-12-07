@@ -61,9 +61,12 @@
                      tal:condition="context/text"
                      tal:content="structure context/text/output" />
 
-            <h2 i18n:translate="">Event Registration</h2>
+            <div class="app-page-form" tal:condition="view/is_open_for_registration">
 
-            <form class="app-form app-form-inquiry"
+
+                <h2 i18n:translate="">Event Registration</h2>
+
+                <form class="app-form app-form-inquiry"
                   method="post" role="form"
                      tal:define="errors view/errors"
                      tal:attributes="action request/URL">
@@ -241,7 +244,7 @@
                 </div>
 
             </form>
-
+            </div>
         </div>
 
     </metal:content-core>
