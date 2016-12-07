@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-22 10:23+0000\n"
+"POT-Creation-Date: 2016-12-07 11:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,68 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: lra.sitecontent\n"
 
+#: ./../browser/bookableevent.pt:138
+msgid "Address"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:71
+msgid "All fields marked with <code>*</code> are required."
+msgstr ""
+
+#: ./../profiles/default/types/lra.sitecontent.bookableevent.xml
+msgid "BookableEvent"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:192
+msgid "Building Type"
+msgstr ""
+
 #: ./../profiles/default/types/lra.sitecontent.contentpage.xml
 msgid "Contentpage"
 msgstr ""
 
-#: ./../configure.zcml:25
+#: ./../browser/bookableevent.pt:82
+msgid "E-Mail"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:64
+msgid "Event Registration"
+msgstr ""
+
+#: ./../configure.zcml:28
 msgid "Extension profile for lra.sitecontent."
+msgstr ""
+
+#: ./../profiles/default/types/lra.sitecontent.bookableevent.xml
+msgid "Folderish bookable event"
 msgstr ""
 
 #: ./../profiles/default/types/lra.sitecontent.contentpage.xml
 msgid "Folderish content page"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:111
+msgid "Fullname"
+msgstr ""
+
+#: ./../browser/bookableevent-dispatched.pt:14
+msgid "Inquiry form"
+msgstr ""
+
+#: ./../browser/bookableevent.py:97
+msgid "Inquiry from website visitor"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:165
+msgid "Phone"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:237
+msgid "Register"
+msgstr ""
+
+#: ./../browser/bookableevent-dispatched.pt:28
+msgid "Return to last visited page"
 msgstr ""
 
 #: ./../profiles/default/types/lra.sitecontent.sectionfolder.xml
@@ -37,6 +89,23 @@ msgstr ""
 msgid "Site Section Folder"
 msgstr ""
 
-#: ./../configure.zcml:25
+#: ./../browser/bookableevent-dispatched.pt:24
+msgid "Thank you for your interest. We will get in touch with you as soon as possible."
+msgstr ""
+
+#: ./../browser/bookableevent.pt:100
+#: ./../browser/bookableevent.py:48
+msgid "This field is required"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:215
+msgid "Year of Construction"
+msgstr ""
+
+#: ./../browser/bookableevent-dispatched.pt:17
+msgid "Your inquiry has been sent successfully."
+msgstr ""
+
+#: ./../configure.zcml:28
 msgid "lra.sitecontent"
 msgstr ""
