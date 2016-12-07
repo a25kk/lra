@@ -8,11 +8,16 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from plone import api
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 
 from lra.sitecontent.mailer import create_plaintext_message
 from lra.sitecontent.mailer import prepare_email_message
 from lra.sitecontent.mailer import get_mail_template
 from lra.sitecontent.mailer import send_mail
+
+from lra.sitecontent.interfaces import IResponsiveImagesTool
+
+from lra.sitecontent import _
 
 
 class BookableEventView(BrowserView):
@@ -126,6 +131,10 @@ class BookableEventView(BrowserView):
         if lead_img is not None:
             return True
         return False
+
+    def get_image_data(self, uuid):
+        tool = getUtility(IResponsiveImagesTool)
+        return tool.create(uuid)
 
 
 class BookableEventFormDispatchedView(BrowserView):
