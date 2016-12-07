@@ -88,7 +88,7 @@ class BookableEventView(BrowserView):
             'year': getattr(data, 'year', ''),
             'url': portal_url
         }
-        template_name = 'bookableevent-mail.html'
+        template_name = 'bookable-event-mail.html'
         message = get_mail_template(template_name, template_vars)
         return message
 
