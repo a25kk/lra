@@ -17583,4 +17583,9 @@ article.vevent
 {
     padding: 1rem 2rem !important;
 }
+
+#popover-rename input
+{
+    height: 50px;
+}
 /*# sourceMappingURL=lra.css.map */

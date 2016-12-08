@@ -14,6 +14,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="dist/funding/index.html" css:if-content="body.subsection-klimaschutz-termine-klimaschutz" />
     <theme href="dist/full/index.html" css:if-content="body.template-search" />
     <theme href="dist/full/index.html" css:if-content="body.template-default_error_message" />
     <theme href="dist/full/index.html" css:if-content="body.template-contact-info" />
@@ -22,6 +23,8 @@
     <theme href="dist/full/index.html" css:if-content="body.section-impressum" />
     <theme href="dist/full/index.html" css:if-content="body.section-rechtliche-hinweise" />
     <theme href="dist/full/index.html" css:if-content="body.section-kontakt" />
+
+    
 
 
     <theme href="dist/frontpage/index.html" css:if-content="body.template-startseite" />

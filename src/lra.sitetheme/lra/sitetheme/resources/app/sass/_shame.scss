@@ -34,3 +34,11 @@
         padding: 1rem 2rem !important;
     }
 }
+
+// Rename widget
+//
+// pattern.structure.less overwrite
+
+#popover-rename input {
+	height: 50px;
+}
