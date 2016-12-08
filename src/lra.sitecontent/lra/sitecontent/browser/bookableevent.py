@@ -95,8 +95,8 @@ class BookableEventView(BrowserView):
             'fullname': data['fullname'],
             'address': data['address'],
             'phone': data['phone'],
-            'building_type': getattr(data, 'building_type', ''),
-            'year': getattr(data, 'year', ''),
+            'building_type': data['building_type'],
+            'year': data['year'],
             'url': portal_url
         }
         template_name = 'bookable-event-mail.html'
@@ -116,7 +116,7 @@ class BookableEventView(BrowserView):
         msg = prepare_email_message(mail_tpl, mail_plain)
         default_email = api.portal.get_registry_record(
             'plone.email_from_address')
-        recipient_email = getattr(context, 'email', default_email)
+        recipient_email = data['email']
         registration_email = getattr(context, 'contact_email', default_email)
         recipients = [recipient_email, registration_email]
         send_mail(
