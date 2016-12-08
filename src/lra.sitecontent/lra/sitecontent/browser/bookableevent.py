@@ -53,7 +53,7 @@ class BookableEventView(BrowserView):
                             target_language=api.portal.get_default_language()
                         )
                         form_errors[value] = error
-                        errorIdx += 1
+                        error_idx += 1
                     else:
                         error = {
                             'active': False,
