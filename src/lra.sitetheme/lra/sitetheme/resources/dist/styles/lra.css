@@ -11480,6 +11480,10 @@ textarea
 
     display: block;
 }
+.app-fonts-loaded .app-form-help
+{
+    font-weight: 300;
+}
 
 .app-field-required
 {
@@ -17371,6 +17375,13 @@ article.vevent
 .app-page-event-details > ul
 {
     padding: 1rem 2rem !important;
+}
+
+#formfield-form-widgets-IEventLocation-location
+{
+    display: block;
+    float: none;
+    clear: both;
 }
 
 #popover-rename input

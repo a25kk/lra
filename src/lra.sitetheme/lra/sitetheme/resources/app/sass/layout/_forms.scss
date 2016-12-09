@@ -50,6 +50,9 @@ textarea {
 .app-form-help {
     display: block;
     font-weight: 400;
+    @include when-inside('.app-fonts-loaded') {
+        font-weight: 300;
+    }
 }
 
 //== Required field

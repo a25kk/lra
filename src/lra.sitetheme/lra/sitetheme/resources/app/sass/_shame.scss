@@ -35,6 +35,15 @@
     }
 }
 
+// plone.app.event default styles
+//
+// Prevent naive default styles from breaking the base edit forms
+#formfield-form-widgets-IEventLocation-location {
+    display: block;
+    float: none;
+    clear: both;
+}
+
 // Rename widget
 //
 // pattern.structure.less overwrite
