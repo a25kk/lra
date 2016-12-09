@@ -24,7 +24,7 @@
     <theme href="dist/full/index.html" css:if-content="body.section-rechtliche-hinweise" />
     <theme href="dist/full/index.html" css:if-content="body.section-kontakt" />
 
-    
+
 
 
     <theme href="dist/frontpage/index.html" css:if-content="body.template-startseite" />
@@ -258,10 +258,10 @@
         <replace css:content=".formHelp">
               <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class"><xsl:value-of select="./@class" /> help-block</xsl:attribute>
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-form-help</xsl:attribute>
                 <xsl:apply-templates />
               </xsl:copy>
-            </replace>
+        </replace>
 
         <!-- Required marker -->
         <replace css:content="span.required">
