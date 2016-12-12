@@ -8,10 +8,11 @@
         background: white;
         display: block;
         overflow: visible !important;
-        margin: 0 auto .5cm auto;
+        margin: 0;
         // Use well readable system fonts for printing
         font-family: Georgia, 'Times New Roman', serif;
         font-size: 1em;
+        float: none;
     }
 
     .dim-in {
@@ -29,9 +30,26 @@
     .app-contact-panel,
     .app-contact-actions,
     .app-footer,
-    .back {
-		display: none;
+    .back,
+    .app-main-aside {
+		display: none !important;
 	}
+
+    .app-main,
+    .app-main-section,
+    .app-main-content,
+    .app-content,
+    .app-page-header,
+    .app-page-title,
+    .app-page-headline,
+    .app-page-abstract,
+    .app-page-body,
+    .app-page-text {
+        display: block;
+        width: 800px !important;
+        overflow: visible !important;
+        float: none;
+    }
 }
 
 
