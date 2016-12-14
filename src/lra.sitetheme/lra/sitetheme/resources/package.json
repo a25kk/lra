@@ -92,7 +92,7 @@
       "yargs": "^3.18.0"
   },
   "dependencies": {
-      "bootstrap": "git@github.com/twbs/bootstrap.git",
+      "bootstrap": "github:twbs/bootstrap#v4-dev",
       "csscomb": "^3.1.8",
       "flickity": "^1.2.1",
       "font-awesome": "^4.4.0",
