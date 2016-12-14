@@ -13934,8 +13934,7 @@ app-nav-list .app-card-main
 
     margin-right: -15px;
     margin-left: -15px;
-    padding-top: 1rem;
-    padding-bottom: 1rem; 
+    padding: 1rem; 
 
     border-bottom: 1px solid #edeaea;
 
@@ -13987,7 +13986,8 @@ app-nav-list .app-card-main
     .app-summary-wrapper .app-summary-left
     {
         max-width: 33.3333333333%;
-        margin-bottom: 0; 
+        margin-bottom: 0;
+        padding-right: 1rem; 
 
         -ms-flex: 0 0 33.3333333333%;
             flex: 0 0 33.3333333333%;
@@ -16209,7 +16209,7 @@ article.vevent
 .app-contact-element-main
 {
     margin-top: 1rem; 
-    margin-right: 0rem;
+    margin-right: 1rem;
     margin-left: 0rem;
     padding: 1rem;
 

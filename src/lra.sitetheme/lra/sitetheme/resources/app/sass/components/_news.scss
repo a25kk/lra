@@ -59,14 +59,14 @@
 .app-summary-wrapper {
   @include make-row();
   border-bottom: 1px solid $app-gray;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem;
   .app-summary-left {
     @include make-col(12);
         margin-bottom: 1rem;
         @include media-breakpoint-up(sm) {
           @include make-col(4);
           margin-bottom: 0;
+          padding-right: 1rem;
         }
     }
   .app-summary-right {
