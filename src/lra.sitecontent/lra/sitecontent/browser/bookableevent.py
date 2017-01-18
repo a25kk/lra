@@ -87,8 +87,11 @@ class BookableEventView(BrowserView):
         return value
 
     def _compose_message(self, data):
+        context = aq_inner(self.context)
         portal = api.portal.get()
         portal_url = portal.absolute_url()
+        plone_tool = getMultiAdapter((context, self.request), name="plone")
+        event_date = plone_tool.toLocalizedTime(context.start, long_format=True)
         template_vars = {
             'email': data['email'],
             'subject': str(data['subject']),
@@ -97,7 +100,9 @@ class BookableEventView(BrowserView):
             'phone': data['phone'],
             'building_type': data['building_type'],
             'year': data['year'],
-            'url': portal_url
+            'url': portal_url,
+            'event': context.Title(),
+            'date': '{0} Uhr'.format(str(event_date))
         }
         template_name = 'bookable-event-mail.html'
         message = get_mail_template(template_name, template_vars)
