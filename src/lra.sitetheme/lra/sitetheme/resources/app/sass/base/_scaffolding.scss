@@ -5,32 +5,23 @@
 
 //** Adjust font weight for initialized webfonts
 body {
-    .wf-active &,
-    .app-fonts-loaded & {
-        font-weight: 300;
-    }
-    &.template-theming-controlpanel .row {
-        // Fix theming control panel
-        margin: 0 $spacer;
-    }
-}
-
-// Set font weights if webfont is active
-.wf-active,
-.app-fonts-loaded {
-    b,
-    strong {
-        font-weight: 500;
+    @include when-inside('.app-fonts--loaded') {
+        font-weight: $app-font-weight-base;
     }
 }
 
 // prevent fake bolds
 b,
 strong {
-    font-weight: 700;
-    .wf-active &,
-    .app-fonts-loaded & {
-        font-weight: 500;
+    @include when-inside('.app-fonts--loaded') {
+        font-weight: $app-font-weight-bold;
+    }
+}
+
+i,
+em {
+    @include when-inside('.app-fonts--loaded') {
+        font-weight: $app-font-weight-italic;
     }
 }
 

@@ -23,7 +23,12 @@ $link-color:                    $app-primary;
 // Custom webfonts
 $app-font-family-light:     "Open Sans";
 $app-font-family-medium:    "Open Sans";
-// $app-font-family-strong:    "DINRoundWeb";
+
+$app-font-weight-light:         300;
+$app-font-weight-base:          400;
+$app-font-weight-italic:        400;
+$app-font-weight-bold:          600;
+
 
 
 $font-family-base:            $app-font-family-light, Helvetica, sans-serif;

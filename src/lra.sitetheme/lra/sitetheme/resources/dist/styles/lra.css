@@ -12833,38 +12833,23 @@ http://flickity.metafizzy.co
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
-.wf-active body,
-.app-fonts-loaded body
+.app-fonts--loaded body
 {
-    font-weight: 300;
+    font-weight: 400;
 }
 
-body.template-theming-controlpanel .row
-{
-    margin: 0 1rem;
-}
-
-.wf-active b,
-.wf-active strong,
-.app-fonts-loaded b,
-.app-fonts-loaded strong
-{
-    font-weight: 500;
-}
-
-b,
+.app-fonts--loaded b,
+.app-fonts--loaded
 strong
 {
-    font-weight: 700;
+    font-weight: 600;
 }
-.wf-active b,
-.app-fonts-loaded b,
-.wf-active
-  strong,
-.app-fonts-loaded
-  strong
+
+.app-fonts--loaded i,
+.app-fonts--loaded
+em
 {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 a

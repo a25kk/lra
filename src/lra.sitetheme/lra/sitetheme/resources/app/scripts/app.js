@@ -1,6 +1,6 @@
-var font = new FontFaceObserver('Fira Sans');
+var font = new FontFaceObserver('Open Sans');
 font.load().then(function () {
-    document.documentElement.className += " app-fonts-loaded";
+    document.documentElement.className += " app-fonts--loaded";
 });
 var $bannerBar = document.querySelectorAll('.app-js-carousel'),
     $galleryContainer = document.querySelectorAll('.js-gallery');
