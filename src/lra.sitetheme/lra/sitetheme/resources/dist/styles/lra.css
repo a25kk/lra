@@ -4184,7 +4184,7 @@ html
 
 body
 {
-    font-family: 'Fira Sans', Helvetica, sans-serif;
+    font-family: 'Open Sans', Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.5;
@@ -4448,7 +4448,7 @@ h6,
 .h5,
 .h6
 {
-    font-family: 'Fira Sans', 'Fira Sans', Helvetica, sans-serif;
+    font-family: 'Open Sans', 'Open Sans', Helvetica, sans-serif;
     font-weight: normal;
     line-height: 1.1;
 
@@ -13846,7 +13846,7 @@ textarea
 
 .plone-toolbar-nav
 {
-    font-family: 'Fira Sans', Helvetica, sans-serif;
+    font-family: 'Open Sans', Helvetica, sans-serif;
     font-size: 12px;
 
     margin: 0;
@@ -13910,7 +13910,7 @@ textarea
 
 .plone-toolbar-subnav
 {
-    font-family: 'Fira Sans', Helvetica, sans-serif;
+    font-family: 'Open Sans', Helvetica, sans-serif;
     font-size: 14px;
     line-height: 30px;
 
