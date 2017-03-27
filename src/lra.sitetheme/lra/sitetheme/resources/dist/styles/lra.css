@@ -17764,6 +17764,10 @@ article.vevent
     {
         font-size: 2rem;
     }
+    .app-chart-panel .app-page-headline
+    {
+        font-size: 1.8rem;
+    }
 }
 
 .app-page-lead,
