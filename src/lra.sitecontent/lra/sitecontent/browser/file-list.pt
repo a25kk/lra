@@ -1,0 +1,25 @@
+<div class="app-page__file-list" tal:condition="view/has_assets">
+    <div class="app-file-list app-file-list">
+        <div class="app-file-list__header">
+            <h3 class="app-file-list__title" i18n:translate="">
+                Verfügbare Dateien
+            </h3>
+        </div>
+        <div class="app-file-list__main">
+            <div class="app-list app-list--files">
+                <tal:block tal:repeat="item view/contained_files">
+                    <div class="app-list__item" tal:define="info python:view.get_file_details(item);
+                                                            download_url string:${info/file_url}/@@download/file/${info/file_name}">
+                        <div class="app-list__item-header">
+                            <a class="btn btn-primary pull-right" href="${download_url}">Download <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+                            <h5 class="mb-1">${info/file_name}</h5>
+                        </div>
+                        <small>Dateiformat: <img src="${info/mime_icon}"
+                                alt="${info/content_type}" border="0" /></small><br>
+                        <small>Dateigrösse: ${info/file_size} kb</small>
+                    </div>
+                </tal:block>
+            </div>
+        </div>
+    </div>
+</div>

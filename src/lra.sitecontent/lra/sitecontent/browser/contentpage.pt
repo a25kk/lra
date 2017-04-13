@@ -22,10 +22,6 @@
     </div>
     <div class="app-page-body" id="content-core">
 
-      <tal:gallery tal:condition="view/display_gallery">
-        <div tal:replace="structure view/rendered_gallery" />
-      </tal:gallery>
-
       <tal:nogallery tal:condition="not:view/display_gallery">
         <div class="app-page-leadimage" tal:condition="view/has_leadimage">
           <figure class="app-page-image-container"
@@ -59,6 +55,10 @@
       <div class="app-page-text" id="parent-fieldname-text"
         tal:condition="context/text"
         tal:content="structure context/text/output" />
+
+        <tal:files tal:condition="view/display_file_list">
+            <div tal:replace="structure view/rendered_file_list" />
+        </tal:files>
 
     </div>
 

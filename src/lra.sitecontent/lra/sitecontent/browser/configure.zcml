@@ -25,6 +25,22 @@
       permission="zope2.View"
       layer="..interfaces.ILraSitecontentLayer"
       />
+  <browser:page
+      for="lra.sitecontent.contentpage.IContentPage"
+      name="file-list"
+      class=".contentpage.FileListView"
+      template="file-list.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+  />
+  <browser:page
+      for="lra.sitecontent.contentpage.IContentPage"
+      name="file-list-preview"
+      class=".contentpage.FileListPreview"
+      template="file-list-preview.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+  />
 
   <browser:page
       for="lra.sitecontent.bookableevent.IBookableEvent"
