@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-12-07 15:30+0000\n"
+"POT-Creation-Date: 2017-04-13 14:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,10 @@ msgstr ""
 
 #: ./../browser/bookableevent.pt:195
 msgid "Building Type"
+msgstr ""
+
+#: ./../contentpage.py:18
+msgid "Check to enable file listing"
 msgstr ""
 
 #: ./../profiles/default/types/lra.sitecontent.contentpage.xml
@@ -65,7 +69,7 @@ msgstr ""
 msgid "Inquiry form"
 msgstr ""
 
-#: ./../browser/bookableevent.py:108
+#: ./../browser/bookableevent.py:113
 msgid "Inquiry from website visitor"
 msgstr ""
 
@@ -100,6 +104,10 @@ msgstr ""
 #: ./../browser/bookableevent.pt:103
 #: ./../browser/bookableevent.py:48
 msgid "This field is required"
+msgstr ""
+
+#: ./../contentpage.py:19
+msgid "When activated the view will attempt to display an automatic listing of all contained files with file information and download link."
 msgstr ""
 
 #: ./../browser/bookableevent.pt:218
