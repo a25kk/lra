@@ -21,8 +21,6 @@
       </p>
     </div>
     <div class="app-page-body" id="content-core">
-
-      <tal:nogallery tal:condition="not:view/display_gallery">
         <div class="app-page-leadimage" tal:condition="view/has_leadimage">
           <figure class="app-page-image-container"
               tal:define="item_uuid context/UID;
@@ -50,7 +48,6 @@
             </figcaption>
           </figure>
         </div>
-      </tal:nogallery>
 
       <div class="app-page-text" id="parent-fieldname-text"
         tal:condition="context/text"
