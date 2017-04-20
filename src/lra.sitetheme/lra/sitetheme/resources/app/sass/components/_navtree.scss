@@ -87,7 +87,8 @@
     }
 }
 
-.navTreeCurrentItem {
+.navTreeCurrentItem,
+.nav-list-item-active {
     color: #fff;
     background: $app-primary-dark !important;
 }

@@ -15083,7 +15083,7 @@ textarea
 }
 @media (min-width: 768px)
 {
-    .app-card
+    .app-cards .app-card
     {
         max-width: 50%; 
 
@@ -15093,7 +15093,7 @@ textarea
 }
 @media (min-width: 992px)
 {
-    .app-card
+    .app-cards .app-card
     {
         max-width: 33.3333%; 
 
@@ -15123,6 +15123,11 @@ textarea
 
     -ms-flex-align: top;
     align-items: top;
+}
+.template-overview-controlpanel .app-card-header
+{
+    height: auto;
+    min-height: 3rem;
 }
 .app-nav-list .app-card-header
 {
@@ -15553,7 +15558,8 @@ app-nav-list .app-card-main
     background: #1a3426;
 }
 
-.navTreeCurrentItem
+.navTreeCurrentItem,
+.nav-list-item-active
 {
     color: #fff;
     background: #1a3426 !important;
