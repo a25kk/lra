@@ -13372,6 +13372,8 @@ div.riform .label
     -ms-flex-align: center;
     align-items: center;
 }
+.app-navitem-tab:active,
+.app-navitem-tab:focus,
 .app-navitem-tab:hover
 {
     text-decoration: none; 
@@ -15128,6 +15130,9 @@ textarea
 {
     height: auto;
     min-height: 3rem;
+
+    color: #fff;
+    background: #588c73;
 }
 .app-nav-list .app-card-header
 {
@@ -15454,6 +15459,11 @@ app-nav-list .app-card-main
     color: #fff;
 }
 
+.app-card__main--no-padding
+{
+    padding: 0;
+}
+
 .app-nav-tree
 {
     background-color: #274d38;
@@ -15481,7 +15491,7 @@ app-nav-list .app-card-main
 
 .app-nav-list
 {
-    padding-left: 0;
+    padding: 0;
 
     list-style: none;
 }
@@ -15500,133 +15510,90 @@ app-nav-list .app-card-main
 .app-nav-list-item
 {
     margin-left: 0;
-    padding: .5rem .25rem;
+    padding: 0;
 }
-.app-nav-list-item:not(last)
+.app-nav-list-item:not(:last-child)
 {
-    margin-bottom: .25rem;
-
     border-bottom: 1px solid #fff;
 }
 
 .app-nav-list-link
 {
+    display: block;
+
+    padding: 1rem;
+
     color: #fff;
 }
 .app-nav-list-link:hover
 {
     color: #e6e6e6;
 }
-.app-nav-list-link.navTreeCurrentNode
-{
-    color: #eceeef;
-}
-
-.app-nav-list,
-.navTree
-{
-    padding-left: 0;
-
-    list-style: none;
-}
-
-.app-nav-list .app-card-main
-{
-    padding: 0;
-}
-
-.navTreeItem
-{
-    margin-left: 0;
-}
-.navTreeItem > a
-{
-    display: block;
-
-    margin: 0; 
-    padding: 1rem;
-
-    text-decoration: none;
-
-    color: #fff;
-    border-bottom: 1px solid #fff;
-}
-.navTreeItem > a:hover,
-.navTreeItem > a:focus
-{
-    color: #fff;
-    background: #1a3426;
-}
-
-.navTreeCurrentItem,
-.nav-list-item-active
-{
-    color: #fff;
-    background: #1a3426 !important;
-}
-
-.navTreeItemInPath
-{
-    color: #fff;
-}
-
-.navTreeCurrentNode
-{
-    background: #41805d;
-}
-
-.navTreeItem .navTreeLevel0 li a:link
-{
-    font-size: 1.5rem;
-}
-
-.navTreeLevel1
-{
-    margin-left: 0;
-    padding-left: 0;
-}
-
-.navTreeItem .navTreeLevel1 li a:link
+.app-nav-list--level-1 .app-nav-list-link
 {
     font-size: .8rem; 
 
-    padding-left: 2rem;
+    padding-left: 1.5rem;
+}
+.app-nav-list--level-2 .app-nav-list-link
+{
+    padding-left: 1.75rem;
 }
 
-.navTreeLevel2
+.app-nav-list-item-active
 {
-    margin-left: 0;
+    color: #fff;
+    background-color: #41805d !important;
+}
+.section-aktuelles .app-nav-list-item-active
+{
+    background-color: #69a186 !important;
+}
+.section-landratsamt .app-nav-list-item-active
+{
+    background-color: #d0c06d !important;
+}
+.section-service .app-nav-list-item-active
+{
+    background-color: #f5c296 !important;
+}
+.section-landkreis .app-nav-list-item-active
+{
+    background-color: #e08178 !important;
+}
+.section-hier-leben .app-nav-list-item-active
+{
+    background-color: #a55454 !important;
 }
 
-.navTreeItem .navTreeLevel2 li a:link
+.app-nav-list-link-active
 {
-    font-size: .8rem; 
-
-    padding-left: 4rem;
+    color: #fff;
+    background-color: #1a3426 !important;
 }
-
-.navTreeLevel3
+.section-aktuelles .app-nav-list-link-active
 {
-    margin-left: 0;
+    background-color: #3a5d4c !important;
 }
-
-.navTreeItem .navTreeLevel3 li a:link
+.section-landratsamt .app-nav-list-link-active
 {
-    font-size: .8rem; 
-
-    padding-left: 6rem;
+    background-color: #998931 !important;
 }
-
-.navTreeItem .navTreeLevel4 li a:link
+.section-service .app-nav-list-link-active
 {
-    font-size: .8rem; 
-
-    padding-left: 8rem;
+    background-color: #ec862d !important;
 }
-
-.image-icon
+.section-landkreis .app-nav-list-link-active
 {
-    display: none;
+    background-color: #bb372b !important;
+}
+.section-hier-leben .app-nav-list-link-active
+{
+    background-color: #592d2d !important;
+}
+.app-nav-list-link-active:active
+{
+    color: currentColor;
 }
 
 .app-newsletterbar
@@ -17671,6 +17638,12 @@ article.vevent
 
     border-bottom: 1px solid #ccc;
 }
+.searchResults > li > cite
+{
+    font-size: .875rem; 
+
+    display: block;
+}
 
 .pat-livesearch
 {
@@ -18793,7 +18766,7 @@ article.vevent
     }
 }
 
-.app-main-content
+.app-main-aside + .app-main-content
 {
     max-width: 100%; 
 
@@ -18802,7 +18775,7 @@ article.vevent
 }
 @media (min-width: 768px)
 {
-    .app-main-content
+    .app-main-aside + .app-main-content
     {
         max-width: 66.6666666667%;
         padding-left: .5rem; 

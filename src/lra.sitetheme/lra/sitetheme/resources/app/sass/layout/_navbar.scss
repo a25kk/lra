@@ -160,6 +160,8 @@
     text-transform: uppercase;
     // text-align: center;
     transition: background-color 0.5s ease;
+    &:active,
+    &:focus,
     &:hover {
       color: #fff;
       background-color: darken($app-primary, 6.5%);

@@ -59,6 +59,8 @@
     @include when-inside('.template-overview-controlpanel') {
         height: auto;
         min-height: 3rem;
+        color: #fff;
+        background: $app-secondary;
     }
   padding: $spacer;
   background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);

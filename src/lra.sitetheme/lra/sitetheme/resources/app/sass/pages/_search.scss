@@ -20,6 +20,10 @@
         padding-top: 1rem;
         padding-bottom: 1rem;
         list-style-position: outside;
+        > cite {
+            display: block;
+            font-size: $font-size-sm;
+        }
     }
 }
 
