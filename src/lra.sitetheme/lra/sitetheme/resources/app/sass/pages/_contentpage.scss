@@ -106,3 +106,16 @@
           @include make-col(3);
       }
 }
+
+.app-funding {
+   @include make-row();
+}
+
+.app-funding-item {
+  @include make-col(12);
+   @include media-breakpoint-up(sm) {
+          @include make-col(6);
+          padding: 1rem;
+      }
+}
+
