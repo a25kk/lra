@@ -18705,6 +18705,18 @@ article.vevent
     padding-left: 0;
 }
 
+.formQuestion span.required:after
+{
+    content: '*';
+
+    color: #274d38;
+}
+
+.formControls
+{
+    margin-bottom: 1rem;
+}
+
 .app-toolbar
 {
     visibility: hidden;
