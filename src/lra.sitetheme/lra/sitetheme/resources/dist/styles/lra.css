@@ -18717,6 +18717,11 @@ article.vevent
     margin-bottom: 1rem;
 }
 
+.fieldErrorBox
+{
+    color: #f00 !important;
+}
+
 .app-toolbar
 {
     visibility: hidden;
