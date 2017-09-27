@@ -1,0 +1,20 @@
+//
+// PFG overrides
+//------------------------------------
+
+
+//## Mark fields as required
+.formQuestion {
+  span.required:after {
+    content: "*";
+    color: $app-primary;
+  }
+}
+
+.formControls {
+	margin-bottom: 1rem;
+}
+
+.fieldErrorBox {
+	color: #ff0000 !important;
+}
