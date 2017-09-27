@@ -41,7 +41,18 @@
     }
 }
 
-.app-main-content {
+// DEPRECATED 21.04.2017
+// .app-main-content {
+//     @include make-col(12);
+//     @include media-breakpoint-up(md) {
+//         @include make-col(8);
+//         padding-left: .5rem;
+//     }
+// }
+
+// Since the side bar is dropped by a diazo rule we should
+// only apply the columns styles when we actually have a side bar
+.app-main-aside + .app-main-content {
     @include make-col(12);
     @include media-breakpoint-up(md) {
         @include make-col(8);

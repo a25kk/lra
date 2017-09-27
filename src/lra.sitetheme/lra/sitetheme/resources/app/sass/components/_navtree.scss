@@ -2,6 +2,10 @@
 // Navigation Card Styles
 // ------------------------------------------------------
 
+// Reset card padding for nav card
+.app-card__main--no-padding {
+    padding: 0;
+}
 
 .app-nav-tree {
     background-color: $app-primary;
@@ -24,10 +28,9 @@
 
 
 .app-nav-list {
-    padding-left: 0;
+    padding: 0;
     list-style: none;
 }
-
 .app-nav-tree-list {
     padding-left: 0;
     list-style: none;
@@ -38,106 +41,161 @@
 
 .app-nav-list-item {
     margin-left: 0;
-    padding: .5rem .25rem;
-    &:not(last) {
-        margin-bottom: .25rem;
+    padding: 0;
+    &:not(:last-child) {
         border-bottom: 1px solid #fff;
     }
 }
 
 .app-nav-list-link {
+    display: block;
+    padding: 1rem;
     color: #fff;
     &:hover {
         color: darken(#fff, 10%);
     }
-    &.navTreeCurrentNode {
-        color: $gray-lighter;
+    @include when-inside('.app-nav-list--level-1') {
+        padding-left: 1.5rem;
+        font-size: .8rem;
+    }
+    @include when-inside('.app-nav-list--level-2') {
+        padding-left: 1.75rem;
     }
 }
+
+.app-nav-list-item-active {
+    color: #fff;
+    background-color: $app-primary-lighter !important;
+    @include when-inside('.section-aktuelles') {
+        background-color: lighten($app-section-news-bg, 15%) !important;
+    }
+    @include when-inside('.section-landratsamt') {
+        background-color: lighten($app-section-department-bg, 15%) !important;
+    }
+    @include when-inside('.section-service') {
+        background-color: lighten($app-section-service-bg, 15%) !important;
+    }
+    @include when-inside('.section-landkreis') {
+        background-color: lighten($app-section-landkreis-bg, 15%) !important;
+    }
+    @include when-inside('.section-hier-leben') {
+        background-color: lighten($app-section-life-bg, 15%) !important;
+    }
+}
+
+.app-nav-list-link-active {
+    color: #fff;
+    background-color: $app-primary-dark !important;
+    @include when-inside('.section-aktuelles') {
+        background-color: darken($app-section-news-bg, 7.5%) !important;
+    }
+    @include when-inside('.section-landratsamt') {
+        background-color: darken($app-section-department-bg, 7.5%) !important;
+    }
+    @include when-inside('.section-service') {
+        background-color: darken($app-section-service-bg, 7.5%) !important;
+    }
+    @include when-inside('.section-landkreis') {
+        background-color: darken($app-section-landkreis-bg, 7.5%) !important;
+    }
+    @include when-inside('.section-hier-leben') {
+        background-color: darken($app-section-life-bg, 7.5%) !important;
+    }
+    &:active {
+        color: currentColor;
+    }
+}
+
 
 // DEPRECATED 13.01.2015:
 // Use diazo transforms to cleanup the standard navtree portlet
 // This should allow for better control
-.app-nav-list,
-.navTree {
-    padding-left: 0;
-    list-style: none;
-}
-
-.app-nav-list {
-	.app-card-main {
-		padding: 0;
-	}
-}
-
-.navTreeItem {
-    margin-left: 0;
-    > a {
-    	display: block;
-    	text-decoration: none;
-        color: #fff;
-        border-bottom: 1px solid #fff;
-        padding: 1rem;
-        margin: 0;
-        &:hover,
-  		&:focus {
-  			color: #fff;
-   			background: $app-primary-dark;
-  		}
-    }
-}
-
-.navTreeCurrentItem,
-.nav-list-item-active {
-    color: #fff;
-    background: $app-primary-dark !important;
-}
-
-.navTreeItemInPath {
-    color: #fff;
-}
-
-.navTreeCurrentNode {
-    background: $app-primary-lighter;
-}
-
-.navTreeItem .navTreeLevel0 li a:link {
-    font-size: 1.5rem;
-}
-
-.navTreeLevel1 {
-    margin-left: 0;
-    padding-left: 0;
-}
-
-.navTreeItem .navTreeLevel1 li a:link {
-    padding-left: 2rem;
-    font-size: 0.8rem;
-}
-
-.navTreeLevel2 {
-    margin-left: 0px;
-}
-
-.navTreeItem .navTreeLevel2 li a:link {
-    padding-left: 4rem;
-    font-size: 0.8rem;
-}
-
-.navTreeLevel3 {
-    margin-left: 0px;
-}
-
-.navTreeItem .navTreeLevel3 li a:link {
-    padding-left: 6rem;
-    font-size: 0.8rem;
-}
-
-.navTreeItem .navTreeLevel4 li a:link {
-    padding-left: 8rem;
-    font-size: 0.8rem;
-}
-
-.image-icon {
-    display: none;
-}
+// .app-nav-list,
+// .navTree {
+//     padding-left: 0;
+//     list-style: none;
+// }
+//
+// .app-nav-list {
+// 	.app-card-main {
+// 		padding: 0;
+// 	}
+// }
+//
+// .navTreeItem {
+//     margin-left: 0;
+//     > a {
+//     	display: block;
+//     	text-decoration: none;
+//         color: #fff;
+//         border-bottom: 1px solid #fff;
+//         padding: 1rem;
+//         margin: 0;
+//         &:hover,
+//   		&:focus {
+//   			color: #fff;
+//    			background: $app-primary-dark;
+//   		}
+//     }
+// }
+//
+// .navTreeCurrentItem,
+// .app-nav-list-item-active {
+//     color: #fff;
+//     background-color: $app-primary-lighter !important;
+// }
+//
+// .app-nav-list-link-active {
+//     color: #fff;
+//     background-color: $app-primary-dark !important;
+// }
+//
+// .navTreeItemInPath {
+//     color: #fff;
+// }
+//
+// .navTreeCurrentNode {
+//     background: $app-primary-lighter;
+// }
+//
+// .navTreeItem .navTreeLevel0 li a:link {
+//     font-size: 1.5rem;
+// }
+//
+// .navTreeLevel1 {
+//     margin-left: 0;
+//     padding-left: 0;
+// }
+//
+// .navTreeItem .navTreeLevel1 li a:link {
+//     padding-left: 2rem;
+//     font-size: 0.8rem;
+// }
+//
+// .navTreeLevel2 {
+//     margin-left: 0px;
+// }
+//
+// .navTreeItem .navTreeLevel2 li a:link {
+//     padding-left: 4rem;
+//     font-size: 0.8rem;
+// }
+//
+// .navTreeLevel3 {
+//     margin-left: 0px;
+// }
+//
+// .navTreeItem .navTreeLevel3 li a:link {
+//     padding-left: 6rem;
+//     font-size: 0.8rem;
+// }
+//
+// .navTreeItem .navTreeLevel4 li a:link {
+//     padding-left: 8rem;
+//     font-size: 0.8rem;
+// }
+//
+// .image-icon {
+//     display: none;
+// }
+//
