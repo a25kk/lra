@@ -47,3 +47,7 @@ var
 .DS_Store
 .Python
 share/
+# Enable nginx specific settings
+!cache_control_assets.conf
+!disable_logging.conf
+!proxy_settings.conf
