@@ -13677,13 +13677,13 @@ fonts--loaded .form__field--checkbox > .option > label
 
     content: '';
 
-    border: 1px solid #edeaea;
+    border: 1px solid #999;
     background: #fff;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
 }
 .form__control--checkbox + label:hover:before
 {
-    border: 1px solid #edeaea !important;
+    border: 1px solid #999 !important;
 }
 .form__control--checkbox + label:after
 {

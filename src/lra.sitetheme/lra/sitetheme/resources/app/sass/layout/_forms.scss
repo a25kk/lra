@@ -119,12 +119,12 @@ code {
     left: 0; top: 0;
     width: 1.5rem;
     height: 1.5rem;
-    border: 1px solid $app-gray;
+    border: 1px solid $app-gray-dark;
     background: #fff;
     box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
   }
   &:hover:before {
-    border: 1px solid $app-gray !important;
+    border: 1px solid $app-gray-dark !important;
   }
   &:after {
     content: url('../assets/img/check.png');
