@@ -13830,12 +13830,12 @@ label:hover:before
 
 .app-field-required .required-icon .text
 {
-    font-size: 2.25rem;
+    font-size: 1.2rem;
     font-weight: 300; 
 
-    margin: -3px 0 0 12px;
+    margin: .7rem 0 0 1rem;
 
-    color: #d96459;
+    color: #274d38;
 }
 
 .form__group--checkboxes .required-icon
