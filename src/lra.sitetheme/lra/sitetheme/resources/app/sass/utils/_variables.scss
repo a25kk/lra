@@ -24,6 +24,7 @@ $app-brown:						$copper-rust;
 
 // Gray baseline
 $app-gray:                      rgba(237, 234, 234, 1);
+$app-gray-dark:                 rgba(153, 153, 153, 1);
 
 // Brand danger
 $app-danger:                    $roman;
@@ -51,28 +52,28 @@ $app-secondary-lighter:			lighten($app-secondary-base, 15%)  !default;
 
 
 //** Brand primary color schema used as default
-$app-default:                 $app-primary-base;
-$app-section-default:         $app-primary-base;
+$app-default:					$app-primary-base;
+$app-section-default:			$app-primary-base;
 
 // Section News
-$app-section-news:            $app-secondary-base;
-$app-section-news-bg:		  $app-secondary-dark;
+$app-section-news:				$app-secondary-base;
+$app-section-news-bg:			$app-secondary-dark;
 
 // Section Landratsamt
-$app-section-department:      $app-mustard !default;
-$app-section-department-bg:	  darken($app-mustard, 7.5%) !default;
+$app-section-department:		$app-mustard !default;
+$app-section-department-bg:		darken($app-mustard, 7.5%) !default;
 
 //** Section Service
-$app-section-service:         $app-skin !default;
-$app-section-service-bg:	  darken($app-section-service, 7.5%) !default;
+$app-section-service:			$app-skin !default;
+$app-section-service-bg:		darken($app-section-service, 7.5%) !default;
 
 //** Section: info
-$app-section-landkreis:            $app-red !default;
-$app-section-landkreis-bg:		  darken($app-red, 7.5%) !default;
+$app-section-landkreis:			$app-red !default;
+$app-section-landkreis-bg:		darken($app-red, 7.5%) !default;
 
 //** Section Hier Leben
-$app-section-life:  		  $app-brown !default;
-$app-section-life-bg:		  darken($app-brown, 7.5%) !default;
+$app-section-life:				$app-brown !default;
+$app-section-life-bg:			darken($app-brown, 7.5%) !default;
 
 
 //** Font awesome font path
