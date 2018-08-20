@@ -13557,13 +13557,19 @@ div.riform .label
     text-transform: uppercase;
 }
 
-label
+.form__group
 {
-    font-weight: 700;
+    margin-bottom: 1rem;
 }
-.wf-active label
+
+.form__actions
 {
-    font-weight: 400;
+    padding: 1rem;
+}
+
+.autotoc-section
+{
+    padding-top: 1.5rem;
 }
 
 textarea
@@ -13571,25 +13577,197 @@ textarea
     height: auto;
 }
 
-.app-form-group
+label
 {
-    margin-bottom: 1rem;
+    font-weight: 700;
+}
+fonts--loaded label
+{
+    font-weight: 400;
+}
+label.custom-control-label
+{
+    padding-right: 1.5rem;
 }
 
-.app-form-actions
+.form__help-block
 {
-    padding-top: 1rem;
+    font-size: .85rem;
+    font-weight: 300;
+
+    display: block;
+
+    color: #edeaea;
+}
+fonts--loaded .form__help-block
+{
+    font-weight: 400;
 }
 
-.app-form-help
+.error
+{
+    font-weight: 500; 
+
+    color: #274d38;
+}
+.error:before
+{
+    padding-top: .5rem; 
+
+    content: '!';
+}
+
+code
+{
+    color: #274d38;
+}
+
+[id='form-widgets-groups'] .option
+{
+    display: block;
+}
+
+.form__field--checkbox .option
+{
+    display: -ms-flexbox;
+    display: flex;
+
+    margin-right: 1rem;
+}
+.form__field--checkbox .option > label
 {
     font-weight: 400; 
 
-    display: block;
+    margin-left: .5rem;
 }
-.app-fonts-loaded .app-form-help
+
+.form__field--checkbox > .option > label
 {
-    font-weight: 300;
+    font-weight: 700;
+}
+fonts--loaded .form__field--checkbox > .option > label
+{
+    font-weight: 600;
+}
+
+.form__control--checkbox
+{
+    position: absolute;
+    left: -9999px;
+}
+
+.form__control--checkbox + label
+{
+    font-weight: 400; 
+
+    position: relative;
+
+    padding-left: 1.95em;
+
+    cursor: pointer;
+}
+.form__control--checkbox + label:before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    content: '';
+
+    border: 1px solid #999;
+    background: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
+}
+.form__control--checkbox + label:hover:before
+{
+    border: 1px solid #999 !important;
+}
+.form__control--checkbox + label:after
+{
+    font-size: 1.3em;
+    line-height: .8;
+
+    position: absolute;
+    z-index: 1;
+    top: .2rem;
+    left: .2rem;
+
+    content: url('../assets/img/check.png');
+    transition: all .2s;
+
+    color: #000;
+    background-color: transparent;
+}
+.app-field-required .form__control--checkbox + label
+{
+    margin-right: 2rem;
+}
+
+/* checked mark aspect changes */
+.form__control--checkbox:not(:checked) + label:after
+{
+    transform: scale(0); 
+
+    opacity: 0;
+}
+
+.form__control--checkbox:checked + label:after
+{
+    transform: scale(1); 
+
+    opacity: 1;
+}
+
+.form__control--checkbox:checked + label:before
+{
+    background-image: linear-gradient(135deg, #999, #999);
+}
+
+/* disabled checkbox */
+.form__control--checkbox:disabled:not(:checked) + label:before,
+.form__control--checkbox:disabled:checked + label:before
+{
+    border-color: #bbb;
+    background-color: #ddd; 
+    box-shadow: none;
+}
+
+.form__control--checkbox:disabled:checked + label:after
+{
+    color: #999;
+}
+
+.form__control--checkbox:disabled + label
+{
+    color: #aaa;
+}
+
+/* accessibility */
+.form__control--checkbox:checked:focus + label:before,
+.form__control--checkbox:not(:checked):focus + label:before
+{
+    border: 1px solid #edeaea;
+}
+
+/* hover style just for information */
+label:hover:before
+{
+    border: 1px solid #edeaea !important;
+}
+
+.form-field__select:not([multiple])
+{
+    padding: .5em 1.5em .5em .5em; 
+
+    color: #999;
+    border-radius: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=) no-repeat right 50%;
+
+    -webkit-appearance: none;
+       -moz-appearance: none;
 }
 
 .app-field-required
@@ -13652,12 +13830,17 @@ textarea
 
 .app-field-required .required-icon .text
 {
-    font-size: 2.25rem;
+    font-size: 1.2rem;
     font-weight: 300; 
 
-    margin: 10%;
+    margin: .7rem 0 0 1rem;
 
-    color: #d96459;
+    color: #274d38;
+}
+
+.form__group--checkboxes .required-icon
+{
+    top: 0;
 }
 
 ::-ms-reveal,
