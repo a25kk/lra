@@ -31,7 +31,7 @@
                                           tal:define="item_uuid item/UID;
                                                       image_data python:view.get_image_data(item_uuid)">
                                           <div class="app-lazyload-container">
-                                            <img class="lazyload"
+                                            <img class="lazy-load"
                                                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                                  data-src="${image_data/large}"
                                                  data-sizes="auto"
