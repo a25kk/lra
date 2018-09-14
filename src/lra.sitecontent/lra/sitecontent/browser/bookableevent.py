@@ -31,6 +31,7 @@ class BookableEventView(BrowserView):
         translation_service = api.portal.get_tool(name="translation_service")
         unwanted = ('_authenticator', 'form.button.Submit')
         required = ('email', 'fullname', 'address', 'phone')
+        required_boolean = ('privacy-policy-agreement', 'privacy-policy')
         if 'form.button.Submit' in self.request:
             authenticator = getMultiAdapter((self.context, self.request),
                                             name=u"authenticator")
@@ -40,19 +41,16 @@ class BookableEventView(BrowserView):
             form_data = {}
             form_errors = {}
             error_idx = 0
+            if self.privacy_policy_enabled():
+                for field_name in required_boolean:
+                    if not field_name in form:
+                        form_errors[field_name] = self.required_field_error()
+                        error_idx += 1
             for value in form:
                 if value not in unwanted:
                     form_data[value] = safe_unicode(form[value])
                     if not form[value] and value in required:
-                        error = {}
-                        error_msg = _(u"This field is required")
-                        error['active'] = True
-                        error['msg'] = translation_service.translate(
-                            error_msg,
-                            'ade25.contacts',
-                            target_language=api.portal.get_default_language()
-                        )
-                        form_errors[value] = error
+                        form_errors[value] = self.required_field_error()
                         error_idx += 1
                     else:
                         error = {
@@ -86,6 +84,45 @@ class BookableEventView(BrowserView):
             value = error['msg']
         return value
 
+    @staticmethod
+    def required_field_error():
+        translation_service = api.portal.get_tool(name="translation_service")
+        error = {}
+        error_msg = _(u"This field is required")
+        error['active'] = True
+        error['msg'] = translation_service.translate(
+            error_msg,
+            'ade25.contacts',
+            target_language=api.portal.get_default_language()
+        )
+        return error
+
+    @staticmethod
+    def privacy_policy_enabled():
+        try:
+            enabled = api.portal.get_registry_record(
+                name='ade25.contacts.display_privacy_policy'
+            )
+        except InvalidParameterError:
+            enabled = False
+        if enabled:
+            return enabled
+        return False
+
+    @staticmethod
+    def privacy_policy_url():
+        portal = api.portal.get()
+        portal_url = portal.absolute_url()
+        policy_url = api.portal.get_registry_record(
+            name='ade25.contacts.privacy_policy_url'
+        )
+        if policy_url:
+            url = '{0}{1}'.format(portal_url, policy_url)
+            return url
+        else:
+            url = '{0}/datenschutzbestimmung'.format(portal_url)
+            return url
+
     def _compose_message(self, data):
         context = aq_inner(self.context)
         portal = api.portal.get()
@@ -102,6 +139,8 @@ class BookableEventView(BrowserView):
             'year': data['year'],
             'url': portal_url,
             'event': context.Title(),
+            'privacy': data['privacy-policy'],
+            'privacy-agreement': data['privacy-policy-agreement'],
             'date': '{0} Uhr'.format(str(event_date))
         }
         template_name = 'bookable-event-mail.html'
