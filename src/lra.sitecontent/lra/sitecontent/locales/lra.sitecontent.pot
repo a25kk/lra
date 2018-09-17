@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-04-13 14:34+0000\n"
+"POT-Creation-Date: 2018-09-17 15:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,12 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: lra.sitecontent\n"
 
-#: ./../browser/bookableevent.pt:141
-msgid "Address"
-msgstr ""
-
 #: ./../browser/bookableevent.pt:74
 msgid "All fields marked with <code>*</code> are required."
 msgstr ""
 
 #: ./../profiles/default/types/lra.sitecontent.bookableevent.xml
 msgid "BookableEvent"
-msgstr ""
-
-#: ./../browser/bookableevent.pt:195
-msgid "Building Type"
 msgstr ""
 
 #: ./../contentpage.py:18
@@ -69,11 +61,11 @@ msgstr ""
 msgid "Inquiry form"
 msgstr ""
 
-#: ./../browser/bookableevent.py:113
+#: ./../browser/bookableevent.py:152
 msgid "Inquiry from website visitor"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:168
+#: ./../browser/bookableevent.pt:141
 msgid "Phone"
 msgstr ""
 
@@ -81,7 +73,7 @@ msgstr ""
 msgid "Recipient E-Mail"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:240
+#: ./../browser/bookableevent.pt:235
 msgid "Register"
 msgstr ""
 
@@ -102,7 +94,7 @@ msgid "Thank you for your interest. We will get in touch with you as soon as pos
 msgstr ""
 
 #: ./../browser/bookableevent.pt:103
-#: ./../browser/bookableevent.py:48
+#: ./../browser/bookableevent.py:91
 msgid "This field is required"
 msgstr ""
 
@@ -110,12 +102,12 @@ msgstr ""
 msgid "When activated the view will attempt to display an automatic listing of all contained files with file information and download link."
 msgstr ""
 
-#: ./../browser/bookableevent.pt:218
-msgid "Year of Construction"
-msgstr ""
-
 #: ./../browser/bookableevent-dispatched.pt:17
 msgid "Your inquiry has been sent successfully."
+msgstr ""
+
+#: ./../browser/bookableevent.pt:168
+msgid "Your message"
 msgstr ""
 
 #: ./../configure.zcml:28

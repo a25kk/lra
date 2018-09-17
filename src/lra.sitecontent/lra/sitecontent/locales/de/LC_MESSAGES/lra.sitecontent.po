@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-04-13 14:34+0000\n"
+"POT-Creation-Date: 2018-09-17 15:27+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christoph Boehner-Figas <boehner@team23.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
@@ -14,109 +14,100 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: lra.sitecontent\n"
 "Language: de\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.1.1\n"
 
-#: ./../browser/bookableevent.pt:141
-msgid "Address"
-msgstr "Adresse"
-
-#: ./../browser/bookableevent.pt:74
+#: ../browser/bookableevent.pt:74
 msgid "All fields marked with <code>*</code> are required."
 msgstr "Alle mit <code>*</code> markierten Felder sind Pflichtangaben."
 
-#: ./../profiles/default/types/lra.sitecontent.bookableevent.xml
+#: ../profiles/default/types/lra.sitecontent.bookableevent.xml
 msgid "BookableEvent"
 msgstr "Buchbare Veranstaltung"
 
-#: ./../browser/bookableevent.pt:195
-msgid "Building Type"
-msgstr "Gebäudetyp"
-
-#: ./../contentpage.py:18
+#: ../contentpage.py:18
 msgid "Check to enable file listing"
 msgstr "Dateiliste anzeigen"
 
-#: ./../profiles/default/types/lra.sitecontent.contentpage.xml
+#: ../profiles/default/types/lra.sitecontent.contentpage.xml
 msgid "Contentpage"
 msgstr "Inhaltsseite"
 
-#: ./../browser/bookableevent.pt:85
+#: ../browser/bookableevent.pt:85
 msgid "E-Mail"
 msgstr "E-Mail-Adresse"
 
-#: ./../browser/bookableevent.pt:67
+#: ../browser/bookableevent.pt:67
 msgid "Event Registration"
 msgstr "Event-Registrierung"
 
-#: ./../configure.zcml:28
+#: ../configure.zcml:28
 msgid "Extension profile for lra.sitecontent."
 msgstr "Erweiterungsprofil für lra.sitecontent"
 
-#: ./../profiles/default/types/lra.sitecontent.bookableevent.xml
+#: ../profiles/default/types/lra.sitecontent.bookableevent.xml
 msgid "Folderish bookable event"
 msgstr "Ordner buchbare Veranstaltung"
 
-#: ./../profiles/default/types/lra.sitecontent.contentpage.xml
+#: ../profiles/default/types/lra.sitecontent.contentpage.xml
 msgid "Folderish content page"
 msgstr "Ordnerartige Inhaltsseite"
 
-#: ./../browser/bookableevent.pt:114
+#: ../browser/bookableevent.pt:114
 msgid "Fullname"
 msgstr "Vor- und Nachname"
 
-#: ./../browser/bookableevent-dispatched.pt:14
+#: ../browser/bookableevent-dispatched.pt:14
 msgid "Inquiry form"
 msgstr "Anfrageformular"
 
-#: ./../browser/bookableevent.py:113
+#: ../browser/bookableevent.py:152
 msgid "Inquiry from website visitor"
 msgstr "Anfrage eines Seitenbesuchers"
 
-#: ./../browser/bookableevent.pt:168
+#: ../browser/bookableevent.pt:141
 msgid "Phone"
 msgstr "Telefon"
 
-#: ./../bookableevent.py:18
+#: ../bookableevent.py:18
 msgid "Recipient E-Mail"
 msgstr "E-Mail-Adresse für Anmeldungen"
 
-#: ./../browser/bookableevent.pt:240
+#: ../browser/bookableevent.pt:235
 msgid "Register"
 msgstr "Registrieren"
 
-#: ./../browser/bookableevent-dispatched.pt:28
+#: ../browser/bookableevent-dispatched.pt:28
 msgid "Return to last visited page"
 msgstr "Zur zuletzt besuchten Seite zurückkehren"
 
-#: ./../profiles/default/types/lra.sitecontent.sectionfolder.xml
+#: ../profiles/default/types/lra.sitecontent.sectionfolder.xml
 msgid "SectionFolder"
 msgstr "Abschnitt Ordner"
 
-#: ./../profiles/default/types/lra.sitecontent.sectionfolder.xml
+#: ../profiles/default/types/lra.sitecontent.sectionfolder.xml
 msgid "Site Section Folder"
 msgstr "Abschnitt Ordner"
 
-#: ./../browser/bookableevent-dispatched.pt:24
+#: ../browser/bookableevent-dispatched.pt:24
 msgid "Thank you for your interest. We will get in touch with you as soon as possible."
 msgstr "Vielen Dank für Ihr Interesse. Wir werden uns baldmöglichst mit Ihnen in Verbindung setzen."
 
-#: ./../browser/bookableevent.pt:103
-#: ./../browser/bookableevent.py:48
+#: ../browser/bookableevent.pt:103 ../browser/bookableevent.py:91
 msgid "This field is required"
 msgstr "Dieses Feld ist ein Pflichtfeld."
 
-#: ./../contentpage.py:19
+#: ../contentpage.py:19
 msgid "When activated the view will attempt to display an automatic listing of all contained files with file information and download link."
 msgstr "Setzen Sie hier einen Haken, wenn die Seite eine automatisch erstellte Liste der hochgeladenen Dateien mit entsprechenden Download Links anzeigen soll."
 
-#: ./../browser/bookableevent.pt:218
-msgid "Year of Construction"
-msgstr "Baujahr"
-
-#: ./../browser/bookableevent-dispatched.pt:17
+#: ../browser/bookableevent-dispatched.pt:17
 msgid "Your inquiry has been sent successfully."
 msgstr "Ihre Anfrage wurde erfolgreich verschickt."
 
-#: ./../configure.zcml:28
+#: ../browser/bookableevent.pt:168
+msgid "Your message"
+msgstr "Ihre Nachricht an uns"
+
+#: ../configure.zcml:28
 msgid "lra.sitecontent"
 msgstr "lra.sitecontent"
