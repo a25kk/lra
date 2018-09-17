@@ -134,6 +134,7 @@ class BookableEventView(BrowserView):
             'subject': str(data['subject']),
             'fullname': data['fullname'],
             'phone': data['phone'],
+            'comment': data['comment'],
             'url': portal_url,
             'event': context.Title(),
             'privacy': data['privacy-policy'],

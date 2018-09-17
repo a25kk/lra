@@ -165,8 +165,15 @@
                             value request/comment | nothing"
                              tal:attributes="class python:err_msg and 'form__group app-form-group app-field-comment has-error' or 'form__group app-form-group app-field-comment'">
 
-                        <label for="comment"
-                                 i18n:translate="">Your message</label>
+                        <label for="comment">
+                            <span i18n:translate="" tal:condition="not:context/additional_label">Your message</span>
+                            <span tal:condition="context/additional_label" tal:replace="context/additional_label" />
+                        </label>
+
+                        <div class="help-block"
+                                 tal:condition="context/additional_description">
+                            <span tal:replace="context/additional_description">This field is required</span>
+                        </div>
 
                         <textarea class="app-form-control"
                                   id="comment"
