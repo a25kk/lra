@@ -18,6 +18,16 @@ class IBookableEvent(model.Schema, IImageScaleTraversable):
         title=_(u"Recipient E-Mail"),
         required=True
     )
+    additional_label = schema.TextLine(
+        title=_(u"Additional Field Label"),
+        description=_(u"Override default filed label for text field."),
+        required=False
+    )
+    additional_description = schema.TextLine(
+        title=_(u"Additional Field Description (optional)"),
+        description=_(u"Add optional help text on required data."),
+        required=False
+    )
 
 
 @implementer(IBookableEvent)
