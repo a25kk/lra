@@ -15,7 +15,7 @@
 ba
 bin
 bower_components
-build
+!build
 coverage
 develop-eggs
 dist
