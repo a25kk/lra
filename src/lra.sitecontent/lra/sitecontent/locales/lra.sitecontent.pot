@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-17 15:27+0000\n"
+"POT-Creation-Date: 2018-09-25 15:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,22 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: lra.sitecontent\n"
+
+#: ./../bookableevent.py:28
+msgid "Add optional help text on required data."
+msgstr ""
+
+#: ./../bookableevent.py:34
+msgid "Add optional help text to outline context specific regulations concerning the site's privacy and data protection policies."
+msgstr ""
+
+#: ./../bookableevent.py:27
+msgid "Additional Field Description (optional)"
+msgstr ""
+
+#: ./../bookableevent.py:22
+msgid "Additional Field Label"
+msgstr ""
 
 #: ./../browser/bookableevent.pt:74
 msgid "All fields marked with <code>*</code> are required."
@@ -31,6 +47,10 @@ msgstr ""
 
 #: ./../profiles/default/types/lra.sitecontent.contentpage.xml
 msgid "Contentpage"
+msgstr ""
+
+#: ./../bookableevent.py:33
+msgid "Custom Privacy and Data Protection Note"
 msgstr ""
 
 #: ./../browser/bookableevent.pt:85
@@ -61,8 +81,12 @@ msgstr ""
 msgid "Inquiry form"
 msgstr ""
 
-#: ./../browser/bookableevent.py:152
+#: ./../browser/bookableevent.py:150
 msgid "Inquiry from website visitor"
+msgstr ""
+
+#: ./../bookableevent.py:23
+msgid "Override default filed label for text field."
 msgstr ""
 
 #: ./../browser/bookableevent.pt:141
@@ -73,7 +97,7 @@ msgstr ""
 msgid "Recipient E-Mail"
 msgstr ""
 
-#: ./../browser/bookableevent.pt:235
+#: ./../browser/bookableevent.pt:226
 msgid "Register"
 msgstr ""
 
@@ -106,7 +130,7 @@ msgstr ""
 msgid "Your inquiry has been sent successfully."
 msgstr ""
 
-#: ./../browser/bookableevent.pt:168
+#: ./../browser/bookableevent.pt:169
 msgid "Your message"
 msgstr ""
 

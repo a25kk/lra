@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-09-17 15:27+0000\n"
+"POT-Creation-Date: 2018-09-25 15:28+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Christoph Boehner-Figas <boehner@team23.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
@@ -15,6 +15,22 @@ msgstr ""
 "Domain: lra.sitecontent\n"
 "Language: de\n"
 "X-Generator: Poedit 2.1.1\n"
+
+#: ../bookableevent.py:28
+msgid "Add optional help text on required data."
+msgstr "Fügen Sie optionalen Hilfstext zu den benötigten Daten hinzu."
+
+#: ../bookableevent.py:34
+msgid "Add optional help text to outline context specific regulations concerning the site's privacy and data protection policies."
+msgstr "Fügen Sie optionalen Hilfstext hinzu, um kontextspezifische Vorschriften über die Datenschutz-und Datenschutzmaßnahmen der Website zu skizzieren."
+
+#: ../bookableevent.py:27
+msgid "Additional Field Description (optional)"
+msgstr "Zusätzliche Feld Beschreibung (optional)"
+
+#: ../bookableevent.py:22
+msgid "Additional Field Label"
+msgstr "Zusätzliches Feld Etikett"
 
 #: ../browser/bookableevent.pt:74
 msgid "All fields marked with <code>*</code> are required."
@@ -31,6 +47,10 @@ msgstr "Dateiliste anzeigen"
 #: ../profiles/default/types/lra.sitecontent.contentpage.xml
 msgid "Contentpage"
 msgstr "Inhaltsseite"
+
+#: ../bookableevent.py:33
+msgid "Custom Privacy and Data Protection Note"
+msgstr "Benutzerdefinierter Datenschutz und Datenschutz Hinweis"
 
 #: ../browser/bookableevent.pt:85
 msgid "E-Mail"
@@ -60,9 +80,13 @@ msgstr "Vor- und Nachname"
 msgid "Inquiry form"
 msgstr "Anfrageformular"
 
-#: ../browser/bookableevent.py:152
+#: ../browser/bookableevent.py:150
 msgid "Inquiry from website visitor"
 msgstr "Anfrage eines Seitenbesuchers"
+
+#: ../bookableevent.py:23
+msgid "Override default filed label for text field."
+msgstr "Überschreiben Sie die Standardfeldbezeichnung für das Textfeld."
 
 #: ../browser/bookableevent.pt:141
 msgid "Phone"
@@ -72,7 +96,7 @@ msgstr "Telefon"
 msgid "Recipient E-Mail"
 msgstr "E-Mail-Adresse für Anmeldungen"
 
-#: ../browser/bookableevent.pt:235
+#: ../browser/bookableevent.pt:226
 msgid "Register"
 msgstr "Registrieren"
 
@@ -104,7 +128,7 @@ msgstr "Setzen Sie hier einen Haken, wenn die Seite eine automatisch erstellte L
 msgid "Your inquiry has been sent successfully."
 msgstr "Ihre Anfrage wurde erfolgreich verschickt."
 
-#: ../browser/bookableevent.pt:168
+#: ../browser/bookableevent.pt:169
 msgid "Your message"
 msgstr "Ihre Nachricht an uns"
 
