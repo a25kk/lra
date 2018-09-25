@@ -31,7 +31,7 @@ class BookableEventView(BrowserView):
         translation_service = api.portal.get_tool(name="translation_service")
         unwanted = ('_authenticator', 'form.button.Submit')
         required = ('email', 'fullname', 'phone')
-        required_boolean = ('privacy-policy-agreement', 'privacy-policy')
+        required_boolean = ('privacy-policy-agreement', )
         if 'form.button.Submit' in self.request:
             authenticator = getMultiAdapter((self.context, self.request),
                                             name=u"authenticator")

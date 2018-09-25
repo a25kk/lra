@@ -188,27 +188,11 @@
                     </div><!-- /message field -->
 
                     <div class="form__group app-form-group app-field-privacy-policy"
-                             tal:define="error errors/privacy-policy | nothing;
-                            err_msg python:error and error['active'] == True;
-                            value request/privacy-policy | nothing"
-                            i18n:domain="ade25.contacts"
-                             tal:attributes="class python:err_msg and 'form__group form__group--checkboxes app-form-group app-field-privacy-policy app-field-required has-error' or 'form__group  form__group--checkboxes app-form-group app-field-privacy-policy app-field-required'">
-
-                        <input type="checkbox" class="form__control form__control--checkbox" id="privacy-policy" name="privacy-policy">
-                        <label class="form__label" for="privacy-policy" i18n:translate="">
-                            By sending this message, I confirm that my details are correct and I agree to the collection and further processing of the provided data. The data will only be used for the purpose stated in your inquiry.
-                        </label>
-
-                        <div class="required-icon">
-                            <div class="text">*</div>
+                        tal:condition="context/privacy_note">
+                        <div class="help-block" tal:content="python:context.privacy_note">
+                            Privacy note
                         </div>
-
-                        <div class="help-block error"
-                                 tal:condition="err_msg">
-                            <span i18n:translate="">This field is required</span>
-                        </div>
-
-                    </div><!-- /privacy notice field -->
+                    </div>
 
                     <div class="form__group app-form-group app-field-privacy-agreement"
                              tal:define="error errors/privacy-policy-agreement | nothing;

@@ -29,6 +29,14 @@ class IBookableEvent(model.Schema, IImageScaleTraversable):
         required=False
     )
 
+    privacy_note = schema.Text(
+        title=_(u"Custom Privacy and Data Protection Note"),
+        description=_(u"Add optional help text to outline context specific "
+                      u"regulations concerning the site's privacy and "
+                      u"data protection policies."),
+        required=False
+    )
+
 
 @implementer(IBookableEvent)
 class BookableEvent(Container):
