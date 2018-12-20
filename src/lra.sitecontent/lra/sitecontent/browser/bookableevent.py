@@ -137,7 +137,7 @@ class BookableEventView(BrowserView):
             'comment': data['comment'],
             'url': portal_url,
             'event': context.Title(),
-            'privacy': data['privacy-policy'],
+            'privacy': 'Ja',
             'privacy-agreement': data['privacy-policy-agreement'],
             'date': '{0} Uhr'.format(str(event_date))
         }
