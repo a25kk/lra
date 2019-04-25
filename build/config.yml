@@ -13,5 +13,15 @@ modules:
     python_bin: python2
   docker:
       data_path: ../_docker_data
-      docker_compose_config_overrides: localhost
+      docker_compose_config_overrides:
+        - localhost
+      commands:
+        npm:
+          workdir: /app/build/gulp
+          bin: npm
+          service: node
+        gulp:
+          workdir: /app/build/gulp
+          bin: ./node_modules/.bin/gulp
+          service: node
   pipenv:
