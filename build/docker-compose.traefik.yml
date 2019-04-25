@@ -8,6 +8,13 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik_gateway
+  node:
+    networks:
+      - default
+      - traefik_gateway
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik_gateway
 networks:
   default:
   traefik_gateway:

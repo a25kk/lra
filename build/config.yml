@@ -8,6 +8,7 @@ paths:
   web: ../
   db: ../_db
   docker_data: ../_docker_data
+  site_theme: ../src/lra.sitetheme/lra/sitetheme/resources
 modules:
   virtualenv:
     python_bin: python2
@@ -16,12 +17,15 @@ modules:
       docker_compose_config_overrides:
         - localhost
       commands:
-        npm:
+        npm: &npm
           workdir: /app/build/gulp
           bin: npm
           service: node
         gulp:
-          workdir: /app/build/gulp
+          <<: *npm
           bin: ./node_modules/.bin/gulp
-          service: node
+
   pipenv:
+  npm:
+    base_path: ./gulp
+

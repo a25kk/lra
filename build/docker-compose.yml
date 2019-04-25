@@ -6,3 +6,15 @@ services:
       context: docker/nginx
     volumes:
       - ../:/app:cached
+
+  node:
+    image: node:latest
+    volumes:
+      - ../:/app/:cached
+    command:
+      - sh
+      - /app/build/node_entrypoint.sh
+    expose:
+      - "80"
+      - "3001"
+

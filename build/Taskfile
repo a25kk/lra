@@ -10,12 +10,14 @@ task:install() {
 }
 
 task:install:theme() {
-    npm:install
+    # npm:install
+    docker:command:npm install
 }
 
 task:update() {
     virtualenv:update
     docker:update
+    docker:command:npm install
 }
 
 task:update:theme() {
@@ -70,18 +72,25 @@ task:plone() {
 }
 
 task:css() {
-    cd ${SITE_THEME} && npm:run gulp dist
-    cd ..
+    #cd ${SITE_THEME} && npm:run gulp dist
+    #cd ..
+    docker:command:gulp dist
 }
 
 task:gulp() {
-    cd ${SITE_THEME} && npm:run gulp "$@"
-    cd ..
+    #cd ${SITE_THEME} && npm:run gulp "$@"
+    #cd ..
+    docker:command:gulp "$@"
 }
 
 task:watch() {
     virtualenv:run fab watch
 }
+
+task:npm() {
+    docker:command:npm "$@"
+}
+
 
 task:fab() {
     virtualenv:run fab "$@"
