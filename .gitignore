@@ -1,3 +1,8 @@
+!cache_control_assets.conf
+!disable_logging.conf
+!proxy_settings.conf
+# build
+# Enable nginx specific settings
 *-ck.js
 *.EGG
 *.EGG-INFO
