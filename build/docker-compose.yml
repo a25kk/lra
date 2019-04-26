@@ -8,7 +8,7 @@ services:
       - ../:/app:cached
 
   node:
-    image: node:latest
+    image: node:11
     volumes:
       - ../:/app/:cached
     command:
