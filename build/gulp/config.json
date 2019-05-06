@@ -6,7 +6,8 @@
     "dev": "_site/",
     "dist": "dist/",
     "diazoPrefix": "/++theme++lra.sitetheme/",
-    "src": "node_modules/"
+    "src": "node_modules/",
+    "theme": "../../theme/"
   },
   "favicon": {
     "dataFile": "faviconData.json",

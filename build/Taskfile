@@ -6,7 +6,8 @@ task:install() {
     cd .. && chmod 775 ./bootstrap.sh && ./bootstrap.sh
     virtualenv:install
     docker:install
-    npm:install
+    docker:command:npm install
+    template:render --overwrite ask-if-older templates/config.local.yml.jinja2 config.local.yml
 }
 
 task:install:theme() {
@@ -18,10 +19,11 @@ task:update() {
     virtualenv:update
     docker:update
     docker:command:npm install
+    template:render --overwrite ask-if-older templates/config.local.yml.jinja2 config.local.yml
 }
 
 task:update:theme() {
-    npm:install
+    docker:command:npm install
 }
 
 task:deploy:legacy() {
@@ -86,17 +88,29 @@ task:gulp() {
 task:gulp:tasks() {
     #cd ${SITE_THEME} && npm:run gulp "$@"
     #cd ..
-    docker:command:gulp --tasks-simple
+    docker:command:gulp --tasks
 }
 
 task:watch() {
     virtualenv:run fab watch
 }
 
+task:theme:html() {
+    docker:command:jekyll build
+}
+
+task:theme:dist() {
+    docker:command:jekyll build
+    docker:command:gulp dist
+}
+
 task:npm() {
     docker:command:npm "$@"
 }
 
+task:jekyll() {
+    docker:command:jekyll "$@"
+}
 
 task:fab() {
     virtualenv:run fab "$@"

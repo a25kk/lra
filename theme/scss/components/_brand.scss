@@ -1,0 +1,115 @@
+//
+// Brand
+// -----------------------------------------
+
+
+// Make a gridrow
+.app-brand {
+    // display: flex;
+    @include make-row();
+    align-items: center;
+        padding-right: 15px;
+        padding-left: 15px;
+        &-panel-inverse {
+        width: 100%;
+    }
+}
+
+//** Inline svg logo
+.app-brand-img {
+    display: block;
+    width: 140px;
+        &-xs {
+            width: 64px;
+        }
+        &-sm {
+            width: 80px;
+        }
+         &-md {
+            width: 128px;
+        }
+         &-lg {
+            width: 272.576px
+        }
+    .app-brand-panel & {
+        @include make-col(4);
+        @include media-breakpoint-up(md) {
+            @include make-col(6);
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include make-col(3);
+        }
+    }
+
+    .app-brand-panel-inverse & {
+        @include make-col(4);
+        @include media-breakpoint-up(md) {
+            @include make-col(3);
+        }
+    }
+}
+
+.app-brandname-logo {
+  //width: 140px;
+  margin: 0;
+  .app-brand-img-xs & {
+    width: 32px;
+  }
+  .app-brand-img-sm & {
+    width: 64px;
+  }
+  .app-brand-img-md & {
+    width: 128px;
+  }
+  .app-brand-img-lg & {
+    width: 272px;
+  }
+    .app-header-brandbar & {
+        width: 64px;
+        @include media-breakpoint-up(sm) {
+            width: 128px;
+        }
+    }
+}
+
+// The actual brandname/title
+.app-brand-title {
+}
+
+.app-brandname {
+    display: block;
+    padding: $spacer;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: $app-primary;
+    .app-brand-panel & {
+        flex: 1;
+            @include media-breakpoint-up(md) {
+            @include make-col(6);
+            }
+            @include media-breakpoint-up(lg) {
+            @include make-col(9);
+            }
+            margin-top: -($spacer);
+        }
+        .app-brand-panel-inverse & {
+            font-size: 1.25rem;
+            line-height: 1;
+            color: #fff;
+                @include media-breakpoint-up(md) {
+                flex: 0 0 65%;
+                max-width: 65%;
+                padding-top: 1.5rem;
+            }
+        }
+    @include media-breakpoint-up(sm) {
+        font-size: 1.65rem;
+    }
+}
+
+// Sitewide claim
+.app-brand-aside {
+    @include make-col(4);
+}

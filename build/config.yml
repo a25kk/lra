@@ -24,8 +24,14 @@ modules:
         gulp:
           <<: *npm
           bin: ./node_modules/.bin/gulp
+        jekyll: &jekyll
+          workdir: /app/theme
+          bin: jekyll
+          service: jekyll
+
 
   pipenv:
+  template:
   npm:
     base_path: ./gulp
 

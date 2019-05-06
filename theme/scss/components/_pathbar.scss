@@ -1,0 +1,94 @@
+//
+// Pathbar styles
+//
+.app-pathbar {
+    // Hide on extra small displays
+    @include media-breakpoint-down(xs) {
+        display: none;
+    }
+    margin-bottom: $spacer;
+    font-size: $font-size-sm;
+    // Set background colors based on section location
+    @include when-inside('.section-aktuelles') {
+        background-color: $app-section-news-bg;
+    }
+    @include when-inside('.section-landratsamt') {
+        background-color: $app-section-department-bg;
+    }
+    @include when-inside('.section-service') {
+        background-color: $app-section-service-bg;
+    }
+    @include when-inside('.section-landkreis') {
+        background-color: $app-section-landkreis-bg;
+    }
+    @include when-inside('.section-hier-leben') {
+        background-color: $app-section-life-bg;
+    }
+    background-color: $app-pathbar-bg;
+
+    margin-top: 0;
+    font-size: $font-size-sm;
+    border-radius: 0;
+    background-color: transparent;
+        .breadcrumb {
+    background-color: transparent;
+    margin-bottom: 0;
+  }
+  > * > span { //you are here
+    display: none;
+    //display: inline-block;
+    color: $gray-light;
+    padding: 1rem 0 1rem 1rem;
+    font-weight: 100;
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+  ol {
+    display: inline-block;
+    padding: 1rem 0;
+    list-style: none;
+    margin: 0;
+    > li {
+     font-weight: 300;
+     display: inline-block;
+     line-height: 0; // match ol & span height
+     position: relative;
+     padding: 0;
+     color: #fff;
+     + li:before {
+       content: " > ";
+       padding: 0 0.5rem;
+       color: #fff;
+     }
+     > a {
+      color: #fff;
+     }
+   }
+    //> #breadcrumbs-current {
+    //  color: $breadcrumb-active-color;
+    //}
+}
+
+#breadcrumbs-you-are-here {
+  display: none;
+}
+
+
+// Reuse bs v4 breadcrumb component
+// to keep styles concise
+ .plone-breadcrumb {
+    @include make-container();
+    @include make-container-max-widths();
+    @extend .breadcrumb;
+    padding-top: 0;
+    padding-bottom: 0;
+ }
+
+ .app-breadcrumbs-item {
+    @extend .breadcrumb-item;
+    > a {
+        color: $gray-lighter;
+    }
+ }
+}
