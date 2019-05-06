@@ -64,7 +64,7 @@
 .app-table {
     @extend .table;
     &-inverse {
-        @extend .table-inverse;
+        @extend .table-dark;
     }
     &-striped {
         @extend .table-striped;

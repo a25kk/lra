@@ -37,7 +37,7 @@
   > * > span { //you are here
     display: none;
     //display: inline-block;
-    color: $gray-light;
+    color: $gray-500;
     padding: 1rem 0 1rem 1rem;
     font-weight: 100;
     @include media-breakpoint-down(sm) {
@@ -88,7 +88,7 @@
  .app-breadcrumbs-item {
     @extend .breadcrumb-item;
     > a {
-        color: $gray-lighter;
+        color: $gray-300;
     }
  }
 }

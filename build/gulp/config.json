@@ -4,7 +4,7 @@
     "app": "app/",
     "base": "../../src/lra.sitetheme/lra/sitetheme/resources",
     "dev": "_site/",
-    "dist": "dist/",
+    "dist": "../../src/lra.sitetheme/lra/sitetheme/resources/",
     "diazoPrefix": "/++theme++lra.sitetheme/",
     "src": "node_modules/",
     "theme": "../../theme/"

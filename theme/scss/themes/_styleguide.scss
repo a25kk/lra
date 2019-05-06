@@ -32,7 +32,7 @@
 .sg-sidebar {
   padding-top: 1rem;
   height: 100%;
-  border-right: 1px solid $gray-lighter;
+  border-right: 1px solid $gray-300;
 }
 
 //Styleguide color swatches
@@ -86,7 +86,7 @@
 
 //** Subtitle showing styleguide version information
 .sg-sidebar-subtitle {
-  color: $gray-light;
+  color: $gray-400;
 }
 
 
@@ -105,14 +105,14 @@
       position: relative;
       display: block;
       // padding-left: $nav-link-padding;
-      color: $gray;
+      color: $gray-600;
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: $nav-link-hover-bg;
+        background-color: $app-primary;
       }
       &.active {
-        border-right: 1px solid $gray;
+        border-right: 1px solid $gray-600;
       }
     }
   }
@@ -128,10 +128,10 @@
 .sg-sidebar-navitem {
   font-size: 0.8rem;
   > a {
-     color: $gray;
+     color: $gray-600;
   }
   &.active {
-    border-right: 5px solid $gray;
+    border-right: 5px solid $gray-600;
   }
 }
 
@@ -307,7 +307,7 @@
     padding: ($spacer / 2);
     margin-bottom: .5rem;
     color: #fff;
-    background-color: $gray-light;
+    background-color: $gray-400;
     text-align: center;
 }
 
@@ -326,7 +326,7 @@
 .sg-example-container-body {
     height: 8rem;
     margin-left: 10.5rem;
-    background-color: lighten($gray, 25%);
+    background-color: lighten($gray-600, 25%);
 }
 
 .sg-example-container-footer {
