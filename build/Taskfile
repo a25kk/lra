@@ -74,10 +74,6 @@ task:plone() {
 }
 
 task:css() {
-    #cd ${SITE_THEME} && npm:run gulp dist
-    #cd ..
-    echo "Building project styles"
-    echo ""
     docker:command:gulp styles
 }
 
@@ -99,6 +95,18 @@ task:watch() {
 
 task:theme:html() {
     docker:command:jekyll build
+}
+
+task:theme:css() {
+    docker:command:gulp styles
+}
+
+task:theme:js() {
+    docker:command:gulp collect:scripts:app
+}
+
+task:theme:assets() {
+    docker:command:gulp collect
 }
 
 task:theme:dist() {

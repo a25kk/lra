@@ -24,6 +24,7 @@
   },
   "scripts": {
     "app": [
+        "scripts/app.js",
         "scripts/main.js"
         ],
     "src": [
