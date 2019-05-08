@@ -78,14 +78,10 @@ task:css() {
 }
 
 task:gulp() {
-    #cd ${SITE_THEME} && npm:run gulp "$@"
-    #cd ..
     docker:command:gulp "$@"
 }
 
 task:gulp:tasks() {
-    #cd ${SITE_THEME} && npm:run gulp "$@"
-    #cd ..
     docker:command:gulp --tasks
 }
 
