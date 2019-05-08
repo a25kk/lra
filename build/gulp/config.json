@@ -27,10 +27,15 @@
         "scripts/main.js"
         ],
     "src": [
+      "choices.js/public/assets/scripts/choices.min.js",
+      "dropmic/dist/dropmic.js",
+      "flickity/dist/flickity.pkgd.js",
       "fontfaceobserver/fontfaceobserver.js",
-      "bootstrap-without-jquery/bootstrap3/bootstrap-without-jquery.js",
-      "lazysizes/lazysizes.js",
-      "flickity/dist/flickity.pkgd.js"
+      "lazysizes/lazysizes-umd.js",
+      "lazysizes/plugins/parent-fit/ls.parent-fit.js",
+      "respimage/respimage.js",
+      "svg4everybody/dist/svg4everybody.js",
+      "vh-check/dist/vh-check.min.js"
     ],
     "base": [
       "jquery/dist/jquery.js",
@@ -56,7 +61,7 @@
   "replacementPatterns": {
         "base": [
             {
-                "match": "/../../src/lra.sitetheme/lra/sitetheme/resources/styles/styles/",
+                "match": "/../../src/lra.sitetheme/lra/sitetheme/resources/styles/",
                 "replacement": "/styles/"
             },
             {

@@ -1,7 +1,7 @@
 // Intro elements
 .app-intro-wrapper {
 	padding-top: 3rem;
-	background: url(../assets/img/intro.jpg) no-repeat top center;
+	background: url(../assets/images/intro.jpg) no-repeat top center;
     background-size: cover;
     @include media-breakpoint-up(sm) {
     	padding-top: 10rem;
@@ -11,7 +11,7 @@
         @include make-container();
         @include make-container-max-widths();
     }
-        
+
 
     a:hover {
 		text-decoration: none;

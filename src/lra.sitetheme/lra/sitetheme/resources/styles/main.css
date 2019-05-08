@@ -12924,7 +12924,7 @@ fonts--loaded .form__field--checkbox > .option > label {
 }
 
 .form__control--checkbox + label:after {
-  content: url("../assets/img/check.png");
+  content: url("../assets/images/check.png");
   position: absolute;
   top: .2rem;
   left: .2rem;
@@ -13648,7 +13648,7 @@ label:hover:before {
 .app-page-hero {
   padding: 100px 0;
   min-height: 500px;
-  background: url(../assets/img/intro.jpg) no-repeat top center;
+  background: url(../assets/images/intro.jpg) no-repeat top center;
   background-size: cover;
 }
 
@@ -13914,37 +13914,37 @@ label:hover:before {
 }
 
 .app-card-header-opening-hours {
-  background: url(../assets/img/card-opening-bg.jpg) no-repeat top center;
+  background: url(../assets/images/card-opening-bg.jpg) no-repeat top center;
   background-size: cover;
 }
 
 .app-card-header-map {
-  background: url(../assets/img/card-map-bg.jpg) no-repeat top center;
+  background: url(../assets/images/card-map-bg.jpg) no-repeat top center;
   background-size: cover;
 }
 
 .app-card-header-forms {
-  background: url(../assets/img/card-forms-bg.jpg) no-repeat top center;
+  background: url(../assets/images/card-forms-bg.jpg) no-repeat top center;
   background-size: cover;
 }
 
 .app-card-header-district {
-  background: url(../assets/img/card-info-bg.jpg) no-repeat top center;
+  background: url(../assets/images/card-info-bg.jpg) no-repeat top center;
   background-size: cover;
 }
 
 .app-card-header-cars {
-  background: url(../assets/img/card-cars-bg.jpg) no-repeat top center;
+  background: url(../assets/images/card-cars-bg.jpg) no-repeat top center;
   background-size: cover;
 }
 
 .app-card-header-circle {
-  background: url(../assets/img/card-circle-bg.jpg) no-repeat top center;
+  background: url(../assets/images/card-circle-bg.jpg) no-repeat top center;
   background-size: cover;
 }
 
 .app-card-header-actions {
-  background: url(../assets/img/card-actions-bg.jpg) no-repeat top center;
+  background: url(../assets/images/card-actions-bg.jpg) no-repeat top center;
   background-size: cover;
 }
 
@@ -16054,7 +16054,7 @@ article.vevent {
 
 .app-intro-wrapper {
   padding-top: 3rem;
-  background: url(../assets/img/intro.jpg) no-repeat top center;
+  background: url(../assets/images/intro.jpg) no-repeat top center;
   background-size: cover;
 }
 

@@ -83,6 +83,16 @@ export function collectImages() {
 
 gulp.task('collect:images', collectImages);
 
+export function collectFavicon() {
+    return gulp.src(cfg.paths.app + 'assets/ico/**/*')
+        .pipe(gulp.dest(cfg.paths.dist + 'assets/ico'));
+};
+
+collectFavicon().description = 'Copy favicon to distribution directory';
+
+gulp.task('collect:favicon', collectFavicon);
+
+
 export function collectFonts() {
     return gulp.src(cfg.paths.app + 'assets/fonts/**/*')
         .pipe(gulp.dest(cfg.paths.dist + 'assets/fonts'));

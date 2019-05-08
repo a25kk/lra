@@ -9205,7 +9205,7 @@ fonts--loaded .form__field--checkbox > .option > label {
 }
 
 .form__control--checkbox + label:after {
-  content: url("../assets/img/check.png");
+  content: url("../assets/images/check.png");
   position: absolute;
   top: .2rem;
   left: .2rem;
@@ -10423,7 +10423,7 @@ article.vevent {
 
 .app-intro-wrapper {
   padding-top: 3rem;
-  background: url(../assets/img/intro.jpg) no-repeat top center;
+  background: url(../assets/images/intro.jpg) no-repeat top center;
   background-size: cover;
 }
 
