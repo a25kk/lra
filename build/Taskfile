@@ -76,7 +76,9 @@ task:plone() {
 task:css() {
     #cd ${SITE_THEME} && npm:run gulp dist
     #cd ..
-    docker:command:gulp dist
+    echo "Building project styles"
+    echo ""
+    docker:command:gulp styles
 }
 
 task:gulp() {

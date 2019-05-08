@@ -3,7 +3,7 @@
   "paths": {
     "app": "../../theme/",
     "base": "../../src/lra.sitetheme/lra/sitetheme/resources",
-    "dev": "_site/",
+    "dev": "../../theme/_site/",
     "dist": "../../src/lra.sitetheme/lra/sitetheme/resources/",
     "diazoPrefix": "/++theme++lra.sitetheme/",
     "src": "node_modules/",
@@ -56,7 +56,7 @@
   "replacementPatterns": {
         "base": [
             {
-                "match": "/../dist/styles/",
+                "match": "/../../src/lra.sitetheme/lra/sitetheme/resources/styles/styles/",
                 "replacement": "/styles/"
             },
             {
