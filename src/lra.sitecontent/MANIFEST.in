@@ -1,0 +1,2 @@
+graft lra
+include *.cfg *.rst *.in

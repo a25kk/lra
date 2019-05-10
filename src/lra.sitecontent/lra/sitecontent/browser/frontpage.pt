@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="lra.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="app-frontpage" id="app-frontpage">
+            <div class="app-page-header">
+                <h1 class="app-page-title">
+                    <span tal:replace="context/Title" />
+                </h1>
+            </div>
+            <p class="app-page-abstract"
+                    tal:condition="context/Description"
+                    tal:content="context/Description" />
+
+            <div class="app-page-body app-fp app-fp-1" id="app-frontpage-1">
+                <tal:block tal:condition="view/has_newsitems">
+                    <div class="app-news-list" id="app-news-list"
+                        tal:define="news view/recent_news">
+                        <div class="app-news-list-item" tal:repeat="item news">
+                            <div class="app-card app-news-list-item-aside">
+                                <a class="app-news-list-item-anchor" href="${item/getURL}">
+                                  <tal:image tal:condition="item/image">
+                                      <figure class="app-page-image-container"
+                                          tal:define="item_uuid item/UID;
+                                                      image_data python:view.get_image_data(item_uuid)">
+                                          <div class="app-lazyload-container">
+                                            <img class="lazy-load"
+                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                 data-src="${image_data/large}"
+                                                 data-sizes="auto"
+                                                 data-parent-fit="contain"
+                                                 data-srcset="${image_data/small},
+                                                              ${image_data/medium},
+                                                              ${image_data/large},
+                                                              ${image_data/original}" />
+                                          </div>
+                                          <noscript>
+                                            <!-- Provide fallback for missing lazyload javascript -->
+                                            <img tal:define="has_img item/image|nothing;
+                                                             scales item/@@images|nothing"
+                                                tal:condition="python:has_img and scales"
+                                                tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
+                                          </noscript>
+                                        <figcaption class="app-image-caption" tal:condition="exists:item/image_caption">
+                                            <div class="app-image-caption-text">${item/image_caption}</div>
+                                        </figcaption>
+                                      </figure>
+                                  </tal:image>
+                                </a>
+                            </div>
+                            <div class="app-news-list-item-main">
+                                <div class="app-news-list-item-title">
+                                    <a href="${item/getURL}">
+                                        ${item/Title}
+                                    </a>
+                                </div>
+                                <div class="app-news-list-item-abstract">
+                                        ${item/Description}
+                                </div>
+                                <div class="app-news-list-item-actions">
+                                    <a class="app-news-list-link" href="${item/getURL}">weiterlesen <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </tal:block>
+
+            </div>
+        </div>
+    </metal:content-core>
+</metal:main>
+</body>
+</html>

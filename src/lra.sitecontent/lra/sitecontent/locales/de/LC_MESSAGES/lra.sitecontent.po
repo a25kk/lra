@@ -1,0 +1,137 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-09-25 15:28+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Christoph Boehner-Figas <boehner@team23.de>\n"
+"Language-Team: KK Language Team <info@kreativkombinat.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: lra.sitecontent\n"
+"Language: de\n"
+"X-Generator: Poedit 2.1.1\n"
+
+#: ../bookableevent.py:28
+msgid "Add optional help text on required data."
+msgstr "Fügen Sie optionalen Hilfstext zu den benötigten Daten hinzu."
+
+#: ../bookableevent.py:34
+msgid "Add optional help text to outline context specific regulations concerning the site's privacy and data protection policies."
+msgstr "Fügen Sie optionalen Hilfstext hinzu, um kontextspezifische Vorschriften über die Datenschutz-und Datenschutzmaßnahmen der Website zu skizzieren."
+
+#: ../bookableevent.py:27
+msgid "Additional Field Description (optional)"
+msgstr "Zusätzliche Feld Beschreibung (optional)"
+
+#: ../bookableevent.py:22
+msgid "Additional Field Label"
+msgstr "Zusätzliches Feld Etikett"
+
+#: ../browser/bookableevent.pt:74
+msgid "All fields marked with <code>*</code> are required."
+msgstr "Alle mit <code>*</code> markierten Felder sind Pflichtangaben."
+
+#: ../profiles/default/types/lra.sitecontent.bookableevent.xml
+msgid "BookableEvent"
+msgstr "Buchbare Veranstaltung"
+
+#: ../contentpage.py:18
+msgid "Check to enable file listing"
+msgstr "Dateiliste anzeigen"
+
+#: ../profiles/default/types/lra.sitecontent.contentpage.xml
+msgid "Contentpage"
+msgstr "Inhaltsseite"
+
+#: ../bookableevent.py:33
+msgid "Custom Privacy and Data Protection Note"
+msgstr "Benutzerdefinierter Datenschutz und Datenschutz Hinweis"
+
+#: ../browser/bookableevent.pt:85
+msgid "E-Mail"
+msgstr "E-Mail-Adresse"
+
+#: ../browser/bookableevent.pt:67
+msgid "Event Registration"
+msgstr "Event-Registrierung"
+
+#: ../configure.zcml:28
+msgid "Extension profile for lra.sitecontent."
+msgstr "Erweiterungsprofil für lra.sitecontent"
+
+#: ../profiles/default/types/lra.sitecontent.bookableevent.xml
+msgid "Folderish bookable event"
+msgstr "Ordner buchbare Veranstaltung"
+
+#: ../profiles/default/types/lra.sitecontent.contentpage.xml
+msgid "Folderish content page"
+msgstr "Ordnerartige Inhaltsseite"
+
+#: ../browser/bookableevent.pt:114
+msgid "Fullname"
+msgstr "Vor- und Nachname"
+
+#: ../browser/bookableevent-dispatched.pt:14
+msgid "Inquiry form"
+msgstr "Anfrageformular"
+
+#: ../browser/bookableevent.py:150
+msgid "Inquiry from website visitor"
+msgstr "Anfrage eines Seitenbesuchers"
+
+#: ../bookableevent.py:23
+msgid "Override default filed label for text field."
+msgstr "Überschreiben Sie die Standardfeldbezeichnung für das Textfeld."
+
+#: ../browser/bookableevent.pt:141
+msgid "Phone"
+msgstr "Telefon"
+
+#: ../bookableevent.py:18
+msgid "Recipient E-Mail"
+msgstr "E-Mail-Adresse für Anmeldungen"
+
+#: ../browser/bookableevent.pt:226
+msgid "Register"
+msgstr "Registrieren"
+
+#: ../browser/bookableevent-dispatched.pt:28
+msgid "Return to last visited page"
+msgstr "Zur zuletzt besuchten Seite zurückkehren"
+
+#: ../profiles/default/types/lra.sitecontent.sectionfolder.xml
+msgid "SectionFolder"
+msgstr "Abschnitt Ordner"
+
+#: ../profiles/default/types/lra.sitecontent.sectionfolder.xml
+msgid "Site Section Folder"
+msgstr "Abschnitt Ordner"
+
+#: ../browser/bookableevent-dispatched.pt:24
+msgid "Thank you for your interest. We will get in touch with you as soon as possible."
+msgstr "Vielen Dank für Ihr Interesse. Wir werden uns baldmöglichst mit Ihnen in Verbindung setzen."
+
+#: ../browser/bookableevent.pt:103 ../browser/bookableevent.py:91
+msgid "This field is required"
+msgstr "Dieses Feld ist ein Pflichtfeld."
+
+#: ../contentpage.py:19
+msgid "When activated the view will attempt to display an automatic listing of all contained files with file information and download link."
+msgstr "Setzen Sie hier einen Haken, wenn die Seite eine automatisch erstellte Liste der hochgeladenen Dateien mit entsprechenden Download Links anzeigen soll."
+
+#: ../browser/bookableevent-dispatched.pt:17
+msgid "Your inquiry has been sent successfully."
+msgstr "Ihre Anfrage wurde erfolgreich verschickt."
+
+#: ../browser/bookableevent.pt:169
+msgid "Your message"
+msgstr "Ihre Nachricht an uns"
+
+#: ../configure.zcml:28
+msgid "lra.sitecontent"
+msgstr "lra.sitecontent"

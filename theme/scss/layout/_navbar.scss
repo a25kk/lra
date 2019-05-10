@@ -1,0 +1,237 @@
+//
+// Navbar
+// -----------------------------------------
+
+.app-navbar {
+    //@extend .navbar;
+    background-color: $app-primary;
+    border-radius: 0;
+    @include media-breakpoint-up(md) {
+        flex: 1;
+        background: transparent;
+    }
+}
+
+//== Navbar header
+//
+//## Default display of global site navigation
+//## Hidden on larger displays
+.app-navbar-header {
+  @include clearfix;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: $app-primary;
+    @include media-breakpoint-up(sm) {
+        display: none;
+    }
+}
+
+//** Navbar toggle text
+.app-navbar-header-title {
+  flex: 0 0 66.6666%;
+}
+
+.app-navbar-brand {
+  padding: $navbar-padding-y $navbar-padding-x;
+  font-weight: 500;
+  line-height: $spacer;
+  color: #fff;
+  background: transparent;
+  border: 0;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+}
+
+//** Icon bar navigation toggle
+.app-navbar-header-toggle {
+  flex: 0 0 33.3333%;
+  background: $app-secondary;
+  padding: $navbar-padding-y $navbar-padding-x;
+  text-align: center;
+}
+
+// Navbar toggle button visible on small displays
+.xapp-navbar-toggle {
+  width: 100%;
+  border-color: transparent;
+  background: transparent;
+  text-align: right;
+  &:hover,
+  &:focus {
+    background: transparent;
+    border-color: transparent;
+  }
+  .icon-bar {
+    background-color: transparent;
+  }
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 44px;
+    height: 2px;
+    border-radius: 1px;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 12px;
+  }
+}
+
+// Custom override for
+.navbar-toggleable {
+    &-xs {
+        @include media-breakpoint-up(sm) {
+            display: block !important;
+        }
+    }
+    &-sm {
+        @include media-breakpoint-up(md) {
+            display: block !important;
+        }
+    }
+    &-md {
+        @include media-breakpoint-up(lg) {
+            display: block !important;
+        }
+    }
+}
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// Bootstrap JavaScript plugin.
+
+.navbar-toggler {
+    padding: .5rem .75rem;
+    font-size: $font-size-lg;
+    line-height: 1;
+    background: none;
+    border: $border-width solid transparent;
+    color: #fff;
+    @include border-radius($btn-border-radius);
+
+    @include hover-focus {
+        text-decoration: none;
+    }
+}
+
+
+// Unordered list main navigation
+.app-navbar-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  @include clearfix;
+}
+
+//== Navitems
+//
+//## Color coded based on addon classes
+.app-navitem {
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    width: auto;
+    flex: 0 0 16.66666667%;
+    max-width: 16.66666667%;
+    padding-right: 2px;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.app-navitem-tab {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    color: #fff;
+    background-color: $app-primary;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    // text-align: center;
+    transition: background-color 0.5s ease;
+    &:active,
+    &:focus,
+    &:hover {
+      color: #fff;
+      background-color: darken($app-primary, 6.5%);
+      text-decoration: none;
+    }
+    > span {
+      display: block;
+        margin-left: $spacer;
+      @include media-breakpoint-up(md) {
+          margin: 0 auto;
+      }
+    }
+    @include media-breakpoint-up(md) {
+      height: 50px;
+      min-height: 50px;
+      text-align: center;
+      font-size: .8rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      height: 50px;
+      min-height: 50px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+}
+
+//== NOTE: this classes are subject to changes
+//
+//## we should move these to general purpose brand classes
+//## providing both color and background color mixins and
+//## standalone modifier classes
+.app-navitem-tab-home {
+  background-color: $app-primary;
+  &:hover {
+    background-color: darken($app-primary, 6.5%);
+  }
+}
+
+.app-navitem-tab-aktuelles {
+  background-color: $app-section-news;
+  &:hover {
+    background-color: darken($app-section-news, 6.5%);
+  }
+}
+
+.app-navitem-tab-landratsamt {
+  background-color: $app-section-department;
+  &:hover {
+    background-color: darken($app-section-department, 6.5%);
+  }
+}
+
+.app-navitem-tab-service {
+  background-color: $app-section-service;
+  &:hover {
+    background-color: darken($app-section-service, 6.5%);
+  }
+}
+
+.app-navitem-tab-landkreis {
+  background-color: $app-section-landkreis;
+  &:hover {
+    background-color: darken($app-section-landkreis, 6.5%);
+  }
+}
+
+.app-navitem-tab-hier-leben{
+  background-color: $app-section-life;
+  &:hover {
+    background-color: darken($app-section-life, 6.5%);
+  }
+}

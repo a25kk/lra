@@ -1,0 +1,92 @@
+//
+// Banner
+// -----------------------------------------
+
+//** Fullscreen container bar
+.app-bannerbar {
+  background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
+}
+
+.app-banner {
+  display: none;
+  @include media-breakpoint-up(sm) {
+    @include make-container();
+    @include make-container-max-widths();
+    height: 430px;
+    min-height: 430px;
+    background: transparent;
+    margin-bottom: 2rem;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.app-banner-image {
+  @extend .img-fluid;
+}
+
+/* ---- Single banner item ---- */
+//
+//## This part will be filled dynamically with
+//## content and a lazyloaded background image
+.app-banner-item {
+  position: relative;
+  height: 430px;
+  min-height: 430px;
+  width: 100%;
+  background-size: cover;
+  background-position: top center;
+}
+
+.app-banner-item-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  min-height: 100px;
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.38) 58%,rgba(0,0,0,0.65) 100%); /* W3C */
+
+}
+
+.app-banner-item-body {
+    color: #fff;
+    padding: 0rem 3rem 2rem 3rem;
+    width: 100%;
+}
+
+.app-baner-item-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.app-banner-item-description {
+  font-size: 0.9rem;
+}
+
+.app-banner-text {
+  font-size: 1rem;
+  a {
+    color: #fff;
+  }
+}
+
+/* ---- flickity overrides ---- */
+
+.flickity-prev-next-button {
+  background: transparent;
+}
+
+.flickity-prev-next-button .arrow {
+  fill: #fff;
+}
+
+.flickity-prev-next-button:hover {
+    background: none;
+}
+
+.flickity-page-dots {
+  @include media-breakpoint-up(sm) {
+    text-align: right;
+    position: relative;
+  }
+}

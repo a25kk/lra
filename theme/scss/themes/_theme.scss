@@ -1,0 +1,68 @@
+//
+// Main site theme
+// --------------------------------------
+
+
+// Hide toolbar
+// NOTE: re-activate for CMS backend integration
+.app-toolbar {
+    visibility: hidden;
+}
+
+//== Main content area
+//
+//## Provides optional fullscreen layouts
+.app-main {
+    @include make-container();
+    @include make-container-max-widths();
+}
+
+.app-main-section {
+    @include make-row();
+    @include media-breakpoint-up(md) {
+        flex-wrap: nowrap;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.app-main-aside,
+.app-main-content {
+
+}
+
+.app-main-aside {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(4);
+        padding-right: .5rem;
+    }
+}
+
+// DEPRECATED 21.04.2017
+// .app-main-content {
+//     @include make-col(12);
+//     @include media-breakpoint-up(md) {
+//         @include make-col(8);
+//         padding-left: .5rem;
+//     }
+// }
+
+// Since the side bar is dropped by a diazo rule we should
+// only apply the columns styles when we actually have a side bar
+.app-main-aside + .app-main-content {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(8);
+        padding-left: .5rem;
+    }
+}
+
+.full {
+    @include make-col(12);
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 1rem;
+}

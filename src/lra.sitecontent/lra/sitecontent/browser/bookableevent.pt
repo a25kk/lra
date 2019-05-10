@@ -1,0 +1,241 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="lra.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="app-page-header">
+            <div class="app-page-title">
+                <h1 class="app-page-headline" tal:content="context/Title">
+                        ${context/Title}
+                </h1>
+            </div>
+            <p class="app-page-abstract" tal:condition="context/Description">
+                    ${context/Description}
+            </p>
+        </div>
+
+
+
+        <div class="app-page-body" id="content-core">
+
+            <div class="app-page-event-details">
+                <tal:eventsummary replace="structure context/@@event_summary"/>
+            </div>
+
+            <div class="app-page-lead-image" tal:condition="view/has_lead_image">
+                <figure class="app-page-image-container"
+                         tal:define="item_uuid context/UID;
+                                image_data python:view.get_image_data(item_uuid)">
+                    <div class="app-lazyload-container">
+                        <img class="lazyload"
+                             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                             data-src="${image_data/large}"
+                             data-sizes="auto"
+                             data-parent-fit="contain"
+                             data-srcset="${image_data/small},
+                                 ${image_data/medium},
+                                 ${image_data/large},
+                                 ${image_data/original}" />
+                    </div>
+                    <noscript>
+                        <!-- Provide fallback for missing lazyload javascript -->
+                        <img tal:define="has_img item/image|nothing;
+                                scales item/@@images|nothing"
+                                 tal:condition="python:has_img and scales"
+                                 tal:replace="structure python: scales.scale('image', scale='mini').tag(css_class='newsImage')" />
+                    </noscript>
+                    <figcaption tal:condition="exists:item/image_caption">
+                            ${item/image_caption}
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="app-page-text" id="parent-fieldname-text"
+                     tal:condition="context/text"
+                     tal:content="structure context/text/output" />
+
+            <div class="app-page-form" tal:condition="view/is_open_for_registration">
+
+
+                <h2 i18n:translate="">Event Registration</h2>
+
+                <form class="app-form app-form-inquiry"
+                  method="post" role="form"
+                     tal:define="errors view/errors"
+                     tal:attributes="action request/URL">
+
+                <p class="text-muted" i18n:translate="">
+                    All fields marked with <code>*</code> are required.
+                </p>
+
+                <div class="app-form-fieldset">
+                    <div class="app-form-group form__group app-field-email"
+                             tal:define="error errors/email | nothing;
+                                    err_msg python:error and error['active'] == True;
+                                            value request/email | nothing"
+                             tal:attributes="class python:err_msg and 'app-form-group form__group app-field-email app-field-required has-error' or 'app-form-group form__group app-field-email app-field-required'">
+
+                        <label class="xsr-only"
+                               for="email"
+                                 i18n:translate="">E-Mail</label>
+
+                        <input class="app-form-control"
+                               id="email"
+                               name="email"
+                               type="email"
+                               placeholder=""
+                                 tal:attributes="value python:error and view.default_value(error) or value">
+
+                        <div class="required-icon">
+                            <div class="text">*</div>
+                        </div>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <i class="fa fa-exclamation-triangle"></i>
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /email field -->
+
+                    <div class="app-form-group form__group app-field-fullname"
+                             tal:define="error errors/fullname | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/fullname | nothing"
+                             tal:attributes="class python:err_msg and 'app-form-group form__group app-field-fullname app-field-required has-error' or 'app-form-group form__group app-field-fullname app-field-required'">
+
+                        <label for="fullname"
+                                 i18n:translate="">Fullname</label>
+
+                        <input class="app-form-control"
+                               id="fullname"
+                               name="fullname"
+                               type="text"
+                                 tal:attributes="value python:error and view.default_value(error) or value">
+
+                        <div class="required-icon">
+                            <div class="text">*</div>
+                        </div>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <i class="fa fa-exclamation-triangle"></i>
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /fullname field -->
+
+                    <div class="app-form-group form__group app-field-phone"
+                             tal:define="error errors/phone | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/phone | nothing"
+                             tal:attributes="class python:err_msg and 'app-form-group form__group app-field-phone app-field-required has-error' or 'app-form-group form__group app-field-phone app-field-required'">
+
+                        <label for="phone"
+                                 i18n:translate="">Phone</label>
+
+                        <input class="app-form-control"
+                               id="phone"
+                               name="phone"
+                               type="text"
+                                 tal:attributes="value python:error and view.default_value(error) or value">
+
+                        <div class="required-icon">
+                            <div class="text">*</div>
+                        </div>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <i class="fa fa-exclamation-triangle"></i>
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /phone field -->
+
+                    <div class="form__group app-form-group app-field-comment"
+                             tal:define="error errors/comment | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/comment | nothing"
+                             tal:attributes="class python:err_msg and 'form__group app-form-group app-field-comment has-error' or 'form__group app-form-group app-field-comment'">
+
+                        <label for="comment">
+                            <span i18n:translate="" tal:condition="not:context/additional_label">Your message</span>
+                            <span tal:condition="context/additional_label" tal:replace="context/additional_label" />
+                        </label>
+
+                        <div class="help-block"
+                                 tal:condition="context/additional_description">
+                            <span tal:replace="context/additional_description">This field is required</span>
+                        </div>
+
+                        <textarea class="app-form-control"
+                                  id="comment"
+                                  name="comment"
+                                  rows="3"></textarea>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /message field -->
+
+                    <div class="form__group app-form-group app-field-privacy-policy"
+                        tal:condition="context/privacy_note">
+                        <div class="help-block" tal:content="python:context.privacy_note">
+                            Privacy note
+                        </div>
+                    </div>
+
+                    <div class="form__group app-form-group app-field-privacy-agreement"
+                             tal:define="error errors/privacy-policy-agreement | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/privacy-policy-agreement | nothing"
+                            i18n:domain="ade25.contacts"
+                             tal:attributes="class python:err_msg and 'form__group form__group--checkboxes  app-form-group app-field-privacy-agreement app-field-required has-error' or 'form__group form__group--checkboxes app-form-group app-field-privacy-agreement app-field-required'">
+
+                        <input type="checkbox" class="form__control form__control--checkbox" id="privacy-policy-agreement" name="privacy-policy-agreement">
+                        <label class="form__label" for="privacy-policy-agreement">
+                            <span i18n:translate="" tal:omit-tag="">I have acknowledged the</span>
+                            <a href="${view/privacy_policy_url}" i18n:translate="">privacy policy</a>
+                            <span i18n:translate="" tal:omit-tag="">and accept it.</span>
+                        </label>
+                        <div class="required-icon">
+                            <div class="text">*</div>
+                        </div>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /privacy policy agreement field -->
+
+                </div>
+
+                <!-- Form actions -->
+                <div class="app-form-group app-form-actions">
+                    <span tal:replace="structure context/@@authenticator/authenticator"/>
+                    <button class="btn btn-primary btn-lg"
+                            name="form.button.Submit"
+                            id="form.button.Submit"
+                             i18n:translate="">Register</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

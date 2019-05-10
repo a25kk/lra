@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    {% include base/head.html %}
+  </head>
+  <body class="dim-in dim-in-3">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    {% include components/toolbar.html %}
+    {% include layout/header.html %}
+    {% include components/pathbar.html %}
+
+    <main class="app-main" role="main">
+        {% include components/chart.html %}
+    </main>
+    {% include components/contactpanel.html %}
+    {% include layout/footer.html %}
+    {% include base/javascript.html %}
+    <div class="app-js-slot">
+        {% include base/piwik.html %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+//
+// Contactbar
+// -------------------------------------
+
+
+.app-contact-panel {
+	@include make-container();
+    @include make-container-max-widths();
+	margin-top: 1rem;
+}
+
+.app-frontpagepanel {
+	@include make-container();
+	@include make-container-max-widths();
+	padding-left: 0 !important ;
+	padding-bottom: 1rem;
+	margin-top: 1rem;
+}
+
+//.app-contact-panel-content {
+//	display: flex;
+//
+//
+//	.app-card {
+//		flex: 0 0 30%;
+//		border: 1px solid red;
+//		margin: 1rem;
+//	}
+//}
+
