@@ -1,0 +1,301 @@
+//
+// Cards displaying thumbnails and data collections
+// ------------------------------------------------------
+
+
+//== Card lists
+//
+//## Use a grid layout for card listings
+.app-cards {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+//** Base card styles
+.app-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    color: $gray-200;
+    a:hover {
+      color: #fff;
+      opacity: 0.7;
+      text-decoration: none;
+      }
+
+    a:visited {
+      color: #fff;
+      text-decoration: none;
+    }
+    .fa {
+      color: #fff;
+    }
+    @include when-inside('.app-cards') {
+        @include media-breakpoint-up(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        @include media-breakpoint-up(lg) {
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+        }
+    }
+}
+
+.app-sidebar {
+  .app-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+//== Card layout
+//
+//## Reflow card contents based on viewport size
+.app-card-header {
+  display: flex;
+  align-items: top;
+  height: 12rem;
+  min-height: 12rem;
+    @include when-inside('.template-overview-controlpanel') {
+        height: auto;
+        min-height: 3rem;
+        color: #fff;
+        background: $app-secondary;
+    }
+  padding: $spacer;
+  background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
+    @include when-inside('.app-nav-list') {
+        display: none;
+    }
+
+  &-address {
+    background: $app-secondary;
+  }
+  &-opening-hours {
+      background: url(../assets/images/card-opening-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-map {
+      background: url(../assets/images/card-map-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-forms {
+      background: url(../assets/images/card-forms-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-district {
+      background: url(../assets/images/card-info-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-cars {
+      background: url(../assets/images/card-cars-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-circle {
+      background: url(../assets/images/card-circle-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+  &-actions {
+      background: url(../assets/images/card-actions-bg.jpg) no-repeat top center;
+      background-size: cover;
+  }
+}
+
+.app-card-header-icon {
+  color: #fff;
+}
+
+//** Card content
+.app-card-main {
+    padding: ($spacer / 2);
+    background-color: $app-primary;
+    @include when-inside('app-nav-list') {
+        color: $app-secondary;
+    }
+}
+
+//** Card footer
+.app-card-footer {
+  padding: ($spacer / 2);
+}
+
+//== Gutter
+//
+//## Add spacing to cards
+.app-card-gutter {
+    margin: -1rem 0 0 -1rem;
+    .app-card {
+        padding: 1rem 0 0 1rem;
+    }
+}
+
+//== Embedded card
+//
+//## Remove spacing for card inside card usecase
+.app-subcard {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  border: 0;
+}
+
+
+//== Embedded card
+//
+//## Remove spacing for card inside card usecase
+
+.app-subcards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.app-subcard {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    flex: 0 1 50%;
+    padding: 1.5rem;
+    color: #fff;
+    height: 12rem;
+    min-height: 12rem;
+    flex: 0 0 100%;
+    max-width: 100%;
+        @include media-breakpoint-up(md) {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    path {
+        fill: #fff;
+    }
+}
+
+//== Card title
+//
+//## Title is used inside the card-main container
+.app-card-title {
+    font-size: 1.7rem;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+    @include when-inside('.wf-active') {
+        font-weight: 500;
+    }
+}
+
+//** Set card content specific styles
+.app-card-content {
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  font-size: 1rem;
+  height: 7rem;
+  min-height: 7rem;
+  address {
+    margin-bottom: 0;
+    padding-top: 1.5rem;
+  }
+  a {
+    font-weight: 400;
+    text-decoration: underline;
+    color: #fff;
+  }
+}
+
+
+//== Placeholder for missing card content
+//
+//## Provide call to actions and descriptions on empty cards
+//## by providing highlighted card content
+.app-card-placeholder {
+  margin: 0.5rem auto;
+  padding: 1rem;
+  text-align: center;
+  @include media-breakpoint-up(sm) {
+    padding: 2rem 3rem;
+    width: 66.66%;
+  }
+}
+
+//** Round hellip sign
+.app-card-placeholder-sign {
+  @include size(4rem);
+  margin: 0 auto;
+  padding-top: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid $gray-400;
+  color: $gray-400;
+  font-size: 1.5rem;
+}
+
+
+//** quick / multitarget card
+
+.card-quick {
+  @include media-breakpoint-down(md) {
+        flex: 0 0 100%;
+    }
+  .app-card-main {
+    //height: 24rem;
+    //min-height: 24rem;
+    background: linear-gradient(to bottom, #1d3a24 0%,#588c73 100%);
+    padding: 0;
+    @include media-breakpoint-up(sm) {
+      height: 24rem;
+      min-height: 24rem;
+      }
+    }
+    .app-card-content {
+        font-size: 1rem;
+    }
+    .app-subcard-title {
+      color: #fff;
+      font-size: .9rem;
+      font-weight: 700;
+      padding-top: 1.5rem;
+    }
+
+// Quickcard styles
+//
+// TODO: Cleanup - do  not repeat yourself :)
+
+//** quick / Subcard pray
+
+.subcard-tl {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 0;
+        @include media-breakpoint-down(sm) {
+            border-width: 0 0 2px 0;
+        }
+}
+
+//** quick / Subcard donation
+
+.subcard-tr {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 0 0 2px 2px;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 2px 0;
+    }
+  }
+
+//** quick / Subcard Dienstleistungen
+
+.subcard-bl {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 2px 0 0 2px;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 0 0;
+    }
+}
+
+//** quick / Subcard Gesundheit
+
+.subcard-br {
+    text-align: center;
+    border: 2px solid #fff;
+    border-width: 2px 2px 0 0;
+    @include media-breakpoint-down(sm) {
+      border-width: 0 0 2px 0;
+    }
+}
+}
+

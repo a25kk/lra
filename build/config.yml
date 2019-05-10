@@ -8,10 +8,30 @@ paths:
   web: ../
   db: ../_db
   docker_data: ../_docker_data
+  site_theme: ../src/lra.sitetheme/lra/sitetheme/resources
 modules:
   virtualenv:
     python_bin: python2
   docker:
       data_path: ../_docker_data
-      docker_compose_config_overrides: localhost
+      docker_compose_config_overrides:
+        - localhost
+      commands:
+        npm: &npm
+          workdir: /app/build/gulp
+          bin: npm
+          service: node
+        gulp:
+          <<: *npm
+          bin: ./node_modules/.bin/gulp
+        jekyll: &jekyll
+          workdir: /app/theme
+          bin: jekyll
+          service: jekyll
+
+
   pipenv:
+  template:
+  npm:
+    base_path: ./gulp
+

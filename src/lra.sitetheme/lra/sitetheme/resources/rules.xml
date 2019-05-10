@@ -67,37 +67,37 @@
     </xsl:template>
 
     <notheme if="$ajax_load" />
-    <theme href="dist/full/index.html" css:if-content=".template-folder_contents" />
+    <theme href="full/index.html" css:if-content=".template-folder_contents" />
      <!-- Setup custom login form -->
-    <theme href="dist/signin/index.html" css:if-content="body.template-login_form" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-logged_out" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-login_failed" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_form" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
-    <theme href="dist/funding/index.html" css:if-content="body.subsection-klimaschutz-termine-klimaschutz" />
-    <theme href="dist/full/index.html" css:if-content="body.template-search" />
-    <theme href="dist/full/index.html" css:if-content="body.template-default_error_message" />
-    <theme href="dist/full/index.html" css:if-content="body.template-contact-info" />
-    <theme href="dist/chart/index.html" css:if-content="body.subsection-verwaltungsgliederungsplan" />
-    <theme href="dist/chart/index.html" css:if-content="body.subsection-fachbereiche-fachbereiche" />
-    <theme href="dist/full/index.html" css:if-content="body.section-impressum" />
-    <theme href="dist/full/index.html" css:if-content="body.section-rechtliche-hinweise" />
-    <theme href="dist/full/index.html" css:if-content="body.section-kontakt" />
+    <theme href="signin/index.html" css:if-content="body.template-login_form" />
+    <theme href="signin/index.html" css:if-content="body.template-logged_out" />
+    <theme href="signin/index.html" css:if-content="body.template-login_failed" />
+    <theme href="signin/index.html" css:if-content="body.template-mail_password_form" />
+    <theme href="signin/index.html" css:if-content="body.template-mail_password_response" />
+    <theme href="signin/index.html" css:if-content="body.template-pwreset_form" />
+    <theme href="signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="funding/index.html" css:if-content="body.subsection-klimaschutz-termine-klimaschutz" />
+    <theme href="full/index.html" css:if-content="body.template-search" />
+    <theme href="full/index.html" css:if-content="body.template-default_error_message" />
+    <theme href="full/index.html" css:if-content="body.template-contact-info" />
+    <theme href="chart/index.html" css:if-content="body.subsection-verwaltungsgliederungsplan" />
+    <theme href="chart/index.html" css:if-content="body.subsection-fachbereiche-fachbereiche" />
+    <theme href="full/index.html" css:if-content="body.section-impressum" />
+    <theme href="full/index.html" css:if-content="body.section-rechtliche-hinweise" />
+    <theme href="full/index.html" css:if-content="body.section-kontakt" />
 
 
 
 
-    <theme href="dist/frontpage/index.html" css:if-content="body.template-startseite" />
-    <theme href="dist/index.html" css:if-content="body.template-landingpage-view" />
+    <theme href="frontpage/index.html" css:if-content="body.template-startseite" />
+    <theme href="index.html" css:if-content="body.template-landingpage-view" />
 
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
         <notheme if="$ajax_load" />
 
-        <theme href="dist/theme/index.html" />
+        <theme href="theme/index.html" />
 
 
         <!-- HEAD -->
@@ -109,16 +109,14 @@
         <drop css:content="meta[name='viewport']" />
         <before content="/html/head/meta" theme="/html/head/title" />
 
+        <!-- Add stylesheets and javascript -->
+        <before css:theme="head link[rel='stylesheet']"
+                content="/html/head/link"
+        />
         <after
-            content="/html/head/link | /html/head/style | /html/head/script"
+            content="/html/head/style | /html/head/script"
             theme-children="/html/head"
         />
-
-        <rules css:if-content="body.userrole-authenticated">
-            <!-- Drop style tags from theme template -->
-            <drop theme="/html/head/style" />
-        </rules>
-
         <drop theme="/html/body/script" />
 
 
