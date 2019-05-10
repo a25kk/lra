@@ -36,7 +36,7 @@ env.hosts = ['${fabric:host}']
 env.webserver = '${fabric:directory}'
 env.code_root = '${fabric:directory}'
 env.local_root = '${buildout:directory}'
-env.sitename = 'hph'
+env.sitename = 'lra'
 env.code_user = 'root'
 env.prod_user = 'www'
 env.actor = ${settings:username}
@@ -200,7 +200,7 @@ def deploy(*args):
         with cd(env.git.remote_repository_path):
             run('bin/buildout -c deployment.cfg')
     restart()
-    msg = '[hph] *%(sitename)s* deployed by %(actor)s' % opts
+    msg = '[b5] *%(sitename)s* deployed by %(actor)s' % opts
     user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#hph', msg, username=user, icon_emoji=icon)

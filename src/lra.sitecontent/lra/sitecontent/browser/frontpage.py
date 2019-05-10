@@ -41,14 +41,32 @@ class FrontPageView(BrowserView):
         portal = api.portal.get()
         return portal.id
 
-    def recent_news(self):
+    @staticmethod
+    def get_latest_news_items(limit=3):
         catalog = api.portal.get_tool(name='portal_catalog')
         items = catalog(object_provides=INewsItem.__identifier__,
                         review_state='published',
                         sort_on='Date',
                         sort_order='reverse',
-                        sort_limit=3)[:3]
-        return IContentListing(items)
+                        sort_limit=limit)[:limit]
+        return items
+
+    def recent_news(self):
+        results = []
+        brains = self.get_latest_news_items()
+        for brain in brains:
+            results.append({
+                'title': brain.Title,
+                'description': brain.Description,
+                'url': brain.getURL(),
+                'timestamp': brain.Date,
+                'uuid': brain.UID,
+                "css_classes": "o-card-list__item--{0}".format(
+                    brain.UID
+                ),
+                'item_object': brain.getObject()
+            })
+        return results
 
     def section_preview(self, section):
         info = {}

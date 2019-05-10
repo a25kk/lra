@@ -86,14 +86,14 @@
 
 .chart-body {
 	padding: .5rem;
-	min-height: 100px;
+	min-height: 120px;
 
 	@include when-inside('.chart06') {
-		min-height: 67px !important;
+		//min-height: 67px !important;
 	}
 
 	@include when-inside('.chart05') {
-		min-height: 67px !important;
+		//min-height: 67px !important;
 	}
 
 	@include when-inside('.chart01') {
@@ -104,7 +104,7 @@
 .level01 {
 	.chart-body {
 		padding: .5rem;
-		min-height: 50px;
+		//min-height: 50px;
 	}
 }
 

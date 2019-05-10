@@ -9098,6 +9098,11 @@ div.riform .label {
   background-color: #8c4747;
 }
 
+.o-figure {
+  display: block;
+  margin-bottom: 0;
+}
+
 .form__group {
   margin-bottom: 1rem;
 }

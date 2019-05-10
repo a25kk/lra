@@ -6,6 +6,8 @@
 @import 'utils/variables';
 @import 'utils/functions';
 @import 'utils/mixins';
+@import 'utils/generic.aspect-ratio';
+
 
 @import 'vendors/font-awesome';
 @import 'vendors/bootstrap';
@@ -16,6 +18,8 @@
 @import 'base/fonts';
 @import 'base/scaffolding';
 @import 'base/brand';
+
+@import 'objects/object.figure';
 
 @import 'layout/header';
 @import 'layout/navbar';
