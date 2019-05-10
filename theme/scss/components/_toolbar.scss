@@ -1,0 +1,67 @@
+//
+// CMS Toolbar
+// --------------------------------------------
+
+//== Plone variables
+//
+//## Integrate Plone editbar
+//## These should be generalized
+$plone-gray-light:                          lighten(#000, 46.5%);
+$plone-link-color:                          #007bb3; //plone blue
+$plone-gray-lighter:                        lighten(#000, 80%);   // #ccc //disableds like
+
+//*// TOOLBAR
+$plone-toolbar-bg:                          rgba(0,0,0,.9);
+$plone-toolbar-submenu-bg:                  rgba(20,20,20,.95);
+$plone-toolbar-font-primary:                $font-family-base;
+$plone-toolbar-font-secundary:              $font-family-base;
+$plone-toolbar-separator-color:             rgba(255,255,255,.17);
+$plone-toolbar-link:                        $plone-link-color;
+$plone-toolbar-text-color:                  rgba(255,255,255,.9);
+$plone-toolbar-submenu-text-color:          #ffffff;
+$plone-toolbar-submenu-header-color:        $plone-gray-light;
+$plone-toolbar-published-color:             $plone-link-color; //published and external same color
+$plone-toolbar-draft-color:                 #fab82a; // lime-yellow //draft is visible
+$plone-toolbar-pending-color:               #e2e721; // orange
+$plone-toolbar-private-color:               #c4183c; // red
+$plone-toolbar-internal-color:              #fab82a; // is draft
+$plone-toolbar-internally-published-color:  #883dfa; // is intranet
+$plone-screen-xs-min:              480px;
+$plone-screen-xs-max:              480px;
+$plone-screen-sm-min:              768px;
+$plone-screen-md-min:              992px;
+$plone-screen-lg-min:              1200px;
+
+//== Toolbar
+//
+//== Mix plone styles with basic formatting
+.app-toolbar {
+    position: fixed;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 120px;
+    background: $gray-dark;
+}
+
+//** Toolbar header with brand and/or cms title information
+.app-toolbar-header {
+    margin-bottom: $spacer;
+    padding: 1rem;
+    color: #f2f2f2;
+    border-bottom: 1px solid $app-gray-dark;
+}
+
+//== Toolbar nav
+//
+//## The navigation consists of an unordered list and the styling
+//## is optimized for the German language version which requires
+//## more horizontal space due to extended word length
+.app-toolbar-nav {
+    @extend .nav;
+    margin-bottom: $spacer;
+    font-size: 0.75rem;
+    li > a {
+        color: $navbar-dark-color;
+    }
+}

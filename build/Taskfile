@@ -1,36 +1,125 @@
 #!/usr/bin/env bash
 # b5 Taskfile, see https://git.team23.de/build/b5 for details
+SITE_THEME="${CONFIG_paths_site_theme:-'I have no theme configuration'}"
 
 task:install() {
-# virtualenv:install
-    pipenv:install
+    cd .. && chmod 775 ./bootstrap.sh && ./bootstrap.sh
+    virtualenv:install
     docker:install
+    docker:command:npm install
+    template:render --overwrite ask-if-older templates/config.local.yml.jinja2 config.local.yml
+}
+
+task:install:theme() {
+    # npm:install
+    docker:command:npm install
 }
 
 task:update() {
-# virtualenv:update
+    virtualenv:update
     docker:update
+    docker:command:npm install
+    template:render --overwrite ask-if-older templates/config.local.yml.jinja2 config.local.yml
 }
 
+task:update:theme() {
+    docker:command:npm install
+}
+
+task:deploy:legacy() {
+    cd .. && bin/fab deploy
+}
+
+# Run fabric based deployment
 task:deploy() {
     if [ -z "${1:-}" ]
     then
-        echo "Please specify deployment target. ABORTING!"
-        exit 1
+        echo "Usage: b5 deploy <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
     fi
-    virtualenv:run fab "${1}" "deploy:${2}"
+    virtualenv:run fab "$1" deploy:"${2:-}"
+}
+
+task:deploy:setup() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 deploy:setup <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" deploy_setup:"${2:-}"
+}
+
+task:status() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 status <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" server_status
+}
+
+task:build() {
+    cd ../ && bin/buildout -Nc development.cfg
+}
+
+task:build:full() {
+    cd ../ && bin/buildout -c development.cfg
+}
+
+task:plone() {
+    cd ../ && bin/instance-debug fg
 }
 
 task:css() {
-    virtualenv:run fab css
+    docker:command:gulp styles
+}
+
+task:gulp() {
+    docker:command:gulp "$@"
+}
+
+task:gulp:tasks() {
+    docker:command:gulp --tasks
 }
 
 task:watch() {
     virtualenv:run fab watch
 }
 
+task:theme:html() {
+    docker:command:jekyll build
+}
+
+task:theme:css() {
+    docker:command:gulp styles
+}
+
+task:theme:js() {
+    docker:command:gulp collect:scripts:app
+}
+
+task:theme:assets() {
+    docker:command:gulp collect
+}
+
+task:theme:dist() {
+    docker:command:jekyll build
+    docker:command:gulp dist
+}
+
+task:npm() {
+    docker:command:npm "$@"
+}
+
+task:jekyll() {
+    docker:command:jekyll "$@"
+}
+
 task:fab() {
-    pipenv:run fab "$@"
+    virtualenv:run fab "$@"
 }
 
 # docker
@@ -46,3 +135,19 @@ task:shell() {
     docker:container_run web /bin/bash --login
 }
 
+task:db:download() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 download <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" download:"${2:-}"
+}
+
+task:venv:reset() {
+    cd ../ &&
+    rm -rf ./bin &&
+    rm -rf ./lib &&
+    rm -rf ./include
+}
