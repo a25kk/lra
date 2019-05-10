@@ -13476,52 +13476,9 @@ label:hover:before {
       -ms-flex: 0 0 33.3333%;
           flex: 0 0 33.3333%;
   max-width: 33.3333%;
-  color: #212529;
-  background-color: #fff;
-  border-color: #588c73;
-}
-
-.app-searchbox-btn:hover,
-.searchButton:hover {
-  color: #fff;
   background-color: #588c73;
-  border-color: #446d59;
-}
-
-.app-searchbox-btn:focus, .app-searchbox-btn.focus,
-.searchButton:focus,
-.searchButton.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(80, 125, 104, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(80, 125, 104, 0.5);
-}
-
-.app-searchbox-btn.disabled, .app-searchbox-btn:disabled,
-.searchButton.disabled,
-.searchButton:disabled {
-  color: #212529;
-  background-color: #fff;
+  color: #fff;
   border-color: #588c73;
-}
-
-.app-searchbox-btn:not(:disabled):not(.disabled):active, .app-searchbox-btn:not(:disabled):not(.disabled).active,
-.show > .app-searchbox-btn.dropdown-toggle,
-.searchButton:not(:disabled):not(.disabled):active,
-.searchButton:not(:disabled):not(.disabled).active,
-.show >
-.searchButton.dropdown-toggle {
-  color: #212529;
-  background-color: #e6e5e5;
-  border-color: #3f6553;
-}
-
-.app-searchbox-btn:not(:disabled):not(.disabled):active:focus, .app-searchbox-btn:not(:disabled):not(.disabled).active:focus,
-.show > .app-searchbox-btn.dropdown-toggle:focus,
-.searchButton:not(:disabled):not(.disabled):active:focus,
-.searchButton:not(:disabled):not(.disabled).active:focus,
-.show >
-.searchButton.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(80, 125, 104, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(80, 125, 104, 0.5);
 }
 
 .searchSection {
@@ -13839,7 +13796,7 @@ label:hover:before {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
   max-width: 100%;
-  color: #ced4da;
+  color: #e9ecef;
 }
 
 .app-card a:hover {

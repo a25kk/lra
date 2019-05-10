@@ -19,6 +19,7 @@
 .svn
 ba
 bin
+build/docker/nginx/site.conf
 bower_components
 !build
 coverage
