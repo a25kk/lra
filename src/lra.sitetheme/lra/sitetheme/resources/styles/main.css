@@ -12486,6 +12486,11 @@ div.riform .label {
   background-color: #8c4747;
 }
 
+.o-figure {
+  display: block;
+  margin-bottom: 0;
+}
+
 .app-header {
   padding-top: 1rem;
   padding-bottom: 1rem;
