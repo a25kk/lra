@@ -65,7 +65,10 @@
 .searchButton {
   flex: 0 0 33.3333%;
   max-width: 33.3333%;
-  @include button-variant(#fff, $app-secondary, $app-secondary);
+  //@include button-variant(#fff, $app-secondary, $app-secondary) !important;
+  background-color: $app-secondary;
+  color: #fff;
+  border-color: $app-secondary;
 }
 
 .searchSection {
