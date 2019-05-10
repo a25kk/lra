@@ -21,7 +21,7 @@ export function inject() {
             {read: false}),
             {relative: false},
             {removeTags: true},
-            {ignorePath: ['../','../../','../../../', '/dist/', 'dist/']}
+            {ignorePath: ['/../','/../../','/../../../', '/dist/', 'dist/', cfg.paths.dist]}
         ))
         // Output the file back into it's directory
         .pipe(gulp.dest(cfg.paths.dev))
