@@ -15454,7 +15454,23 @@ article.vevent {
 
 .chart-body {
   padding: .5rem;
-  min-height: 120px;
+  min-height: 137px;
+}
+
+.chart01 .chart-body {
+  min-height: 120px !important;
+}
+
+.chart02 .chart-body {
+  min-height: 120px !important;
+}
+
+.chart03 .chart-body {
+  min-height: 120px !important;
+}
+
+.chart04 .chart-body {
+  min-height: 120px !important;
 }
 
 .chart01 .chart-body {

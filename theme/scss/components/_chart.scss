@@ -86,14 +86,19 @@
 
 .chart-body {
 	padding: .5rem;
-	min-height: 120px;
+	min-height: 137px;
 
-	@include when-inside('.chart06') {
-		//min-height: 67px !important;
+	@include when-inside('.chart01') {
+		min-height: 120px !important;
 	}
-
-	@include when-inside('.chart05') {
-		//min-height: 67px !important;
+	@include when-inside('.chart02') {
+		min-height: 120px !important;
+	}
+	@include when-inside('.chart03') {
+		min-height: 120px !important;
+	}
+	@include when-inside('.chart04') {
+		min-height: 120px !important;
 	}
 
 	@include when-inside('.chart01') {
