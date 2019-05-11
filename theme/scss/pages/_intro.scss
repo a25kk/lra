@@ -76,7 +76,10 @@
     	.app-intro-btn {
     		font-size: 1.5rem;
     		width: 100%;
-    		@include button-variant(#fff, $app-secondary, $app-secondary);
+    		//@include button-variant(#fff, $app-secondary, $app-secondary);
+            background-color: $app-secondary;
+            color: #fff;
+            border-color: $app-secondary;
     		@include media-breakpoint-up(sm) {
     			width: 35%;
     		}
@@ -86,6 +89,10 @@
     		a {
     			color: #fff;
     		}
+            &:hover {
+                background-color: $app-primary;
+                border-color: $app-primary;
+            }
     	}
     }
 }
@@ -103,8 +110,8 @@
 }
 
 .intro {
-	@include make-container();
-    @include make-container-max-widths();
+	//@include make-container();
+    //@include make-container-max-widths();
     margin-top: 1rem;
 
     .app-main {
