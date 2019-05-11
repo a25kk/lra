@@ -14271,6 +14271,7 @@ app-nav-list .app-card-main {
 }
 
 .app-nav-tree-list {
+  margin-bottom: 0;
   padding-left: 0;
   list-style: none;
 }
@@ -15784,6 +15785,7 @@ article.vevent {
 
 .app-content {
   background: #edeaea;
+  height: 100%;
   padding: 1rem;
 }
 
@@ -16281,39 +16283,9 @@ article.vevent {
 .app-intro-wrapper .app-intro-button .app-intro-btn {
   font-size: 1.5rem;
   width: 100%;
-  color: #212529;
-  background-color: #fff;
-  border-color: #588c73;
-}
-
-.app-intro-wrapper .app-intro-button .app-intro-btn:hover {
-  color: #fff;
   background-color: #588c73;
-  border-color: #446d59;
-}
-
-.app-intro-wrapper .app-intro-button .app-intro-btn:focus, .app-intro-wrapper .app-intro-button .app-intro-btn.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(80, 125, 104, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(80, 125, 104, 0.5);
-}
-
-.app-intro-wrapper .app-intro-button .app-intro-btn.disabled, .app-intro-wrapper .app-intro-button .app-intro-btn:disabled {
-  color: #212529;
-  background-color: #fff;
+  color: #fff;
   border-color: #588c73;
-}
-
-.app-intro-wrapper .app-intro-button .app-intro-btn:not(:disabled):not(.disabled):active, .app-intro-wrapper .app-intro-button .app-intro-btn:not(:disabled):not(.disabled).active,
-.show > .app-intro-wrapper .app-intro-button .app-intro-btn.dropdown-toggle {
-  color: #212529;
-  background-color: #e6e5e5;
-  border-color: #3f6553;
-}
-
-.app-intro-wrapper .app-intro-button .app-intro-btn:not(:disabled):not(.disabled):active:focus, .app-intro-wrapper .app-intro-button .app-intro-btn:not(:disabled):not(.disabled).active:focus,
-.show > .app-intro-wrapper .app-intro-button .app-intro-btn.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(80, 125, 104, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(80, 125, 104, 0.5);
 }
 
 @media (min-width: 576px) {
@@ -16332,6 +16304,11 @@ article.vevent {
   color: #fff;
 }
 
+.app-intro-wrapper .app-intro-button .app-intro-btn:hover {
+  background-color: #274d38;
+  border-color: #274d38;
+}
+
 .app-front-page-search {
   padding: 1rem;
   background-color: #fff;
@@ -16342,36 +16319,7 @@ article.vevent {
 }
 
 .intro {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
   margin-top: 1rem;
-}
-
-@media (min-width: 576px) {
-  .intro {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .intro {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .intro {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .intro {
-    max-width: 1140px;
-  }
 }
 
 .intro .app-main {
