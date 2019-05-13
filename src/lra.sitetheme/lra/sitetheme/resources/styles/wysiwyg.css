@@ -10111,8 +10111,11 @@ article.vevent {
 
 .app-content {
   background: #edeaea;
-  height: 100%;
   padding: 1rem;
+}
+
+.app-content:only-child {
+  height: 100%;
 }
 
 .app-content a {
