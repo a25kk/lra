@@ -199,3 +199,15 @@
 .app-contact-actions {
     padding-top: 1rem;
 }
+
+.btn-primary {
+
+    color: #fff;
+    background-color: $app-primary;
+    border-color: $app-primary;
+    &:hover {
+        background-color: $app-secondary;
+        border-color: $app-secondary;
+    }
+
+}

@@ -15801,8 +15801,11 @@ article.vevent {
 
 .app-content {
   background: #edeaea;
-  height: 100%;
   padding: 1rem;
+}
+
+.app-content:only-child {
+  height: 100%;
 }
 
 .app-content a {
@@ -16115,6 +16118,17 @@ article.vevent {
 
 .app-contact-actions {
   padding-top: 1rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #274d38;
+  border-color: #274d38;
+}
+
+.btn-primary:hover {
+  background-color: #588c73;
+  border-color: #588c73;
 }
 
 .app-intro-wrapper {

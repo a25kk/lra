@@ -7,8 +7,10 @@
 
 .app-content {
   background: $app-gray;
-  height: 100%;
   padding: 1rem;
+  &:only-child {
+    height: 100%;
+  }
     a {
         font-weight: 500;
     }
