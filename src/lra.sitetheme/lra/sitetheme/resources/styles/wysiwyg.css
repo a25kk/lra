@@ -10430,6 +10430,17 @@ article.vevent {
   padding-top: 1rem;
 }
 
+.btn-primary {
+  color: #fff;
+  background-color: #274d38;
+  border-color: #274d38;
+}
+
+.btn-primary:hover {
+  background-color: #588c73;
+  border-color: #588c73;
+}
+
 .app-intro-wrapper {
   padding-top: 3rem;
   background: url(../assets/images/intro.jpg) no-repeat top center;
