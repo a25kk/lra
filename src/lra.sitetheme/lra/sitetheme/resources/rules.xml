@@ -30,6 +30,12 @@
             <xsl:if test="@class[contains(.,'navTreeLevel2')]">
                 <xsl:attribute name="class">app-nav-tree-list app-nav-list app-nav-list--level-2</xsl:attribute>
             </xsl:if>
+            <xsl:if test="@class[contains(.,'navTreeLevel3')]">
+                <xsl:attribute name="class">app-nav-tree-list app-nav-list app-nav-list--level-3</xsl:attribute>
+            </xsl:if>
+            <xsl:if test="@class[contains(.,'navTreeLevel4')]">
+                <xsl:attribute name="class">app-nav-tree-list app-nav-list app-nav-list--level-4</xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates />
         </ul>
     </xsl:template>

@@ -14308,6 +14308,14 @@ app-nav-list .app-card-main {
   padding-left: 2.2rem;
 }
 
+.app-nav-list--level-3 .app-nav-list-link {
+  padding-left: 3.2rem;
+}
+
+.app-nav-list--level-4 .app-nav-list-link {
+  padding-left: 4.2rem;
+}
+
 .app-nav-list-item-active {
   color: #fff;
   background-color: #41805d !important;
