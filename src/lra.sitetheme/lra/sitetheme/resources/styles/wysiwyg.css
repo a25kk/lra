@@ -10667,17 +10667,45 @@ article.vevent {
   padding-right: 0;
 }
 
-.formQuestion span.required:after {
+.form .form__actions {
+  padding-left: 0;
+}
+
+.form .required:before {
   content: "*";
   color: #274d38;
 }
 
-.formControls {
-  margin-bottom: 1rem;
+.form .button--default {
+  background: #274d38;
+  color: #fff;
+  border-color: #274d38;
 }
 
-.fieldErrorBox {
-  color: #ff0000 !important;
+.form .discreet {
+  display: none;
+}
+
+.help-block {
+  display: block;
+  font-weight: 500;
+}
+
+.btn-default {
+  background: #274d38 !important;
+  color: #fff;
+}
+
+label {
+  display: block;
+}
+
+.app-form-help {
+  display: block;
+}
+
+.portaltype-easyform .text-warning {
+  color: #274d38 !important;
 }
 
 .app-toolbar {
