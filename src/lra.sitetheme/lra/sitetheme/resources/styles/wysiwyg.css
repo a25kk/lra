@@ -10688,10 +10688,9 @@ article.vevent {
 
 .help-block {
   display: block;
-  font-weight: 500;
 }
 
-.btn-default {
+.portaltype-easyform .btn-default {
   background: #274d38 !important;
   color: #fff;
 }
@@ -10702,6 +10701,7 @@ label {
 
 .app-form-help {
   display: block;
+  font-weight: 200;
 }
 
 .portaltype-easyform .text-warning {
