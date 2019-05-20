@@ -1,20 +1,48 @@
 //
-// PFG overrides
-//------------------------------------
+// Easy Form Overrides
+// --------------------------------------
 
 
-//## Mark fields as required
-.formQuestion {
-  span.required:after {
-    content: "*";
-    color: $app-primary;
-  }
+.form {
+		.form__actions {
+        	padding-left: 0;
+      	}
+      	.required {
+        	&:before {
+          	content: "*";
+          	color: $app-primary;
+        	}
+      	}
+      	.button--default {
+        	background: $app-primary;
+        	color: #fff;
+        	border-color: $app-primary;
+      	}
+        .discreet {
+          display: none;
+        }
+    }
+
+.help-block {
+  display: block;
+  font-weight: 500;
 }
 
-.formControls {
-	margin-bottom: 1rem;
+.btn-default {
+	background: $app-primary !important;
+	color: #fff;
 }
 
-.fieldErrorBox {
-	color: #ff0000 !important;
+label {
+	display: block;
+}
+
+.app-form-help {
+	display: block;
+}
+
+.text-warning {
+	@include when-inside('.portaltype-easyform') {
+      color: $app-primary !important;
+	}
 }
