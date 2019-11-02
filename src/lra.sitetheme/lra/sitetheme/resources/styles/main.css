@@ -14206,6 +14206,10 @@ app-nav-list .app-card-main {
   }
 }
 
+.app-icon {
+  max-height: 80px;
+}
+
 .configlets {
   list-style: none;
   display: -webkit-box;
