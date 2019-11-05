@@ -76,7 +76,7 @@
   "replacementPatterns": {
     "base": [
       {
-        "match": "/../../resources/theme/bfa.theme/styles/",
+        "match": "/../../resources/theme/lra.theme/styles/",
         "replacement": "/styles/"
       },
       {
