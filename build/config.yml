@@ -8,7 +8,8 @@ paths:
   web: ../
   db: ../_db
   docker_data: ../_docker_data
-  site_theme: ../src/lra.sitetheme/lra/sitetheme/resources
+  site_theme: ../theme
+  gulp_location: ../build/gulp
 modules:
   virtualenv:
     python_bin: python2
