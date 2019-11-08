@@ -2,6 +2,6 @@
 <layers>
     <layer
             name="lra.cos"
-            interface="lra.cos.interfaces.ILRACos"
+            interface="lra.cos.interfaces.ILRAConsultingOnSchedule"
     />
 </layers>
