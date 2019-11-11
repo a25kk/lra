@@ -95,6 +95,14 @@ task:watch() {
     virtualenv:run fab watch
 }
 
+######################################################
+##### Theme build
+######################################################
+
+task:theme:setup() {
+    template:render --overwrite ask-if-older templates/config.json.jinja2 ${GULP_LOCATION}/config.json
+}
+
 task:theme:html() {
     docker:command:jekyll build
 }

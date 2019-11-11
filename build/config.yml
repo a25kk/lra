@@ -4,12 +4,43 @@ project:
   name: Landratsamt Aichach Friedberg
   key: lra
   url: https://lra-aic-fdb.de/
+application:
+  key: lra
+  styles:
+    src:
+      - rfs/scss/_rfs.scss
+      - sass-mq/_mq.scss
+  scripts:
+    src:
+      - flickity/dist/flickity.pkgd.js
+      - fontfaceobserver/fontfaceobserver.js
+      - lazysizes/lazysizes-umd.js
+      - lazysizes/plugins/parent-fit/ls.parent-fit.js
+      - requirejs/require.js
+      - respimage/respimage.js
+      - sortablejs/Sortable.min.js
+      - svg4everybody/dist/svg4everybody.js
+      - vh-check/dist/vh-check.min.js
+      - x-ray/dist/js/x-ray.js
+    app:
+      - scripts/app.js
+      - scripts/paneleditor.js
+      - scripts/polyfills.js
+      - scripts/slider.js
+      - scripts/utils.js
 paths:
   web: ../
   db: ../_db
   docker_data: ../_docker_data
   site_theme: ../theme
   gulp_location: ../build/gulp
+  theme_app: ../../theme/
+  theme_base: ../../resources/theme/lra.theme/
+  theme_dev: ../../theme/_site/
+  theme_dist: ../../resources/theme/lra.theme/
+  theme_diazo: /++theme++lra.theme/
+  theme_src: node_modules/
+  theme_theme: ../../theme/
 modules:
   virtualenv:
     python_bin: python2
