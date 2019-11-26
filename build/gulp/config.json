@@ -1,13 +1,13 @@
 {
   "name": "lra",
   "paths": {
-    "app": ../../theme/,
-    "base": ../../resources/theme/lra.theme/,
-    "dev": ../../theme/_site/,
-    "dist": ../../resources/theme/lra.theme/,
-    "diazoPrefix": /++theme++lra.theme/,
-    "src": node_modules/,
-    "theme": ../../theme/
+    "app": "../../theme/",
+    "base": "../../resources/theme/lra.theme/",
+    "dev": "../../theme/_site/",
+    "dist": "../../resources/theme/lra.theme/",
+    "diazoPrefix": "/++theme++lra.theme/",
+    "src": "node_modules/",
+    "theme": "../../theme/"
   },
   "favicon": {
     "dataFile": "faviconData.json",

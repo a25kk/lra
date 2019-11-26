@@ -3,6 +3,9 @@ import pump from 'pump';
 import {create as bsCreate} from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 
+var sass = require('gulp-sass');
+sass.compiler = require('dart-sass');
+
 const $ = gulpLoadPlugins();
 const browserSync = bsCreate();
 

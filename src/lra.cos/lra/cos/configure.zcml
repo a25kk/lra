@@ -32,4 +32,11 @@
             provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+
+    <!-- Tools -->
+    <utility
+            factory="lra.cos.consultationslots.ConsultationSlotLocator"
+            provides="lra.cos.interfaces.IConsultationSlotLocator"/>
+
+
 </configure>

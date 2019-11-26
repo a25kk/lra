@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  phpmyadmin:
+    networks:
+      - default
+      - traefik_gateway
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik_gateway
   web:
     networks:
       - default

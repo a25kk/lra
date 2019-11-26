@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """Module providing consultation slots"""
-from sqlalchemy import types as sqlalchemy_types
+from lra.cos.interfaces import IConsultationSlotLocator
+from sqlalchemy import types as sqlalchemy_types, Table
 from sqlalchemy import schema as sqlalchemy_schema
 from zope import schema
 from zope.interface import Interface, implements, implementer
 
-from lra.cos import _, ORMBase
+from lra.cos import _, ORMBase, Session
+
+metadata = ORMBase.metadata
 
 
 class IConsultationSlot(Interface):
@@ -37,7 +40,7 @@ class ConsultationSlot(ORMBase):
     def __init__(self):
         pass
 
-    __tablename__ = 'screening'
+    __tablename__ = 'consultation_slots'
 
     consultationSlotId = sqlalchemy_schema.Column(
         sqlalchemy_types.Integer(),
@@ -55,8 +58,37 @@ class ConsultationSlot(ORMBase):
         sqlalchemy_types.DateTime(),
         nullable=False,
     )
+
     bookable = sqlalchemy_schema.Column(
         sqlalchemy_types.Boolean(),
         nullable=False,
     )
 
+
+consultation_slot = Table('consultation_slots', metadata)
+
+
+@implementer(IConsultationSlotLocator)
+class ConsultationSlotLocator(object):
+    """ Utility to locate available consultation slots """
+
+    @staticmethod
+    def available_slots(from_date):
+        """Return a list of all films showing at the particular cinema
+        between the specified dates.
+
+        Returns a list of dictionaries with keys 'filmCode', 'url', 'title'
+        and 'summary'.
+        """
+
+        results = Session.query(ConsultationSlot).filter(
+            ConsultationSlot.showTime.after(from_date)
+        )
+
+        slots = [dict(slot_id=row.consutationSlotId,
+                      slot_code=row.consultationSlotCode,
+                      slot_time=row.consultationSlotTime,
+                      bookable=row.bookable
+                      )
+                 for row in results]
+        return slots

@@ -5,7 +5,6 @@ GULP_LOCATION="${CONFIG_paths_gulp_location:-'I have no gulp location'}"
 
 task:setup() {
     cp ${SITE_THEME}/package.json ${GULP_LOCATION}
-    cp ${SITE_THEME}/config.json ${GULP_LOCATION}
 }
 
 task:install() {

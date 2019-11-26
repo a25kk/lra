@@ -44,6 +44,7 @@ setup(
         'plone.app.relationfield',
         'plone.namedfile [blobs]',
         'pytz',
+        'mysqlclient',
     ],
     extras_require={
         'test': [
