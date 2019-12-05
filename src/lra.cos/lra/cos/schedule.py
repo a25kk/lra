@@ -56,7 +56,7 @@ class IConsultingSchedule(model.Schema, IImageScaleTraversable):
     fieldset(
         'settings',
         label=_(u"Settings"),
-        fields=['contact_email', 'time_slots', ]
+        fields=['contact_email', 'time_slots', 'time_slot_days', ]
     )
     contact_email = schema.TextLine(
         title=_(u"Recipient E-Mail"),
@@ -72,6 +72,16 @@ class IConsultingSchedule(model.Schema, IImageScaleTraversable):
         value_type=schema.TextLine(
             title=_(u"Time Slot"),
         )
+    )
+    time_slot_days = schema.List(
+        title=_(u"Repetition Weekdays"),
+        description=_(u"Select one or more weekdays on which the entered "
+                      u"time slots should be generated. Leave empty for daily."),
+        value_type=schema.Choice(
+            title=_(u"Available Weekdays"),
+            vocabulary='plone.app.vocabularies.Weekdays'
+        ),
+        required=False
     )
 
 

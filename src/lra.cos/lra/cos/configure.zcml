@@ -39,5 +39,9 @@
             factory="lra.cos.consultationslots.ConsultationSlotLocator"
             provides="lra.cos.interfaces.IConsultationSlotLocator"/>
 
+    <utility
+            factory="lra.cos.consultationslots.ConsultationSlotGenerator"
+            provides="lra.cos.interfaces.IConsultationSlotGenerator"/>
+
 
 </configure>

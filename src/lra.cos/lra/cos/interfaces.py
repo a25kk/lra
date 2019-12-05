@@ -11,3 +11,14 @@ class ILRAConsultingOnSchedule(IDefaultPloneLayer):
 
 class IConsultationSlotLocator(Interface):
     """ Interface that defines a consultation slot lookup utility """
+
+
+class IConsultationSlotGenerator(Interface):
+    """ Interface that defines a consultation slot generator utility """
+
+
+# Exceptions
+
+class TimeSlotGenerationError(Exception):
+    """Exception raised if there is an error generating bookable time slots
+    """

@@ -19613,9 +19613,6 @@ c-list--bordered .c-list__item:last-of-type {
   font-weight: 600;
 }
 
-.c-time-slot__marker {
-  font-size: 1rem;
-}
 .c-time-slot__marker--danger {
   color: #d96459;
 }

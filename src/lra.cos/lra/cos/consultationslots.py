@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing consultation slots"""
-from lra.cos.interfaces import IConsultationSlotLocator
+from lra.cos.interfaces import IConsultationSlotLocator, IConsultationSlotGenerator
 from sqlalchemy import types as sqlalchemy_types, Table
 from sqlalchemy import schema as sqlalchemy_schema
 from zope import schema
@@ -36,9 +36,6 @@ class IConsultationSlot(Interface):
 class ConsultationSlot(ORMBase):
     """Database-backed implementation of IScreening
     """
-
-    def __init__(self):
-        pass
 
     __tablename__ = 'consultation_slots'
 
@@ -92,3 +89,16 @@ class ConsultationSlotLocator(object):
                       )
                  for row in results]
         return slots
+
+
+@implementer(IConsultationSlotGenerator)
+class ConsultationSlotGenerator(object):
+    """ Utility to generate new consultation slots """
+
+    def __call__(self, time_slot):
+        """Make a time slot entry
+        """
+
+        # Make sure there are still seats available
+        # TODO: check for data validity
+        Session.add(time_slot)
