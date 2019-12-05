@@ -2,6 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
       lang="en"
          metal:use-macro="context/main_template/macros/master"
          i18n:domain="lra.cos">
@@ -39,6 +40,36 @@
                          tal:condition="context/text"
                          tal:content="structure context/text/output" />
             </section>
+
+            <section class="o-page__section o-page__section--listing" id="page-section-list">
+                <div class="c-panel-editor__header" tal:condition="python:view.show_toolbar()">
+                    <div class="c-toolbar c-toolbar--primary">
+                        <div class="c-toolbar__content">
+                            <div class="c-toolbar__item">
+                                <div class="c-toolbar__title">
+                                    <svg class="o-icon o-icon--md o-icon__ui--clock-dims">
+                                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--clock"></use>
+                                    </svg>
+                                    <span i18n:translate="">Consultation on schedule</span>
+                                </div>
+                            </div>
+                            <div class="c-toolbar__item">
+                                <div class="c-toolbar__actions">
+                                    <a class="c-toolbar__action c-button c-button--default" href="/@@manage-time-slots"
+                                             tal:attributes="href python:context.absolute_url() + '/@@manage-time-slots'" i18n:translate="">
+                                        Manage time slots
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="o-page__section">
+                <div tal:replace="structure view/rendered_widget" />
+            </section>
+
         </div>
 
         <div class="o-page__footer">

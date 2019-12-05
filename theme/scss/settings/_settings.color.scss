@@ -1,11 +1,22 @@
 //== Colors
 //
 //## Brand colors used across the project
-$color-cadetblue:               rgba(95,158,160,1) !default; // #5F9EA0
+// Color name hue: http://www.color-blindness.com/color-name-hue/
+// Name that color: http://chir.ag/projects/name-that-color/#6195ED
+$color-bottle-green:                  rgba(39, 77, 56, 1);
+$color-spring-leaves:                 rgba(88, 140, 115, 1);
+$color-sundance:                      rgba(199, 180, 80, 1);
+$color-sandy-brown:                   rgba(242, 174, 115, 1);
+$color-roman:                         rgba(217, 100, 89, 1);
+$color-copper-rust:                   rgba(140, 71, 71, 1);
 
-$color-powderblue:              rgba(176,224,230,1) !default; // #B0E0E6
+$app-color-green-primary:				$color-bottle-green;
+$app-color-green-secondary:			$color-spring-leaves;
+$app-color-mustard:					$color-sundance;
+$app-color-skin:						$color-sandy-brown;
+$app-color-red:						$color-roman;
+$app-color-brown:						$color-copper-rust;
 
-$color-firebrick:               rgba(139, 0, 0, 1) !default; // #8b0000
 
 //== Colors
 //
@@ -20,14 +31,6 @@ $color-dusty-gray:                  rgba(153, 153, 153, 1); // #999999
 $color-gallery:                     rgba(239, 239, 239, 1); // #efefef
 $color-wild-sand:                   rgba(245, 245, 245, 1); // #f5f5f5
 $color-alto:						rgba(224, 224, 224, 1); // #e0e0e0
-
-$app-color-blue-primary:            rgba(5, 81, 125, 1);
-$app-color-blue-secondary:          rgba(55, 116, 151, 1);
-$app-color-brown:                   rgba(159, 123, 15, 1);
-$app-color-green:                   rgba(9, 130, 39, 1);
-$app-color-red:                     rgba(144, 7, 7, 1);
-$app-color-violet:                  rgba(71, 19, 123, 1);
-$app-color-purple:                  rgba(126, 4, 167, 1);
 
 // Gray baseline
 $app-color-gray-base:                       $color-gallery;
@@ -48,7 +51,7 @@ $app-color-text:                       $color-shark;
 //## Used in mixin and modifier classes
 
 //** Primary brand color
-$app-color-primary-base:              $color-shark !default;
+$app-color-primary-base:              $app-green-primary !default;
 $app-color-primary-darker:            darken($app-color-primary-base, 15%)  !default;
 $app-color-primary-dark:              darken($app-color-primary-base, 7.5%) !default;
 $app-color-primary:                   $app-color-primary-base               !default; // #274d38
@@ -56,7 +59,7 @@ $app-color-primary-light:             lighten($app-color-primary-base, 7.5%) !de
 $app-color-primary-lighter:           lighten($app-color-primary-base, 15%) !default;
 
 //** Secondary brand color
-$app-color-secondary-base:              $color-powderblue !default;
+$app-color-secondary-base:              $app-green-secondary !default;
 $app-color-secondary-darker:            darken($app-color-secondary-base, 15%)  !default;
 $app-color-secondary-dark:              darken($app-color-secondary-base, 7.5%) !default;
 $app-color-secondary:                   $app-color-secondary-base               !default; // #588c73

@@ -118,6 +118,10 @@ task:theme:assets() {
     docker:command:gulp collect
 }
 
+task:theme:sprite() {
+    docker:command:gulp sprite:collect
+}
+
 task:theme:dist() {
     docker:command:jekyll build
     docker:command:gulp dist
@@ -146,6 +150,10 @@ task:halt() {
 
 task:shell() {
     docker:container_run web /bin/bash --login
+}
+
+task:shell:db() {
+    docker:container_run db /bin/bash --login
 }
 
 task:db:download() {

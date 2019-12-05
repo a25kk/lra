@@ -1,0 +1,45 @@
+<div class="c-schedule c-schedule--listing"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+         i18n:domain="lra.cos">
+    <div class="c-schedule__header">
+        <h2 class="c-schedule__title" i18n:translate="">
+            Available consultation appointment slots
+        </h2>
+    </div>
+    <div class="c-schedule__main">
+
+        <div class="c-list c-list--gutter c-list--${context/UID}" tal:define="items python:view.widget_content_items()"
+                 tal:attributes="class python:view.widget_content_list_class()">
+            <tal:items tal:repeat="item items">
+                <div class="c-schedule__item c-schedule__item--width-33" tal:define="item_uuid python:item['uuid'];"
+                         tal:attributes="class python:'c-schedule__item c-schedule__item--card ' + item['css_classes']">
+                    <div class="c-time-slot c-time-slot--available"
+                             tal:attributes="class python:item['bookable'] and 'c-time-slot c-time-slot--available' or 'c-time-slot c-time-slot--booked'">
+                        <div class="c-time-slot__main">
+                            <div class="c-time-slot__header">
+                                <div class="c-time-slot__title" tal:content="python:item['date']">
+                                    17. Januar 2020
+                                </div>
+                                <small tal:content="python:item['day']">Donnerstag</small>
+                            </div>
+                            <div class="c-time-slot__section c-time-slot__section--centered">
+                                <span tal:replace="python:item['start']" /> - <span tal:replace="python:item['end']" /> Uhr
+                            </div>
+                            <div class="c-time-slot__section c-time-slot__section--actions"
+                                     tal:condition="python:item['bookable']">
+                                <a class="c-button c-button--primary c-button--sm" href=""
+                                         tal:attributes="href python:item['action_url']" i18n:translate="">
+                                    Book
+                                </a>
+                            </div>
+                            <div class="c-time-slot__section c-time-slot__section--actions c-time-slot__section--status"
+                                tal:condition="python:not item['bookable']">
+                                <small class="c-time-slot__marker c-time-slot__marker--danger">booked</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tal:items>
+        </div>
+    </div>
+</div>

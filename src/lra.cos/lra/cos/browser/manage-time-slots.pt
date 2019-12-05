@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="lra.cos">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="c-panel-editor c-panel-editor--centered">
+            <div class="c-panel-editor__header">
+                <div class="c-toolbar">
+                    <div class="c-toolbar__content">
+                        <div class="c-toolbar__item">
+                            <div class="c-toolbar__title">
+                                <svg class="o-icon o-icon--md o-icon__ui--clock-dims">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--clock"></use>
+                                </svg>
+                                <span i18n:translate="">Consultation on schedule</span>
+                            </div>
+                        </div>
+                        <div class="c-toolbar__item">
+                            <div class="c-toolbar__actions">
+                                <a class="c-toolbar__action c-button c-button--default" href="/"
+                                         tal:attributes="href python:context.absolute_url()" i18n:translate="">
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="o-page__main">
+
+                <div class="o-page__section o-page__section--spacer">
+                    <div class="c-widget-selector__header">
+                        <div class="c-widget-selector__headline" i18n:translate="">Manage time slots</div>
+                    </div>
+                    <p i18n:translate="">This view allows you to review the already configured time slots for
+                        consulting on schedule tool. The listed time slots are available for making appointments
+                        to site visitors.</p>
+
+                    <div class="c-alert c-alert--default">
+                        <div class="c-alert__button">
+                            <a class="c-button c-button--default c-button--sm" href=""
+                                tal:attributes="href python:context.absolute_url() + '/@@create-time-slot'"
+                                i18n:translate="">
+                               Create</a>
+                        </div>
+                        <h4 class="c-alert__title">Add new consultation time slots</h4>
+                    </div>
+
+                </div>
+
+                <div class="o-page__section">
+                    <div tal:replace="structure view/rendered_widget" />
+                </div>
+
+            </div>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

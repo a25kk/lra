@@ -1,0 +1,54 @@
+$c-time-slot-spacer:                    $app-spacer-base;
+$c-time-slot-spacer-sm:                 $app-spacer-sm;
+$c-time-slot-bg:                        $app-color-white;
+$c-time-slot-border-color:              $app-color-gray-lighter;
+$c-time-slot-border-color-available:    $app-color-green-secondary;
+$c-time-slot-border-color-booked:       $app-color-red;
+$c-time-slot-border-width:              .35rem;
+
+.c-time-slot {
+  padding: $c-time-slot-spacer-sm $c-time-slot-spacer;
+  margin: $c-time-slot-spacer-sm auto;
+  border: 0 solid $c-time-slot-border-color;
+  border-left-width: $c-time-slot-border-width;
+  background-color: $c-time-slot-bg;
+}
+
+.c-time-slot--available {
+  border-color: $c-time-slot-border-color-available;
+}
+
+.c-time-slot--booked {
+  border-color: $c-time-slot-border-color-booked;
+}
+
+.c-time-slot__main {
+  @include mq($from: lg) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.c-time-slot__section {
+  @include mq($from: lg) {
+    flex: 1 0 auto;
+  }
+  &--centered {
+    text-align: center;
+  }
+  &--actions {
+    flex: 1 0 4rem;
+    max-width: 4rem;
+  }
+}
+
+.c-time-slot__title {
+  font-weight: $app-font-weight-bold;
+}
+
+.c-time-slot__marker {
+  &--danger {
+    color: $c-time-slot-border-color-booked;
+  }
+}
