@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 """Module providing consultation slots"""
-from lra.cos.interfaces import IConsultationSlotLocator, IConsultationSlotGenerator
-from sqlalchemy import types as sqlalchemy_types, Table
+from sqlalchemy import Table
 from sqlalchemy import schema as sqlalchemy_schema
+from sqlalchemy import types as sqlalchemy_types
+from z3c.saconfig import Session
 from zope import schema
-from zope.interface import Interface, implements, implementer
+from zope.interface import Interface, implementer, implements
 
-from lra.cos import _, ORMBase, Session
+from lra.cos import ORMBase
+from lra.cos.interfaces import (IConsultationSlotGenerator,
+                                IConsultationSlotLocator)
+
+from lra.cos import _
 
 metadata = ORMBase.metadata
 
@@ -56,6 +61,11 @@ class ConsultationSlot(ORMBase):
         nullable=False,
     )
 
+    consultationSlotTimeEnd = sqlalchemy_schema.Column(
+        sqlalchemy_types.DateTime(),
+        nullable=False,
+    )
+
     bookable = sqlalchemy_schema.Column(
         sqlalchemy_types.Boolean(),
         nullable=False,
@@ -79,12 +89,13 @@ class ConsultationSlotLocator(object):
         """
 
         results = Session.query(ConsultationSlot).filter(
-            ConsultationSlot.showTime.after(from_date)
+            ConsultationSlot.consultationSlotTime.after(from_date)
         )
 
         slots = [dict(slot_id=row.consutationSlotId,
                       slot_code=row.consultationSlotCode,
                       slot_time=row.consultationSlotTime,
+                      slot_time_end=row.consultationSlotTimeEnd,
                       bookable=row.bookable
                       )
                  for row in results]

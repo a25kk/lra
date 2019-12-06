@@ -26,7 +26,7 @@ exclude = '''
 [tool.isort]
 default_section=THIRDPARTY
 indent='    '
-known_first_party=ade25,bfa
+known_first_party=ade25,lra
 known_zope=zope
 known_plone=plone
 multi_line_output=3

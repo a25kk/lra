@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """Module providing views for consulting schedules """
 import datetime
-import uuid as uuid_tool
+import secrets
 
 from Acquisition import aq_inner
-from Products.statusmessages.interfaces import IStatusMessage
 from lra.cos.consultationslots import ConsultationSlot
-from lra.cos.interfaces import IConsultationSlotGenerator, TimeSlotGenerationError
+from lra.cos.interfaces import IConsultationSlotGenerator, TimeSlotGenerationError, \
+    IConsultationSlotLocator
 
 from plone import api
 from plone.autoform import directives
@@ -65,6 +65,22 @@ class ManageTimeSlots(BrowserView):
                 "LRA Consultation Slots: Manage Slots", user=current_user, obj=context
             )
         return display_toolbar
+
+    @staticmethod
+    def stored_time_slots():
+        locator = getUtility(IConsultationSlotLocator)
+        from_date = datetime.datetime.now()
+        return locator.available_slots(from_date)
+
+    def available_time_slots(self):
+        stored_slots = self.stored_time_slots()
+        available_slots = {}
+        for time_slot in stored_slots:
+            dict(
+                slot_id=time_slot.ConsultationSlotId,
+                slot_code=time_slot.ConsultationSlotCode
+            )
+        return available_slots
 
     def rendered_widget(self):
         context = aq_inner(self.context)
@@ -142,7 +158,7 @@ class TimeSlotAddForm(AutoExtensibleForm, form.Form):
         date_base, slot_hour, slot_minutes, slot_hour_end, slot_minutes_end
     ):
         slot = {
-            "slot_code": str(uuid_tool.uuid4()),
+            "slot_code": secrets.token_urlsafe(64),
             "slot_time": date_base.replace(
                 hour=int(slot_hour), minute=int(slot_minutes), second=00
             ),
@@ -173,9 +189,6 @@ class TimeSlotAddForm(AutoExtensibleForm, form.Form):
             except IndexError:
                 # Some exception handler should be in place
                 pass
-        import pdb
-
-        pdb.set_trace()
         return generated_time_slots
 
     def prepare_time_slots(self, data):
@@ -190,24 +203,27 @@ class TimeSlotAddForm(AutoExtensibleForm, form.Form):
         if days_in_cycle:
             # Generate time slots for all stored time slots
             for single_date in days_in_cycle:
-                time_slots.append(self.generate_time_slots(single_date))
+                time_slots.extend(self.generate_time_slots(single_date))
         return time_slots
 
     def applyChanges(self, data):
-        context = aq_inner(self.context)
         generator = getUtility(IConsultationSlotGenerator)
         time_slots = self.prepare_time_slots(data)
         for time_slot in time_slots:
             consultation_slot = ConsultationSlot(
-                consultationSlotId=time_slot["slot_id"],
                 consultationSlotCode=time_slot["slot_code"],
                 consultationSlotTime=time_slot["slot_time"],
+                consultationSlotTimeEnd=time_slot["slot_time_end"],
                 bookable=time_slot["bookable"],
             )
             try:
                 generator(consultation_slot)
             except TimeSlotGenerationError as error:
-                IStatusMessage(self.request).add(str(error), type="error")
+                api.portal.show_message(
+                    str(error),
+                    self.request,
+                    type="error"
+                )
         return self.request.response.redirect(self.next_url)
 
     @button.buttonAndHandler(_(u"cancel"), name="cancel")

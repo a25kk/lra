@@ -39,12 +39,13 @@ setup(
     zip_safe=False,
     install_requires=[
         'babel',
-        'setuptools',
+        'mysqlclient',
         'plone.app.dexterity [relations]',
         'plone.app.relationfield',
         'plone.namedfile [blobs]',
+        'python2-secrets',
         'pytz',
-        'mysqlclient',
+        'setuptools',
     ],
     extras_require={
         'test': [

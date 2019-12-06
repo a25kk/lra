@@ -7,6 +7,7 @@ def prepare(engine):
     from sqlalchemy.exc import OperationalError
     # Bind SQLALchemy engine
     try:
+        import lra.cos.appointments
         import lra.cos.consultationslots
         ORMBase.metadata.create_all(engine)
     except OperationalError:
