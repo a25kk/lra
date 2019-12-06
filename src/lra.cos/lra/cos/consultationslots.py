@@ -3,14 +3,16 @@
 from sqlalchemy import Table
 from sqlalchemy import schema as sqlalchemy_schema
 from sqlalchemy import types as sqlalchemy_types
-from z3c.saconfig import Session
+#from z3c.saconfig import Session
 from zope import schema
 from zope.interface import Interface, implementer, implements
+from zope.sqlalchemy import register
 
 from lra.cos import ORMBase
 from lra.cos.interfaces import (IConsultationSlotGenerator,
                                 IConsultationSlotLocator)
 
+from lra.cos import Session
 from lra.cos import _
 
 metadata = ORMBase.metadata
@@ -72,7 +74,7 @@ class ConsultationSlot(ORMBase):
     )
 
 
-consultation_slot = Table('consultation_slots', metadata)
+#consultation_slot = Table('consultation_slots', metadata)
 
 
 @implementer(IConsultationSlotLocator)
@@ -87,11 +89,10 @@ class ConsultationSlotLocator(object):
         Returns a list of dictionaries with keys 'filmCode', 'url', 'title'
         and 'summary'.
         """
-
-        results = Session.query(ConsultationSlot).filter(
+        session = Session()
+        results = session().query(ConsultationSlot).filter(
             ConsultationSlot.consultationSlotTime.after(from_date)
         )
-
         slots = [dict(slot_id=row.consutationSlotId,
                       slot_code=row.consultationSlotCode,
                       slot_time=row.consultationSlotTime,
@@ -112,4 +113,6 @@ class ConsultationSlotGenerator(object):
 
         # Make sure there are still seats available
         # TODO: check for data validity
-        Session.add(time_slot)
+        session = Session()
+        register(session)
+        session().add(time_slot)

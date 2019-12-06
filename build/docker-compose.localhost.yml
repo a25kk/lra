@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     ports:
-      - "13306:3306"
+      - "32768:3306"
   # Allow access on http://localhost:8001/
   phpmyadmin:
     ports:

@@ -70,15 +70,26 @@ class ManageTimeSlots(BrowserView):
     def stored_time_slots():
         locator = getUtility(IConsultationSlotLocator)
         from_date = datetime.datetime.now()
-        return locator.available_slots(from_date)
+        try:
+            stored_slots = locator.available_slots(from_date)
+            return stored_slots
+        except:
+            return list()
+
+    def has_available_time_slots(self):
+        return len(self.stored_time_slots()) > 0
 
     def available_time_slots(self):
+        context = aq_inner(self.context)
         stored_slots = self.stored_time_slots()
         available_slots = {}
         for time_slot in stored_slots:
+            booking_url = "{0}/@@book-appointment".format(context.absolute_url())
             dict(
                 slot_id=time_slot.ConsultationSlotId,
-                slot_code=time_slot.ConsultationSlotCode
+                slot_code=time_slot.ConsultationSlotCode,
+                bookable=time_slot.bookable,
+                action_url=addTokenToUrl(booking_url)
             )
         return available_slots
 

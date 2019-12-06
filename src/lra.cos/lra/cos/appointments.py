@@ -137,7 +137,7 @@ class ConsultationAppointment(ORMBase):
     )
 
 
-consultation_appointment = Table('consultation_appointment', metadata)
+#consultation_appointment = Table('consultation_appointment', metadata)
 
 
 @implementer(IConsultationAppointmentLocator)
@@ -145,7 +145,7 @@ class ConsultationAppointmentLocator(object):
     """ Utility to locate available consultation slots """
 
     @staticmethod
-    def available_slots(from_date):
+    def available_appointments(from_date):
         """Return a list of all films showing at the particular cinema
         between the specified dates.
 
@@ -157,13 +157,13 @@ class ConsultationAppointmentLocator(object):
             ConsultationAppointment.showTime.after(from_date)
         )
 
-        slots = [dict(appointment_id=row.consutationAppointmentId,
+        appointments = [dict(appointment_id=row.consutationAppointmentId,
                       consultation_slot_code=row.consultationSlotCode,
                       appointment_code=row.consultationAppointmentCode,
                       appointment_email=row.consultationAppointmentContactEmail
                       )
                  for row in results]
-        return slots
+        return appointments
 
 
 @implementer(IConsultationAppointmentGenerator)

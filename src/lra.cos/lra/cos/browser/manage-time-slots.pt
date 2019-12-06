@@ -57,6 +57,40 @@
 
                 </div>
 
+                <div tal:content="python:view.available_time_slots()" />
+
+                <div class="o-page__section" tal:condition="python:view.has_available_time_slots()">
+                    <tal:block tal:repeat="slot python:view.available_time_slots()">
+                        <div class="c-schedule__item c-schedule__item--card" tal:define="item_uuid python:item['slot_id'];">
+                            <div class="c-time-slot c-time-slot--available"
+                                     tal:attributes="class python:item['bookable'] and 'c-time-slot c-time-slot--available' or 'c-time-slot c-time-slot--booked'">
+                                <div class="c-time-slot__main">
+                                    <div class="c-time-slot__header">
+                                        <div class="c-time-slot__title" tal:content="python:item['slot_id']">
+                                            17. Januar 2020
+                                        </div>
+                                        <small tal:content="python:item['slot_code']">Donnerstag</small>
+                                    </div>
+                                    <div class="c-time-slot__section c-time-slot__section--centered">
+                                        <span tal:replace="python:item['slot_id']" /> - <span tal:replace="python:item['slot_id']" /> Uhr
+                                    </div>
+                                    <div class="c-time-slot__section c-time-slot__section--actions"
+                                             tal:condition="python:item['bookable']">
+                                        <a class="c-button c-button--primary c-button--sm" href=""
+                                                 tal:attributes="href python:item['action_url']" i18n:translate="">
+                                            Book
+                                        </a>
+                                    </div>
+                                    <div class="c-time-slot__section c-time-slot__section--actions c-time-slot__section--status"
+                                             tal:condition="python:not item['bookable']">
+                                        <small class="c-time-slot__marker c-time-slot__marker--danger">booked</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tal:block>
+                </div>
+
                 <div class="o-page__section">
                     <div tal:replace="structure view/rendered_widget" />
                 </div>
