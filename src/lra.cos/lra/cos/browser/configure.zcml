@@ -14,6 +14,15 @@
 
     <browser:page
             for="lra.cos.schedule.IConsultingSchedule"
+            name="book-appointment"
+            class="lra.cos.browser.schedule.BookAppointment"
+            template="book-appointment.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
             name="manage-time-slots"
             class="lra.cos.browser.manager.ManageTimeSlots"
             template="manage-time-slots.pt"

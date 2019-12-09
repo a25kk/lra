@@ -102,6 +102,22 @@ class ConsultationSlotLocator(object):
                  for row in results]
         return slots
 
+    @staticmethod
+    def time_slot(slot_code):
+
+        session = Session()
+        results = session().query(ConsultationSlot).filter(
+            ConsultationSlot.consultationSlotCode == slot_code
+        )
+        slots = [dict(slot_id=row.consultationSlotId,
+                      slot_code=row.consultationSlotCode,
+                      slot_time=row.consultationSlotTime,
+                      slot_time_end=row.consultationSlotTimeEnd,
+                      slot_bookable=row.bookable
+                      )
+                 for row in results]
+        return slots
+
 
 @implementer(IConsultationSlotGenerator)
 class ConsultationSlotGenerator(object):

@@ -5,7 +5,10 @@ from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from plone import api
+from zExceptions import NotFound
 from zope.component import getMultiAdapter
+from zope.interface import implementer
+from zope.publisher.interfaces import IPublishTraverse
 
 
 class ConsultingScheduleView(BrowserView):
@@ -48,15 +51,20 @@ class ConsultingScheduleView(BrowserView):
         return rendered_widget
 
 
+@implementer(IPublishTraverse)
 class BookAppointment(BrowserView):
 
     errors = dict()
+    slot_identifier = None
 
     def __call__(self, debug="off", **kw):
         self.params = {"debug_mode": debug}
         # self._update_panel_editor(self.params)
         self.update()
         return self.render()
+
+    def render(self):
+        return self.index()
 
     def update(self):
         self.errors = dict()
@@ -93,6 +101,17 @@ class BookAppointment(BrowserView):
                 self.errors = form_errors
             else:
                 self.book_consultation_slot(form)
+
+    def publishTraverse(self, request, name):
+        """When traversing to .../cinema/@@screenings/filmcode, store the
+        film code and return self; the next step will be to render the view,
+        which can then use the code.
+        """
+        if self.slot_identifier is None:
+            self.slot_identifier = name
+            return self
+        else:
+            raise NotFound()
 
     def book_consultation_slot(self, data):
         pass
