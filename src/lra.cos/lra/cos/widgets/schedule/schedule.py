@@ -8,7 +8,10 @@ from Products.Five import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
 from ade25.widgets.interfaces import IContentWidgets
 
+from future.backports import datetime
+from lra.cos.interfaces import IConsultationSlotLocator
 from plone import api
+from zope.component import getUtility
 
 
 class WidgetConsultationSchedule(BrowserView):
@@ -88,7 +91,7 @@ class WidgetConsultationSchedule(BrowserView):
         return data
 
     def widget_content_items(self):
-        return self.recent_events()
+        return self.available_time_slots()
 
     def widget_custom_styles(self):
         if self.record and 'styles' in self.record:
@@ -122,7 +125,34 @@ class WidgetConsultationSchedule(BrowserView):
         return time_stamp
 
     def widget_has_data(self):
-        return len(self.get_latest_event_items()) > 0
+        return len(self.stored_time_slots()) > 0
+
+    @staticmethod
+    def stored_time_slots():
+        locator = getUtility(IConsultationSlotLocator)
+        from_date = datetime.datetime.now()
+        try:
+            stored_slots = locator.available_slots(from_date)
+            return stored_slots
+        except:
+            return list()
+
+    def available_time_slots(self):
+        context = aq_inner(self.context)
+        stored_slots = self.stored_time_slots()
+        available_slots = list()
+        for time_slot in stored_slots:
+            booking_url = "{0}/@@book-appointment/{1}".format(
+                context.absolute_url(),
+                time_slot["slot_code"]
+            )
+            time_slot.update({
+                "slot_booking_url": booking_url,
+                "slot_start": self.time_stamp(context, time_slot['slot_time']),
+                "slot_end": self.time_stamp(context, time_slot['slot_time_end'])
+            })
+            available_slots.append(time_slot)
+        return available_slots
 
     def recent_events(self):
         context = aq_inner(self.context)

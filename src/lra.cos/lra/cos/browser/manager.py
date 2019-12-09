@@ -4,6 +4,7 @@ import datetime
 import secrets
 
 from Acquisition import aq_inner
+from babel.dates import format_datetime
 from lra.cos.consultationslots import ConsultationSlot
 from lra.cos.interfaces import IConsultationSlotGenerator, TimeSlotGenerationError, \
     IConsultationSlotLocator
@@ -82,15 +83,18 @@ class ManageTimeSlots(BrowserView):
     def available_time_slots(self):
         context = aq_inner(self.context)
         stored_slots = self.stored_time_slots()
-        available_slots = {}
+        available_slots = list()
         for time_slot in stored_slots:
-            booking_url = "{0}/@@book-appointment".format(context.absolute_url())
-            dict(
-                slot_id=time_slot.ConsultationSlotId,
-                slot_code=time_slot.ConsultationSlotCode,
-                bookable=time_slot.bookable,
-                action_url=addTokenToUrl(booking_url)
+            booking_url = "{0}/@@book-appointment/{1}".format(
+                context.absolute_url(),
+                time_slot["slot_code"]
             )
+            time_slot.update({
+                "slot_booking_url": booking_url,
+                "slot_start": self.timestamp(time_slot['slot_time']),
+                "slot_end": self.timestamp(time_slot['slot_time_end'])
+            })
+            available_slots.append(time_slot)
         return available_slots
 
     def rendered_widget(self):
@@ -98,6 +102,22 @@ class ManageTimeSlots(BrowserView):
         view_name = "@@content-widget-lra-consultation-schedule"
         rendered_widget = context.restrictedTraverse(view_name)()
         return rendered_widget
+
+    def timestamp(self, slot_date):
+        context = aq_inner(self.context)
+        date = slot_date
+        timestamp = {
+            'day': date.strftime("%d"),
+            'day_name': format_datetime(date, 'EEEE', locale='de'),
+            'month': date.strftime("%m"),
+            'month_name': format_datetime(date, 'MMMM', locale='de'),
+            'year': date.strftime("%Y"),
+            'hour': date.strftime('%H'),
+            'minute': date.strftime('%M'),
+            'time': date.strftime('%H.%M'),
+            'date': date
+        }
+        return timestamp
 
 
 class ITimeSlotAddForm(model.Schema):

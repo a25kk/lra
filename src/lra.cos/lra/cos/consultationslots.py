@@ -54,7 +54,7 @@ class ConsultationSlot(ORMBase):
 
     # Generated via secrets.token_hex
     consultationSlotCode = sqlalchemy_schema.Column(
-        sqlalchemy_types.String(64),
+        sqlalchemy_types.String(128),
         nullable=False,
     )
 
@@ -83,21 +83,21 @@ class ConsultationSlotLocator(object):
 
     @staticmethod
     def available_slots(from_date):
-        """Return a list of all films showing at the particular cinema
-        between the specified dates.
+        """Return a list of all consultation time slots
+        after the specified date.
 
-        Returns a list of dictionaries with keys 'filmCode', 'url', 'title'
-        and 'summary'.
+        Returns a list of dictionaries with keys 'slot_id', 'slot_code',
+        'slot_time', 'slot_time_end' and 'slot_bookable'.
         """
         session = Session()
         results = session().query(ConsultationSlot).filter(
-            ConsultationSlot.consultationSlotTime.after(from_date)
-        )
-        slots = [dict(slot_id=row.consutationSlotId,
+            ConsultationSlot.consultationSlotTime.__gt__(from_date)
+        ).order_by(ConsultationSlot.consultationSlotTime)
+        slots = [dict(slot_id=row.consultationSlotId,
                       slot_code=row.consultationSlotCode,
                       slot_time=row.consultationSlotTime,
                       slot_time_end=row.consultationSlotTimeEnd,
-                      bookable=row.bookable
+                      slot_bookable=row.bookable
                       )
                  for row in results]
         return slots

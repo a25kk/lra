@@ -11,29 +11,32 @@
         <div class="c-list c-list--gutter c-list--${context/UID}" tal:define="items python:view.widget_content_items()"
                  tal:attributes="class python:view.widget_content_list_class()">
             <tal:items tal:repeat="item items">
-                <div class="c-schedule__item c-schedule__item--width-33" tal:define="item_uuid python:item['uuid'];"
-                         tal:attributes="class python:'c-schedule__item c-schedule__item--card ' + item['css_classes']">
+                <div class="c-schedule__item c-schedule__item--card" tal:define="item_uuid python:item['slot_id'];">
                     <div class="c-time-slot c-time-slot--available"
-                             tal:attributes="class python:item['bookable'] and 'c-time-slot c-time-slot--available' or 'c-time-slot c-time-slot--booked'">
+                             tal:define="timestamp python:item['slot_start'];timestamp_end python:item['slot_end']"
+                             tal:attributes="class python:item['slot_bookable'] and 'c-time-slot c-time-slot--available' or 'c-time-slot c-time-slot--booked'">
                         <div class="c-time-slot__main">
                             <div class="c-time-slot__header">
-                                <div class="c-time-slot__title" tal:content="python:item['date']">
-                                    17. Januar 2020
+                                <div class="c-time-slot__title">
+                                    <span tal:replace="python:timestamp['day']" />.
+                                    <span tal:replace="python:timestamp['month_name']" />
+                                    <span tal:replace="python:timestamp['year']" />
                                 </div>
-                                <small tal:content="python:item['day']">Donnerstag</small>
+                                <small tal:content="python:timestamp['day_name']">Donnerstag</small>
                             </div>
                             <div class="c-time-slot__section c-time-slot__section--centered">
-                                <span tal:replace="python:item['start']" /> - <span tal:replace="python:item['end']" /> Uhr
+                                <span tal:replace="python:timestamp['hour']" />:<span tal:replace="python:timestamp['minute']" /> -
+                                <span tal:replace="python:timestamp_end['hour']" />:<span tal:replace="python:timestamp_end['minute']" /> Uhr
                             </div>
                             <div class="c-time-slot__section c-time-slot__section--actions"
-                                     tal:condition="python:item['bookable']">
+                                     tal:condition="python:item['slot_bookable']">
                                 <a class="c-button c-button--primary c-button--sm" href=""
-                                         tal:attributes="href python:item['action_url']" i18n:translate="">
+                                         tal:attributes="href python:item['slot_booking_url']" i18n:translate="">
                                     Book
                                 </a>
                             </div>
                             <div class="c-time-slot__section c-time-slot__section--actions c-time-slot__section--status"
-                                tal:condition="python:not item['bookable']">
+                                     tal:condition="python:not item['slot_bookable']">
                                 <small class="c-time-slot__marker c-time-slot__marker--danger">booked</small>
                             </div>
                         </div>

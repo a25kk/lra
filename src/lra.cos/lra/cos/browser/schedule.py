@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """Module providing views for consulting schedules """
+from AccessControl import Unauthorized
 from Acquisition import aq_inner
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from plone import api
+from zope.component import getMultiAdapter
 
 
 class ConsultingScheduleView(BrowserView):
@@ -43,3 +46,53 @@ class ConsultingScheduleView(BrowserView):
         view_name = '@@content-widget-lra-consultation-schedule'
         rendered_widget = context.restrictedTraverse(view_name)()
         return rendered_widget
+
+
+class BookAppointment(BrowserView):
+
+    errors = dict()
+
+    def __call__(self, debug="off", **kw):
+        self.params = {"debug_mode": debug}
+        # self._update_panel_editor(self.params)
+        self.update()
+        return self.render()
+
+    def update(self):
+        self.errors = dict()
+        unwanted = ('_authenticator', 'form.button.Submit')
+        required = ('email', 'subject')
+        required_boolean = ('privacy-policy-agreement', 'privacy-policy')
+        if 'form.button.Submit' in self.request:
+            authenticator = getMultiAdapter((self.context, self.request),
+                                            name=u"authenticator")
+            if not authenticator.verify():
+                raise Unauthorized
+            form = self.request.form
+            form_data = {}
+            form_errors = {}
+            error_idx = 0
+            if self.privacy_policy_enabled():
+                for field_name in required_boolean:
+                    if not field_name in form:
+                        form_errors[field_name] = self.required_field_error()
+                        error_idx += 1
+            for value in form:
+                if value not in unwanted:
+                    form_data[value] = safe_unicode(form[value])
+                    if not form[value] and value in required:
+                        form_errors[value] = self.required_field_error()
+                        error_idx += 1
+                    else:
+                        error = {
+                            'active': False,
+                            'msg': form[value]
+                        }
+                        form_errors[value] = error
+            if error_idx > 0:
+                self.errors = form_errors
+            else:
+                self.book_consultation_slot(form)
+
+    def book_consultation_slot(self, data):
+        pass
