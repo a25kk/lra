@@ -14,25 +14,221 @@
         <header class="o-page__header">
             <div class="o-page__section c-page-header">
                 <div class="c-page-header__title">
-                    <h1 class="c-page-header__headline">
-                        <span tal:replace="python:context.Title()">Page Title</span>
+                    <h1 class="c-page-header__headline" i18n:translate="">
+                        Consultation appointment
                     </h1>
                 </div>
-                <p class="c-page-header__abstract" tal:condition="context/Description"
-                         tal:content="python:context.Description()">
-                        ${context/Description}
+                <p class="c-page-header__abstract" i18n:translate="">
+                    You have selected the following consultation time slot:
                 </p>
             </div>
         </header>
 
         <div class="o-page__main" id="page-main-content" tal:define="context_uid context/UID">
+            <div class="o-page__section o-page__section--spacer">
+                <div class="c-time-slot c-time-slot--available"
+                         tal:define="item python:view.requested_time_slot();timestamp python:item['slot_start'];timestamp_end python:item['slot_end']"
+                         tal:attributes="class python:item['slot_bookable'] and 'c-time-slot c-time-slot--available' or 'c-time-slot c-time-slot--booked'">
+                    <div class="c-time-slot__main">
+                        <div class="c-time-slot__header">
+                            <div class="c-time-slot__title">
+                                <span tal:replace="python:timestamp['day']" />.
+                                <span tal:replace="python:timestamp['month_name']" />
+                                <span tal:replace="python:timestamp['year']" />
+                            </div>
+                            <small tal:content="python:timestamp['day_name']">Donnerstag</small>
+                        </div>
+                        <div class="c-time-slot__section c-time-slot__section--centered">
+                            <span tal:replace="python:timestamp['hour']" />:<span tal:replace="python:timestamp['minute']" /> -
+                            <span tal:replace="python:timestamp_end['hour']" />:<span tal:replace="python:timestamp_end['minute']" /> Uhr
+                        </div>
+                        <div class="c-time-slot__section c-time-slot__section--actions c-time-slot__section--status">
+                            <small class="c-time-slot__marker c-time-slot__marker--danger"
+                            i18n:translate="" hidden>reserved</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="o-page__section">
             <h2>Book appointment form</h2>
+
+            <div class="c-alert c-alert--danger" tal:condition="python:view.errors">
+                <div class="app-alert__title" i18n:translate="">Form submission failed</div>
+                <p i18n:translate="">There have been errors submitting your form</p>
+            </div>
+
+            <form class="o-form o-form--widget"
+                  id="form-book-consultation-appointment"
+                  method="post"
+                  tal:attributes="action request/URL">
+
+                <span tal:replace="structure context/@@authenticator/authenticator"/>
+
+                <input type="text" name="slot-identifier" id="slot-identifier" tal:attributes="value python:view.slot_identifier">
+
+                <fieldset class="o-form__group o-form__group--personnel">
+                    <legend class="o-form__legend" i18n:translate="">
+                        Personnel information
+                    </legend>
+
+                    <div class="o-form__field o-form__field--firstname"
+                             tal:define="error errors/firstname | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/subject | nothing"
+                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--spacer o-form__field--required o-form__field--has-error' or 'o-form__field o-form__field--spacer o-form__field--required'">
+
+                        <label for="subject"
+                                 i18n:translate="">Firstname</label>
+
+                        <input class="app-form-control"
+                               id="firstname"
+                               name="firstname"
+                               type="text"
+                                 tal:attributes="value python:error and view.default_value(error) or value">
+
+                        <div class="o-form__required-marker">
+                            <div class="o-form__required-marker-text">*</div>
+                        </div>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /lastname field -->
+
+                    <div class="o-form__field o-form__field--name"
+                             tal:define="error errors/lastname | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/lastname | nothing"
+                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--spacer o-form__field--required o-form__field--has-error' or 'o-form__field o-form__field--spacer o-form__field--required'">
+
+                        <label for="lastname"
+                                 i18n:translate="">Lastname</label>
+
+                        <input class="app-form-control"
+                               id="lastname"
+                               name="lastname"
+                               type="text"
+                                 tal:attributes="value python:error and view.default_value(error) or value">
+
+                        <div class="o-form__required-marker">
+                            <div class="o-form__required-marker-text">*</div>
+                        </div>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /lastname field -->
+
+                </fieldset>
+
+                <fieldset class="o-form__group o-form__group--request">
+                    <legend class="o-form__legend" i18n:translate="">
+                        Please specify your booking request
+                    </legend>
+
+                    <div class="form__group app-form-group app-field-comment"
+                             tal:define="error errors/comment | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/comment | nothing"
+                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--comment o-form__field--has-error' or 'o-form__field o-form__field--comment'">
+
+                        <label class="o-form__label" for="comment"
+                                 i18n:translate="">Your specific request</label>
+
+                        <p class="o-form__help" i18n:translate="">
+                            Please specify your main request or theme for the consultation
+                        </p>
+
+                        <textarea class="o-form__control o-form__control--textarea"
+                                  id="comment"
+                                  name="comment"
+                                  rows="3"></textarea>
+
+                        <div class="o-form__help o-form__help--danger"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /message field -->
+
+                </fieldset>
+
+                <fieldset class="o-form__group o-form__group--legal">
+                    <div class="form__group app-form-group app-field-privacy-policy"
+                             tal:define="error errors/privacy-policy | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/privacy-policy | nothing"
+                             tal:attributes="class python:err_msg and 'form__group form__group--checkboxes app-form-group app-field-privacy-policy app-field-required has-error' or 'form__group  form__group--checkboxes app-form-group app-field-privacy-policy app-field-required'">
+
+                        <input type="checkbox" class="form__control form__control--checkbox" id="privacy-policy" name="privacy-policy">
+                        <label class="form__label" for="privacy-policy" i18n:translate="">
+                            By sending this message, I confirm that my details are correct and I agree to the collection and further processing of the provided data. The data will only be used for the purpose stated in your inquiry.
+                        </label>
+
+                        <div class="required-icon">
+                            <div class="text">*</div>
+                        </div>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /privacy notice field -->
+
+                    <div class="form__group app-form-group app-field-privacy-agreement"
+                             tal:define="error errors/privacy-policy-agreement | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/privacy-policy-agreement | nothing"
+                             tal:attributes="class python:err_msg and 'form__group form__group--checkboxes  app-form-group app-field-privacy-agreement app-field-required has-error' or 'form__group form__group--checkboxes app-form-group app-field-privacy-agreement app-field-required'">
+
+                        <input type="checkbox" class="form__control form__control--checkbox" id="privacy-policy-agreement" name="privacy-policy-agreement">
+                        <label class="form__label" for="privacy-policy-agreement">
+                            <span i18n:translate="" tal:omit-tag="">I have acknowledged the</span>
+                            <a href="" tal:attributes="href python:context.portal_url() + '/rechtliche-hinweise'" i18n:translate="">privacy policy</a>
+                            <span i18n:translate="" tal:omit-tag="">and accept it.</span>
+                        </label>
+                        <div class="required-icon">
+                            <div class="text">*</div>
+                        </div>
+
+                        <div class="help-block error"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /privacy policy agreement field -->
+                </fieldset>
+
+
+                <div class="o-form__actions">
+                    <button class="c-button c-button--primary"
+                            type="submit"
+                            name="form.button.Submit"
+                            id="form.button.Submit"
+                             i18n:translate="">
+                        Book consultation slot
+                    </button>
+                    <button class="c-button c-button--default"
+                            type="cancel"
+                            name="form.button.Cancel"
+                            id="form.button.Cancel"
+                             i18n:translate="">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+
         </div>
 
         <div class="o-page__footer">
-            <div class="o-alert o-alert--default">
-                Slot identifier: <span tal:replace="python:view.slot_identifier" />
-            </div>
+
         </div>
 
 

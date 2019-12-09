@@ -4,9 +4,11 @@ from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
+from ade25.base.interfaces import IContentInfoProvider
+from lra.cos.interfaces import IConsultationSlotLocator
 from plone import api
 from zExceptions import NotFound
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter, getUtility
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
 
@@ -103,7 +105,7 @@ class BookAppointment(BrowserView):
                 self.book_consultation_slot(form)
 
     def publishTraverse(self, request, name):
-        """When traversing to .../cinema/@@screenings/filmcode, store the
+        """When traversing to .../@@book-appointment/time-slot-code, store the
         film code and return self; the next step will be to render the view,
         which can then use the code.
         """
@@ -113,5 +115,41 @@ class BookAppointment(BrowserView):
         else:
             raise NotFound()
 
+    @staticmethod
+    def default_value(error):
+        value = ''
+        if error['active'] is False:
+            value = error['msg']
+        return value
+
+    @staticmethod
+    def required_field_error():
+        translation_service = api.portal.get_tool(name="translation_service")
+        error = {}
+        error_msg = _(u"This field is required")
+        error['active'] = True
+        error['msg'] = translation_service.translate(
+            error_msg,
+            'lra.cos',
+            target_language=api.portal.get_default_language()
+        )
+        return error
+
     def book_consultation_slot(self, data):
         pass
+
+    @staticmethod
+    def time_stamp(item, date_time):
+        content_info_provider = IContentInfoProvider(item)
+        time_stamp = content_info_provider.time_stamp(date_time)
+        return time_stamp
+
+    def requested_time_slot(self):
+        context = aq_inner(self.context)
+        locator = getUtility(IConsultationSlotLocator)
+        time_slot = locator.time_slot(self.slot_identifier)
+        time_slot.update({
+            "slot_start": self.time_stamp(context, time_slot['slot_time']),
+            "slot_end": self.time_stamp(context, time_slot['slot_time_end'])
+        })
+        return time_slot

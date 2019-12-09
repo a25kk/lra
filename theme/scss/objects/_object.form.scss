@@ -25,7 +25,67 @@ input, button, select, textarea {
         display: none;
         height: 0;
     }
+    &--spacer {
+        margin-bottom: $app-spacer-base;
+    }
 }
+
+//== Required field
+//
+//## Mark fields as required
+.o-form__field--required {
+    position: relative;
+}
+
+.o-form__required-marker {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -0.25em 0.25em 0em;
+    background-color: #E8E8E8;
+    border-color: #E8E8E8;
+    padding: 0.5em 0.8em;
+    color: rgba(0, 0, 0, 0.65);
+    text-transform: uppercase;
+    font-weight: normal;
+    border-radius: 0.325em;
+    box-sizing: border-box;
+    transition: background 0.1s linear;
+    font-size: 75%;
+}
+
+.o-form__required-marker {
+    background-color: transparent;
+    position: absolute;
+    top: 2.25em;
+    right: 0em;
+    z-index: 10;
+    margin: 0em;
+    width: 45px;
+    height: 45px;
+    padding: 0em;
+    text-align: center;
+    transition: color 0.2s ease;
+}
+
+.o-form__required-marker:after {
+    position: absolute;
+    content: "";
+    right: 1px;
+    top: 1px;
+    z-index: -1;
+    width: 0em;
+    height: 0em;
+    transition: border-color 0.2s ease;
+}
+
+.o-form__required-marker-text {
+    margin: .7rem 0 0 1rem;
+    color: $app-color-primary;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+
 
 .o-form__label {
     font-family: $o-form-font-family-highlight;
@@ -80,6 +140,9 @@ input, button, select, textarea {
     @include font-size($app-font-size-base);
     font-weight: $app-font-weight-light;
     color: $app-color-gray;
+    &--danger {
+        color: $app-color-danger;
+    }
 }
 
 .o-form__control {
