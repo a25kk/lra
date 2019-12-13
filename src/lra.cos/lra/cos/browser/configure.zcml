@@ -14,15 +14,6 @@
 
     <browser:page
             for="lra.cos.schedule.IConsultingSchedule"
-            name="book-appointment"
-            class="lra.cos.browser.schedule.BookAppointment"
-            template="book-appointment.pt"
-            permission="zope2.View"
-            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
-    />
-
-    <browser:page
-            for="lra.cos.schedule.IConsultingSchedule"
             name="manage-time-slots"
             class="lra.cos.browser.manager.ManageTimeSlots"
             template="manage-time-slots.pt"
@@ -43,6 +34,33 @@
             class="lra.cos.browser.manager.TimeSlotAdd"
             template="create-time-slot.pt"
             permission="cmf.ModifyPortalContent"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <!-- Booking form and form partials -->
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="book-appointment"
+            class="lra.cos.browser.schedule.BookAppointment"
+            template="book-appointment.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="booking-form-field"
+            class="lra.cos.browser.form.FormFieldBase"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="booking-form-field-text-line"
+            class="lra.cos.browser.form.FormFieldTextLine"
+            template="form-field-text-line.pt"
+            permission="zope2.View"
             layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
     />
 

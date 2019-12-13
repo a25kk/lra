@@ -39,7 +39,6 @@ setup(
     zip_safe=False,
     install_requires=[
         'babel',
-        'mysqlclient',
         'plone.app.dexterity [relations]',
         'plone.app.relationfield',
         'plone.namedfile [blobs]',

@@ -12,6 +12,8 @@ from zope.component import getMultiAdapter, getUtility
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
 
+from lra.cos import _
+
 
 class ConsultingScheduleView(BrowserView):
     """ Consulting schedule view """
@@ -57,6 +59,7 @@ class ConsultingScheduleView(BrowserView):
 class BookAppointment(BrowserView):
 
     errors = dict()
+    form_data = dict()
     slot_identifier = None
 
     def __call__(self, debug="off", **kw):
@@ -71,7 +74,7 @@ class BookAppointment(BrowserView):
     def update(self):
         self.errors = dict()
         unwanted = ('_authenticator', 'form.button.Submit')
-        required = ('email', 'subject')
+        required = ('firstname', 'lastname', 'email', 'subject')
         required_boolean = ('privacy-policy-agreement', 'privacy-policy')
         if 'form.button.Submit' in self.request:
             authenticator = getMultiAdapter((self.context, self.request),
@@ -82,11 +85,10 @@ class BookAppointment(BrowserView):
             form_data = {}
             form_errors = {}
             error_idx = 0
-            if self.privacy_policy_enabled():
-                for field_name in required_boolean:
-                    if not field_name in form:
-                        form_errors[field_name] = self.required_field_error()
-                        error_idx += 1
+            for field_name in required_boolean:
+                if not field_name in form:
+                    form_errors[field_name] = self.required_field_error()
+                    error_idx += 1
             for value in form:
                 if value not in unwanted:
                     form_data[value] = safe_unicode(form[value])
@@ -101,6 +103,7 @@ class BookAppointment(BrowserView):
                         form_errors[value] = error
             if error_idx > 0:
                 self.errors = form_errors
+                self.form_data = form_data
             else:
                 self.book_consultation_slot(form)
 
@@ -118,9 +121,13 @@ class BookAppointment(BrowserView):
     @staticmethod
     def default_value(error):
         value = ''
-        if error['active'] is False:
+        if error['active'] is True:
             value = error['msg']
         return value
+
+    def default_error(self, field_name):
+        default_field_error = {'active': False, 'msg': ''}
+        return self.errors.get(field_name, default_field_error)
 
     @staticmethod
     def required_field_error():
@@ -134,6 +141,9 @@ class BookAppointment(BrowserView):
             target_language=api.portal.get_default_language()
         )
         return error
+
+    def default_field_value(self, field_name):
+        return getattr(self.request, field_name, None)
 
     def book_consultation_slot(self, data):
         pass
