@@ -17,6 +17,14 @@ class IConsultationSlotGenerator(Interface):
     """ Interface that defines a consultation slot generator utility """
 
 
+class IConsultationAppointmentLocator(Interface):
+    """ Interface that defines a consultation appointment lookup utility """
+
+
+class IConsultationAppointmentGenerator(Interface):
+    """ Interface that defines a consultation appointment generator utility """
+
+
 # Exceptions
 
 
@@ -24,10 +32,6 @@ class TimeSlotGenerationError(Exception):
     """Exception raised if there is an error generating bookable time slots
     """
 
-
-class IConsultationAppointmentLocator(Interface):
-    """ Interface that defines a consultation appointment lookup utility """
-
-
-class IConsultationAppointmentGenerator(Interface):
-    """ Interface that defines a consultation appointment generator utility """
+class AppointmentGenerationError(Exception):
+    """Exception raised if there is an error generating an appointment
+    """

@@ -5,7 +5,9 @@ from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
-from lra.cos.interfaces import IConsultationSlotLocator
+from lra.cos.appointments import ConsultationAppointment
+from lra.cos.interfaces import IConsultationSlotLocator, \
+    IConsultationAppointmentGenerator, AppointmentGenerationError
 from plone import api
 from zExceptions import NotFound
 from zope.component import getMultiAdapter, getUtility
@@ -145,8 +147,26 @@ class BookAppointment(BrowserView):
     def default_field_value(self, field_name):
         return getattr(self.request, field_name, None)
 
+    def prepare_appointment_data(self, data):
+
+        return data
+
     def book_consultation_slot(self, data):
-        pass
+        context = aq_inner(self.context)
+        generator = getUtility(IConsultationAppointmentGenerator)
+        appointment = self.prepare_appointment_data(data)
+        try:
+            generator(appointment)
+        except AppointmentGenerationError as error:
+            api.portal.show_message(
+                str(error),
+                self.request,
+                type="error"
+            )
+        next_url = '{0}/@@appointment-booking'.format(
+            context.absolute_url()
+        )
+        return self.request.response.redirect(next_url)
 
     @staticmethod
     def time_stamp(item, date_time):
