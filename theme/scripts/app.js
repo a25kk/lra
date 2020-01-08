@@ -13,6 +13,42 @@ requirejs(['require',
             document.documentElement.className += " app-fonts--loaded";
         });
 
+        // Static navigation drawer
+        let navBarIsActive = false;
+
+        function navigationToggleHandler(element, options) {
+            let $navBar = document.querySelector(options.navBar);
+            // Handle navigation states
+            if (navBarIsActive) {
+                element.classList.remove(options.navBarToggleActiveClass);
+                $navBar.classList.remove(options.navBarVisible);
+                $navBar.classList.add(options.navBarHidden);
+            } else {
+                element.classList.add(options.navBarToggleActiveClass);
+                $navBar.classList.add(options.navBarVisible);
+                $navBar.classList.remove(options.navBarHidden);
+            }
+            navBarIsActive = !navBarIsActive;
+        }
+
+        var navBarToggle = Array.prototype.slice.call(document.querySelectorAll('.js-nav-toggle'));
+        // Nav bar toggle
+        navBarToggle.forEach(function(el) {
+            el.addEventListener("click", function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                navigationToggleHandler(el,
+                    {
+                        navBar: ".c-nav-bar",
+                        navBarHidden: "c-nav-bar--hidden",
+                        navBarVisible: "c-nav-bar--visible",
+                        navBarToggleActiveClass: "js-nav-toggle--active",
+                        navBarToggleCloseClass: "js-nav-toggle--close"
+                    }
+                );
+            })
+        });
+
         var $bannerBar = document.querySelector('.app-js-carousel'),
             $galleryContainer = document.querySelector('.js-gallery');
         if ($bannerBar !== null) {

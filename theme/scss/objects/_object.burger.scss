@@ -1,9 +1,12 @@
 .o-burger {
+    position: $o-burger-position;
+    top: $o-burger-position-top;
+    right: $o-burger-position-right;
+    bottom: $o-burger-position-bottom;
+    left: $o-burger-position-left;
+    z-index: 9001;
     display: $o-burger-display;
     margin-top: $o-burger-margin-top;
-    @include mq($from: md) {
-        margin-top: 5.5rem;
-    }
     @include mq($from: xl) {
         margin-top: 0;
     }
@@ -24,6 +27,7 @@
 }
 
 .o-burger__text {
+    display: $o-burger-text-display;
     align-self: flex-end;
     font-family: $o-burger-font;
     font-size: $app-font-size-sm;
@@ -37,11 +41,91 @@
 }
 
 .o-burger__icon {
-    margin-right: .5rem;
+    margin-left: .5rem;
     margin-bottom: -.25rem;
     font-size: $o-burger-icon-font-small;
     color: $o-burger-icon-color;
     @include mq($from: md) {
         font-size: $o-burger-icon-font-size;
     }
+}
+
+.o-burger__icon--default {
+    width: $o-burger-layer-width;
+    height: $o-burger-layer-height * 3 + $o-burger-layer-spacing * 2;
+    display: inline-block;
+    position: relative;
+}
+
+// Actual burger symbol with animation
+.o-burger__symbol {
+    content: "";
+    display: block;
+    top: 50%;
+    margin-top: $o-burger-layer-height / -2;
+
+    &,
+    &::before,
+    &::after {
+        width: $o-burger-layer-width;
+        height: $o-burger-layer-height;
+        background-color: $o-burger-layer-color;
+        border-radius: $o-burger-layer-border-radius;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+    }
+
+    &::before {
+        top: ($o-burger-layer-spacing + $o-burger-layer-height) * -1;
+    }
+
+    &::after {
+        bottom: ($o-burger-layer-spacing + $o-burger-layer-height) * -1;
+    }
+}
+
+.o-burger__symbol--animated {
+    transition-duration: 0.075s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+    @include when-inside('.js-nav-toggle--active') {
+        transform: rotate(45deg);
+        transition-delay: 0.12s;
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    &::before {
+        transition: top 0.075s 0.12s ease,
+        opacity 0.075s ease;
+        @include when-inside('.js-nav-toggle--active') {
+            top: 0;
+            opacity: 0;
+            transition: top 0.075s ease,
+            opacity 0.075s 0.12s ease;
+        }
+    }
+
+    &::after {
+        transition: bottom 0.075s 0.12s ease,
+        transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        @include when-inside('.js-nav-toggle--active') {
+            bottom: 0;
+            transform: rotate(-90deg);
+            transition: bottom 0.075s ease,
+            transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+    }
+}
+
+// Fallback content
+.o-burger__symbol-content {
+    display: none;
 }

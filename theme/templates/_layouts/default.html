@@ -20,9 +20,11 @@
             </div>
         </div>
     </main>
+
     {% include components/contactpanel.html %}
     {% include layout/footer.html %}
-    {% include base/javascript.html %}
+
+    <script type="module" src="/scripts/app.js"></script>
     <div class="app-js-slot">
       {% include base/piwik.html %}
     </div>

@@ -7,6 +7,12 @@ services:
     volumes:
       - ../:/app:cached
 
+  static:
+    build:
+      context: docker/nginx-static
+    volumes:
+      - ../:/app:cached
+
   db:
     build:
       context: docker/mariadb

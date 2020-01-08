@@ -4,14 +4,11 @@
           <button class="app-navbar-brand" href="#" data-toggle="collapse" data-target="#app-navbar-collapse">Rubriken</button>
       </div>
       <div class="app-navbar-header-toggle">
-        <button type="button" class="app-navbar-toggle navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#app-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            &#9776;
-        </button>
-       </div>
+        {% include objects/burger.html %}
+      </div>
   </div>
 
-  <div class="navbar-collapse app-navbar-collapse collapse navbar-toggleable-xs" id="app-navbar-collapse">
+  <div class="navbar-collapse app-navbar-collapse xcollapse navbar-toggleable-xs c-nav-bar c-nav-bar--hidden" id="app-navbar-collapse">
     <ul class="app-navbar-nav" id="app-navbar-nav">
       <li class="app-navitem active">
         <a class="app-navitem-tab app-navitem-tab-home" href="{{ page.base_url }}">
