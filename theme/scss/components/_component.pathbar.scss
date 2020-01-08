@@ -27,6 +27,23 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
         flex: 0 0 100%;
         max-width: 100%;
     }
+    // Set background colors based on section location
+    @include when-inside('.section-aktuelles') {
+        background-color: $app-section-news-bg;
+    }
+    @include when-inside('.section-landratsamt') {
+        background-color: $app-section-department-bg;
+    }
+    @include when-inside('.section-service') {
+        background-color: $app-section-service-bg;
+    }
+    @include when-inside('.section-landkreis') {
+        background-color: $app-section-landkreis-bg;
+    }
+    @include when-inside('.section-hier-leben') {
+        background-color: $app-section-life-bg;
+    }
+    background-color: $app-pathbar-bg;
     @include mq($from: lg) {
         padding-right: 0;
         padding-left: 0;

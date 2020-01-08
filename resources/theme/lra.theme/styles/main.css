@@ -18861,6 +18861,7 @@ a.c-button--active-action {
   margin-left: auto;
   padding-right: calc(1rem * 1.5);
   padding-left: calc(1rem * 1.5);
+  background-color: #274d38;
 }
 @media (min-width: 576px) {
   .app-pathbar {
@@ -18894,6 +18895,21 @@ a.c-button--active-action {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
   max-width: 100%;
+}
+.section-aktuelles .app-pathbar {
+  background-color: #497560;
+}
+.section-landratsamt .app-pathbar {
+  background-color: #b6a33a;
+}
+.section-service .app-pathbar {
+  background-color: #ef9a50;
+}
+.section-landkreis .app-pathbar {
+  background-color: #d2473a;
+}
+.section-hier-leben .app-pathbar {
+  background-color: #733a3a;
 }
 @media (min-width: 62em) {
   .app-pathbar {
