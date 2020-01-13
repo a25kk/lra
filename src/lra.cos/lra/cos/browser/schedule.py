@@ -148,7 +148,7 @@ class BookAppointment(BrowserView):
         return getattr(self.request, field_name, None)
 
     def prepare_appointment_data(self, data):
-
+        import pdb; pdb.set_trace()
         return data
 
     def book_consultation_slot(self, data):

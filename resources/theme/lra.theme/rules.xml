@@ -123,6 +123,8 @@
                 content="/html/head/style | /html/head/script"
                 theme-children="/html/head"
         />
+
+        <drop css:theme="[data-env='development']" />
         <drop theme="/html/body/script" />
 
 

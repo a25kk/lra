@@ -16,6 +16,7 @@ services:
   db:
     build:
       context: docker/mariadb
+    command: --max_allowed_packet=32505856
     environment:
       # Provide a docker database by default
       MYSQL_ROOT_PASSWORD: "Testen23!"

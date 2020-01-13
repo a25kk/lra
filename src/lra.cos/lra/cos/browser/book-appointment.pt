@@ -119,7 +119,7 @@
                                 )" />
                     </tal:field>
 
-                    <tal:field tal:define="field_id string:zopecode;
+                    <tal:field tal:define="field_id string:zipcode;
                             field_name string:Zipcode;
                             field_required python:False;
                             field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
@@ -332,6 +332,21 @@
 
 
                     </div><!-- /message field -->
+
+                    <tal:field tal:define="field_id string:comment;
+                            field_name string:Comment;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-area',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
 
                 </fieldset>
 

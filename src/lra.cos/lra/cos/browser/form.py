@@ -122,3 +122,27 @@ class FormFieldTextLine(BrowserView):
 
     def render(self):
         return self.index()
+
+
+class FormFieldTextArea(BrowserView):
+
+    def __call__(self,
+                 field_identifier=None,
+                 field_name=None,
+                 field_data=None,
+                 field_error=None,
+                 **kw):
+        self.params = {
+            'field_identifier': field_identifier,
+            'field_name': field_name,
+            'field_error': field_error,
+            'field_data': field_data
+        }
+        self.params.update(**kw)
+        return self.render()
+
+    def settings(self):
+        return self.params
+
+    def render(self):
+        return self.index()
