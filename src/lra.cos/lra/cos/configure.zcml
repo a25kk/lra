@@ -10,6 +10,8 @@
     <!-- Include configuration for dependencies listed in setup.py -->
     <includeDependencies package="." />
 
+    <include file="permissions.zcml" />
+
     <include package=".browser" />
     <include package=".widgets" />
 
