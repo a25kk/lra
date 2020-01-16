@@ -3,8 +3,7 @@
 // -----------------------------------
 
 .app-footer {
-    padding-top: $spacer;
-    padding-bottom: $spacer;
+    padding: 0;
 }
 
 .app-footer-content {
@@ -14,4 +13,8 @@
   	a {
     	text-transform: uppercase;
   	}
+}
+
+.app-copyright {
+	padding: 0 1rem;
 }
