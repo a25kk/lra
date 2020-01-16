@@ -14682,11 +14682,6 @@ input, button, select, textarea {
   background-color: #efefef;
 }
 
-.o-figure__content {
-  -webkit-box-shadow: 4px 4px 5px 0 rgba(50, 50, 50, 0.75);
-          box-shadow: 4px 4px 5px 0 rgba(50, 50, 50, 0.75);
-}
-
 .o-figure__embedded {
   position: relative;
   display: block;
@@ -15525,6 +15520,8 @@ div.riform .label {
   padding-left: calc(1rem * 1.5 / 2)/2;
   margin-right: auto;
   margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 @media (min-width: 576px) {
   .app-header-content {
@@ -15659,7 +15656,7 @@ div.riform .label {
       -ms-flex: 0 0 33.3333%;
           flex: 0 0 33.3333%;
   background: #588c73;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -15856,8 +15853,7 @@ div.riform .label {
 }
 
 .app-footer {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 0;
 }
 
 .app-footer-content {
@@ -15890,6 +15886,10 @@ div.riform .label {
 }
 .app-footer-content a {
   text-transform: uppercase;
+}
+
+.app-copyright {
+  padding: 0 1rem;
 }
 
 .form__group {
@@ -17954,7 +17954,7 @@ article.vevent {
   padding-left: calc(1rem * 1.5 / 2)/2;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 1rem;
+  padding: 1rem;
 }
 @media (min-width: 576px) {
   .app-contact-panel {
@@ -17983,9 +17983,7 @@ article.vevent {
   padding-left: calc(1rem * 1.5 / 2)/2;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 0 !important;
-  padding-bottom: 1rem;
-  margin-top: 1rem;
+  padding: 1rem 1rem 1rem 0;
 }
 @media (min-width: 576px) {
   .app-frontpagepanel {
@@ -18014,6 +18012,8 @@ article.vevent {
   padding-left: calc(1rem * 1.5 / 2)/2;
   margin-right: auto;
   margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 @media (min-width: 576px) {
   .app-news-panel-header {
@@ -18080,8 +18080,6 @@ article.vevent {
             flex-wrap: wrap;
     margin-right: -calc(1rem * 1.5 / 2)/2;
     margin-left: -calc(1rem * 1.5 / 2)/2;
-    padding-right: 15px;
-    padding-left: 15px;
   }
 }
 
@@ -20968,6 +20966,8 @@ label {
   padding-left: calc(1rem * 1.5 / 2)/2;
   margin-right: auto;
   margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 @media (min-width: 576px) {
   .app-main {

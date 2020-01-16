@@ -21,11 +21,11 @@ requirejs(['require',
             // Handle navigation states
             if (navBarIsActive) {
                 element.classList.remove(options.navBarToggleActiveClass);
-                $navBar.classList.remove(options.navBarOverlay);
+                $navBar.classList.remove(options.navBarVisible);
                 $navBar.classList.add(options.navBarHidden);
             } else {
                 element.classList.add(options.navBarToggleActiveClass);
-                $navBar.classList.add(options.navBarOverlay);
+                $navBar.classList.add(options.navBarVisible);
                 $navBar.classList.remove(options.navBarHidden);
             }
             navBarIsActive = !navBarIsActive;
