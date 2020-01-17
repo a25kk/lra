@@ -22,7 +22,7 @@
       <div class="app-page-body" id="content-core">
           <div class="app-page-text" id="parent-fieldname-text"
                   tal:condition="context/text"
-                  tal:content="structure context/text/output" />
+                  tal:content="structure python:context.text.output" />
       </div>
   </metal:content-core>
 </metal:main>

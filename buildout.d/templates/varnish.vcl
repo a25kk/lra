@@ -1,4 +1,4 @@
-vcl 4.0;
+vcl 4.1;
 
 import std;
 
@@ -29,7 +29,7 @@ sub vcl_hit {
             return (deliver);
         } else {
             # No candidate for grace. Fetch a fresh object.
-            return (restart);
+            return (pass);
      }
     } else {
         # backend is sick - use full grace
@@ -38,7 +38,7 @@ sub vcl_hit {
             return (deliver);
         } else {
             # no graced object.
-            return (restart);
+            return (pass);
      }
     }
 }
@@ -46,7 +46,6 @@ sub vcl_hit {
 sub vcl_recv {
     set req.backend_hint = balancer;
     set req.http.grace = "none";
-    set req.hash_always_miss = true;
     if (req.method == "PURGE") {
         if (!client.ip ~ purge) {
             return(synth(405, "Not allowed."));

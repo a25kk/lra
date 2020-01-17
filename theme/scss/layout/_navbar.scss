@@ -3,6 +3,7 @@
 // -----------------------------------------
 
 .app-navbar {
+    position: relative;
     //@extend .navbar;
     background-color: $app-primary;
     border-radius: 0;
@@ -50,7 +51,7 @@
 .app-navbar-header-toggle {
   flex: 0 0 33.3333%;
   background: $app-secondary;
-  padding: $navbar-padding-y $navbar-padding-x;
+  padding: 1rem;
   text-align: center;
 }
 
