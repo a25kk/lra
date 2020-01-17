@@ -7,6 +7,36 @@ services:
     volumes:
       - ../:/app:cached
 
+  static:
+    build:
+      context: docker/nginx-static
+    volumes:
+      - ../:/app:cached
+
+  db:
+    build:
+      context: docker/mariadb
+    command: --max_allowed_packet=32505856
+    environment:
+      # Provide a docker database by default
+      MYSQL_ROOT_PASSWORD: "Testen23!"
+      MYSQL_DATABASE: docker
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+    volumes:
+      - db:/var/lib/mysql/:delegated
+
+  # Provide phpMyAdmin for easy database management
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    environment:
+      # Use automatic login
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=Testen23!
+    depends_on:
+      - db
+
   node:
     image: node:11
     volumes:
@@ -27,3 +57,6 @@ services:
     expose:
       - "80"
       - "4000"
+
+volumes:
+  db:

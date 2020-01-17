@@ -1,0 +1,49 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:cmf="http://namespaces.zope.org/cmf"
+        xmlns:five="http://namespaces.zope.org/five"
+        xmlns:i18n="http://namespaces.zope.org/i18n"
+        xmlns:plone="http://namespaces.plone.org/plone"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        i18n_domain="lra.sitecontent">
+
+    <!-- Include configuration for dependencies listed in setup.py -->
+    <includeDependencies package="." />
+
+    <include file="permissions.zcml" />
+
+    <include package=".browser" />
+    <include package=".widgets" />
+
+    <!-- Register locales directory -->
+    <i18n:registerTranslations directory="locales" />
+
+    <!-- Register the installation GenericSetup extension profile -->
+    <genericsetup:registerProfile
+            name="default"
+            title="LRA Consulting on Schedule"
+            directory="profiles/default"
+            description="Tool for managing consultancy appointments"
+            provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+    <!-- Uninstall -->
+    <genericsetup:registerProfile
+            name="uninstall"
+            title="Uninstall LRA Consulting on Schedule (lra.cos)"
+            directory="profiles/uninstall"
+            description="Uninstall Tool for managing consultancy appointments"
+            provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+
+    <!-- Tools -->
+    <utility
+            factory="lra.cos.consultationslots.ConsultationSlotLocator"
+            provides="lra.cos.interfaces.IConsultationSlotLocator"/>
+
+    <utility
+            factory="lra.cos.consultationslots.ConsultationSlotGenerator"
+            provides="lra.cos.interfaces.IConsultationSlotGenerator"/>
+
+
+</configure>

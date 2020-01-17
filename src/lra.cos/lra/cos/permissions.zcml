@@ -1,0 +1,13 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:i18n="http://namespaces.zope.org/i18n"
+        i18n_domain="lra.cos">
+
+    <!-- Define new permissions -->
+
+    <permission
+            id="ade25.cos.ManageConsultationSlots"
+            title="LRA Consultation Slots: Manage Slots"
+    />
+
+</configure>
