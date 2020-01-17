@@ -214,7 +214,8 @@
 
 //** Round hellip sign
 .app-card-placeholder-sign {
-  @include size(4rem);
+  width: 4rem;
+  height: 4rem;
   margin: 0 auto;
   padding-top: 0.5rem;
   border-radius: 50%;

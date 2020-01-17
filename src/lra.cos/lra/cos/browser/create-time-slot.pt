@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="lra.cos">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="c-panel-editor c-panel-editor--centered">
+
+            <div class="o-page__main">
+                <section class="o-page__section o-page__section--spacer">
+                    <div class="c-widget-editor">
+                        <div class="c-widget-editor__item">
+                            <div class="c-widget-editor__item-aside">
+                                <svg class="o-icon o-icon--size-3 o-icon__ui--clock-dims">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--clock"></use>
+                                </svg>
+                            </div>
+                            <div class="c-widget-editor__item-main">
+                                <h5 class="c-widget-editor__item-title">Consultation on schedule</h5>
+                                <small>Create new time slot</small>
+                            </div>
+                            <div class="c-widget-editor__item-actions">
+                                <svg class="o-icon o-icon--md o-icon__ui--pen-dims">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--pen"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-alert c-alert--default">
+                        <p><span i18n:translate="">The available time slots configured for this instance of the tool are:</span><br>
+                            <tal:days tal:repeat="day python:context.time_slot_days">
+                                <span tal:replace="python:view.weekday_name(day)" /><tal:separator tal:condition="not:repeat/day/end">, </tal:separator>
+                            </tal:days>
+                            <span i18n:translate="">on</span>
+                            <tal:days tal:repeat="slot python:view.configured_time_slots()">
+                                <span tal:replace="python:slot['start']" /> - <span tal:replace="python:slot['end']" /> Uhr<tal:separator tal:condition="not:repeat/slot/end">, </tal:separator>
+                            </tal:days>
+                        </p>
+                        <p><a href="" tal:attributes="href python:context.absolute_url() + '/edit'" i18n:translate="">Update settings</a></p>
+
+                    </div>
+                </section>
+
+                <section class="o-page__section">
+                    <span tal:replace="structure view/contents" />
+                </section>
+            </div>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

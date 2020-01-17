@@ -3,6 +3,9 @@ import pump from 'pump';
 import {create as bsCreate} from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 
+var sass = require('gulp-sass');
+sass.compiler = require('dart-sass');
+
 const $ = gulpLoadPlugins();
 const browserSync = bsCreate();
 
@@ -21,11 +24,11 @@ export function styles(cb) {
             precision: 10,
             includePaths: [cfg.paths.src]
         }).on('error', $.sass.logError),
-        $.autoprefixer({browsers: ['last 4 version']}),
+        $.autoprefixer(),
         gulp.dest(cfg.paths.dist + 'styles/'),
         $.cssnano(),
         $.rename({
-            basename: pkg.name,
+            basename: cfg.name,
             suffix: '.min'
         }),
         $.sourcemaps.write(),
@@ -46,7 +49,7 @@ export function stylesDev() {
             precision: 10,
             includePaths: [cfg.paths.src]
         }).on('error', $.sass.logError))
-        .pipe($.autoprefixer({browsers: ['last 4 version']}))
+        .pipe($.autoprefixer())
         //.pipe($.csscomb())
         .pipe(gulp.dest(cfg.paths.dist + 'styles/'))
         .pipe($.rename({
@@ -71,7 +74,7 @@ export function stylesEditor(cb) {
             precision: 10,
             includePaths: [cfg.paths.src]
         }).on('error', $.sass.logError),
-        $.autoprefixer({browsers: ['last 4 version']}),
+        $.autoprefixer(),
         gulp.dest(cfg.paths.dist + 'styles/'),
         $.cssnano(),
         $.rename({

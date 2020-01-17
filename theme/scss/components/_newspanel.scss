@@ -5,6 +5,8 @@
 .app-news-panel-header {
     @include make-container();
     @include make-container-max-widths();
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 // News listing
@@ -12,15 +14,15 @@
     display: block;
     @include make-container();
     @include make-container-max-widths();
-    padding: $spacer;
+    padding: 1rem;
 }
 
 .app-news-list-item {
     margin-bottom: $spacer;
 	@include media-breakpoint-up(sm) {
 		@include make-row();
-        padding-right: 15px;
-        padding-left: 15px;
+        //padding-right: 15px;
+        //padding-left: 15px;
 	}
 
 

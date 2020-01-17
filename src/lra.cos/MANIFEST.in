@@ -1,0 +1,9 @@
+include *.rst
+include pyproject.toml
+
+graft lra
+
+global-exclude *.pyc
+
+recursive-exclude news *
+exclude news
