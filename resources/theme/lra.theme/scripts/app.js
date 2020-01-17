@@ -14,10 +14,10 @@ requirejs(['require',
         });
 
         // Static navigation drawer
-        let navBarIsActive = false;
+        var navBarIsActive = false;
 
         function navigationToggleHandler(element, options) {
-            let $navBar = document.querySelector(options.navBar);
+            var $navBar = document.querySelector(options.navBar);
             // Handle navigation states
             if (navBarIsActive) {
                 element.classList.remove(options.navBarToggleActiveClass);
