@@ -19,6 +19,61 @@
                     tal:condition="context/Description"
                     tal:content="context/Description" />
 
+            <div class="app-banner"
+                 id="app-banner"
+                     i18n:domain="ade25.banner"
+                     tal:condition="view/has_banners"
+                     tal:define="show_carousel view/show_carousel"
+                     tal:attributes="class python:show_carousel and 'app-banner app-banner-carousel' or 'app-banner'">
+
+                <div class="app-banner-content"
+                    tal:attributes="class python:show_carousel and 'app-banner-content app-js-carousel' or 'app-banner-content'">
+                    <tal:items tal:repeat="banner python:view.content_banners()">
+                        <div class="app-banner-item item show"
+                                 tal:attributes="data-bg python:banner['img'];
+                                        style python:banner['bg_img'];
+                                        class python:banner['css_classes']">
+                            <div class="app-banner-item-content">
+                                <div class="app-banner-item-body"
+                                         tal:condition="python:banner['has_data']">
+                                    <div class="app-banner-item-title" tal:condition="python:banner['headline']">
+                                        <div class="app-banner-item-headline">
+                                            <tal:link tal:condition="python:banner['has_link']">
+                                                <a class="app-banner__action app-banner__action--link"
+                                                   tal:attributes="href python:banner['link']"
+                                                        tal:content="python:banner['headline']"
+                                                   href="#link-action">
+                                                        Banner Headline
+                                                </a>
+                                            </tal:link>
+                                            <tal:plain tal:condition="python:not banner['has_link']"
+                                                tal:content="python:banner['headline']">
+                                                    Banner Headline
+                                            </tal:plain>
+                                        </div>
+                                    </div>
+                                    <div class="app-banner-item-abstract" tal:condition="python:banner['description']"
+                                        tal:content="python:banner['description']">
+                                            Banner Description
+                                    </div>
+                                    <div class="app-banner-text"
+                                             tal:condition="python:banner['text']"
+                                             tal:content="structure python:banner['text'].output" />
+                                    <tal:action tal:condition="python:not banner['has_link']">
+                                        <div class="app-banner__action-block">
+                                            <a tal:attributes="href python:banner['link']">
+                                                weiterlesen&hellip;
+                                            </a>
+                                        </div>
+                                    </tal:action>
+                                </div>
+                            </div>
+                        </div>
+                    </tal:items>
+                </div>
+            </div>
+
+
             <div class="app-page-body app-fp app-fp-1" id="app-frontpage-1">
                 <tal:block tal:condition="view/has_newsitems">
                     <div class="app-news-list" id="app-news-list"
