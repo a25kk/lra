@@ -16544,6 +16544,8 @@ label:hover:before {
     margin-bottom: 2rem;
     display: block;
     overflow: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 @media (min-width: 576px) and (min-width: 576px) {
@@ -20794,6 +20796,8 @@ c-list--bordered .c-list__item:last-of-type {
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 @media (min-width: 576px) {
   .app-intro-wrapper .app-action-search-wrapper {
@@ -20851,6 +20855,8 @@ c-list--bordered .c-list__item:last-of-type {
   margin-left: auto;
   padding-bottom: 2rem;
   text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 @media (min-width: 576px) {
   .app-intro-wrapper .app-intro-button {
