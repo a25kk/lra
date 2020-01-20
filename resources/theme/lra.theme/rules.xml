@@ -458,7 +458,7 @@
                         <xsl:copy-of select="@*" />
                         <xsl:attribute name="class">o-form__control o-form__control--password</xsl:attribute>
                         <xsl:apply-templates />
-                        <div class="c-password-toggle">
+                        <div class="c-password-toggle hiddenStructure">
                             <button class="x-ray c-button c-button-default c-button--sm" data-x-ray="#__ac_password" data-default="show">
                                 <span class="x-ray-show" data-x-ray-show="show">Show Password</span>
                                 <span class="x-ray-hide" data-x-ray-hide="hide">Hide Password</span>
