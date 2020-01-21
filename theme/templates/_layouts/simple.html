@@ -1,19 +1,13 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <!-- Meta, title, CSS, favicons, etc. -->
+<head>
     {% include base/head.html %}
-  </head class="dim-in dim-in-3">
-  <body>
-    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+</head>
+<body>
+{% include components/toolbar.html %}
 
-    <main class="app-main app-main-fullscreen" id="app-main" role="main">
-          {{ content }}
-    </main>
-    <div class="app-js-slot">
-        {% include base/piwik.html %}
-        {% include base/webfonts.html %}
-    </div>
-    {% include base/javascript.html %}
-  </body>
+<main class="app-main app-main--fullscreen" role="main">
+    {{ content }}
+</main>
+</body>
 </html>
