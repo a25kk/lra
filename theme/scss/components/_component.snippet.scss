@@ -83,8 +83,7 @@ $c-snippet-color:                   $app-color-text;
 }
 
 .c-snippet__figure {
-  &--constrained-width-md,
-  &--faculty {
+  &--constrained-width-md {
     @include mq($from: sm, $until: md) {
       max-width: 50%;
     }

@@ -46,8 +46,6 @@
 
             <section class="o-page__section o-page__section--main-panels">
 
-                <div class="c-alert c-alert--default">Content listing via default widget with content snippet</div>
-
 
                 <div class="c-list" id="content-core-listing"
                         tal:condition="python:view.has_content"
