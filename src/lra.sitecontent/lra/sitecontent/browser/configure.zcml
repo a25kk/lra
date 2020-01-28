@@ -79,14 +79,26 @@
 
     <!-- Override plone news item view -->
     <browser:page
-            name="newsitem_view"
+            name="news-item-view"
             for="plone.app.contenttypes.interfaces.INewsItem"
             template="news-item.pt"
             class="lra.sitecontent.browser.newsitem.CustomNewsItemView"
             layer="lra.sitecontent.interfaces.ILraSitecontentLayer"
             permission="zope2.View"
             menu="plone_displayviews"
-            title="View News Item"
+            title="View News Item (Custom)"
+    />
+
+    <!-- Listing view -->
+    <browser:page
+            name="lra-content-listing"
+            for="Products.CMFCore.interfaces.IFolderish"
+            template="listing.pt"
+            class="lra.sitecontent.browser.listing.CustomContentListing"
+            layer="lra.sitecontent.interfaces.ILraSitecontentLayer"
+            permission="zope2.View"
+            menu="plone_displayviews"
+            title="LRA Content Listing (Custom)"
     />
 
 

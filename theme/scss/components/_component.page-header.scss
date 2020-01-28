@@ -20,7 +20,7 @@ $c-page-header-line-height:                     1.5;
 }
 
 .c-page-header__abstract {
-    @include font-size($c-page-header-font-size-lg);
+    @include font-size($c-page-header-font-size-base);
     font-weight: $c-page-header-font-weight;
     line-height: $c-page-header-line-height;
 }

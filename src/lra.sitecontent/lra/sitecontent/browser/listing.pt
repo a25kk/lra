@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="lra.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <header class="o-page__header">
+
+            <div class="o-page__section c-page-header">
+                <div class="c-page-header__title">
+                    <h1 class="c-page-header__headline">
+                        <span tal:replace="python:context.Title()">
+                            Page Title</span>
+                    </h1>
+                </div>
+                <div class="c-page-header__subtitle" tal:condition="context/Description">
+                    <p class="c-page-header__abstract"
+                             tal:content="python:context.Description()">
+                            ${context/Description}
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <div class="o-page__main o-page__main--panels">
+            <section class="o-page__section o-page__section--cover">
+                <div class="o-page__cover" tal:condition="view/has_lead_image">
+                    <div class="o-page__asset"
+                             tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field_name='image_caption', scale='ratio-4:3', aspect_ratio='4/3',  lqip=True, lazy_load=True)">
+                        <span tal:replace="structure responsive_image" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="o-page__section o-page__section--main-content">
+                <div class="o-page__body-text" id="parent-fieldname-text"
+                         tal:condition="context/text"
+                         tal:content="structure context/text/output" />
+            </section>
+
+            <section class="o-page__section o-page__section--main-panels">
+
+                <div class="c-alert c-alert--default">Content listing via default widget with content snippet</div>
+
+
+                <div class="c-list" id="content-core-listing"
+                        tal:condition="python:view.has_content"
+                         tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                                    b_size python:int(request.get('b_size', 20));
+                                    b_start python:int(request.get('b_start', 0));
+                                    results python:view.content_items();
+                                    batch python:Batch(results, b_size, b_start);">
+
+                        <article class="c-list__item o-separator" tal:repeat="item batch">
+
+
+                            <tal:item tal:define="item_uuid python:item['uuid']">
+                                <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-content-snippet')(widget_data=dict(uuid=item_uuid))">
+                                    Content Preview Snippet
+                                </div>
+                            </tal:item>
+                        </article>
+
+                    <tal:batchnavigation
+                            define="batchnavigation nocall:context/@@batchnavigation"
+                            replace="structure python:batchnavigation(batch)" />
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
