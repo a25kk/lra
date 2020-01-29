@@ -13,10 +13,10 @@
         {% include components/pathbar.html %}
 
         <div class="app-main-section">
-            <div class="app-main-aside">
+            <div class="app-sidebar app-main-aside" id="app-sidebar">
                 {% include layout/sidebar.html %}
             </div>
-            <div class="app-main-content">
+            <div class="app-content app-main-content" id="app-content">
                 {{ content }}
             </div>
         </div>
