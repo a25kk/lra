@@ -19035,6 +19035,7 @@ a.c-button--active-action {
 
 .c-snippet__title {
   font-weight: 500;
+  font-size: 1.5rem;
 }
 
 .c-snippet__section {
@@ -19869,13 +19870,15 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-page-header__headline {
   padding: 0.125rem 0;
-  color: #000;
+  color: #274d38;
   line-height: 1.25;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .c-page-header__abstract {
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.5;
 }
 
