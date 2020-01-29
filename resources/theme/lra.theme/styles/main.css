@@ -19012,11 +19012,18 @@ a.c-button--active-action {
 @media (min-width: 48em) {
   .c-snippet__main {
     -webkit-box-flex: 1;
+    -webkit-flex: 1 0 100%;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+    max-width: 100%;
+    padding-bottom: calc(1rem / 2);
+  }
+  .c-snippet__main--grid-item {
+    -webkit-box-flex: 1;
     -webkit-flex: 1 0 75%;
         -ms-flex: 1 0 75%;
             flex: 1 0 75%;
     max-width: 75%;
-    padding-bottom: calc(1rem / 2);
   }
 }
 
@@ -19056,7 +19063,7 @@ a.c-button--active-action {
 }
 
 @media (min-width: 36em) and (max-width: 47.99em) {
-  .c-snippet__figure--constrained-width-md, .c-snippet__figure--faculty {
+  .c-snippet__figure--constrained-width-md {
     max-width: 50%;
   }
 }

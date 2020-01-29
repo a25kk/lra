@@ -59,7 +59,7 @@
 
 
                             <tal:item tal:define="item_uuid python:item['uuid']">
-                                <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-content-snippet')(widget_data=dict(uuid=item_uuid))">
+                                <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-content-snippet')(widget_data=dict(uuid=item_uuid, snippet_layout='reverse', abstract=True, image=True, image_scale='ratio-4:3', read_more=True, read_more_layout='link-icon', read_more_text_value='weiterlesen'))">
                                     Content Preview Snippet
                                 </div>
                             </tal:item>
