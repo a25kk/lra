@@ -2,6 +2,7 @@
 """Module providing views for consulting schedules """
 import datetime
 import secrets
+from dateutil.relativedelta import relativedelta
 
 from Acquisition import aq_inner
 from babel.dates import format_datetime
@@ -43,7 +44,7 @@ def time_slot_date_default_value():
 def time_slot_dates_until_default_value():
     today = datetime.datetime.today()
     next_thursday = next_weekday(today, 3)
-    return next_thursday + datetime.timedelta(7)
+    return next_thursday + relativedelta(month=1)
 
 
 class ManageTimeSlots(BrowserView):
@@ -140,6 +141,15 @@ class ITimeSlotAddForm(model.Schema):
 
     directives.widget(
         "time_slots_until", DatetimeFieldWidget, pattern_options={"time": False}
+    )
+
+    time_slots_creation = schema.Bool(
+        title=_(u"Time Slot Creation"),
+        description=_(u"Enable automatic creation of time slots between the "
+                      u"specified start and end days. When not activated slots "
+                      u"will only be created for the specific consultation date."),
+        required=False,
+        default=False
     )
 
 
