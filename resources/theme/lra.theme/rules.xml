@@ -106,13 +106,11 @@
     <notheme if="$ajax_load" />
     <theme href="full/index.html" css:if-content=".template-folder_contents" />
     <!-- Setup custom login form -->
+        <!-- Setup custom login form -->
+    <theme href="signin/index.html" css:if-content="body.template-login" />
     <theme href="signin/index.html" css:if-content="body.template-login_form" />
-    <theme href="signin/index.html" css:if-content="body.template-logged_out" />
-    <theme href="signin/index.html" css:if-content="body.template-login_failed" />
-    <theme href="signin/index.html" css:if-content="body.template-mail_password_form" />
-    <theme href="signin/index.html" css:if-content="body.template-mail_password_response" />
-    <theme href="signin/index.html" css:if-content="body.template-pwreset_form" />
-    <theme href="signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="signin/index.html" css:if-content="body.template-login-help" />
+    <theme href="signin/index.html" css:if-content="body.template-passwordreset" />
     <theme href="funding/index.html" css:if-content="body.subsection-klimaschutz-termine-klimaschutz" />
     <theme href="full/index.html" css:if-content="body.template-search" />
     <theme href="full/index.html" css:if-content="body.template-default_error_message" />
@@ -242,39 +240,12 @@
         </replace>
 
 
-        <!-- Login form rules -->
-        <replace css:content-children="#content-core"
-                 css:theme-children="#app-signin-body"
-                 css:if-content="body.template-login_form" />
-        <replace css:content-children="#content-core"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-login_failed" />
-        <replace css:content-children="#content-core"
-                 css:theme-children="#app-signin-body"
-                 css:if-content="body.template-logged_out" />
-        <replace css:content-children="#content"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-mail_password_form" />
-        <replace css:content-children="#content"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-mail_password_response" />
-        <replace css:content-children="#content"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-pwreset_form" />
-        <replace css:content-children="#content"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-pwreset_finish" />
-
-
         <drop css:theme="#app-banner"
               css:if-not-content="#app-banner" />
 
         <replace css:content="#app-banner"
                  css:theme="#app-banner"
                  css:if-content="#app-banner" />
-
-        <!--<drop css:theme="#app-banner"
-            css:if-content=".userrole-authenticated" />-->
 
         <!-- Document First Heading -->
         <replace css:content=".documentFirstHeading">
