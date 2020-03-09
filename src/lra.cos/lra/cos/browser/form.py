@@ -85,7 +85,8 @@ class FormFieldBase(BrowserView):
                 field_help_text=self.params['field_description'],
                 field_error=self.params['field_error'],
                 field_data=self.field_data(),
-                field_css_class=self.field_css_class()
+                field_css_class=self.field_css_class(),
+                field_required=self.params['field_required']
             )
         else:
             view_name = '@@booking-form-field-text-line'
@@ -95,7 +96,8 @@ class FormFieldBase(BrowserView):
                 field_help_text=self.params['field_description'],
                 field_error=self.params['field_error'],
                 field_data=self.field_data(),
-                field_css_class=self.field_css_class()
+                field_css_class=self.field_css_class(),
+                field_required=self.params['field_required']
             )
         return rendered_widget
 

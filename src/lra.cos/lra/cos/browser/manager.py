@@ -235,8 +235,11 @@ class TimeSlotAddForm(AutoExtensibleForm, form.Form):
     def prepare_time_slots(self, data):
         time_slots = list()
         cycle_date = data["time_slot"]
-        cycle_end = data["time_slots_until"]
-        step = datetime.timedelta(days=7)
+        if data["time_slots_creation"]:
+            cycle_end = data["time_slots_until"]
+        else:
+            cycle_end = cycle_date
+        step = datetime.timedelta(month=1)
         days_in_cycle = list()
         while cycle_date <= cycle_end:
             days_in_cycle.append(cycle_date)

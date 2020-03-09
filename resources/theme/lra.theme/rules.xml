@@ -156,6 +156,9 @@
         <drop css:theme="[data-env='development']" />
         <drop theme="/html/body/script" />
 
+        <drop css:theme=".app-js-slot"
+              if-not="$mode = 'production'" />
+
 
         <!-- Custom favicon implementation -->
         <drop css:content="head link[rel='apple-touch-icon-precomposed']" />
@@ -344,7 +347,7 @@
                 </xsl:when>
             </xsl:choose>
         </replace>
-        <rules css:if-not-content=".template-prefs_install_products_form">
+        <rules css:if-not-content=".template-prefs_install_products_form, .template-caching-controlpanel">
             <before css:content=".portalMessage" css:theme-children="#app-main" />
         </rules>
 
@@ -649,6 +652,8 @@
                 />
             </rules>
         </rules>
+
+        Zusätzliche Arbeiten nach Aufbrauchen des vereinbarten Kontingents
 
         <!-- Contact cards -->
         <after css:theme-children="#app-sidebar"
