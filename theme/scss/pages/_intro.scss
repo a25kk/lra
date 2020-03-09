@@ -40,6 +40,8 @@
     	@include make-container();
     	@include make-container-max-widths();
     	padding-bottom: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     	@include media-breakpoint-up(sm) {
     		padding-bottom: 5rem;
     	}
@@ -69,6 +71,8 @@
     	@include make-container-max-widths();
     	padding-bottom: 2rem;
     	text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
     	@include media-breakpoint-up(sm) {
     		padding-bottom: 5rem;
     	}

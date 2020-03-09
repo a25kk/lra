@@ -1,0 +1,17 @@
+$c-schedule-spacer:                 $app-spacer-base;
+
+.c-schedule {
+  margin-bottom: $c-schedule-spacer;
+}
+
+.c-schedule__item {
+  display: block;
+  width: 100%;
+}
+
+.o-table--schedule {
+  background-color: transparent;
+  > tbody {
+    width: 100%;
+  }
+}

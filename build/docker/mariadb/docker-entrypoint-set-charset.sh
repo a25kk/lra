@@ -1,0 +1,1 @@
+echo "ALTER DATABASE \`${MYSQL_DATABASE}\` CHARACTER SET utf8 COLLATE utf8_unicode_ci;" | mysql -u "${MYSQL_USER}" -p"${MYSQL_PASSWORD}"

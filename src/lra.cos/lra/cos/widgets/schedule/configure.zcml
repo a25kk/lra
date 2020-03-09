@@ -1,0 +1,18 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:z3c="http://namespaces.zope.org/z3c"
+        i18n_domain="lra.cos">
+
+    <!-- Content Widgets -->
+
+    <browser:page
+            for="*"
+            name="content-widget-lra-consultation-schedule"
+            class="lra.cos.widgets.schedule.schedule.WidgetConsultationSchedule"
+            template="schedule.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+</configure>

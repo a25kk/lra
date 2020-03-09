@@ -15,6 +15,8 @@
 .app-main {
     @include make-container();
     @include make-container-max-widths();
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .app-main-section {
@@ -26,7 +28,7 @@
         padding-left: 0;
         padding-right: 0;
     }
-    
+
 }
 
 .app-main-aside,

@@ -1,0 +1,431 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="lra.cos">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <header class="o-page__header">
+            <div class="o-page__section c-page-header">
+                <div class="c-page-header__title">
+                    <h1 class="c-page-header__headline" i18n:translate="">
+                        Consultation appointment
+                    </h1>
+                </div>
+                <p class="c-page-header__abstract" i18n:translate="">
+                    You have selected the following consultation time slot:
+                </p>
+            </div>
+        </header>
+
+        <div class="o-page__main" id="page-main-content" tal:define="context_uid context/UID">
+            <div class="o-page__section o-page__section--spacer">
+                <div class="c-time-slot c-time-slot--available"
+                         tal:define="item python:view.requested_time_slot();timestamp python:item['slot_start'];timestamp_end python:item['slot_end']"
+                         tal:attributes="class python:item['slot_bookable'] and 'c-time-slot c-time-slot--available' or 'c-time-slot c-time-slot--booked'">
+                    <div class="c-time-slot__main">
+                        <div class="c-time-slot__header">
+                            <div class="c-time-slot__title">
+                                <span tal:replace="python:timestamp['day']" />.
+                                <span tal:replace="python:timestamp['month_name']" />
+                                <span tal:replace="python:timestamp['year']" />
+                            </div>
+                            <small tal:content="python:timestamp['day_name']">Donnerstag</small>
+                        </div>
+                        <div class="c-time-slot__section c-time-slot__section--centered">
+                            <span tal:replace="python:timestamp['hour']" />:<span tal:replace="python:timestamp['minute']" /> -
+                            <span tal:replace="python:timestamp_end['hour']" />:<span tal:replace="python:timestamp_end['minute']" /> Uhr
+                        </div>
+                        <div class="c-time-slot__section c-time-slot__section--actions c-time-slot__section--status">
+                            <small class="c-time-slot__marker c-time-slot__marker--danger"
+                            i18n:translate="" hidden>reserved</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="o-page__section">
+            <h2>Book appointment form</h2>
+
+            <div class="c-alert c-alert--danger" tal:condition="python:view.errors">
+                <div class="app-alert__title" i18n:translate="">Form submission failed</div>
+                <p i18n:translate="">There have been errors submitting your form</p>
+            </div>
+
+            <form class="o-form o-form--widget"
+                  id="form-book-consultation-appointment"
+                  method="post"
+                  tal:define="errors view/errors"
+                  tal:attributes="action request/URL">
+
+                <span tal:replace="structure context/@@authenticator/authenticator"/>
+
+                <input type="text" name="slot-identifier" id="slot-identifier" tal:attributes="value python:view.slot_identifier">
+
+                <fieldset class="o-form__group o-form__group--personnel">
+                    <legend class="o-form__legend" i18n:translate="">
+                        Personnel information
+                    </legend>
+
+                    <div class="c-alert c-alert--warning" tal:condition="errors">
+                        <code><pre tal:content="errors"></pre></code>
+                                <code><pre tal:content="python:view.form_data"></pre></code>
+                    </div>
+
+                    <tal:field tal:define="field_id string:firstname;
+                                           field_name string:Firstname;
+                                           field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                            field_type='text-line',
+                            field_identifier=field_id,
+                            field_name=field_name,
+                            field_required=True,
+                            field_error=field_error,
+                            field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                        )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:lastname;
+                            field_name string:Lastname;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=True,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:street;
+                            field_name string:Street;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:zipcode;
+                            field_name string:Zipcode;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:city;
+                            field_name string:City;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:phone;
+                            field_name string:Phone;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:email;
+                            field_name string:Email;
+                            field_required python:True;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:recommendation;
+                            field_name string:How did you hear about us?;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                </fieldset>
+
+                <fieldset class="o-form__group o-form__group--request">
+                    <legend class="o-form__legend" i18n:translate="">
+                        Please specify your booking request
+                    </legend>
+
+                    <tal:field tal:define="field_id string:building-type;
+                            field_name string:Building Type;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:apartments;
+                            field_name string:Apartments;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:construction-year;
+                            field_name string:Construction Year;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:living-space;
+                            field_name string:Living Space;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:residents;
+                            field_name string:Residents;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <div class="form__group app-form-group app-field-privacy-policy"
+                             tal:define="error errors/non-residential-building | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/non-residential-building | nothing"
+                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--non-residential-building o-form__field--has-error' or 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--non-residential-building'">
+
+                        <input type="checkbox" class="form__control form__control--checkbox" id="non-residential-building" name="non-residential-building">
+                        <label class="form__label" for="non-residential-building" i18n:translate="">
+                            Non residential building
+                        </label>
+
+                        <div class="o-form__required-marker">
+                            <div class="o-form__required-marker-text">*</div>
+                        </div>
+
+                        <div class="o-form__help o-form__help--danger"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+
+                    </div><!-- /privacy notice field -->
+
+                    <tal:field tal:define="field_id string:utilization;
+                            field_name string:Utilization;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-line',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <div class="form__group app-form-group app-field-comment"
+                             tal:define="error errors/comment | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/comment | nothing"
+                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--comment o-form__field--has-error' or 'o-form__field o-form__field--comment'">
+
+                        <label class="o-form__label" for="comment"
+                                 i18n:translate="">Your specific request</label>
+
+                        <div class="o-form__help" i18n:translate="">
+                            Please specify your main request or theme for the consultation
+                        </div>
+
+                        <textarea class="o-form__control o-form__control--textarea"
+                                  id="comment"
+                                  name="comment"
+                                  rows="3"></textarea>
+
+                        <div class="o-form__required-marker">
+                            <div class="o-form__required-marker-text">*</div>
+                        </div>
+
+                        <div class="o-form__help o-form__help--danger"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+
+                    </div><!-- /message field -->
+
+                    <tal:field tal:define="field_id string:comment;
+                            field_name string:Comment;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='text-area',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+
+                </fieldset>
+
+                <fieldset class="o-form__group o-form__group--legal">
+                    <div class="form__group app-form-group app-field-privacy-policy"
+                             tal:define="error errors/privacy-policy | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/privacy-policy | nothing"
+                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--privacy-policy o-form__field--required o-form__field--has-error' or 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--privacy-policy o-form__field--required'">
+
+                        <input type="checkbox" class="form__control form__control--checkbox" id="privacy-policy" name="privacy-policy">
+                        <label class="form__label" for="privacy-policy" i18n:translate="">
+                            By sending this message, I confirm that my details are correct and I agree to the collection and further processing of the provided data. The data will only be used for the purpose stated in your inquiry.
+                        </label>
+
+                        <div class="o-form__required-marker">
+                            <div class="o-form__required-marker-text">*</div>
+                        </div>
+
+                        <div class="o-form__help o-form__help--danger"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+
+                    </div><!-- /privacy notice field -->
+
+                    <div class="form__group app-form-group app-field-privacy-agreement"
+                             tal:define="error errors/privacy-policy-agreement | nothing;
+                            err_msg python:error and error['active'] == True;
+                            value request/privacy-policy-agreement | nothing"
+                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--privacy-policy o-form__field--required o-form__field--has-error' or 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--privacy-policy o-form__field--required'">
+
+                        <input type="checkbox" class="form__control form__control--checkbox" id="privacy-policy-agreement" name="privacy-policy-agreement">
+                        <label class="form__label" for="privacy-policy-agreement">
+                            <span i18n:translate="" tal:omit-tag="">I have acknowledged the</span>
+                            <a href="" tal:attributes="href python:context.portal_url() + '/rechtliche-hinweise'" i18n:translate="">privacy policy</a>
+                            <span i18n:translate="" tal:omit-tag="">and accept it.</span>
+                        </label>
+                        <div class="o-form__required-marker">
+                            <div class="o-form__required-marker-text">*</div>
+                        </div>
+
+                        <div class="o-form__help o-form__help--danger"
+                                 tal:condition="err_msg">
+                            <span i18n:translate="">This field is required</span>
+                        </div>
+
+                    </div><!-- /privacy policy agreement field -->
+                </fieldset>
+
+
+                <div class="o-form__actions">
+                    <button class="c-button c-button--primary"
+                            type="submit"
+                            name="form.button.Submit"
+                            id="form.button.Submit"
+                             i18n:translate="">
+                        Book consultation slot
+                    </button>
+                    <button class="c-button c-button--default"
+                            type="cancel"
+                            name="form.button.Cancel"
+                            id="form.button.Cancel"
+                             i18n:translate="">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="o-page__footer">
+
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
