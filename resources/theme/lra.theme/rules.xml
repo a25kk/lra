@@ -106,13 +106,11 @@
     <notheme if="$ajax_load" />
     <theme href="full/index.html" css:if-content=".template-folder_contents" />
     <!-- Setup custom login form -->
+    <theme href="signin/index.html" css:if-content="body.template-login" />
     <theme href="signin/index.html" css:if-content="body.template-login_form" />
-    <theme href="signin/index.html" css:if-content="body.template-logged_out" />
-    <theme href="signin/index.html" css:if-content="body.template-login_failed" />
-    <theme href="signin/index.html" css:if-content="body.template-mail_password_form" />
-    <theme href="signin/index.html" css:if-content="body.template-mail_password_response" />
-    <theme href="signin/index.html" css:if-content="body.template-pwreset_form" />
-    <theme href="signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="signin/index.html" css:if-content="body.template-login-help" />
+    <theme href="signin/index.html" css:if-content="body.template-passwordreset" />
+
     <theme href="funding/index.html" css:if-content="body.subsection-klimaschutz-termine-klimaschutz" />
     <theme href="full/index.html" css:if-content="body.template-search" />
     <theme href="full/index.html" css:if-content="body.template-default_error_message" />
