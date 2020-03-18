@@ -2,6 +2,7 @@
 """Module providing views for consulting schedules """
 import datetime
 import secrets
+from dateutil.relativedelta import relativedelta
 
 from Acquisition import aq_inner
 from babel.dates import format_datetime
@@ -43,7 +44,7 @@ def time_slot_date_default_value():
 def time_slot_dates_until_default_value():
     today = datetime.datetime.today()
     next_thursday = next_weekday(today, 3)
-    return next_thursday + datetime.timedelta(7)
+    return next_thursday + relativedelta(month=1)
 
 
 class ManageTimeSlots(BrowserView):
@@ -142,6 +143,15 @@ class ITimeSlotAddForm(model.Schema):
         "time_slots_until", DatetimeFieldWidget, pattern_options={"time": False}
     )
 
+    time_slots_creation = schema.Bool(
+        title=_(u"Time Slot Creation"),
+        description=_(u"Enable automatic creation of time slots between the "
+                      u"specified start and end days. When not activated slots "
+                      u"will only be created for the specific consultation date."),
+        required=False,
+        default=False
+    )
+
 
 @implementer(IPublishTraverse)
 class TimeSlotAddForm(AutoExtensibleForm, form.Form):
@@ -225,8 +235,11 @@ class TimeSlotAddForm(AutoExtensibleForm, form.Form):
     def prepare_time_slots(self, data):
         time_slots = list()
         cycle_date = data["time_slot"]
-        cycle_end = data["time_slots_until"]
-        step = datetime.timedelta(days=7)
+        if data["time_slots_creation"]:
+            cycle_end = data["time_slots_until"]
+        else:
+            cycle_end = cycle_date
+        step = datetime.timedelta(month=1)
         days_in_cycle = list()
         while cycle_date <= cycle_end:
             days_in_cycle.append(cycle_date)
