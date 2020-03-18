@@ -27,6 +27,9 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- Custom db indexing for site contents -->
+    <include file="upgrades.zcml" />
+
     <plone:static
         directory="resources"
         type="theme"

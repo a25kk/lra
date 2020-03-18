@@ -67,7 +67,7 @@
 
                 <span tal:replace="structure context/@@authenticator/authenticator"/>
 
-                <input type="text" name="slot-identifier" id="slot-identifier" tal:attributes="value python:view.slot_identifier">
+                <input type="hidden" name="slot-identifier" id="slot-identifier" tal:attributes="value python:view.slot_identifier">
 
                 <fieldset class="o-form__group o-form__group--personnel">
                     <legend class="o-form__legend" i18n:translate="">
@@ -277,15 +277,6 @@
                             Non residential building
                         </label>
 
-                        <div class="o-form__required-marker">
-                            <div class="o-form__required-marker-text">*</div>
-                        </div>
-
-                        <div class="o-form__help o-form__help--danger"
-                                 tal:condition="err_msg">
-                            <span i18n:translate="">This field is required</span>
-                        </div>
-
 
                     </div><!-- /privacy notice field -->
 
@@ -302,36 +293,6 @@
                                 field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
                                 )" />
                     </tal:field>
-
-                    <div class="form__group app-form-group app-field-comment"
-                             tal:define="error errors/comment | nothing;
-                            err_msg python:error and error['active'] == True;
-                            value request/comment | nothing"
-                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--comment o-form__field--has-error' or 'o-form__field o-form__field--comment'">
-
-                        <label class="o-form__label" for="comment"
-                                 i18n:translate="">Your specific request</label>
-
-                        <div class="o-form__help" i18n:translate="">
-                            Please specify your main request or theme for the consultation
-                        </div>
-
-                        <textarea class="o-form__control o-form__control--textarea"
-                                  id="comment"
-                                  name="comment"
-                                  rows="3"></textarea>
-
-                        <div class="o-form__required-marker">
-                            <div class="o-form__required-marker-text">*</div>
-                        </div>
-
-                        <div class="o-form__help o-form__help--danger"
-                                 tal:condition="err_msg">
-                            <span i18n:translate="">This field is required</span>
-                        </div>
-
-
-                    </div><!-- /message field -->
 
                     <tal:field tal:define="field_id string:comment;
                             field_name string:Comment;

@@ -106,11 +106,11 @@
     <notheme if="$ajax_load" />
     <theme href="full/index.html" css:if-content=".template-folder_contents" />
     <!-- Setup custom login form -->
-        <!-- Setup custom login form -->
     <theme href="signin/index.html" css:if-content="body.template-login" />
     <theme href="signin/index.html" css:if-content="body.template-login_form" />
     <theme href="signin/index.html" css:if-content="body.template-login-help" />
     <theme href="signin/index.html" css:if-content="body.template-passwordreset" />
+
     <theme href="funding/index.html" css:if-content="body.subsection-klimaschutz-termine-klimaschutz" />
     <theme href="full/index.html" css:if-content="body.template-search" />
     <theme href="full/index.html" css:if-content="body.template-default_error_message" />
@@ -155,6 +155,9 @@
 
         <drop css:theme="[data-env='development']" />
         <drop theme="/html/body/script" />
+
+        <drop css:theme=".app-js-slot"
+              if-not="$mode = 'production'" />
 
 
         <!-- Custom favicon implementation -->
@@ -344,7 +347,7 @@
                 </xsl:when>
             </xsl:choose>
         </replace>
-        <rules css:if-not-content=".template-prefs_install_products_form">
+        <rules css:if-not-content=".template-prefs_install_products_form, .template-caching-controlpanel">
             <before css:content=".portalMessage" css:theme-children="#app-main" />
         </rules>
 
@@ -649,6 +652,8 @@
                 />
             </rules>
         </rules>
+
+        Zusätzliche Arbeiten nach Aufbrauchen des vereinbarten Kontingents
 
         <!-- Contact cards -->
         <after css:theme-children="#app-sidebar"

@@ -16,13 +16,19 @@
            type="text"
             tal:attributes="id python:settings['field_identifier'];name python:settings['field_identifier'];value python:value">
 
-    <div class="o-form__required-marker">
-        <div class="o-form__required-marker-text">*</div>
-    </div>
+    <tal:required tal:condition="python:settings['field_required']">
+        <div class="o-form__required-marker">
+            <div class="o-form__required-marker-text">*</div>
+        </div>
 
-    <div class="o-form__help o-form__help--danger"
-             tal:condition="field_has_error">
-        <span i18n:translate="">This field is required</span>
+        <div class="o-form__help o-form__help--danger"
+                 tal:condition="field_has_error">
+            <span i18n:translate="">This field is required</span>
+        </div>
+    </tal:required>
+
+    <div class="o-form__help o-form__help--default">
+        <span tal:replace="settings">This field is required</span>
     </div>
 
 </div>

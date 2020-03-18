@@ -122,6 +122,11 @@ task:theme:sprite() {
     docker:command:gulp sprite:collect
 }
 
+task:theme:build() {
+    docker:command:jekyll build -q
+    docker:command:gulp styles
+}
+
 task:theme:dist() {
     docker:command:jekyll build
     docker:command:gulp dist
