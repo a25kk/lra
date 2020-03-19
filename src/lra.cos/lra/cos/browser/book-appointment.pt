@@ -196,7 +196,7 @@
                         Please specify your booking request
                     </legend>
 
-                    <tal:field tal:define="field_id string:building-type;
+                    <tal:field tal:define="field_id string:building-type-text;
                             field_name string:Building Type;
                             field_required python:False;
                             field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id)">
@@ -207,6 +207,22 @@
                                 field_required=field_required,
                                 field_error=field_error,
                                 field_data=dict(value=field_value, css_class_modifier=['spacer', field_id])
+                                )" />
+                    </tal:field>
+
+                    <tal:field tal:define="field_id string:building-type;
+                            field_name string:Building Type;
+                            field_required python:False;
+                            field_error python:view.default_error(field_id); field_value python:view.default_field_value(field_id);
+                            field_options python:view.field_building_type_options()">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@booking-form-field')(
+                                field_type='select',
+                                field_identifier=field_id,
+                                field_name=field_name,
+                                field_required=field_required,
+                                field_error=field_error,
+                                field_data=dict(value=field_value, css_class_modifier=['spacer', field_id]),
+                                widget_options=field_options
                                 )" />
                     </tal:field>
 

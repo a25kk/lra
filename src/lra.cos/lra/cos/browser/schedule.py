@@ -183,3 +183,12 @@ class BookAppointment(BrowserView):
             "slot_end": self.time_stamp(context, time_slot['slot_time_end'])
         })
         return time_slot
+
+    @staticmethod
+    def field_building_type_options():
+        options = {
+            "detached": _(u"Detached house"),
+            "semidetached": _(u"Semidetached house"),
+            "apartment": _(u"Apartment house"),
+        }
+        return options
