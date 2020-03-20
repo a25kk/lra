@@ -6,6 +6,7 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
 from lra.cos.appointments import ConsultationAppointment
+from lra.cos.config import BOOKING_FORM
 from lra.cos.interfaces import IConsultationSlotLocator, \
     IConsultationAppointmentGenerator, AppointmentGenerationError
 from plone import api
@@ -183,6 +184,10 @@ class BookAppointment(BrowserView):
             "slot_end": self.time_stamp(context, time_slot['slot_time_end'])
         })
         return time_slot
+
+    @staticmethod
+    def form_setup():
+        return BOOKING_FORM
 
     @staticmethod
     def field_building_type_options():

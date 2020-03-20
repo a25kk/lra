@@ -62,12 +62,23 @@
             <form class="o-form o-form--widget"
                   id="form-book-consultation-appointment"
                   method="post"
-                  tal:define="errors view/errors"
+                  tal:define="errors view/errors;form_content python:view.form_setup()"
                   tal:attributes="action request/URL">
 
                 <span tal:replace="structure context/@@authenticator/authenticator"/>
 
                 <input type="hidden" name="slot-identifier" id="slot-identifier" tal:attributes="value python:view.slot_identifier">
+
+                <tal:form tal:repeat="field_set form_content">
+                    <fieldset class="o-form__group o-form__group--personnel">
+                        <legend class="o-form__legend" tal:content="python:field_set['legend']">
+                            Fieldset legend
+                        </legend>
+                        <tal:fields tal:repeat="field python:field_set['fields']">
+                            <p tal:content="python: field['name']" />
+                        </tal:fields>
+                    </fieldset>
+                </tal:form>
 
                 <fieldset class="o-form__group o-form__group--personnel">
                     <legend class="o-form__legend" i18n:translate="">
