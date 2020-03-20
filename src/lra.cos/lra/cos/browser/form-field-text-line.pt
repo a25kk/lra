@@ -28,8 +28,4 @@
         </div>
     </tal:required>
 
-    <div class="o-form__help o-form__help--default">
-        <span tal:replace="settings">This field is required</span>
-    </div>
-
 </div>

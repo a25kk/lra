@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing package configuration"""
-from lra.cos import MessageFactory as _
+from lra.cos import _
 
 BOOKING_FORM = {
     'personnel': {
