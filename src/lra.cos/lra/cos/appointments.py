@@ -2,7 +2,7 @@
 """Module providing consultation appointment model"""
 from lra.cos.interfaces import IConsultationAppointmentLocator, \
     IConsultationAppointmentGenerator
-from sqlalchemy import Table
+from sqlalchemy import Table, func
 from sqlalchemy import schema as sqlalchemy_schema
 from sqlalchemy import types as sqlalchemy_types
 from z3c.saconfig import Session
@@ -11,6 +11,7 @@ from zope.interface import Interface, implementer
 
 from lra.cos import ORMBase
 from lra.cos import _
+from zope.sqlalchemy import register
 
 metadata = ORMBase.metadata
 
@@ -94,6 +95,7 @@ class ConsultationAppointment(ORMBase):
     consultationAppointmentTimeStamp = sqlalchemy_schema.Column(
         sqlalchemy_types.DateTime(),
         nullable=False,
+        server_default=func.now()
     )
 
     privacy_notice = sqlalchemy_schema.Column(
@@ -146,11 +148,11 @@ class ConsultationAppointmentLocator(object):
 
     @staticmethod
     def available_appointments(from_date):
-        """Return a list of all films showing at the particular cinema
-        between the specified dates.
+        """Return a list of all appointments for particular time slots
+        on the specified dates.
 
-        Returns a list of dictionaries with keys 'filmCode', 'url', 'title'
-        and 'summary'.
+        Returns a list of dictionaries with keys 'timeSlotCode', 'appointmentCode',
+        and 'email'.
         """
 
         results = Session.query(ConsultationAppointment).filter(
@@ -176,4 +178,6 @@ class ConsultationAppointmentGenerator(object):
 
         # Make sure the time slot is still available
         # TODO: check for data validity
-        Session.add(appointment_request)
+        session = Session()
+        register(session)
+        session().add(appointment_request)

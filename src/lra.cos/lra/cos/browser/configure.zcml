@@ -49,6 +49,16 @@
 
     <browser:page
             for="lra.cos.schedule.IConsultingSchedule"
+            name="book-appointment-success"
+            class="lra.cos.browser.schedule.BookAppointmentSuccess"
+            template="book-appointment-success.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <!-- Form fields and widgets -->
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
             name="booking-form-field"
             class="lra.cos.browser.form.FormFieldBase"
             permission="zope2.View"
