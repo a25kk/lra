@@ -77,8 +77,8 @@ class BookAppointment(BrowserView):
     def update(self):
         self.errors = dict()
         unwanted = ('_authenticator', 'form.button.Submit')
-        required = ('firstname', 'lastname', 'email', 'subject')
-        required_boolean = ('privacy-policy-agreement', 'privacy-policy')
+        required = self.form_fields_required_base()
+        required_boolean = self.form_fields_required_boolean()
         if 'form.button.Submit' in self.request:
             authenticator = getMultiAdapter((self.context, self.request),
                                             name=u"authenticator")
@@ -189,11 +189,26 @@ class BookAppointment(BrowserView):
     def form_setup():
         return BOOKING_FORM
 
-    @staticmethod
-    def field_building_type_options():
-        options = {
-            "detached": _(u"Detached house"),
-            "semidetached": _(u"Semidetached house"),
-            "apartment": _(u"Apartment house"),
-        }
-        return options
+    def form_fields_required(self):
+        required_fields = {}
+        for field_set in self.form_setup().values():
+            for field in field_set.get("fields", list()):
+                if field["required"]:
+                    required_fields.update({field["id"]: field["field_type"]})
+        return required_fields
+
+    def form_fields_required_boolean(self):
+        required = [
+            form_field
+            for form_field, field_type in self.form_fields_required().items()
+            if field_type in ["boolean", "privacy"]
+        ]
+        return required
+
+    def form_fields_required_base(self):
+        required = [
+            form_field
+            for form_field, field_type in self.form_fields_required().items()
+            if field_type not in ["boolean", "privacy"]
+        ]
+        return required

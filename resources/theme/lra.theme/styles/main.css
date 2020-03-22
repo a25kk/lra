@@ -14795,7 +14795,7 @@ input, button, select, textarea {
   transition: all 0.2s;
   background-color: transparent;
 }
-.app-field-required .o-form__control--checkbox + label {
+.o-form__field--required .o-form__control--checkbox + label {
   margin-right: 2rem;
 }
 

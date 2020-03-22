@@ -265,7 +265,7 @@ input, button, select, textarea {
         transition: all .2s;
         background-color: transparent;
     }
-    @include when-inside('.app-field-required') {
+    @include when-inside('.o-form__field--required') {
         margin-right: 2rem;
     }
 }

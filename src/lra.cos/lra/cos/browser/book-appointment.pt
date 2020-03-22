@@ -60,6 +60,7 @@
             <div class="c-alert c-alert--danger" tal:condition="python:view.errors">
                 <div class="app-alert__title" i18n:translate="">Form submission failed</div>
                 <p i18n:translate="">There have been errors submitting your form</p>
+                <pre tal:content="python:view.errors" />
             </div>
 
             <form class="o-form o-form--widget"
@@ -95,55 +96,6 @@
                         </tal:fields>
                     </fieldset>
                 </tal:form>
-
-                <fieldset class="o-form__group o-form__group--legal">
-                    <div class="form__group app-form-group app-field-privacy-policy"
-                             tal:define="error errors/privacy-policy | nothing;
-                            err_msg python:error and error['active'] == True;
-                            value request/privacy-policy | nothing"
-                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--privacy-policy o-form__field--required o-form__field--has-error' or 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--privacy-policy o-form__field--required'">
-
-                        <input type="checkbox" class="form__control form__control--checkbox" id="privacy-policy" name="privacy-policy">
-                        <label class="form__label" for="privacy-policy" i18n:translate="">
-                            By sending this message, I confirm that my details are correct and I agree to the collection and further processing of the provided data. The data will only be used for the purpose stated in your inquiry.
-                        </label>
-
-                        <div class="o-form__required-marker">
-                            <div class="o-form__required-marker-text">*</div>
-                        </div>
-
-                        <div class="o-form__help o-form__help--danger"
-                                 tal:condition="err_msg">
-                            <span i18n:translate="">This field is required</span>
-                        </div>
-
-
-                    </div><!-- /privacy notice field -->
-
-                    <div class="form__group app-form-group app-field-privacy-agreement"
-                             tal:define="error errors/privacy-policy-agreement | nothing;
-                            err_msg python:error and error['active'] == True;
-                            value request/privacy-policy-agreement | nothing"
-                             tal:attributes="class python:err_msg and 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--privacy-policy o-form__field--required o-form__field--has-error' or 'o-form__field o-form__field--spacer o-form__field--checkbox o-form__field--privacy-policy o-form__field--required'">
-
-                        <input type="checkbox" class="form__control form__control--checkbox" id="privacy-policy-agreement" name="privacy-policy-agreement">
-                        <label class="form__label" for="privacy-policy-agreement">
-                            <span i18n:translate="" tal:omit-tag="">I have acknowledged the</span>
-                            <a href="" tal:attributes="href python:context.portal_url() + '/rechtliche-hinweise'" i18n:translate="">privacy policy</a>
-                            <span i18n:translate="" tal:omit-tag="">and accept it.</span>
-                        </label>
-                        <div class="o-form__required-marker">
-                            <div class="o-form__required-marker-text">*</div>
-                        </div>
-
-                        <div class="o-form__help o-form__help--danger"
-                                 tal:condition="err_msg">
-                            <span i18n:translate="">This field is required</span>
-                        </div>
-
-                    </div><!-- /privacy policy agreement field -->
-                </fieldset>
-
 
                 <div class="o-form__actions">
                     <button class="c-button c-button--primary"
