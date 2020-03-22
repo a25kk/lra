@@ -46,11 +46,11 @@
             provides="lra.cos.interfaces.IConsultationSlotGenerator"/>
 
     <utility
-            factory="lra.cos.appointment.ConsultationAppointmentLocator"
+            factory="lra.cos.appointments.ConsultationAppointmentLocator"
             provides="lra.cos.interfaces.IConsultationAppointmentLocator"/>
 
     <utility
-            factory="lra.cos.appointment.ConsultationAppointmentGenerator"
+            factory="lra.cos.appointments.ConsultationAppointmentGenerator"
             provides="lra.cos.interfaces.IConsultationAppointmentGenerator"/>
 
 
