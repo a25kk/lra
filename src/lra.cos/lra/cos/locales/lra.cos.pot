@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-01-28 12:35+0000\n"
+"POT-Creation-Date: 2020-03-21 11:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,19 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: lra.cos\n"
+
+#: lra.cos/lra/cos/browser/form-field-select.pt:18
+msgid "-- select an option --"
+msgstr ""
+
+#: lra.cos/lra/cos/browser/schedule.py:197
+#: lra.cos/lra/cos/config.py:96
+msgid "Apartment house"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:102
+msgid "Apartments"
+msgstr ""
 
 #: lra.cos/lra/cos/schedule.py:81
 msgid "Available Weekdays"
@@ -29,20 +42,37 @@ msgstr ""
 msgid "Book"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:403
+#: lra.cos/lra/cos/browser/book-appointment.pt:149
 msgid "Book consultation slot"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:361
+#: lra.cos/lra/cos/config.py:89
+msgid "Building Type"
+msgstr ""
+
+#: lra.cos/lra/cos/browser/book-appointment.pt:107
+#: lra.cos/lra/cos/config.py:169
 msgid "By sending this message, I confirm that my details are correct and I agree to the collection and further processing of the provided data. The data will only be used for the purpose stated in your inquiry."
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:410
+#: lra.cos/lra/cos/browser/book-appointment.pt:156
 #: lra.cos/lra/cos/browser/manage-time-slots.pt:28
 msgid "Cancel"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/manager.py:126
+#: lra.cos/lra/cos/config.py:48
+msgid "City"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:159
+msgid "Comment"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:111
+msgid "Construction Year"
+msgstr ""
+
+#: lra.cos/lra/cos/browser/manager.py:127
 msgid "Consultation Date"
 msgstr ""
 
@@ -104,7 +134,7 @@ msgstr ""
 msgid "Consultation slot time"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/manager.py:156
+#: lra.cos/lra/cos/browser/manager.py:166
 msgid "Consultation time slots"
 msgstr ""
 
@@ -117,7 +147,7 @@ msgid "Cover Image Caption"
 msgstr ""
 
 #: lra.cos/lra/cos/browser/manage-time-slots.pt:50
-#: lra.cos/lra/cos/browser/manager.py:265
+#: lra.cos/lra/cos/browser/manager.py:278
 msgid "Create"
 msgstr ""
 
@@ -129,8 +159,21 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+#: lra.cos/lra/cos/browser/schedule.py:195
+#: lra.cos/lra/cos/config.py:94
+msgid "Detached house"
+msgstr ""
+
 #: lra.cos/lra/cos/schedule.py:30
 msgid "Details"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:66
+msgid "Email"
+msgstr ""
+
+#: lra.cos/lra/cos/browser/manager.py:148
+msgid "Enable automatic creation of time slots between the specified start and end days. When not activated slots will only be created for the specific consultation date."
 msgstr ""
 
 #: lra.cos/lra/cos/schedule.py:34
@@ -138,15 +181,47 @@ msgid "Extended information"
 msgstr ""
 
 #: lra.cos/lra/cos/browser/book-appointment.pt:58
+msgid "Fields marked with <code>*</code> are required."
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:12
+msgid "First name"
+msgstr ""
+
+#: lra.cos/lra/cos/browser/book-appointment.pt:61
 msgid "Form submission failed"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:385
+#: lra.cos/lra/cos/config.py:76
+msgid "How did you hear about us?"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:132
+msgid "How many people live permanently in the household?"
+msgstr ""
+
+#: lra.cos/lra/cos/browser/book-appointment.pt:131
 msgid "I have acknowledged the"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:184
+msgid "I have acknowledged the "
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:112
+msgid "In order to be able to prepare your personal consultation appointment in the best possible way, we need this information."
 msgstr ""
 
 #: lra.cos/lra/cos/consultationslots.py:38
 msgid "Is this slot still bookable?"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:21
+msgid "Last name"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:122
+msgid "Living Space"
 msgstr ""
 
 #: lra.cos/lra/cos/browser/manage-time-slots.pt:42
@@ -158,32 +233,40 @@ msgstr ""
 msgid "Media"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:276
-msgid "Non residential building"
+#: lra.cos/lra/cos/config.py:140
+msgid "Non Residential Building"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:73
-msgid "Personnel information"
+#: lra.cos/lra/cos/config.py:7
+msgid "Personnel Information"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/manager.py:127
+#: lra.cos/lra/cos/config.py:57
+msgid "Phone"
+msgstr ""
+
+#: lra.cos/lra/cos/browser/manager.py:128
 msgid "Please enter a date for consultations on schedule"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/manager.py:136
+#: lra.cos/lra/cos/browser/manager.py:137
 msgid "Please enter a future date for iterative creation"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:195
+#: lra.cos/lra/cos/config.py:84
 msgid "Please specify your booking request"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:315
-msgid "Please specify your main request or theme for the consultation"
+#: lra.cos/lra/cos/config.py:39
+msgid "Postcode"
 msgstr ""
 
 #: lra.cos/lra/cos/schedule.py:45
 msgid "Preview Image"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:182
+msgid "Privacy Agreement"
 msgstr ""
 
 #: lra.cos/lra/cos/appointments.py:38
@@ -194,12 +277,25 @@ msgstr ""
 msgid "Recipient E-Mail"
 msgstr ""
 
+#: lra.cos/lra/cos/config.py:75
+msgid "Recommendation"
+msgstr ""
+
 #: lra.cos/lra/cos/schedule.py:77
 msgid "Repetition Weekdays"
 msgstr ""
 
+#: lra.cos/lra/cos/config.py:131
+msgid "Residents"
+msgstr ""
+
 #: lra.cos/lra/cos/schedule.py:78
 msgid "Select one or more weekdays on which the entered time slots should be generated. Leave empty for daily."
+msgstr ""
+
+#: lra.cos/lra/cos/browser/schedule.py:196
+#: lra.cos/lra/cos/config.py:95
+msgid "Semidetached house"
 msgstr ""
 
 #: lra.cos/lra/cos/schedule.py:58
@@ -210,25 +306,29 @@ msgstr ""
 msgid "Short and highlighted teaser message"
 msgstr ""
 
+#: lra.cos/lra/cos/config.py:30
+msgid "Street"
+msgstr ""
+
 #: lra.cos/lra/cos/browser/create-time-slot.pt:37
 msgid "The available time slots configured for this instance of the tool are:"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/manager.py:262
+#: lra.cos/lra/cos/browser/manager.py:275
 msgid "The process has been cancelled."
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:59
+#: lra.cos/lra/cos/browser/book-appointment.pt:62
 msgid "There have been errors submitting your form"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/manager.py:158
+#: lra.cos/lra/cos/browser/manager.py:168
 msgid "There were errors."
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:286
-#: lra.cos/lra/cos/browser/form-field-text-area.pt:25
-#: lra.cos/lra/cos/browser/form-field-text-line.pt:25
+#: lra.cos/lra/cos/browser/book-appointment.pt:117
+#: lra.cos/lra/cos/browser/form-field-boolean.pt:24
+#: lra.cos/lra/cos/browser/form-field-privacy.pt:29
 msgid "This field is required"
 msgstr ""
 
@@ -240,7 +340,11 @@ msgstr ""
 msgid "Time Slot"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/manager.py:135
+#: lra.cos/lra/cos/browser/manager.py:147
+msgid "Time Slot Creation"
+msgstr ""
+
+#: lra.cos/lra/cos/browser/manager.py:136
 msgid "Time Slot Creation Until (Optional)"
 msgstr ""
 
@@ -260,19 +364,24 @@ msgstr ""
 msgid "Upload preview image that can be used in search results and listings."
 msgstr ""
 
+#: lra.cos/lra/cos/config.py:150
+msgid "Utilization"
+msgstr ""
+
+#: lra.cos/lra/cos/config.py:160
+msgid "Which topic is your main concern for a personal consultation?"
+msgstr ""
+
 #: lra.cos/lra/cos/browser/book-appointment.pt:21
 msgid "You have selected the following consultation time slot:"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:312
-msgid "Your specific request"
-msgstr ""
-
-#: lra.cos/lra/cos/browser/book-appointment.pt:387
+#: lra.cos/lra/cos/browser/book-appointment.pt:133
+#: lra.cos/lra/cos/config.py:187
 msgid "and accept it."
 msgstr ""
 
-#: lra.cos/lra/cos/browser/manager.py:260
+#: lra.cos/lra/cos/browser/manager.py:273
 msgid "cancel"
 msgstr ""
 
@@ -280,7 +389,8 @@ msgstr ""
 msgid "on"
 msgstr ""
 
-#: lra.cos/lra/cos/browser/book-appointment.pt:386
+#: lra.cos/lra/cos/browser/book-appointment.pt:132
+#: lra.cos/lra/cos/config.py:185
 msgid "privacy policy"
 msgstr ""
 

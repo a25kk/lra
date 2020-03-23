@@ -1,18 +1,18 @@
 <div class="o-form__field o-form__field--identifier"
          tal:define="settings python:view.settings();
-                    error python:settings['field_error'];
-                    field_has_error python:error and error['active'] == True;
-                    value python:settings['field_data']['value']"
+        error python:settings['field_error'];
+        field_has_error python:error and error['active'] == True;
+        value python:settings['field_data']['value']"
          tal:attributes="class python:settings['field_css_class']"
-    i18n:domain="lra.cos">
+         i18n:domain="lra.cos">
+
+    <input class="o-form__control o-form__control--checkbox" id="identifier" name="identifier"
+           type="checkbox"
+             tal:attributes="id python:settings['field_identifier'];name python:settings['field_identifier'];value python:value">
 
     <label tal:attributes="for python:settings['field_identifier']"
-            tal:content="python:settings['field_name']"
-            i18n:translate="">Field Name</label>
-
-    <input class="app-form-control" id="identifier" name="identifier"
-           type="text"
-            tal:attributes="id python:settings['field_identifier'];name python:settings['field_identifier'];value python:value">
+             tal:content="python:settings['field_name']"
+             i18n:translate="">Field Name</label>
 
     <tal:required tal:condition="python:settings['field_required']">
         <div class="o-form__required-marker">
