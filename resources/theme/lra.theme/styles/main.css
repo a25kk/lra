@@ -21383,7 +21383,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 @media (min-width: 576px) {
   .app-intro-wrapper .app-intro-button {
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
   }
 }
 .app-intro-wrapper .app-intro-button .app-intro-btn {
