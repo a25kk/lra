@@ -14583,7 +14583,7 @@ input, button, select, textarea {
   transition: color 0.2s ease;
 }
 .o-form__field--checkbox .o-form__required-marker {
-  top: 0;
+  top: -0.75rem;
 }
 
 .o-form__required-marker:after {
@@ -14795,7 +14795,7 @@ input, button, select, textarea {
   transition: all 0.2s;
   background-color: transparent;
 }
-.app-field-required .o-form__control--checkbox + label {
+.o-form__field--required .o-form__control--checkbox + label {
   margin-right: 2rem;
 }
 
