@@ -13229,39 +13229,9 @@ table tbody + tbody,
 .o-page {
   display: block;
   position: relative;
-  padding-right: calc(1rem * 1.5);
-  padding-left: calc(1rem * 1.5);
+  padding: calc(1rem * 1.5);
   width: 100%;
-}
-@media (min-width: 62em) {
-  .o-page {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 62em) and (min-width: 576px) {
-  body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-    max-width: 540px;
-  }
-}
-@media (min-width: 62em) and (min-width: 768px) {
-  body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-    max-width: 720px;
-  }
-}
-@media (min-width: 62em) and (min-width: 992px) {
-  body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-    max-width: 960px;
-  }
-}
-@media (min-width: 62em) and (min-width: 1200px) {
-  body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-    max-width: 1140px;
-  }
+  background-color: #edeaea;
 }
 body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-right: auto;
@@ -20902,10 +20872,6 @@ c-list--bordered .c-list__item:last-of-type {
   padding: 1rem 0;
 }
 
-.app-content {
-  background: #edeaea;
-  padding: 1rem;
-}
 .app-content:only-child {
   height: 100%;
 }
@@ -21140,7 +21106,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 @media (min-width: 576px) {
   .app-contact-viewlet-elements {
-    padding-left: 1rem;
+    margin-right: -1rem;
   }
 }
 
@@ -21174,7 +21140,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .app-contact-element address {
-  margin: 0;
+  margin: 0 0 auto;
 }
 
 .app-contact-element-aside {
@@ -21186,11 +21152,21 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .app-contact-element-main {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 1rem;
   background-color: #edeaea;
   margin-left: 0rem;
   margin-right: 1rem;
   margin-top: 1rem;
+  min-height: 290px;
 }
 
 .app-contact-element-title {
