@@ -6,6 +6,8 @@ import json
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from ade25.base.interfaces import IContentInfoProvider
+from ade25.base.mailer import send_mail, prepare_email_message, \
+    create_plaintext_message, get_mail_template
 from ade25.base.utils import encrypt_data_stream
 from plone import api
 from Products.CMFPlone.utils import safe_unicode
@@ -154,6 +156,63 @@ class BookAppointment(BrowserView):
     def default_field_value(self, field_name):
         return getattr(self.request, field_name, None)
 
+    @staticmethod
+    def _compose_message(data, template_name):
+        portal = api.portal.get()
+        portal_url = portal.absolute_url()
+        template_vars = {
+            'email': data['email'],
+            'subject': str(data['subject']),
+            'message': data['comment'],
+            'url': portal_url
+        }
+        template_name = template_name
+        message = get_mail_template(template_name, template_vars)
+        return message
+
+    def prepare_booking_request(self, form_data):
+        booking_request = dict()
+        form_fields = self.form_fields()
+        for field_id, field_details in form_fields.items():
+            field_name = field_details.get("name")
+            field_name_key = "{0}_title".format(field_name)
+            booking_request.update({
+                field_id: form_data.get(field_id, ""),
+                field_name_key: field_name
+            })
+        return booking_request
+
+    def send_confirmation_mail(self, mail_to, subject, form_data, template_name):
+        email_subject = api.portal.translate(
+            "Inquiry from website visitor",
+            'ade25.contacts',
+            api.portal.get_current_language())
+        mail_tpl = self._compose_message(form_data, template_name)
+        mail_plain = create_plaintext_message(mail_tpl)
+        msg = prepare_email_message(mail_tpl, mail_plain)
+        recipients = [mail_to, ]
+        send_mail(
+            msg,
+            recipients,
+            subject
+        )
+        return
+
+    def send_confirmation(self, form_data, appointment):
+        context = aq_inner(self.context)
+        email_from = api.portal.get_registry_record("plone.email_from_address")
+        email_from_name = api.portal.get_registry_record("plone.email_from_name")
+        contact_email = getattr(context, "contact_email", email_from)
+        mail_to = form_data.get("email")
+        mail_content = {
+            "sender_name": email_from_name,
+            "sender_email": contact_email,
+            "appointment_code": appointment.get("consultationAppointmentCode")
+        }
+        mail_content.update(self.requested_time_slot())
+        mail_content.update(self.prepare_booking_request(form_data))
+        return
+
     def prepare_appointment_data(self, data):
         appointment = {
             "consultationAppointmentCode": secrets.token_urlsafe(64),
@@ -182,6 +241,7 @@ class BookAppointment(BrowserView):
                 self.request,
                 type="error"
             )
+        self.send_confirmation(data, appointment)
         next_url = '{0}/@@book-appointment-success/{1}'.format(
             context.absolute_url(),
             appointment.get("consultationAppointmentCode")
@@ -207,6 +267,17 @@ class BookAppointment(BrowserView):
     @staticmethod
     def form_setup():
         return BOOKING_FORM
+
+    def form_fields(self):
+        fields = dict()
+        for field_set in self.form_setup().values():
+            for field in field_set.get("fields", list()):
+                field_id = field.get("id")
+                field.pop("id")
+                fields.update({
+                    field_id: field
+                })
+        return fields
 
     def form_fields_required(self):
         required_fields = {}

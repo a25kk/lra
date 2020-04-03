@@ -1,22 +1,9 @@
 .o-page {
     display: block;
     position: relative;
-    padding-right: $app-spacer-base;
-    padding-left: $app-spacer-base;
+    padding: $app-spacer-base;
     width: 100%;
-    @include mq($from: lg) {
-        padding-right: 0;
-        padding-left: 0;
-    }
-    @include when-inside('body:not(.portaltype-hph-sitecontent-mainsection)') {
-        &:not(.o-page--panels) {
-            margin-right: auto;
-            margin-left: auto;
-            @include mq($from: lg) {
-                @include make-container-max-widths();
-            }
-        }
-    }
+    background-color: $app-gray;
     @include when-inside('body:not(.portaltype-ade25-panelpage-page)') {
         &:not(.o-page--panels) {
             margin-right: auto;
