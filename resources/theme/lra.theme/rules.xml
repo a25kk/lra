@@ -319,9 +319,12 @@
         </replace>
 
         <!-- Support contact card viewlet -->
-        <after css:theme="#content"
-               css:content="#app-contact-viewlet-elements"
-               css:if-content="#app-contact-viewlet-elements" />
+        <rules css:if-not-content=".template-inquiry-form">
+            <after css:theme="#content"
+                   css:content="#app-contact-viewlet-elements"
+                   css:if-content="#app-contact-viewlet-elements" />
+        </rules>
+
 
         <!-- Alert and portal messages -->
         <strip css:content=".portalMessage dd"/>
@@ -640,9 +643,6 @@
                 />
             </rules>
             <rules css:if-content="#portal-column-one, #portal-column-two">
-                <before css:theme-children="#content" method="raw">
-                    <xsl:attribute name="class">app-main app-main--grid</xsl:attribute>
-                </before>
                 <replace css:content-children="#portal-column-one > *"
                          css:theme-children="#app-sidebar" />
                 <replace css:content-children="#portal-column-two > *"
@@ -652,8 +652,6 @@
                 />
             </rules>
         </rules>
-
-        Zusätzliche Arbeiten nach Aufbrauchen des vereinbarten Kontingents
 
         <!-- Contact cards -->
         <after css:theme-children="#app-sidebar"
