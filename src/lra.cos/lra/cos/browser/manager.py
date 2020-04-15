@@ -239,7 +239,8 @@ class TimeSlotAddForm(AutoExtensibleForm, form.Form):
             cycle_end = data["time_slots_until"]
         else:
             cycle_end = cycle_date
-        step = datetime.timedelta(month=1)
+        #step = datetime.timedelta(weeks=4)
+        step = relativedelta(month=1)
         days_in_cycle = list()
         while cycle_date <= cycle_end:
             days_in_cycle.append(cycle_date)
