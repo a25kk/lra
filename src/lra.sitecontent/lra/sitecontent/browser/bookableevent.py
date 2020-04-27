@@ -10,10 +10,10 @@ from plone import api
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 
-from lra.sitecontent.mailer import create_plaintext_message
-from lra.sitecontent.mailer import prepare_email_message
-from lra.sitecontent.mailer import get_mail_template
-from lra.sitecontent.mailer import send_mail
+from ade25.base.mailer import create_plaintext_message
+from ade25.base.mailer import prepare_email_message
+from ade25.base.mailer import get_mail_template
+from ade25.base.mailer import send_mail
 
 from lra.sitecontent.interfaces import IResponsiveImagesTool
 
