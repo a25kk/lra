@@ -4,7 +4,7 @@ import logging
 
 from zope.globalrequest import getRequest
 from plone import api
-from plone.app.upgrade.utils import cleanUpSkinsTool
+from plone.app.upgrade.utils import cleanUpSkinsTool, loadMigrationProfile
 
 default_profile = 'profile-lra.sitecontent:default'
 log = logging.getLogger(__name__)
@@ -130,6 +130,14 @@ def remove_archetypes_traces(context=None):
                 log.info('Deleted {}'.format(tool))
             except Exception as e:
                 log.info(u'Another problem removing {}: {}'.format(tool, e))
+    # reapply uninstall to get rid of IATCTTool component
+    try:
+        loadMigrationProfile(
+            context,
+            'profile-Products.ATContentTypes:uninstall',
+        )
+    except KeyError:
+        pass
 
 
 def pack_database(context=None):
