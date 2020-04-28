@@ -11,18 +11,39 @@
    ## Installation
    
    This buildout is intended to be used via the development profile to provide
-   a ready to work on setup. The relevant steps to get started with a new
-   development environment would be:
+   a ready to work on setup. To get started with a new development environment
+   clone the buildout to your local machine and initialize the buildout:
    
 
 Setup python mysql
 
    
    ``` bash
-   $ virtualenv-2.7 lra
+   $ git clone git@git.team23.de/a25kk/lra.git
    $ cd ./lra
-   $ git clone git@github.com:username/lra.git buildout.lra
-   $ cd ./buildout.lra
-   $ python bootstrap.py -c development.cfg
-   $ bin/buildout -Nc development.cfg
+   $ b5 install
    ```
+   
+   We use the globally installed task runner `b5` for the project. The buildout is intended to be used with a docker setup that mirrors the production environment. Therefore the build requires a local docker and traefik installation.
+   
+   Alternatively you can use the provided installation script
+   
+   ```bash
+   chmod 777 ./bootstrap.sh
+   ./bootstrap.sh -c development.cfg
+   ```
+
+### Compatibility with OSX mariadb setup
+
+```bash
+brew unlink mariadb
+
+brew install mariadb-connector-c
+ln -s /usr/local/opt/mariadb-connector-c/bin/mariadb_config /usr/local/bin/mysql_config
+
+pip install mysqlclient
+
+rm /usr/local/bin/mysql_config
+brew unlink mariadb-connector-c
+brew link mariadb
+```
