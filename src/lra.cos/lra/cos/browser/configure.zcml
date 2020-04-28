@@ -1,0 +1,113 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:z3c="http://namespaces.zope.org/z3c"
+        i18n_domain="lra.cos">
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="consulting-schedule"
+            class="lra.cos.browser.schedule.ConsultingScheduleView"
+            template="schedule.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="manage-time-slots"
+            class="lra.cos.browser.manager.ManageTimeSlots"
+            template="manage-time-slots.pt"
+            permission="cmf.ModifyPortalContent"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="create-time-slot-form"
+            class="lra.cos.browser.manager.TimeSlotAddForm"
+            permission="cmf.ModifyPortalContent"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="create-time-slot"
+            class="lra.cos.browser.manager.TimeSlotAdd"
+            template="create-time-slot.pt"
+            permission="cmf.ModifyPortalContent"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <!-- Booking form and form partials -->
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="book-appointment"
+            class="lra.cos.browser.schedule.BookAppointment"
+            template="book-appointment.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="book-appointment-success"
+            class="lra.cos.browser.schedule.BookAppointmentSuccess"
+            template="book-appointment-success.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <!-- Form fields and widgets -->
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="booking-form-field"
+            class="lra.cos.browser.form.FormFieldBase"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="booking-form-field-text-line"
+            class="lra.cos.browser.form.FormFieldTextLine"
+            template="form-field-text-line.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="booking-form-field-text-area"
+            class="lra.cos.browser.form.FormFieldTextArea"
+            template="form-field-text-area.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="booking-form-field-select"
+            class="lra.cos.browser.form.FormFieldSelect"
+            template="form-field-select.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="booking-form-field-boolean"
+            class="lra.cos.browser.form.FormFieldBoolean"
+            template="form-field-boolean.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+    <browser:page
+            for="lra.cos.schedule.IConsultingSchedule"
+            name="booking-form-field-privacy"
+            class="lra.cos.browser.form.FormFieldPrivacy"
+            template="form-field-privacy.pt"
+            permission="zope2.View"
+            layer="lra.cos.interfaces.ILRAConsultingOnSchedule"
+    />
+
+</configure>

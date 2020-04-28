@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # b5 Taskfile, see https://git.team23.de/build/b5 for details
 SITE_THEME="${CONFIG_paths_site_theme:-'I have no theme configuration'}"
+GULP_LOCATION="${CONFIG_paths_gulp_location:-'I have no gulp location'}"
+
+task:setup() {
+    cp ${SITE_THEME}/package.json ${GULP_LOCATION}
+}
 
 task:install() {
-    cd .. && chmod 775 ./bootstrap.sh && ./bootstrap.sh
+    cd .. && chmod 775 ./bootstrap.sh && ./bootstrap.sh -c development.cfg
     virtualenv:install
     docker:install
     docker:command:npm install
@@ -11,7 +16,7 @@ task:install() {
 }
 
 task:install:theme() {
-    # npm:install
+    task:setup
     docker:command:npm install
 }
 
@@ -89,6 +94,14 @@ task:watch() {
     virtualenv:run fab watch
 }
 
+######################################################
+##### Theme build
+######################################################
+
+task:theme:setup() {
+    template:render --overwrite ask-if-older templates/config.json.jinja2 ${GULP_LOCATION}/config.json
+}
+
 task:theme:html() {
     docker:command:jekyll build
 }
@@ -103,6 +116,15 @@ task:theme:js() {
 
 task:theme:assets() {
     docker:command:gulp collect
+}
+
+task:theme:sprite() {
+    docker:command:gulp sprite:collect
+}
+
+task:theme:build() {
+    docker:command:jekyll build -q
+    docker:command:gulp styles
 }
 
 task:theme:dist() {
@@ -133,6 +155,10 @@ task:halt() {
 
 task:shell() {
     docker:container_run web /bin/bash --login
+}
+
+task:shell:db() {
+    docker:container_run db /bin/bash --login
 }
 
 task:db:download() {
