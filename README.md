@@ -14,6 +14,10 @@
    a ready to work on setup. The relevant steps to get started with a new
    development environment would be:
    
+
+Setup python mysql
+
+   
    ``` bash
    $ virtualenv-2.7 lra
    $ cd ./lra
