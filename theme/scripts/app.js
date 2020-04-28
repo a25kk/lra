@@ -1,4 +1,5 @@
 requirejs(['require',
+        '/scripts/svg4everybody.js',
         '/scripts/flickity.pkgd.js',
         '/scripts/fontfaceobserver.js',
         '/scripts/respimage.js',
@@ -12,6 +13,17 @@ requirejs(['require',
         font.load().then(function () {
             document.documentElement.className += " app-fonts--loaded";
         });
+
+        // SVG Sprite polyfill
+        svg4everybody();
+
+        // Choices select
+        let choicesSelector = document.querySelector('.js-choices-selector');
+        if (choicesSelector !== null) {
+            const choices = new Choices('.js-choices-selector', {
+                itemSelectText: 'auswählen',
+            });
+        }
 
         // Static navigation drawer
         var navBarIsActive = false;

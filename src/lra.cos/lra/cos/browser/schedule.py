@@ -1,18 +1,27 @@
 # -*- coding: utf-8 -*-
 """Module providing views for consulting schedules """
+import secrets
+import json
+
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
+from ade25.base.interfaces import IContentInfoProvider
+from ade25.base.mailer import send_mail, prepare_email_message, \
+    create_plaintext_message, get_mail_template
+from ade25.base.utils import encrypt_data_stream
+from plone import api
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
-from ade25.base.interfaces import IContentInfoProvider
-from lra.cos.appointments import ConsultationAppointment
-from lra.cos.interfaces import IConsultationSlotLocator, \
-    IConsultationAppointmentGenerator, AppointmentGenerationError
-from plone import api
 from zExceptions import NotFound
 from zope.component import getMultiAdapter, getUtility
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
+
+from lra.cos.appointments import ConsultationAppointment
+from lra.cos.config import BOOKING_FORM
+from lra.cos.interfaces import (AppointmentGenerationError,
+                                IConsultationAppointmentGenerator,
+                                IConsultationSlotLocator)
 
 from lra.cos import _
 
@@ -76,8 +85,8 @@ class BookAppointment(BrowserView):
     def update(self):
         self.errors = dict()
         unwanted = ('_authenticator', 'form.button.Submit')
-        required = ('firstname', 'lastname', 'email', 'subject')
-        required_boolean = ('privacy-policy-agreement', 'privacy-policy')
+        required = self.form_fields_required_base()
+        required_boolean = self.form_fields_required_boolean()
         if 'form.button.Submit' in self.request:
             authenticator = getMultiAdapter((self.context, self.request),
                                             name=u"authenticator")
@@ -147,9 +156,78 @@ class BookAppointment(BrowserView):
     def default_field_value(self, field_name):
         return getattr(self.request, field_name, None)
 
+    @staticmethod
+    def _compose_message(data, template_name):
+        portal = api.portal.get()
+        portal_url = portal.absolute_url()
+        template_vars = {
+            'email': data['email'],
+            'subject': str(data['subject']),
+            'message': data['comment'],
+            'url': portal_url
+        }
+        template_name = template_name
+        message = get_mail_template(template_name, template_vars)
+        return message
+
+    def prepare_booking_request(self, form_data):
+        booking_request = dict()
+        form_fields = self.form_fields()
+        for field_id, field_details in form_fields.items():
+            field_name = field_details.get("name")
+            field_name_key = "{0}_title".format(field_name)
+            booking_request.update({
+                field_id: form_data.get(field_id, ""),
+                field_name_key: field_name
+            })
+        return booking_request
+
+    def send_confirmation_mail(self, mail_to, subject, form_data, template_name):
+        email_subject = api.portal.translate(
+            "Inquiry from website visitor",
+            'ade25.contacts',
+            api.portal.get_current_language())
+        mail_tpl = self._compose_message(form_data, template_name)
+        mail_plain = create_plaintext_message(mail_tpl)
+        msg = prepare_email_message(mail_tpl, mail_plain)
+        recipients = [mail_to, ]
+        send_mail(
+            msg,
+            recipients,
+            subject
+        )
+        return
+
+    def send_confirmation(self, form_data, appointment):
+        context = aq_inner(self.context)
+        email_from = api.portal.get_registry_record("plone.email_from_address")
+        email_from_name = api.portal.get_registry_record("plone.email_from_name")
+        contact_email = getattr(context, "contact_email", email_from)
+        mail_to = form_data.get("email")
+        mail_content = {
+            "sender_name": email_from_name,
+            "sender_email": contact_email,
+            "appointment_code": appointment.get("consultationAppointmentCode")
+        }
+        mail_content.update(self.requested_time_slot())
+        mail_content.update(self.prepare_booking_request(form_data))
+        return
+
     def prepare_appointment_data(self, data):
+        appointment = {
+            "consultationAppointmentCode": secrets.token_urlsafe(64),
+            "consultationAppointmentConstructionYear": data.get("construction_year"),
+            "consultationAppointmentContactEmail": data.get("email"),
+            "consultationAppointmentContactFirstName": data.get("first_name"),
+            "consultationAppointmentContactLastName": data.get("last_name"),
+            "consultationAppointmentContactSalutation": "",
+            "consultationAppointmentRequest": encrypt_data_stream(json.dumps(data)),
+            "consultationSlotCode": self.slot_identifier,
+            "data_protection_notice": True,
+            "privacy_notice": True
+        }
         import pdb; pdb.set_trace()
-        return data
+        return appointment
 
     def book_consultation_slot(self, data):
         context = aq_inner(self.context)
@@ -163,8 +241,10 @@ class BookAppointment(BrowserView):
                 self.request,
                 type="error"
             )
-        next_url = '{0}/@@appointment-booking'.format(
-            context.absolute_url()
+        self.send_confirmation(data, appointment)
+        next_url = '{0}/@@book-appointment-success/{1}'.format(
+            context.absolute_url(),
+            appointment.get("consultationAppointmentCode")
         )
         return self.request.response.redirect(next_url)
 
@@ -183,3 +263,58 @@ class BookAppointment(BrowserView):
             "slot_end": self.time_stamp(context, time_slot['slot_time_end'])
         })
         return time_slot
+
+    @staticmethod
+    def form_setup():
+        return BOOKING_FORM
+
+    def form_fields(self):
+        fields = dict()
+        for field_set in self.form_setup().values():
+            for field in field_set.get("fields", list()):
+                field_id = field.get("id")
+                field.pop("id")
+                fields.update({
+                    field_id: field
+                })
+        return fields
+
+    def form_fields_required(self):
+        required_fields = {}
+        for field_set in self.form_setup().values():
+            for field in field_set.get("fields", list()):
+                if field["required"]:
+                    required_fields.update({field["id"]: field["field_type"]})
+        return required_fields
+
+    def form_fields_required_boolean(self):
+        required = [
+            form_field
+            for form_field, field_type in self.form_fields_required().items()
+            if field_type in ["boolean", "privacy"]
+        ]
+        return required
+
+    def form_fields_required_base(self):
+        required = [
+            form_field
+            for form_field, field_type in self.form_fields_required().items()
+            if field_type not in ["boolean", "privacy"]
+        ]
+        return required
+
+
+@implementer(IPublishTraverse)
+class BookAppointmentSuccess(BrowserView):
+
+    appointment_identifier = None
+
+    def publishTraverse(self, request, name):
+        """When traversing to .../@@book-appointment-success/appointment-code,
+        extract the necessary information and provide appropriate user feedback.
+        """
+        if self.appointment_identifier is None:
+            self.appointment_identifier = name
+            return self
+        else:
+            raise NotFound()
