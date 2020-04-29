@@ -88,8 +88,8 @@
                 background-color: #34495e !important;
             }
             .btn-primary a:hover {
-                background-color: #34495e !important;
-                border-color: #34495e !important;
+                background-color: #404040 !important;
+                border-color: #404040 !important;
             }
         }
     </style>
@@ -111,8 +111,73 @@
                             <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                                 <tr>
                                     <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there,</p>
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
+                                            Hallo ,</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Sie erhalten diese E-Mail, weil Sie sich unter
+                                            <br><br>
+                                                ${form_url}}
+                                            <br><br>
+                                            für einen Termin eingetragen haben.<br><br>
+                                        Hiermit bestätigen wir Ihnen den Eingang Ihrer Terminanfrage. Folgender Beratungstermin wurde für Sie vorgemerkt:
+                                        </p>
+
+                                        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
+                                            <tr>
+                                                <td align="left">
+                                                    <b>${appointment_date}</b>
+                                                </td>
+                                                <td>${appointment_time_slot} Uhr</td>
+                                            </tr>
+                                        </table>
+                                        <br><br>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
+                                            Als Hauptanliegen für Ihren persönlichen Beratungstermin wurde an uns übermittelt:<br><br>
+                                            <em>${comment}</em>
+                                        </p>
+
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
+                                            Da Sie unsere <a href="https://lra-aic-fdb.de/rechtliche-hinweise">Hinweise zur Datenverarbeitung und zum Datenschutz</a> gelesen und akzeptiert haben, wurden folgende zur Bearbeitung Ihrer Anfrage notwendigen Daten mit Ihrer Terminreservierung gespeichert:
+                                        </p>
+
+                                        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
+                                            <tr>
+                                                <td align="left">
+                                                    <b>${first_name--title}:</b>
+                                                </td>
+                                                <td>${first_name}</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    <b>${last_name--title}:</b>
+                                                </td>
+                                                <td>${last_name}</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    <b>${email--title}:</b>
+                                                </td>
+                                                <td>${email}</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    <b>${phone--title}:</b>
+                                                </td>
+                                                <td>${phone}</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    <b>${construction_year--title}:</b>
+                                                </td>
+                                                <td>${construction_year}</td>
+                                            </tr>
+                                        </table>
+                                        <br><br>
+
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
+                                            Weitere Informationen zu Ihrem persönlicher Beratungstermin erhalten Sie unter der Termin ID:<br>
+                                            ${appointment_code}
+                                        </p>
+
                                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
                                             <tbody>
                                             <tr>
@@ -120,7 +185,7 @@
                                                     <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
                                                         <tbody>
                                                         <tr>
-                                                            <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #3498db; border-radius: 5px; text-align: center;"> <a href="http://htmlemail.io" target="_blank" style="display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;">Call To Action</a> </td>
+                                                            <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #3498db; border-radius: 5px; text-align: center;"> <a href="${appointment_url}" target="_blank" style="display: inline-block; color: #ffffff; background-color: #404040; border: solid 1px #404040; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; border-color: #404040;">Informationen zu Ihrem Beratungstermin abrufen</a> </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -128,8 +193,8 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.</p>
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Good luck! Hope it works.</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Vielen Dank für Ihr Interesse an unseren Dienstleistungen. Sollten Sie weitere Fragen oder Wünsche haben, können Sie sich jederzeit an uns wenden</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Ihr Landratsamt Aichach-Friedbarg</p>
                                     </td>
                                 </tr>
                             </table>
@@ -144,13 +209,8 @@
                     <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                         <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
-                                <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">Unsubscribe</a>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                Powered by <a href="http://htmlemail.io" style="color: #999999; font-size: 12px; text-align: center; text-decoration: none;">HTMLemail</a>.
+                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Landratsamt Aichach-Friedberg, Münchener Str. 9, 86551 Aichach</span>
+                                <br><a href="https://lra-aic-fdb.de/" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">https://lra-aic-fdb.de/</a>.
                             </td>
                         </tr>
                     </table>

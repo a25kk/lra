@@ -130,6 +130,13 @@ class BookAppointment(BrowserView):
             raise NotFound()
 
     @staticmethod
+    def translate_value(token):
+        return api.portal.translate(
+            token,
+            'lra.cos',
+            api.portal.get_current_language())
+
+    @staticmethod
     def default_value(error):
         value = ''
         if error['active'] is True:
@@ -175,17 +182,17 @@ class BookAppointment(BrowserView):
         form_fields = self.form_fields()
         for field_id, field_details in form_fields.items():
             field_name = field_details.get("name")
-            field_name_key = "{0}_title".format(field_name)
+            field_name_key = "{0}--title".format(field_id)
             booking_request.update({
                 field_id: form_data.get(field_id, ""),
-                field_name_key: field_name
+                field_name_key: self.translate_value(field_name)
             })
         return booking_request
 
     def send_confirmation_mail(self, mail_to, subject, form_data, template_name):
         email_subject = api.portal.translate(
-            "Inquiry from website visitor",
-            'ade25.contacts',
+            "Consulting on schedule: time slot appointment requested",
+            'lra.cos',
             api.portal.get_current_language())
         mail_tpl = self._compose_message(form_data, template_name)
         mail_plain = create_plaintext_message(mail_tpl)
@@ -207,10 +214,13 @@ class BookAppointment(BrowserView):
         mail_content = {
             "sender_name": email_from_name,
             "sender_email": contact_email,
-            "appointment_code": appointment.get("consultationAppointmentCode")
+            "appointment_code": appointment.get("consultationAppointmentCode"),
+            "appointment_date": form_data.get("slot-date"),
+            "appointment_time_slot": form_data.get("slot-time")
         }
-        mail_content.update(self.requested_time_slot())
+        # mail_content.update(self.requested_time_slot())
         mail_content.update(self.prepare_booking_request(form_data))
+        import pdb; pdb.set_trace()
         return
 
     def prepare_appointment_data(self, data):
@@ -221,12 +231,12 @@ class BookAppointment(BrowserView):
             "consultationAppointmentContactFirstName": data.get("first_name"),
             "consultationAppointmentContactLastName": data.get("last_name"),
             "consultationAppointmentContactSalutation": "",
-            "consultationAppointmentRequest": encrypt_data_stream(json.dumps(data)),
+            "consultationAppointmentRequest": encrypt_data_stream(
+                json.dumps(data, ensure_ascii=False).encode('gbk')),
             "consultationSlotCode": self.slot_identifier,
             "data_protection_notice": True,
             "privacy_notice": True
         }
-        import pdb; pdb.set_trace()
         return appointment
 
     def book_consultation_slot(self, data):
@@ -234,7 +244,8 @@ class BookAppointment(BrowserView):
         generator = getUtility(IConsultationAppointmentGenerator)
         appointment = self.prepare_appointment_data(data)
         try:
-            generator(appointment)
+            consultation_appointment = ConsultationAppointment(**appointment)
+            generator(consultation_appointment)
         except AppointmentGenerationError as error:
             api.portal.show_message(
                 str(error),
@@ -302,6 +313,23 @@ class BookAppointment(BrowserView):
             if field_type not in ["boolean", "privacy"]
         ]
         return required
+
+    def form_field_time_slot(self, time_only=False):
+        time_slot = self.requested_time_slot()
+        slot_start = time_slot.get("slot_start")
+        slot_end = time_slot.get("slot_end")
+        if time_only:
+            field_value = "{start} - {end}".format(
+                start=slot_start["time"],
+                end=slot_end["time"],
+            )
+        else:
+            field_value = "{day}. {month_name} {year}".format(
+                day=slot_start["day"],
+                month_name=slot_start["month_name"],
+                year=slot_start["year"]
+            )
+        return field_value
 
 
 @implementer(IPublishTraverse)

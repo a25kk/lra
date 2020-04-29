@@ -5,11 +5,11 @@ from lra.cos.interfaces import IConsultationAppointmentLocator, \
 from sqlalchemy import Table, func
 from sqlalchemy import schema as sqlalchemy_schema
 from sqlalchemy import types as sqlalchemy_types
-from z3c.saconfig import Session
 from zope import schema
 from zope.interface import Interface, implementer
 
 from lra.cos import ORMBase
+from lra.cos import Session
 from lra.cos import _
 from zope.sqlalchemy import register
 
@@ -180,4 +180,4 @@ class ConsultationAppointmentGenerator(object):
         # TODO: check for data validity
         session = Session()
         register(session)
-        session().add(appointment_request)
+        session.add(appointment_request)

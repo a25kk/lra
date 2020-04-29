@@ -90,7 +90,7 @@ class ConsultationSlotLocator(object):
         'slot_time', 'slot_time_end' and 'slot_bookable'.
         """
         session = Session()
-        results = session().query(ConsultationSlot).filter(
+        results = session.query(ConsultationSlot).filter(
             ConsultationSlot.consultationSlotTime.__gt__(from_date)
         ).order_by(ConsultationSlot.consultationSlotTime)
         slots = [dict(slot_id=row.consultationSlotId,
@@ -106,7 +106,7 @@ class ConsultationSlotLocator(object):
     def time_slot(slot_code):
         time_slot = None
         session = Session()
-        result = session().query(ConsultationSlot).filter(
+        result = session.query(ConsultationSlot).filter(
             ConsultationSlot.consultationSlotCode == slot_code
         ).first()
         if result:
@@ -132,4 +132,4 @@ class ConsultationSlotGenerator(object):
         # TODO: check for data validity
         session = Session()
         register(session)
-        session().add(time_slot)
+        session.add(time_slot)
