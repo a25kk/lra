@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="lra.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="app-landing-page" id="app-landing-page">
+            <div class="app-page app-page-signin">
+                <div class="app-page-header">
+                    <div class="app-page-title">
+                        <h1 class="app-page-headline">Wir verstehen uns als modernes Dienstleistungsunternehmen zum Wohle seiner Kunden.</h1>
+                    </div>
+                </div>
+                <div class="app-page-body">
+                    <p>Sie wissen genau, wonach Sie suchen? Dann geben Sie einfach Ihren Suchbegriff in das obige Suchfeld ein. Wenn Sie sich einen Überblick über das Landratsamt Aichach-Friedberg machen möchten, navigieren Sie direkt <a href="${context/portal_url}/startseite">“zur Webseite”</a>. Möchten Sie uns besuchen? Dann haben Sie hier unsere Öffnungszeiten, Kontakt und Anfahrt auf einen Blick.</p>
+                </div>
+            </div>
+        </div>
+    </metal:content-core>
+ </metal:main>
+ </body>
+</html>

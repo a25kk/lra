@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    ports:
+      - "3316:3306"
+  # Allow access on http://localhost:8001/
+  #phpmyadmin:
+  #  ports:
+  #    - "8001:80"
+#
+  #web:
+  #  ports:
+  #    - "8000:8000"

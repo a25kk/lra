@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="lra.cos">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="c-panel-editor c-panel-editor--centered">
+            <div class="c-panel-editor__header">
+                <div class="c-toolbar">
+                    <div class="c-toolbar__content">
+                        <div class="c-toolbar__item">
+                            <div class="c-toolbar__title">
+                                <svg class="o-icon o-icon--md o-icon__ui--clock-dims">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--clock"></use>
+                                </svg>
+                                <span i18n:translate="">Consultation on schedule</span>
+                            </div>
+                        </div>
+                        <div class="c-toolbar__item">
+                            <div class="c-toolbar__actions">
+                                <a class="c-toolbar__action c-button c-button--default" href="/"
+                                         tal:attributes="href python:context.absolute_url()" i18n:translate="">
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="o-page__main">
+
+                <div class="o-page__section o-page__section--spacer">
+                    <div class="c-widget-selector__header">
+                        <div class="c-widget-selector__headline" i18n:translate="">Manage time slots</div>
+                    </div>
+                    <p i18n:translate="">This view allows you to review the already configured time slots for
+                        consulting on schedule tool. The listed time slots are available for making appointments
+                        to site visitors.</p>
+
+                    <div class="c-alert c-alert--default">
+                        <div class="c-alert__button">
+                            <a class="c-button c-button--default c-button--sm" href=""
+                                tal:attributes="href python:context.absolute_url() + '/@@create-time-slot'"
+                                i18n:translate="">
+                               Create</a>
+                        </div>
+                        <h4 class="c-alert__title">Add new consultation time slots</h4>
+                    </div>
+
+                </div>
+
+                <div class="o-page__section" tal:content="nothing">
+                    <tal:block tal:repeat="item python:view.available_time_slots()">
+                        <div class="c-schedule__item c-schedule__item--card" tal:define="item_uuid python:item['slot_id'];">
+                            <div class="c-time-slot c-time-slot--available"
+                                    tal:define="timestamp python:item['slot_start'];timestamp_end python:item['slot_end']"
+                                    tal:attributes="class python:item['slot_bookable'] and 'c-time-slot c-time-slot--available' or 'c-time-slot c-time-slot--booked'">
+                                <div class="c-time-slot__main">
+                                    <div class="c-time-slot__header">
+                                        <div class="c-time-slot__title">
+                                            <span tal:replace="python:timestamp['day']" />.
+                                            <span tal:replace="python:timestamp['month_name']" />
+                                            <span tal:replace="python:timestamp['year']" />
+                                        </div>
+                                        <small tal:content="python:timestamp['day_name']">Donnerstag</small>
+                                    </div>
+                                    <div class="c-time-slot__section c-time-slot__section--centered">
+                                        <span tal:replace="python:timestamp['hour']" />:<span tal:replace="python:timestamp['minute']" /> -
+                                        <span tal:replace="python:timestamp_end['hour']" />:<span tal:replace="python:timestamp_end['minute']" /> Uhr
+                                    </div>
+                                    <div class="c-time-slot__section c-time-slot__section--actions"
+                                             tal:condition="python:item['slot_bookable']">
+                                        <a class="c-button c-button--primary c-button--sm" href=""
+                                                 tal:attributes="href python:item['slot_booking_url']" i18n:translate="">
+                                            Book
+                                        </a>
+                                    </div>
+                                    <div class="c-time-slot__section c-time-slot__section--actions c-time-slot__section--status"
+                                             tal:condition="python:not item['slot_bookable']">
+                                        <small class="c-time-slot__marker c-time-slot__marker--danger">booked</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tal:block>
+                </div>
+
+                <div class="o-page__section">
+                    <div tal:replace="structure view/rendered_widget" />
+                </div>
+
+            </div>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

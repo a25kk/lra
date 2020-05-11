@@ -1,0 +1,50 @@
+//
+// Easy Form Overrides
+// --------------------------------------
+
+
+.form {
+	.form__actions {
+		padding-left: 0;
+	}
+	.required {
+		&:before {
+	  	content: "*";
+	  	color: $app-primary;
+		}
+	}
+    .button--default {
+    	background: $app-primary;
+    	color: #fff;
+    	border-color: $app-primary;
+    }
+	.discreet {
+          display: none;
+	}
+}
+
+.help-block {
+	display: block;
+}
+
+.btn-default {
+	@include when-inside('.portaltype-easyform') {
+      	background: $app-primary !important;
+		color: #fff;
+	}	
+}
+
+label {
+	display: block;
+}
+
+.app-form-help {
+	display: block;
+	font-weight: 200;
+}
+
+.text-warning {
+	@include when-inside('.portaltype-easyform') {
+      color: $app-primary !important;
+	}
+}

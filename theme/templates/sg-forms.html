@@ -1,0 +1,55 @@
+---
+layout: styleguide
+title: Styleguide Forms
+slug: sg-forms
+lead: "Styleguide for brand usage"
+base_url: "../../"
+---
+<main class="app-page" id="content">
+  <div class="app-page-header">
+      <div class="app-page-title">
+          <h1 class="app-page-headline">Forms
+          </h1>
+      </div>
+      <p class="app-page-abstract">
+          Formulare Integration und Verwendungsbeispiele
+      </p>
+  </div>
+  <div class="app-page-body">
+    <p>Benötigte Formulare werden initial erstellt. Folgendes Beispiel stellt ein Kontaktformular dar. Felder haben Titel, Beschreibung und ggf. noch einen Placeholder. ("Geben Sie bitte Ihre E-Mailadresse ein"). Individuelle Funktionsfelder müssen gesondert werden, wo vonnöten.</p>
+
+    <h3>Beispiele</h3>
+    <div class="sg-example">
+
+    <form>
+      <fieldset class="form-group">
+        <label for="exampleInputEmail1">E-Mail Adresse</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Geben Sie bitte Ihre E-Mail Adresse ein.">
+          <small class="text-muted">We will never share your email with anyone else</small>
+      </fieldset>
+      <fieldset class="form-group has-warning">
+        <label for="exampleInputPassword1">Passwort</label>
+        <input type="password" class="form-control form-control-warning" id="exampleInputPassword1" placeholder="Geben Sie bitte Ihren Passwort ein">
+          <small class="text-muted">This is another text input widget specifically for password entries</small>
+      </fieldset>
+      <fieldset class="form-group">
+        <label class="file" for="exampleInputFile">
+            <input type="file" id="exampleInputFile">
+            <span class="file-custom"></span>
+            Dateien hochladen
+        </label>
+      </fieldset>
+      <div class="checkbox">
+        <label class="c-input c-checkbox">
+          <input type="checkbox">
+            <span class="c-indicator"></span>
+            Please select if you like checkboxes
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Absenden</button>
+    </form>
+    </div>
+
+
+  </div>
+</main>

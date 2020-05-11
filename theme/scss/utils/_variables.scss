@@ -1,0 +1,95 @@
+//
+// Application settings and variables
+// -------------------------------------------------
+
+
+//== Colors
+//
+//## Brand colors used across the project
+// Color name hue: http://www.color-blindness.com/color-name-hue/
+// Name that color: http://chir.ag/projects/name-that-color/#6195ED
+$bottle-green:                  rgba(39, 77, 56, 1);
+$spring-leaves:                 rgba(88, 140, 115, 1);
+$sundance:                      rgba(199, 180, 80, 1);
+$sandy-brown:                   rgba(242, 174, 115, 1);
+$roman:                         rgba(217, 100, 89, 1);
+$copper-rust:                   rgba(140, 71, 71, 1);
+
+$app-green-primary:				$bottle-green;
+$app-green-secondary:			$spring-leaves;
+$app-mustard:					$sundance;
+$app-skin:						$sandy-brown;
+$app-red:						$roman;
+$app-brown:						$copper-rust;
+
+// Gray baseline
+$app-gray:                      rgba(237, 234, 234, 1);
+$app-gray-dark:                 rgba(153, 153, 153, 1);
+
+// Brand danger
+$app-danger:                    $roman;
+
+
+//== Brand and Section specific variables
+//
+//## Used in mixin and modifier classes
+
+//** Primary brand color
+$app-primary-base:              rgba(39, 77, 56, 1) !default;
+$app-primary-darker:            darken($app-primary-base, 15%)   !default;
+$app-primary-dark:              darken($app-primary-base, 7.5%)  !default;
+$app-primary:                   $app-primary-base                !default; // #274d38
+$app-primary-light:             lighten($app-primary-base, 7.5%) !default;
+$app-primary-lighter:           lighten($app-primary-base, 15%)  !default;
+
+//** Secondary brand color
+$app-secondary-base:			rgba(88, 140, 115, 1) !default;
+$app-secondary-darker:			darken($app-secondary-base, 15%)   !default;
+$app-secondary-dark:			darken($app-secondary-base, 7.5%)  !default;
+$app-secondary:					$app-secondary-base                !default; // #588c73
+$app-secondary-light:			lighten($app-secondary-base, 7.5%) !default;
+$app-secondary-lighter:			lighten($app-secondary-base, 15%)  !default;
+
+
+//** Brand primary color schema used as default
+$app-default:					$app-primary-base;
+$app-section-default:			$app-primary-base;
+
+// Section News
+$app-section-news:				$app-secondary-base;
+$app-section-news-bg:			$app-secondary-dark;
+
+// Section Landratsamt
+$app-section-department:		$app-mustard !default;
+$app-section-department-bg:		darken($app-mustard, 7.5%) !default;
+
+//** Section Service
+$app-section-service:			$app-skin !default;
+$app-section-service-bg:		darken($app-section-service, 7.5%) !default;
+
+//** Section: info
+$app-section-landkreis:			$app-red !default;
+$app-section-landkreis-bg:		darken($app-red, 7.5%) !default;
+
+//** Section Hier Leben
+$app-section-life:				$app-brown !default;
+$app-section-life-bg:			darken($app-brown, 7.5%) !default;
+
+
+//** Font awesome font path
+$fa-font-path:                  "../assets/fonts";
+
+
+
+
+// Pathbar
+//
+// Subclasses the bootstrap breadcrumb styles
+$app-pathbar-bg:			$app-green-primary !default;
+
+
+// Bootstrap overrides
+$link-hover-color:			$app-primary;
+$code-bg:                     $app-gray !default;
+
+$gray-dark:  $app-gray-dark;

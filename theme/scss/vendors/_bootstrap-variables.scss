@@ -1,0 +1,44 @@
+//
+// Bootstrap variable overides
+//
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-flex:               true;
+$enable-rounded:            false;
+$enable-shadows:            false;
+$enable-gradients:          false;
+$enable-transitions:        true;
+$enable-hover-media-query:  false;
+$enable-grid-classes:       false;
+
+
+//## Reset and adjust existing variables
+$brand-primary:                 $app-primary;
+$link-color:                    $app-primary;
+
+
+// Custom webfonts
+$app-font-family-light:     "Open Sans";
+$app-font-family-medium:    "Open Sans";
+
+$app-font-weight-light:         300;
+$app-font-weight-base:          400;
+$app-font-weight-italic:        400;
+$app-font-weight-bold:          600;
+
+
+
+$font-family-base:            $app-font-family-light, Helvetica, sans-serif;
+$headings-font-family:        $app-font-family-medium, $font-family-base;
+$headings-font-weight:        normal;
+
+// Remove gray background on breadcrumbs
+$breadcrumb-bg:             transparent;
+$breadcrumb-divider:		"/";
+
+// Buttons override
+$btn-primary-bg:			$app-primary;
+$btn-primary-border:		$app-primary;

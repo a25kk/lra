@@ -1,0 +1,139 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-09-25 15:28+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: lra.sitecontent\n"
+
+#: ./../bookableevent.py:28
+msgid "Add optional help text on required data."
+msgstr ""
+
+#: ./../bookableevent.py:34
+msgid "Add optional help text to outline context specific regulations concerning the site's privacy and data protection policies."
+msgstr ""
+
+#: ./../bookableevent.py:27
+msgid "Additional Field Description (optional)"
+msgstr ""
+
+#: ./../bookableevent.py:22
+msgid "Additional Field Label"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:74
+msgid "All fields marked with <code>*</code> are required."
+msgstr ""
+
+#: ./../profiles/default/types/lra.sitecontent.bookableevent.xml
+msgid "BookableEvent"
+msgstr ""
+
+#: ./../contentpage.py:18
+msgid "Check to enable file listing"
+msgstr ""
+
+#: ./../profiles/default/types/lra.sitecontent.contentpage.xml
+msgid "Contentpage"
+msgstr ""
+
+#: ./../bookableevent.py:33
+msgid "Custom Privacy and Data Protection Note"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:85
+msgid "E-Mail"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:67
+msgid "Event Registration"
+msgstr ""
+
+#: ./../configure.zcml:28
+msgid "Extension profile for lra.sitecontent."
+msgstr ""
+
+#: ./../profiles/default/types/lra.sitecontent.bookableevent.xml
+msgid "Folderish bookable event"
+msgstr ""
+
+#: ./../profiles/default/types/lra.sitecontent.contentpage.xml
+msgid "Folderish content page"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:114
+msgid "Fullname"
+msgstr ""
+
+#: ./../browser/bookableevent-dispatched.pt:14
+msgid "Inquiry form"
+msgstr ""
+
+#: ./../browser/bookableevent.py:150
+msgid "Inquiry from website visitor"
+msgstr ""
+
+#: ./../bookableevent.py:23
+msgid "Override default filed label for text field."
+msgstr ""
+
+#: ./../browser/bookableevent.pt:141
+msgid "Phone"
+msgstr ""
+
+#: ./../bookableevent.py:18
+msgid "Recipient E-Mail"
+msgstr ""
+
+#: ./../browser/bookableevent.pt:226
+msgid "Register"
+msgstr ""
+
+#: ./../browser/bookableevent-dispatched.pt:28
+msgid "Return to last visited page"
+msgstr ""
+
+#: ./../profiles/default/types/lra.sitecontent.sectionfolder.xml
+msgid "SectionFolder"
+msgstr ""
+
+#: ./../profiles/default/types/lra.sitecontent.sectionfolder.xml
+msgid "Site Section Folder"
+msgstr ""
+
+#: ./../browser/bookableevent-dispatched.pt:24
+msgid "Thank you for your interest. We will get in touch with you as soon as possible."
+msgstr ""
+
+#: ./../browser/bookableevent.pt:103
+#: ./../browser/bookableevent.py:91
+msgid "This field is required"
+msgstr ""
+
+#: ./../contentpage.py:19
+msgid "When activated the view will attempt to display an automatic listing of all contained files with file information and download link."
+msgstr ""
+
+#: ./../browser/bookableevent-dispatched.pt:17
+msgid "Your inquiry has been sent successfully."
+msgstr ""
+
+#: ./../browser/bookableevent.pt:169
+msgid "Your message"
+msgstr ""
+
+#: ./../configure.zcml:28
+msgid "lra.sitecontent"
+msgstr ""

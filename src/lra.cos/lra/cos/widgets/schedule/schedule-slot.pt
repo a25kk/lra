@@ -1,0 +1,24 @@
+<div class="c-time-slot c-time-slot--default"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+         i18n:domain="bfa.sitecontent"
+         tal:define="content python:view.widget_content()"
+         tal:attributes="class python:'c-time-slot ' + content['css_classes']">
+
+    <div class="c-time-slot__main">
+        <div class="c-time-slot__header">
+            <div class="c-time-slot__title" tal:content="python:content['title']">
+                Time Slot
+            </div>
+        </div>
+        <div class="c-time-slot__section">
+            Details will be added here
+        </div>
+        <div class="c-time-slot__section c-time-slot__section--actions"
+            tal:content="python:content['bookable']">
+            <a class="c-button c-button--default c-button--sm" href=""
+                tal:attributes="python:content['url']">
+                Bock
+            </a>
+        </div>
+    </div>
+</div>

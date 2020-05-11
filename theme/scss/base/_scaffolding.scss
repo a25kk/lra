@@ -1,0 +1,82 @@
+//
+// Basic scaffolding and resets
+// ----------------------------------
+
+
+//** Adjust font weight for initialized webfonts
+body {
+    @include when-inside('.app-fonts--loaded') {
+        font-weight: $app-font-weight-base;
+    }
+}
+
+// prevent fake bolds
+b,
+strong {
+    @include when-inside('.app-fonts--loaded') {
+        font-weight: $app-font-weight-bold;
+    }
+}
+
+i,
+em {
+    @include when-inside('.app-fonts--loaded') {
+        font-weight: $app-font-weight-italic;
+    }
+}
+
+// Remove dotted outline
+a {
+    outline: 0;
+}
+
+// Transistion link color on :hover state
+a:hover {
+  transition: color 0.5s linear;
+}
+
+// Optional plone settings and adjustments
+// ---------------------------------------
+// Combat plone.app.widget styling (also using bootstrap) and correct
+// display errors caused by grid system inconsistencies
+
+// Combat plone hidden element class via mixin
+.hidden,
+.hiddenStructure {
+    visibility: hidden;
+}
+
+// Reenable type selection in navigation control panel
+// Hidden by bootstrap label component
+.template-navigation-controlpanel .label:empty {
+    display: inline;
+}
+
+// Reset widget styling
+.mce-edit-area,
+#content .field textarea,
+#content .field input[type="text"] {
+    background: #fff;
+    background-image: none;
+}
+
+// Fix recurrence widget overlay styling
+div.riform .label {
+    float: none;
+}
+// Fix datepicker header year + month select
+.pattern-pickadate-wrapper .picker__select--month,
+.pattern-pickadate-wrapper .picker__select--year {
+    display: inline-block;
+}
+
+// Force search button to display styled
+.searchButton {
+    @extend .btn;
+    @include button-outline-variant($btn-primary-bg);
+}
+
+// Reset tiny mce content body styling for better readability
+.mceContentBody {
+    padding: $spacer;
+}

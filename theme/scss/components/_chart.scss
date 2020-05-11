@@ -1,0 +1,148 @@
+//
+// Chart
+// -------------------------------------
+
+.app-chart-panel {
+	@include make-container();
+    @include make-container-max-widths();
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.app-chart-content {
+	background: $app-gray;
+	padding: 1rem 2rem;
+	margin-bottom: 1rem;
+
+	.app-page-headline {
+		color: $app-primary;
+		margin-bottom: 1rem;
+	}
+}
+
+.level01,
+.level02 {
+	@include make-row();
+}
+
+.chart {
+	@include make-col(12);
+	@include media-breakpoint-up(lg) {
+		@include make-col(2);
+		padding-left: .5rem;
+		padding-right: .5rem;
+		padding-bottom: 0;
+		padding-top: 0;
+	}
+	font-size: .7rem;
+	background: transparent;
+	padding: .5rem;
+	border: 0px solid black;
+}
+
+.chart-item {
+	border: 5px solid #fff;
+	background: #fff;
+}
+
+.chart-heading {
+	background: $app-primary;
+	padding: .5rem;
+	min-height: 50px;
+	color: #fff;
+	font-weight: 700;
+	font-size: .7rem;
+
+	@include when-inside('.dep01') {
+		background: $app-primary;
+	}
+
+	@include when-inside('.dep02') {
+		background: $app-green-secondary;
+	}
+
+	@include when-inside('.dep03') {
+		background: $app-mustard;
+	}
+
+	@include when-inside('.dep04') {
+		background: $app-skin;
+	}
+
+	@include when-inside('.dep05') {
+		background: $app-red;
+	}
+
+	@include when-inside('.dep06') {
+		background: $app-brown;
+	}		
+}
+
+.chart-description {
+	padding: .5rem;
+	background: #efefef;
+	min-height: 100px;
+}
+
+.chart-body {
+	padding: .5rem;
+	min-height: 137px;
+
+	@include when-inside('.chart01') {
+		min-height: 120px !important;
+	}
+	@include when-inside('.chart02') {
+		min-height: 120px !important;
+	}
+	@include when-inside('.chart03') {
+		min-height: 120px !important;
+	}
+	@include when-inside('.chart04') {
+		min-height: 120px !important;
+	}
+
+	@include when-inside('.chart01') {
+		font-weight: 700;
+	}
+}
+
+.level01 {
+	.chart-body {
+		padding: .5rem;
+		//min-height: 50px;
+	}
+}
+
+
+.level01 {
+	border: 0px solid red;
+}
+
+.trenner-down {
+	text-align: center;
+	.fa {
+		color: $app-primary;
+	}
+}
+
+.trenner-right {
+	text-align: right;
+	padding-right: 0.5rem;
+	.fa {
+		color: $app-primary;
+
+	}
+}
+
+.app-chart-info-wrapper {
+	@include make-row();
+}
+
+.app-chart-info {
+	@include make-col(12);
+	background: #fff;
+	padding: 1rem;
+	@include media-breakpoint-up(sm) {
+		@include make-col(4);
+	}	
+}	

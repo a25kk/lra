@@ -1,0 +1,27 @@
+<div class="app-intro-wrapper">
+  <div class="app-intro-brand-wrapper">
+    {% include components/brandpanel.html %}
+  </div>
+    <div class="app-action-search-wrapper">
+      <div class="app-front-page-search">
+        <form class="app-searchbox" id="app-searchbox" role="search" action="/lra/@@search">
+          <div class="app-searchbox-group">
+            <input class="app-searchbox-control app-searchbox-field" type="text" name ="SearchableText" id="SearchableText" placeholder="Wonach suchen Sie?">
+            <button class="btn btn-default app-searchbox-control app-searchbox-btn" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <span class="sr-only">Suchen</span>
+            </button>
+          </div><!-- /input-group -->
+        </form>
+      </div>
+    </div>
+    <div class="app-intro-button app-intro-button--spacer">
+        <a class="btn app-intro-btn" href="{{ page.base_url }}startseite" role="button">oder direkt zur Webseite</a>
+    </div>
+  <div class="app-intro-button">
+    <a class="btn app-intro-btn" href="{{ page.base_url }}landratsamt/fachbereiche/abteilung-3-oeffentliche-sicherheit/gesundheitsamt/informationen-zum-coronavirus" role="button">Infos zum Corona-Virus</a>
+  </div>
+  <div class="app-intro-button">
+    <a class="btn app-intro-btn" href="https://wittelsbacherland.de/bayerische-landesausstellung-2020" role="button" target="_blank">Zur Bayerischen Landesausstellung 2020</a>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="lra.sitecontent">
+
+  <browser:page
+      for="lra.sitecontent.sectionfolder.ISectionFolder"
+      name="sectionfolder-view"
+      class=".sectionfolder.SectionFolderView"
+      template="sectionfolder.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+      />
+
+  <browser:page
+      for="lra.sitecontent.contentpage.IContentPage"
+      name="contentpage-view"
+      class=".contentpage.ContentPageView"
+      template="contentpage.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+      />
+  <browser:page
+      for="lra.sitecontent.contentpage.IContentPage"
+      name="file-list"
+      class=".contentpage.FileListView"
+      template="file-list.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+  />
+  <browser:page
+      for="lra.sitecontent.contentpage.IContentPage"
+      name="file-list-preview"
+      class=".contentpage.FileListPreview"
+      template="file-list-preview.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+  />
+
+  <browser:page
+      for="lra.sitecontent.bookableevent.IBookableEvent"
+      name="bookable-event-view"
+      class=".bookableevent.BookableEventView"
+      template="bookableevent.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+  />
+  <browser:page
+      for="lra.sitecontent.bookableevent.IBookableEvent"
+      name="bookable-event-dispatched"
+      class=".bookableevent.BookableEventFormDispatchedView"
+      template="bookableevent-dispatched.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+  />
+
+  <!-- Frontpage Views -->
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="landingpage-view"
+      class=".frontpage.LandingPageView"
+      template="landingpage.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILraSitecontentLayer"
+      />
+  <browser:page
+        for="plone.app.layout.navigation.interfaces.INavigationRoot"
+        name="startseite"
+        class=".frontpage.FrontPageView"
+        template="frontpage.pt"
+        permission="zope2.View"
+        layer="..interfaces.ILraSitecontentLayer"
+        />
+
+    <!-- Override plone news item view -->
+    <browser:page
+            name="news-item-view"
+            for="plone.app.contenttypes.interfaces.INewsItem"
+            template="news-item.pt"
+            class="lra.sitecontent.browser.newsitem.CustomNewsItemView"
+            layer="lra.sitecontent.interfaces.ILraSitecontentLayer"
+            permission="zope2.View"
+            menu="plone_displayviews"
+            title="View News Item (Custom)"
+    />
+
+    <!-- Listing view -->
+    <browser:page
+            name="lra-content-listing"
+            for="Products.CMFCore.interfaces.IFolderish"
+            template="listing.pt"
+            class="lra.sitecontent.browser.listing.CustomContentListing"
+            layer="lra.sitecontent.interfaces.ILraSitecontentLayer"
+            permission="zope2.View"
+            menu="plone_displayviews"
+            title="LRA Content Listing (Custom)"
+    />
+
+
+</configure>

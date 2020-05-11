@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    {% include base/head.html %}
+  </head>
+  <body class="dim-in dim-in-3">
+    {% include components/toolbar.html %}
+    {% include layout/header.html %}
+
+    <main class="app-main" id="app-main" role="main">
+
+        {% include components/pathbar.html %}
+
+        <div class="app-main-section">
+            <div class="app-sidebar app-main-aside" id="app-sidebar">
+                {% include layout/sidebar.html %}
+            </div>
+            <div class="app-content app-main-content" id="app-content">
+                {{ content }}
+            </div>
+        </div>
+    </main>
+
+    {% include layout/footer.html %}
+
+    <script type="module" src="/scripts/app.js"></script>
+    <div class="app-js-slot">
+      {% include base/piwik.html %}
+    </div>
+  </body>
+</html>

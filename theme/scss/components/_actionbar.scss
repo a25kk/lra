@@ -1,0 +1,76 @@
+//
+// Actionbar
+// -------------------------------------
+
+.app-actionbar {
+
+}
+
+.app-actions {
+  display: flex;
+  font-size: 0.85rem;
+  @include media-breakpoint-up(sm) {
+    font-size: 0.6rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 0.85rem;
+  }
+}
+
+.app-action {
+  flex: 1;
+  padding: ceil(($spacer / 2));
+  color: #fff;
+  background: $app-primary;
+  text-align: center;
+  &:nth-child(even) {
+    color: #fff;
+    background: $app-secondary;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+.app-action-search {
+  flex: 1;
+  color: $app-primary;
+  background: $app-gray;
+    .hiddenStructure {
+        display: none;
+    }
+}
+
+.app-searchbox-group,
+.LSBox {
+  display: flex;
+}
+
+.app-searchbox-control,
+.searchField {
+  display: flex;
+}
+
+.app-searchbox-field,
+.searchField {
+  @extend .form-control;
+  width: 66.6666%;
+  max-width: 66.6666%;
+  background-color: $app-gray;
+  border-color: $app-gray;
+}
+
+.app-searchbox-btn,
+.searchButton {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  //@include button-variant(#fff, $app-secondary, $app-secondary) !important;
+  background-color: $app-secondary;
+  color: #fff;
+  border-color: $app-secondary;
+}
+
+.searchSection {
+    display: none;
+}

@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="lra.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="app-frontpage" id="app-frontpage">
+            <div class="app-page-header">
+                <h1 class="app-page-title">
+                    <span tal:replace="context/Title" />
+                </h1>
+            </div>
+            <p class="app-page-abstract"
+                    tal:condition="context/Description"
+                    tal:content="context/Description" />
+
+            <div class="app-banner"
+                 id="app-banner"
+                     i18n:domain="ade25.banner"
+                     tal:condition="view/has_banners"
+                     tal:define="show_carousel view/show_carousel"
+                     tal:attributes="class python:show_carousel and 'app-banner app-banner-carousel' or 'app-banner'">
+
+                <div class="app-banner-content"
+                    tal:attributes="class python:show_carousel and 'app-banner-content app-js-carousel' or 'app-banner-content'">
+                    <tal:items tal:repeat="banner python:view.content_banners()">
+                        <div class="app-banner-item item show"
+                                 tal:attributes="data-bg python:banner['img'];
+                                        style python:banner['bg_img'];
+                                        class python:banner['css_classes']">
+                            <div class="app-banner-item-content">
+                                <div class="app-banner-item-body"
+                                         tal:condition="python:banner['has_data']">
+                                    <div class="app-banner-item-title" tal:condition="python:banner['headline']">
+                                        <div class="app-banner-item-headline">
+                                            <tal:link tal:condition="python:banner['has_link']">
+                                                <a class="app-banner__action app-banner__action--link"
+                                                   tal:attributes="href python:banner['link']"
+                                                        tal:content="python:banner['headline']"
+                                                   href="#link-action">
+                                                        Banner Headline
+                                                </a>
+                                            </tal:link>
+                                            <tal:plain tal:condition="python:not banner['has_link']"
+                                                tal:content="python:banner['headline']">
+                                                    Banner Headline
+                                            </tal:plain>
+                                        </div>
+                                    </div>
+                                    <div class="app-banner-item-abstract" tal:condition="python:banner['description']"
+                                        tal:content="python:banner['description']">
+                                            Banner Description
+                                    </div>
+                                    <div class="app-banner-text"
+                                             tal:condition="python:banner['text']"
+                                             tal:content="structure python:banner['text'].output" />
+                                    <tal:action tal:condition="python:not banner['has_link']">
+                                        <div class="app-banner__action-block">
+                                            <a tal:attributes="href python:banner['link']">
+                                                weiterlesen&hellip;
+                                            </a>
+                                        </div>
+                                    </tal:action>
+                                </div>
+                            </div>
+                        </div>
+                    </tal:items>
+                </div>
+            </div>
+
+
+            <div class="app-page-body app-fp app-fp-1" id="app-frontpage-1">
+                <tal:block tal:condition="view/has_newsitems">
+                    <div class="app-news-list" id="app-news-list"
+                        tal:define="news view/recent_news">
+                        <div class="app-news-list-item" tal:repeat="item news">
+                            <div class="app-card app-news-list-item-aside"
+                                tal:define="item_obj python:item['item_object']">
+                                <tal:image tal:condition="item_obj/image">
+                                    <div class="c-card__figure"
+                                             tal:define="responsive_image python:item_obj.restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='ratio-4:3', aspect_ratio='4/3', lqip=True, lazy_load=True)">
+                                        <a class="c-card__link c-card__link--figure" tal:attributes="href python:item['url']">
+                                            <span tal:replace="structure responsive_image" />
+                                        </a>
+                                    </div>
+                                </tal:image>
+                            </div>
+                            <div class="app-news-list-item-main">
+                                <div class="app-news-list-item-title">
+                                    <a href="#item-url" tal:attributes="href python:item['url']"
+                                        tal:content="python:item['title']">
+                                        Title
+                                    </a>
+                                </div>
+                                <div class="app-news-list-item-abstract"
+                                    tal:content="python:item['description']">
+                                        Description
+                                </div>
+                                <div class="app-news-list-item-actions">
+                                    <a class="app-news-list-link" href="#item-url"
+                                        tal:attributes="href python:item['url']">
+                                        weiterlesen <i class="fa fa-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </tal:block>
+
+            </div>
+        </div>
+    </metal:content-core>
+</metal:main>
+</body>
+</html>

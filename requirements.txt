@@ -1,0 +1,4 @@
+# Fabric==1.14.1
+# mysqlclient==1.4.6
+setuptools==42.0.2
+zc.buildout==2.13.2
