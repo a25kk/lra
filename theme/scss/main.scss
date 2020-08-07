@@ -11,6 +11,8 @@
 @import 'tools/mixins.parentselector';
 @import 'tools/mixins.icon';
 
+@import 'settings/settings.vendor.mq';
+
 @import 'vendors/mq';
 
 @import 'utils/variables';
@@ -21,7 +23,6 @@
 // Global settings
 @import 'settings/settings.config';
 @import 'settings/settings.global';
-@import 'settings/settings.vendor.mq';
 @import 'settings/settings.vendor.rfs';
 
 // Project colors

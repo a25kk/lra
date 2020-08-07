@@ -10,14 +10,87 @@
 @import 'tools/mixins.parentselector';
 @import 'tools/mixins.icon';
 
+@import 'settings/settings.vendor.mq';
+
 @import 'vendors/mq';
 
+// BBB support for ols theme structure
 @import 'utils/variables';
+
+// Global settings
+@import 'settings/settings.config';
+@import 'settings/settings.global';
+@import 'settings/settings.vendor.rfs';
+
+// Project colors
+@import 'settings/settings.color';
+
+@import 'settings/settings.fonts.base';
+@import 'settings/settings.fonts.custom';
+
+@import 'settings/settings.spacers';
+
+// Element settings
+@import 'settings/settings.elements';
+
+// Object Settings
+@import 'settings/settings.object.page';
+@import 'settings/settings.object.burger';
+@import 'settings/settings.object.form';
+@import 'settings/settings.object.select';
+
+// Component Settings
+@import 'settings/settings.identifier';
+@import 'settings/settings.component.pagination';
+@import 'settings/settings.component.widgets';
+// @import 'settings/settings.quick-links';
+// @import 'settings/settings.nav-bar';
+@import 'settings/settings.panels';
+// @import 'settings/settings.toc';
+
+// Generic
+// @import 'generic/generic.fonts';
+@import 'generic/generic.fonts.custom';
+@import 'generic/generic.syntax';
+@import 'generic/generic.aspect-ratio';
+
 @import 'utils/functions';
 @import 'utils/mixins';
 
 @import 'vendors/bootstrap';
 // @import 'vendors/flickity';
+
+// Elements
+@import 'elements/element.html';
+@import 'elements/element.body';
+@import 'elements/element.hr';
+@import 'elements/element.strong';
+@import 'elements/element.button';
+@import 'elements/element.a';
+@import 'elements/element.img';
+@import 'elements/element.p';
+@import 'elements/element.list';
+@import 'elements/element.headings';
+@import 'elements/element.table';
+
+
+// Objects
+@import 'objects/object.page';
+@import 'objects/object.grid';
+@import 'objects/object.brand';
+@import 'objects/object.burger';
+@import 'objects/object.icon';
+@import 'objects/object.placeholder';
+@import 'objects/object.menu';
+@import 'objects/object.dropdown';
+@import 'objects/object.form';
+@import 'objects/object.select';
+@import 'objects/object.switch';
+@import 'objects/object.figure';
+@import 'objects/object.video';
+@import 'objects/object.aside';
+@import 'objects/object.separator';
+@import 'objects/object.read-more';
 
 @import 'base/animation';
 @import 'base/syntax';
