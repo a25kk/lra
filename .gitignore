@@ -1,6 +1,7 @@
 !cache_control_assets.conf
 !disable_logging.conf
 !proxy_settings.conf
+!protect.conf
 # build
 # Enable nginx specific settings
 *-ck.js
